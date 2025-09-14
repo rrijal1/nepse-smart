@@ -1,0 +1,18 @@
+Tech Stack : Frontend (User Interface + Chart)
+Backend - Python FAST API
+DataBase - PostGres SQL (superbase)
+Authentication - Supabase Auth + Stripe (for Global) or eSewal/Khalti (for Payments)
+Chart and Visuals - Chart.js, integrates with tradingview widgets if needed for 
+advanced features building from scractch
+AI Integration - LLaVa (HUggingFace), Alternatives OpeNAI GPT (0.15/1M tokens) 
+Hosting and Deployment - (free for hobby, and 20 for pro)
+Analytics - Google Analytics (free) for user bahavior
+Email/Alerts : SendGrid free tier (12K emails/month) for referral notifications/AI singnals
+Mock data - Polygon.io
+
+Website : https://www.sharesansar.com/newsdetail/another-milestone-nepse-finally-brings-data-api-after-a-long-wait-real-time-data-with-only-30-second-delay-2020-12-27
+
+
+#### Inspiration 
+
+https://next-admin-dash.vercel.app/
