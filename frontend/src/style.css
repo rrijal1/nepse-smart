@@ -5,8 +5,8 @@
   /* NEPSE Brand Colors */
   --color-nepse-primary: 25 118 210;
   --color-nepse-secondary: 38 166 154;
-  --color-bull-green: 34 197 94;
-  --color-bear-red: 239 68 68;
+  --color-bull-green: 22 163 74; /* More vibrant green for gains */
+  --color-bear-red: 220 38 38; /* More vibrant red for losses */
   --color-nepal-crimson: 220 20 60;
   --color-nepal-blue: 0 56 147;
 }

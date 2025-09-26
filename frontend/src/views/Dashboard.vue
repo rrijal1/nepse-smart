@@ -54,10 +54,14 @@
             >
               <td class="px-4 py-2 font-semibold">{{ stock.symbol }}</td>
               <td class="px-4 py-2 text-right font-mono">{{ stock.ltp }}</td>
-              <td class="px-4 py-2 text-right font-mono text-bull-green">
+              <td
+                class="px-4 py-2 text-right font-mono text-bull-green font-semibold"
+              >
                 +{{ stock.pointChange }}
               </td>
-              <td class="px-4 py-2 text-right font-mono text-bull-green">
+              <td
+                class="px-4 py-2 text-right font-mono text-bull-green font-semibold"
+              >
                 +{{ stock.percentageChange }}%
               </td>
             </tr>
@@ -86,10 +90,14 @@
             >
               <td class="px-4 py-2 font-semibold">{{ stock.symbol }}</td>
               <td class="px-4 py-2 text-right font-mono">{{ stock.ltp }}</td>
-              <td class="px-4 py-2 text-right font-mono text-bear-red">
+              <td
+                class="px-4 py-2 text-right font-mono text-bear-red font-semibold"
+              >
                 {{ stock.pointChange }}
               </td>
-              <td class="px-4 py-2 text-right font-mono text-bear-red">
+              <td
+                class="px-4 py-2 text-right font-mono text-bear-red font-semibold"
+              >
                 {{ stock.percentageChange }}%
               </td>
             </tr>
@@ -152,8 +160,8 @@ const getValueColor = (detail: string, value: string | number): string => {
   const detailLower = detail.toLowerCase();
   if (detailLower.includes("change") || detailLower.includes("difference")) {
     const numValue = typeof value === "string" ? parseFloat(value) : value;
-    if (numValue > 0) return "text-bull-green";
-    if (numValue < 0) return "text-bear-red";
+    if (numValue > 0) return "text-bull-green font-semibold";
+    if (numValue < 0) return "text-bear-red font-semibold";
   }
   return "text-gray-800";
 };
