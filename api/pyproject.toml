@@ -1,0 +1,107 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nepse"
+version = "0.6.1"
+authors = [
+    {name = "basic-bgnr"},
+    {name = "NEPSE Smart Contributors"}
+]
+description = "Unofficial API to interface with Nepal Stock Exchange (NEPSE)"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Office/Business :: Financial :: Investment",
+]
+keywords = ["nepse", "nepal", "stock", "exchange", "finance", "api", "trading"]
+
+dependencies = [
+    "httpx[http2]>=0.27.0,<0.29.0",
+    "pywasm>=2.2.0,<2.3.0", 
+    "flask>=3.1.0,<3.2.0",
+    "tqdm>=4.67.0,<4.68.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/rrijal1/nepse-smart"
+Repository = "https://github.com/rrijal1/nepse-smart.git"
+Issues = "https://github.com/rrijal1/nepse-smart/issues"
+Documentation = "https://github.com/rrijal1/nepse-smart#readme"
+"Original Library" = "https://github.com/basic-bgnr/NepseUnofficialApi"
+
+[project.scripts]
+nepse-cli = "nepse:main_cli"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+]
+test = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nepse*"]
+exclude = ["tests*", "docs*"]
+
+[tool.setuptools.package-data]
+"nepse" = ["data/*.json", "data/*.wasm"]
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+extend-exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.venv
+  | __pycache__
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["nepse"]
+skip_glob = ["*/migrations/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "-v --tb=short"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
