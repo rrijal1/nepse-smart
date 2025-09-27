@@ -2,11 +2,11 @@
 
 /* NEPSE Smart Custom Properties for Tailwind v4 */
 :root {
-  /* NEPSE Brand Colors */
+  /* NEPSE Brand Colors - v4 format */
   --color-nepse-primary: 25 118 210;
   --color-nepse-secondary: 38 166 154;
-  --color-bull-green: 22 163 74; /* More vibrant green for gains */
-  --color-bear-red: 220 38 38; /* More vibrant red for losses */
+  --color-bull-green: 22 163 74;
+  --color-bear-red: 220 38 38;
   --color-nepal-crimson: 220 20 60;
   --color-nepal-blue: 0 56 147;
 }

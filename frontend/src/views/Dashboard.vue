@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-6">
     <div class="bg-white rounded-lg shadow p-6">
-      <h2 class="text-2xl font-bold text-gray-800 mb-4">Market Summary</h2>
+      <h2 class="text-2xl font-bold text-green-800 mb-4">Market Summary</h2>
       <div v-if="loading" class="text-center py-4">
         <div
           class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-nepse-primary"

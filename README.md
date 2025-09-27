@@ -1,25 +1,74 @@
-# NEPSE Smart - Nepal Stock Exchange Analytics Platform
+# NEPSE Smart - Nepal Stock Exchange Trading Platform
 
-A modern, containerized analytics platform for Nepal Stock Exchange (NEPSE) data built with Vue 3 + FastAPI, leveraging the powerful NepseUnofficialApi library.
+A comprehensive stock market analysis and trading platform specifically designed for the Nepal Stock Exchange (NEPSE). Built with modern Vue 3 + FastAPI architecture, it provides retail and institutional investors with advanced tools to make informed trading decisions.
 
-## 🎯 **Status: Simple Dashboard Ready!**
+## 🎯 **Current Status: Foundation Ready!**
 
 ✅ **Backend**: FastAPI server with NEPSE data integration  
 ✅ **Frontend**: Vue 3 + Tailwind CSS dashboard  
 ✅ **API**: Real NEPSE data endpoints working  
 ✅ **Styling**: NEPSE-themed colors and responsive design  
 ✅ **Docker**: Complete containerization setup  
-✅ **Dependencies**: All updated to latest stable versions
+✅ **Dependencies**: All updated to latest stable versions  
+✅ **Architecture**: Scalable foundation for advanced features
 
-## 🚀 Features
+## 🚀 Core Features
 
-- **Real-time NEPSE Data**: Live market data, stock prices, and market summary
-- **Modern UI**: Vue 3 + TypeScript + Tailwind CSS responsive interface
-- **Fast API**: Python FastAPI backend with robust data processing
-- **Containerized**: Complete Docker setup for development and production
-- **NEPSE Integration**: Built on the proven NepseUnofficialApi library
-- **Clean Architecture**: Streamlined codebase following best practices
-- **Live Dashboard**: Market summary, top gainers/losers, responsive design
+### 📈 **Trading Signals & Alerts**
+
+- **Daily, Weekly & Monthly Signals** - Automated buy/sell recommendations
+- **Price Action Signals** - Technical pattern recognition and alerts
+- **Divergence Analysis** - RSI and MACD divergence detection for trend reversals
+- **Mean Reversal Signals** - Counter-trend trading opportunities
+- **Candlestick Pattern Recognition** - Japanese candlestick analysis and alerts
+
+### 📊 **Live Market Data** _(Currently Available)_
+
+- **Real-time Stock Prices** - Live price feeds for all NEPSE stocks
+- **Market Status Tracking** - Live market open/close monitoring
+- **Top Gainers/Losers** - Real-time market movers identification
+- **Sector Performance** - Live sector-wise performance tracking
+- **Volume Analysis** - Real-time trading volume monitoring
+
+### 🏦 **Broker Analytics**
+
+- **Institutional Flow Tracking** - Monitor smart money movements
+- **Bulk Transaction Alerts** - Large transaction notifications
+- **Broker Holdings Analysis** - Track institutional positions
+- **Circuit Breaker Monitoring** - High volatility stock identification
+- **Player Analytics** - Follow major market players
+
+### 🔍 **Fundamental Analysis**
+
+- **Stock Screening** - Filter stocks based on financial metrics
+- **Valuation Analysis** - P/E ratios and fair value calculations
+- **Dividend Tracking** - Historical dividend yields and patterns
+- **Growth Stock Identification** - High-growth company analysis
+- **Market Cap Analysis** - Company size categorization
+
+### 📉 **Technical Analysis**
+
+- **Professional Charting** - Advanced TradingView integration
+- **Support & Resistance** - Key price level identification
+- **Trend Analysis** - Market direction and momentum tracking
+- **Technical Indicators** - Moving averages, RSI, MACD, Stochastic
+- **Multiple Chart Layouts** - 2, 3, 4, 5, 6 chart configurations
+
+### 🛠️ **Advanced Tools**
+
+- **Custom Signal Builder** - Create personalized trading strategies
+- **Backtesting Engine** - Test strategies on historical data
+- **Portfolio Management** - Track personal stock holdings
+- **52-Week High/Low Tracking** - Price range analysis
+- **Consolidation Pattern Detection** - Range-bound stock identification
+
+### 💼 **User Experience**
+
+- **Subscription Packages** - Tiered access to premium features
+- **Real-time Notifications** - Custom alerts and signal notifications
+- **Favorites & Watchlists** - Personalized stock monitoring
+- **Dark/Light Themes** - Customizable user interface
+- **Mobile Responsive** - Full functionality across all devices
 
 ## 📁 Project Structure
 
@@ -131,13 +180,29 @@ npm run dev
 docker-compose -f docker-compose.prod.yml up --build -d
 ```
 
-## 📊 What You'll See
+## 🎯 Target Users
+
+- **Retail Traders** - Individual investors seeking trading signals and market insights
+- **Professional Traders** - Advanced analytics and institutional-grade tools
+- **Portfolio Managers** - Comprehensive market analysis and client management
+- **Financial Advisors** - Data-driven investment recommendations
+- **Market Researchers** - In-depth market analysis and trend identification
+
+## 📊 What You'll See _(Current Dashboard)_
 
 - **Market Summary**: Real-time NEPSE market statistics
 - **Top Gainers**: Best performing stocks today
 - **Top Losers**: Worst performing stocks today
 - **Responsive Design**: Works on mobile and desktop
 - **NEPSE Colors**: Blue/green/red theme matching NEPSE branding
+
+## 💡 Key Benefits
+
+- **Real-time Decision Making** - Live data and instant alerts
+- **Risk Management** - Stop-loss calculations and risk analysis
+- **Performance Tracking** - Profit/loss analysis and signal accuracy
+- **Market Sentiment Analysis** - Volume and price action insights
+- **Comprehensive Coverage** - All NEPSE stocks and sectors in one platform
 
 ## 📊 NEPSE Data Integration
 
@@ -268,149 +333,119 @@ VITE_API_BASE_URL=http://localhost:8000
 - Frontend uses `http://backend:8000` internally (not localhost)
 - External access still uses `http://localhost:3000` and `http://localhost:8000`
 
-## �🚦 Development Status
+## 🏗️ Development Status
 
-This project follows an iterative development approach:
+**Current Foundation (✅ Completed)**
 
-✅ **Completed**
+- Vue 3 + TypeScript + FastAPI architecture
+- Real-time NEPSE data integration via NepseUnofficialApi
+- Docker containerization for development and production
+- Modern responsive UI with NEPSE branding
+- Clean, scalable codebase architecture
+- Updated dependencies (FastAPI 0.117.1, Vue 3.5.21, Tailwind CSS v4)
 
-- Basic Vue 3 + FastAPI setup
-- NEPSE API integration
-- Docker containerization
-- Clean project structure
-- Real-time data display
-- Updated dependencies (Flask 3.1.2, FastAPI 0.117.1, pywasm 2.2.1)
+## 🗺️ Development Roadmap
 
-## � Future Roadmap & Ideas
+### 🔥 **Phase 1: Trading Intelligence** _(Next Priority)_
 
-### 🔥 High Priority Features
+**Trading Signals & Analytics**
 
-**API Platform & Monetization**
+- [ ] Daily/Weekly/Monthly automated buy/sell signals
+- [ ] Price action pattern recognition and alerts
+- [ ] RSI and MACD divergence analysis
+- [ ] Mean reversal signal detection
+- [ ] Japanese candlestick pattern recognition
 
-- [ ] Public APIs for NEPSE market data integration
-- [ ] API marketplace with usage-based pricing
-- [ ] Third-party integration for capital firms and investment companies
+**Advanced Charting**
 
-**Trading Competition Platform**
+- [ ] TradingView integration for professional charts
+- [ ] Support and resistance level identification
+- [ ] Technical indicators (RSI, MACD, Bollinger Bands, Stochastic)
+- [ ] Multiple chart layout configurations (2-6 charts)
+- [ ] Custom timeframe analysis
 
-- [ ] Virtual trading system using real NEPSE data
-- [ ] Time-bound competitions with cash prizes
-- [ ] Leaderboards and performance tracking
+### 📊 **Phase 2: Market Intelligence**
 
-**Advanced Analytics Dashboard**
+**Broker & Institutional Analytics**
 
-- [ ] Custom dashboard builder for Nepal stock analysis
-- [ ] Institutional-grade analysis tools
-- [ ] Advanced charting with TradingView integration
+- [ ] Institutional flow tracking and smart money movements
+- [ ] Bulk transaction alerts and notifications
+- [ ] Broker holdings analysis and position tracking
+- [ ] Circuit breaker monitoring for high volatility stocks
+- [ ] Major market player analytics
 
-### 📊 Data Visualization & Analytics
+**Fundamental Analysis Tools**
 
-**Real-time Market Features**
+- [ ] Advanced stock screening based on financial metrics
+- [ ] P/E ratio analysis and fair value calculations
+- [ ] Historical dividend tracking and yield patterns
+- [ ] Growth stock identification algorithms
+- [ ] Market cap categorization and analysis
 
-- [ ] Live WebSocket integration for stock updates
-- [ ] Interactive candlestick charts for individual NEPSE stocks
+### �️ **Phase 3: Advanced Platform Features**
+
+**Custom Trading Tools**
+
+- [ ] Custom signal builder for personalized strategies
+- [ ] Backtesting engine for strategy validation
+- [ ] Portfolio management and tracking system
+- [ ] 52-week high/low monitoring
+- [ ] Consolidation pattern detection
+
+**Real-time Features**
+
+- [ ] Live WebSocket integration for instant updates
+- [ ] Real-time price alerts and notifications
+- [ ] Volume spike detection and alerts
 - [ ] Market heatmap visualization
-- [ ] Technical indicators (RSI, MACD, Bollinger Bands)
-- [ ] Volume analysis and spike alerts
 
-**Portfolio Management**
+### 💰 **Phase 4: Monetization & Scale**
 
-- [ ] Personal NEPSE portfolio tracker with NPR calculations
-- [ ] Profit/loss tracking and asset allocation charts
-- [ ] Performance comparison with NEPSE index
-- [ ] Investment goal tracking in Nepali rupees
+**Subscription Tiers**
 
-### 🔔 Subscription-Based Notifications
+- **Basic (Free)**: Market data, basic signals, limited features
+- **Premium ($29/month)**: Advanced signals, real-time alerts, charting tools
+- **Professional ($99/month)**: Full analytics, custom strategies, API access
+- **Enterprise (Custom)**: White-label solutions, institutional features
 
-**Basic Plan**
+**Revenue Streams**
 
-- [ ] Daily NEPSE market summary (email)
-- [ ] Weekly portfolio performance reports
+- [ ] Subscription-based access to premium features
+- [ ] API marketplace for third-party integrations
+- [ ] Educational content and trading courses
+- [ ] Partnership with brokerages and financial institutions
 
-**Premium Plan**
+### 🌐 **Phase 5: Expansion & Innovation**
 
-- [ ] Custom price alerts for NEPSE stocks
-- [ ] Real-time email/SMS notifications
-- [ ] Volume spike alerts and market notifications
+**Nepal-Specific Integrations**
 
-**Enterprise Plan**
+- [ ] Payment gateway integration (eSewa, Khalti, IME Pay)
+- [ ] Nepal financial news sentiment analysis
+- [ ] Economic calendar for Nepal market events
+- [ ] Sector-specific analysis (Banking, Hydro, Insurance)
+- [ ] Multi-language support (Nepali/English)
 
-- [ ] AI-powered trading signals for NEPSE
-- [ ] Unusual market activity alerts
-- [ ] Earnings and dividend notifications for Nepal companies
-
-### 🤖 AI & Machine Learning
+**AI & Machine Learning**
 
 - [ ] NEPSE stock price prediction models
-- [ ] Sentiment analysis from Nepal financial news
-- [ ] Pattern recognition in NEPSE charts
-- [ ] Risk assessment algorithms for Nepal market
-- [ ] Automated trading suggestions
+- [ ] Automated trading suggestion algorithms
+- [ ] Risk assessment and portfolio optimization
+- [ ] News sentiment analysis for market prediction
 
-### 📱 Mobile & Cross-Platform
+**Mobile & Community**
 
-- [ ] iOS and Android native apps
-- [ ] React Native development
-- [ ] Push notifications and biometric authentication
-- [ ] Offline data sync and home screen widgets
-
-### 🔐 Security & User Management
-
-- [ ] User authentication with social login
-- [ ] Role-based access control
-- [ ] Two-factor authentication
-- [ ] API rate limiting and data encryption
-
-### 🌐 Nepal-Specific Integrations
-
-- [ ] NEPSE official API integration
-- [ ] Nepal financial news API integration
-- [ ] Payment gateways (eSewa, Khalti, etc.)
-- [ ] Economic calendar for Nepal
-- [ ] Sector analysis (Banking, Hydro, Insurance)
-
-### 📈 Advanced Features
-
-**Technical Improvements**
-
-- [ ] Progressive Web App (PWA) features
-- [ ] Multi-language support (Nepali/English)
-- [ ] Dark/light theme toggle
-- [ ] Offline data access with caching
-
-**Reporting & Export**
-
-- [ ] CSV/Excel export functionality
-- [ ] PDF report generation
-- [ ] Automated daily/weekly reports
-- [ ] Print-friendly views
-
-**Community Features**
-
-- [ ] User discussion forums for NEPSE
-- [ ] Stock rating/review system
-- [ ] Social trading features
-- [ ] Expert analysis sharing platform
-
-### 💰 Subscription Model
-
-**Basic (Free)**
-
-- Basic NEPSE data and daily summaries
-- Limited portfolio tracking
-
-**Premium (Monthly/Yearly)**
-
-- Real-time data and alerts
-- Advanced charting tools
-- Email/SMS notifications and data export
-
-**Enterprise (Custom Pricing)**
-
-- API access and custom analytics
-- Priority support and white-label solutions
+- [ ] Native iOS and Android applications
+- [ ] Social trading and community features
+- [ ] User discussion forums and expert analysis
+- [ ] Push notifications and offline capabilities
 
 ---
+
+## 🎯 **Vision Statement**
+
+NEPSE Smart aims to become the **premier trading platform for Nepal Stock Exchange**, providing institutional-grade tools accessible to retail investors. Our goal is to democratize advanced market analytics and empower informed investment decisions through technology.
+
+**From Simple Dashboard → Comprehensive Trading Intelligence Platform**
 
 _For detailed technical roadmap, see `claude.md`. For contribution guidelines, create feature branches and submit pull requests with priority labels (🔥 High/⭐ Medium/💡 Low)._
 

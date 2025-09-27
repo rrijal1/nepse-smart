@@ -1,217 +1,68 @@
-# NEPSE Smart - Comprehensive .gitignore
+# NEPSE Smart
 
-# Operating System
-.DS_Store
-.DS_Store?
-._*
-Thumbs.db
-ehthumbs.db
-Desktop.ini
+# Environment Variables
+.env
+.env.*
+!.env.example
 
-# IDE and Editors
-.vscode/
-.idea/
-*.swp
-*.swo
-*.sublime-project
-*.sublime-workspace
-.fleet
-
-# Logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Coverage directory used by tools like istanbul
-lib-cov
-coverage/
-*.lcov
-.nyc_output
-.coverage
-htmlcov/
-.pytest_cache/
-
-# Dependency directories
+# Dependencies
 node_modules/
-jspm_packages/
+__pycache__/
+*.py[cod]
+*$py.class
 
-# Package manager files
+# Build Outputs
+dist/
+build/
+.output/
+*.egg-info/
+
+# Package Manager Files
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
-
-# Optional REPL history
-.node_repl_history
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.env.*
-!.env.example
-
-# Frontend build outputs
-dist/
-build/
-.output/
-.nuxt/
-.next/
-.cache/
-.vite/
-.parcel-cache/
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-*.manifest
-*.spec
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-
-# Virtual environments
-.env
-.venv
-env/
+# Python Virtual Environments
+.venv/
 venv/
+env/
 ENV/
-env.bak/
-venv.bak/
 
-# Spyder project settings
-.spyderproject
-.spyproject
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
 
-# Rope project settings
-.ropeproject
+# Logs
+*.log
+logs/
 
-# mkdocs documentation
-/site
+# Testing & Coverage
+.coverage
+coverage/
+htmlcov/
+.pytest_cache/
+.cache/
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Docker
-.dockerignore
-
-# Temporary files
+# Temporary & Backup Files
 *.tmp
 *.temp
-.tmp/
-.temp/
-
-# Backup files  
 *.bak
 *.backup
 *~
 
-# Local database
-*.db
-*.sqlite
-*.sqlite3
-
-# Redis dump file
-dump.rdb
-
-# Compiled binary addons
-build/Release
-
-# Dependency directories for other languages
-vendor/
-
-# JetBrains IDEs
-.idea/
-*.iml
-*.ipr
-*.iws
-
-# Visual Studio Code
-.vscode/
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-# MacOS
-.AppleDouble
-.LSOverride
-Icon
-
-# Windows
+# OS Generated Files
+.DS_Store
 Thumbs.db
-ehthumbs.db
 Desktop.ini
-$RECYCLE.BIN/
-*.cab
-*.msi
-*.msm
-*.msp
-*.lnk
 
-# Linux
-*~
-.fuse_hidden*
-.directory
-.Trash-*
-.nfs*
+# Databases
+*.db
+*.sqlite*
 
-# Application specific
+# Application Specific
 *.wasm.backup
 
 

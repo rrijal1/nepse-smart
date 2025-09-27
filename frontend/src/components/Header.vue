@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-nepse-primary text-white shadow-lg">
+  <header class="bg-[rgb(var(--color-nepse-primary))] text-white shadow-lg">
     <div class="container mx-auto px-4 py-4">
       <div class="flex items-center justify-between">
         <h1 class="text-2xl font-bold">NEPSE Analytics</h1>
