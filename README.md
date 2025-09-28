@@ -151,7 +151,7 @@ docker-compose up --build
 
 ```bash
 # Install the NEPSE package
-cd API && pip3 install -e .
+cd api && pip3 install -e .
 
 # Install backend dependencies
 cd ../backend
@@ -478,3 +478,9 @@ For support and questions:
 ---
 
 **Note**: This project is not affiliated with Nepal Stock Exchange (NEPSE). It uses publicly available data through unofficial APIs for educational and analytical purposes.
+
+#### Check the API endpoints
+
+curl -s http://localhost:3000/api/top-gainers | jq
+
+curl -s http://localhost:3000/api/stock-price/sbl | jq
