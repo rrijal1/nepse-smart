@@ -1,8 +1,10 @@
 import sys
-import os
 from pathlib import Path
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from datetime import date
+from dateutil.parser import parse
+
 
 # Import the nepse module (installed as package)
 try:
@@ -30,6 +32,15 @@ nepse.setTLSVerification(False)  # Temporary until NEPSE fixes SSL
 @app.get("/")
 def read_root():
     return {"message": "NEPSE Analytics API is running"}
+
+@app.get("/api/market-status")
+def get_market_status():
+    """Check if NEPSE market is open"""
+    try:
+        is_open = nepse.isNepseOpen()
+        return {"is_open": is_open}
+    except Exception as e:
+        return {"error": str(e)}
 
 @app.get("/api/summary")
 def get_market_summary():
@@ -76,14 +87,30 @@ def get_company_list():
     except Exception as e:
         return {"error": str(e)}
 
-@app.get("/api/market-status")
-def get_market_status():
-    """Check if NEPSE market is open"""
+@app.get("/api/price-volume")
+def get_price_volume(): 
+    """Get price volume data for all stocks"""
     try:
-        is_open = nepse.isNepseOpen()
-        return {"is_open": is_open}
+        pricevolume = nepse.getPriceVolume()
+        return pricevolume
     except Exception as e:
         return {"error": str(e)}
+
+@app.get("/api/company-price-volume-history")
+def get_company_price_volume_history(symbol: str, start_date: str = None, end_date: str = None):
+    """Get price volume history for a specific company"""
+    try:
+        # Validate and parse dates if provided
+        start_date = parse(start_date).date() if start_date else None
+        end_date = parse(end_date).date() if end_date else None
+        pricevolume = nepse.getCompanyPriceVolumeHistory(symbol, start_date, end_date)
+        return pricevolume
+    except KeyError:
+        raise HTTPException(status_code=400, detail=f"Invalid symbol: {symbol}")
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid date format, use YYYY-MM-DD")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn

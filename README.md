@@ -481,6 +481,10 @@ For support and questions:
 
 #### Check the API endpoints
 
+Documentation : http://localhost:8000/docs
+
 curl -s http://localhost:3000/api/top-gainers | jq
 
-curl -s http://localhost:3000/api/stock-price/sbl | jq
+all methods :
+
+List eveything there is: ['api_end_points', 'base_url', 'client', 'company_list', 'company_symbol_id_keymap', 'dummy_data', 'dummy_id_manager', 'floor_sheet_size', 'getAuthorizationHeaders', 'getCompanyDetails', 'getCompanyIDKeyMap', 'getCompanyList', 'getCompanyPriceVolumeHistory', 'getDailyBankSubindexGraph', 'getDailyDevelopmentBankSubindexGraph', 'getDailyFinanceSubindexGraph', 'getDailyFloatIndexGraph', 'getDailyHotelTourismSubindexGraph', 'getDailyHydroSubindexGraph', 'getDailyInvestmentSubindexGraph', 'getDailyLifeInsuranceSubindexGraph', 'getDailyManufacturingSubindexGraph', 'getDailyMicrofinanceSubindexGraph', 'getDailyMutualfundSubindexGraph', 'getDailyNepseIndexGraph', 'getDailyNonLifeInsuranceSubindexGraph', 'getDailyOthersSubindexGraph', 'getDailyScripPriceGraph', 'getDailySensitiveFloatIndexGraph', 'getDailySensitiveIndexGraph', 'getDailyTradingSubindexGraph', 'getDummyData', 'getDummyID', 'getFloorSheet', 'getFloorSheetOf', 'getLiveMarket', 'getMarketStatus', 'getNepseIndex', 'getNepseSubIndices', 'getPOSTPayloadID', 'getPOSTPayloadIDForFloorSheet', 'getPOSTPayloadIDForScrips', 'getPriceVolume', 'getPriceVolumeHistory', 'getSectorScrips', 'getSecurityIDKeyMap', 'getSecurityList', 'getSummary', 'getSupplyDemand', 'getSymbolMarketDepth', 'getTopGainers', 'getTopLosers', 'getTopTenTradeScrips', 'getTopTenTransactionScrips', 'getTopTenTurnoverScrips', 'get_full_url', 'handle_response', 'headers', 'init_client', 'isNepseOpen', 'load_json_api_end_points', 'load_json_dummy_data', 'load_json_header', 'requestGETAPI', 'requestPOSTAPI', 'sector_scrips', 'security_list', 'security_symbol_id_keymap', 'setTLSVerification', 'token_manager']

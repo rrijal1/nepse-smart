@@ -156,10 +156,14 @@ def show_status():
     return summary
 
 
-def start_server():
 
+def start_server():
     import flask
     from flask import Flask, request
+    from datetime import date, timedelta
+    from dateutil.parser import parse
+
+    
 
     routes = {
         "PriceVolume": "/PriceVolume",
@@ -180,6 +184,7 @@ def start_server():
         "TradeTurnoverTransactionSubindices": "/TradeTurnoverTransactionSubindices",
         "LiveMarket": "/LiveMarket",
         "MarketDepth": "/MarketDepth",
+        "CompanyPriceVolumeHistory": "/CompanyPriceVolumeHistory",  # New route
     }
 
     nepse = Nepse()
@@ -193,7 +198,7 @@ def start_server():
         content = "<BR>".join(
             [f"<a href={value}> {key} </a>" for key, value in routes.items()]
         )
-        return f"Serverving hot stock data <BR>{content}"
+        return f"Serving hot stock data <BR>{content}"
 
     @app.route(routes["Summary"])
     def getSummary():
@@ -324,7 +329,6 @@ def start_server():
         losers = {obj["symbol"]: obj for obj in nepse.getTopLosers()}
 
         sector_sub_indices = _getNepseSubIndices()
-        # this is done since nepse sub indices and sector name are different
         sector_mapper = {
             "Commercial Banks": "Banking SubIndex",
             "Development Banks": "Development Bank Index",
@@ -344,7 +348,6 @@ def start_server():
         scrips_details = {}
         for symbol, company in companies.items():
             company_details = {}
-
             company_details["symbol"] = symbol
             company_details["sectorName"] = company["sectorName"]
             company_details["totalTurnover"] = (
@@ -409,7 +412,6 @@ def start_server():
         response = flask.jsonify(
             {"scripsDetails": scrips_details, "sectorsDetails": sector_details}
         )
-
         response.headers.add("Access-Control-Allow-Origin", "*")
         return response
 
@@ -434,6 +436,34 @@ def start_server():
             response = "<BR>".join(
                 [
                     f"<a href={routes['MarketDepth']}/{symbol['symbol']}> {symbol['symbol']} </a>"
+                    for symbol in symbols
+                ]
+            )
+            return response
+
+    @app.route(f"{routes['CompanyPriceVolumeHistory']}", defaults={"symbol": None, "start_date": None, "end_date": None})
+    @app.route(f"{routes['CompanyPriceVolumeHistory']}/<string:symbol>")
+    @app.route(f"{routes['CompanyPriceVolumeHistory']}/<string:symbol>/<string:start_date>/<string:end_date>")
+    def getCompanyPriceVolumeHistory(symbol, start_date, end_date):
+        if symbol:
+            try:
+                # Validate and parse dates if provided
+                start_date = parse(start_date).date() if start_date else None
+                end_date = parse(end_date).date() if end_date else None
+                response = flask.jsonify(nepse.getCompanyPriceVolumeHistory(symbol, start_date, end_date))
+                response.headers.add("Access-Control-Allow-Origin", "*")
+                return response
+            except KeyError:
+                return flask.jsonify({"error": f"Invalid symbol: {symbol}"}), 400
+            except ValueError:
+                return flask.jsonify({"error": "Invalid date format, use YYYY-MM-DD"}), 400
+            except Exception as e:
+                return flask.jsonify({"error": str(e)}), 500
+        else:
+            symbols = nepse.getSecurityList()
+            response = "<BR>".join(
+                [
+                    f"<a href={routes['CompanyPriceVolumeHistory']}/{symbol['symbol']}> {symbol['symbol']} </a>"
                     for symbol in symbols
                 ]
             )
