@@ -35,24 +35,9 @@
 </template>
 
 <script setup lang="ts">
-import ChartIcon from './icons/ChartIcon.vue';
-import FireIcon from './icons/FireIcon.vue';
-import BellIcon from './icons/BellIcon.vue';
-import StarIcon from './icons/StarIcon.vue';
-import BuildingIcon from './icons/BuildingIcon.vue';
-import AcademicCapIcon from './icons/AcademicCapIcon.vue';
-import ChatIcon from './icons/ChatIcon.vue';
+import { defineProps, defineEmits } from 'vue';
 
-defineProps<{ activeSection: string }>();
+defineProps<{ activeSection: string, sidebarItems: any[] }>();
 defineEmits(['update:activeSection']);
 
-const sidebarItems = [
-  { id: "indices", label: "Indices", icon: ChartIcon },
-  { id: "trending", label: "Trending Stocks", icon: FireIcon },
-  { id: "news", label: "News & Updates", icon: BellIcon, badge: "5" },
-  { id: "ipos", label: "IPOs", icon: StarIcon },
-  { id: "sme", label: "SME Zone", icon: BuildingIcon },
-  { id: "learn", label: "Learn", icon: AcademicCapIcon },
-  { id: "chat", label: "Chat", icon: ChatIcon },
-];
 </script>

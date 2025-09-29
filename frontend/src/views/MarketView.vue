@@ -1,7 +1,7 @@
 <template>
   <div class="flex h-[calc(100vh-120px)]">
     <!-- Left Sidebar -->
-    <Sidebar v-model:activeSection="activeSection" />
+    <Sidebar v-model:activeSection="activeSection" :sidebarItems="sidebarItems" />
 
     <!-- Main Content Area -->
     <div class="flex-1 bg-white rounded-lg shadow-lg overflow-hidden">
@@ -69,17 +69,24 @@ import IposSection from "../components/IposSection.vue";
 import SmeZoneSection from "../components/SmeZoneSection.vue";
 import LearnSection from "../components/LearnSection.vue";
 import ChatSection from "../components/ChatSection.vue";
+import ChartIcon from "../components/icons/ChartIcon.vue";
+import FireIcon from "../components/icons/FireIcon.vue";
+import BellIcon from "../components/icons/BellIcon.vue";
+import StarIcon from "../components/icons/StarIcon.vue";
+import BuildingIcon from "../components/icons/BuildingIcon.vue";
+import AcademicCapIcon from "../components/icons/AcademicCapIcon.vue";
+import ChatIcon from "../components/icons/ChatIcon.vue";
 
 const activeSection = ref("indices");
 
 const sidebarItems = [
-  { id: "indices", label: "Indices" },
-  { id: "trending", label: "Trending Stocks" },
-  { id: "news", label: "News & Updates" },
-  { id: "ipos", label: "IPOs" },
-  { id: "sme", label: "SME Zone" },
-  { id: "learn", label: "Learn" },
-  { id: "chat", label: "Chat" },
+  { id: "indices", label: "Indices", icon: ChartIcon },
+  { id: "trending", label: "Trending Stocks", icon: FireIcon },
+  { id: "news", label: "News & Updates", icon: BellIcon, badge: "5" },
+  { id: "ipos", label: "IPOs", icon: StarIcon },
+  { id: "sme", label: "SME Zone", icon: BuildingIcon },
+  { id: "learn", label: "Learn", icon: AcademicCapIcon },
+  { id: "chat", label: "Chat", icon: ChatIcon },
 ];
 
 const getCurrentSectionTitle = () => {
