@@ -4,6 +4,9 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import date
 from dateutil.parser import parse
+import asyncio
+import json
+from starlette.responses import StreamingResponse
 
 
 # Import the nepse module (installed as package)
@@ -111,6 +114,25 @@ def get_company_price_volume_history(symbol: str, start_date: str = None, end_da
         raise HTTPException(status_code=400, detail="Invalid date format, use YYYY-MM-DD")
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+async def trending_stocks_generator():
+    while True:
+        try:
+            gainers = nepse.getTopGainers()
+            losers = nepse.getTopLosers()
+            data = {"gainers": gainers, "losers": losers}
+            yield f"data: {json.dumps(data)}\n\n"
+            await asyncio.sleep(15)  # Update every 15 seconds
+        except Exception as e:
+            # Handle exceptions gracefully
+            error_data = {"error": str(e)}
+            yield f"data: {json.dumps(error_data)}\n\n"
+            await asyncio.sleep(15)
+
+@app.get("/api/trending-stocks-sse")
+async def trending_stocks_sse():
+    """SSE endpoint to stream top gainers and losers."""
+    return StreamingResponse(trending_stocks_generator(), media_type="text/event-stream")
 
 if __name__ == "__main__":
     import uvicorn

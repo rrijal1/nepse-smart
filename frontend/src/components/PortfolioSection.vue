@@ -5,9 +5,7 @@
       <h3 class="text-lg font-semibold text-gray-800 mb-4">
         Portfolio Performance
       </h3>
-      <div
-        class="h-64 bg-gray-50 rounded-lg flex items-center justify-center"
-      >
+      <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
         <div class="text-center">
           <ChartIcon class="w-12 h-12 text-gray-400 mx-auto mb-2" />
           <p class="text-gray-600">Portfolio performance chart</p>
@@ -17,13 +15,9 @@
     </div>
 
     <!-- Holdings Table -->
-    <div
-      class="bg-white border border-gray-200 rounded-xl overflow-hidden"
-    >
+    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
       <div class="px-6 py-4 border-b border-gray-200 bg-gray-50">
-        <h3 class="text-lg font-semibold text-gray-800">
-          Current Holdings
-        </h3>
+        <h3 class="text-lg font-semibold text-gray-800">Current Holdings</h3>
       </div>
       <div class="overflow-x-auto">
         <table class="min-w-full">
@@ -72,26 +66,18 @@
               >
                 {{ holding.symbol }}
               </td>
-              <td
-                class="px-6 py-4 whitespace-nowrap text-right font-mono"
-              >
+              <td class="px-6 py-4 whitespace-nowrap text-right font-mono">
                 {{ holding.quantity }}
               </td>
-              <td
-                class="px-6 py-4 whitespace-nowrap text-right font-mono"
-              >
+              <td class="px-6 py-4 whitespace-nowrap text-right font-mono">
                 Rs. {{ holding.avgPrice.toLocaleString() }}
               </td>
-              <td
-                class="px-6 py-4 whitespace-nowrap text-right font-mono"
-              >
+              <td class="px-6 py-4 whitespace-nowrap text-right font-mono">
                 Rs. {{ holding.currentPrice.toLocaleString() }}
               </td>
               <td
                 class="px-6 py-4 whitespace-nowrap text-right font-mono font-semibold"
-                :class="
-                  holding.pnl >= 0 ? 'text-green-600' : 'text-red-600'
-                "
+                :class="holding.pnl >= 0 ? 'text-green-600' : 'text-red-600'"
               >
                 {{ holding.pnl >= 0 ? "+" : "" }}Rs.
                 {{ Math.abs(holding.pnl).toLocaleString() }}
@@ -99,9 +85,7 @@
               <td
                 class="px-6 py-4 whitespace-nowrap text-right font-mono font-semibold"
                 :class="
-                  holding.pnlPercent >= 0
-                    ? 'text-green-600'
-                    : 'text-red-600'
+                  holding.pnlPercent >= 0 ? 'text-green-600' : 'text-red-600'
                 "
               >
                 {{ holding.pnlPercent >= 0 ? "+" : ""

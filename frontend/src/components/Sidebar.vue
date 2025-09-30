@@ -16,7 +16,7 @@
           :class="[
             'w-full flex items-center gap-3 px-4 py-3 text-left rounded-lg transition-all duration-200',
             activeSection === item.id
-              ? 'bg-[rgb(var(--color-nepse-primary))]/10 text-[rgb(var(--color-nepse-primary))] font-semibold border-l-4 border-[rgb(var(--color-nepse-primary))]'
+              ? 'bg-[rgb(var(--color-nepse-primary))]/10 text-[rgb(var(--color-nepse-primary))] font-semibold border-l-4]'
               : 'text-gray-700 hover:bg-gray-50 hover:text-[rgb(var(--color-nepse-primary))]',
           ]"
         >
@@ -35,9 +35,8 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
+import { defineProps, defineEmits } from "vue";
 
-defineProps<{ activeSection: string, sidebarItems: any[] }>();
-defineEmits(['update:activeSection']);
-
+defineProps<{ activeSection: string; sidebarItems: any[] }>();
+defineEmits(["update:activeSection"]);
 </script>
