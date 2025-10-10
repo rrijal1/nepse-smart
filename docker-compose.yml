@@ -3,7 +3,7 @@ services:
   backend:
     build:
       context: .
-      dockerfile: backend/Dockerfile
+      dockerfile: Dockerfile.backend # Using backend Dockerfile
     container_name: nepse-backend
     ports:
       - "8000:8000"
@@ -13,14 +13,27 @@ services:
       # Live reload for development
       - ./backend:/app/backend
       - ./api:/app/api
+      # Mount Google Cloud credentials
+      - ~/.config/gcloud:/home/nepse/.config/gcloud:ro
     command:
-      ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+      [
+        "python",
+        "-m",
+        "uvicorn",
+        "main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000",
+        "--reload",
+      ]
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
+      interval: 80s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
   # Vue 3 Frontend (Development with Hot Reload)
   frontend:
@@ -29,14 +42,15 @@ services:
     working_dir: /app
     ports:
       - "3000:3000"
-    env_file:
-      - ./.env
+    environment:
+      - VITE_API_BASE_URL=http://backend:8000
     volumes:
       - ./frontend:/app
       - /app/node_modules
     command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
     restart: unless-stopped
 
 networks:

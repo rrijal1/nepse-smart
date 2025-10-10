@@ -65,4 +65,7 @@ Desktop.ini
 # Application Specific
 *.wasm.backup
 
+# Working Examples & Development
+working-example/
+
 

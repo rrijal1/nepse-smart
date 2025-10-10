@@ -30,6 +30,7 @@
       <!-- Dynamic Content -->
       <div class="p-6 h-full overflow-y-auto">
         <WatchlistSection v-if="activeSection === 'watchlist'" />
+        <WsTrendingStocksSection v-if="activeSection === 'ws-trending'" />
         <MyNewsSection v-if="activeSection === 'news'" />
         <FundamentalsSection v-if="activeSection === 'fundamentals'" />
         <TechnicalSection v-if="activeSection === 'technical'" />
@@ -47,17 +48,20 @@ import MyNewsSection from "../components/MyNewsSection.vue";
 import FundamentalsSection from "../components/FundamentalsSection.vue";
 import TechnicalSection from "../components/TechnicalSection.vue";
 import PortfolioSection from "../components/PortfolioSection.vue";
+import WsTrendingStocksSection from "../components/WsTrendingStocksSection.vue";
 import PlusIcon from "../components/icons/PlusIcon.vue";
 import EyeIcon from "../components/icons/EyeIcon.vue";
 import NewsIcon from "../components/icons/NewsIcon.vue";
 import DocumentIcon from "../components/icons/DocumentIcon.vue";
 import ChartIcon from "../components/icons/ChartIcon.vue";
 import PortfolioIcon from "../components/icons/PortfolioIcon.vue";
+import FireIcon from "../components/icons/FireIcon.vue";
 
 const activeSection = ref("watchlist");
 
 const sidebarItems = [
   { id: "watchlist", label: "My Watchlist", icon: EyeIcon },
+  { id: "ws-trending", label: "Real-time Trending (WS)", icon: FireIcon },
   { id: "news", label: "News & Updates", icon: NewsIcon, badge: "12" },
   { id: "fundamentals", label: "Fundamentals", icon: DocumentIcon },
   { id: "technical", label: "Technical Analysis", icon: ChartIcon },
@@ -72,6 +76,7 @@ const getCurrentSectionTitle = () => {
 const getCurrentSectionDescription = () => {
   const descriptions: Record<string, string> = {
     watchlist: "Monitor your favorite stocks and portfolio performance",
+    "ws-trending": "Live top gainers and losers using WebSockets",
     news: "Stay updated with news relevant to your investments",
     fundamentals: "Analyze stocks based on financial metrics and ratios",
     technical: "Technical analysis and trading signals for your stocks",
