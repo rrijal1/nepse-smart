@@ -13,16 +13,6 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv(dotenv_path=Path(__file__).parent.parent / ".env")
 
-# Import NEPSE Smart agent routes
-try:
-    from agent_routes import router as agent_router
-    NEPSE_AGENTS_AVAILABLE = True
-    print("✅ NEPSE Smart agents enabled")
-except ImportError as e:
-    print(f"Warning: NEPSE agent routes not available: {e}")
-    NEPSE_AGENTS_AVAILABLE = False
-
-
 # Import the nepse module (installed as package)
 try:
     from nepse import Nepse
@@ -54,13 +44,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Include NEPSE Smart agent routes
-if NEPSE_AGENTS_AVAILABLE:
-    app.include_router(agent_router)  # Use tags from agent_routes.py
-    print("✅ NEPSE Smart agents enabled")
-else:
-    print("⚠️ NEPSE Smart agents disabled - check agent imports")
 
 # Initialize NEPSE client
 nepse = Nepse()

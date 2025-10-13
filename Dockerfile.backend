@@ -24,9 +24,7 @@ COPY api/ ./api/
 RUN cd ./api && pip install -e .
 
 # Copy application files
-COPY backend/main.py backend/start.py backend/agent_routes.py ./
-COPY backend/agents/ ./agents/
-
+COPY backend/main.py backend/start.py 
 # Create non-root user
 RUN useradd --create-home --shell /bin/bash nepse \
     && chown -R nepse:nepse /app

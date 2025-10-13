@@ -54,8 +54,7 @@ COPY api/ ./api/
 # Copy backend code (only what's needed)
 COPY backend/main.py ./
 COPY backend/start.py ./
-COPY backend/agent_routes.py ./
-COPY backend/agents/ ./agents/
+
 
 # Copy frontend build
 COPY --from=frontend-build /app/frontend/dist ./static
