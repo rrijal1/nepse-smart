@@ -68,7 +68,7 @@ Desktop.ini
 
 # JSON Files and Data Directory
 *.json
-data/
+!data/**/*.json
 
 # Working Examples & Development
 working-example/

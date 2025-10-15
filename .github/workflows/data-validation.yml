@@ -88,3 +88,18 @@ jobs:
                   processor.cleanup_old_files(days_to_keep=30)
                   print(f'📊 Statistics saved to {stats_file}')
                   "
+
+            - name: Configure Git
+              run: |
+                  git config --local user.email "action@github.com"
+                  git config --local user.name "GitHub Action - Data Validation"
+
+            - name: Commit cleanup results
+              run: |
+                  git add data/
+                  if git diff --staged --quiet; then
+                    echo "No changes from cleanup"
+                  else
+                    git commit -m "Weekly data validation and cleanup: $(date +'%Y-%m-%d')"
+                    git push
+                  fi

@@ -73,6 +73,21 @@ jobs:
                     echo "✅ Scraping completed successfully"
                   fi
 
+            - name: Configure Git
+              run: |
+                  git config --local user.email "action@github.com"
+                  git config --local user.name "GitHub Action"
+
+            - name: Commit and push data
+              run: |
+                  git add data/
+                  if git diff --staged --quiet; then
+                    echo "No changes to commit"
+                  else
+                    git commit -m "Daily data scraping: $(date +'%Y-%m-%d')"
+                    git push
+                  fi
+
             - name: Generate collection summary
               run: |
                   python -c "
@@ -154,13 +169,3 @@ jobs:
                       print('❌ Critical failure: Missing essential data')
                       exit(1)
                   "
-
-            - name: Upload logs and data
-              uses: actions/upload-artifact@v3
-              if: always()
-              with:
-                  name: nepse-data-collection
-                  path: |
-                      data/daily/
-                      data-scraper/logs/
-                  retention-days: 30
