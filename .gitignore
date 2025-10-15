@@ -66,9 +66,9 @@ Desktop.ini
 # Application Specific
 *.wasm.backup
 
-# JSON Files (ignore locally generated, but allow data/ files to be tracked)
+# JSON Files and Data Directory
 *.json
-!data/**/*.json
+data/
 
 # Working Examples & Development
 working-example/
