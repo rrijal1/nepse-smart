@@ -27,6 +27,7 @@ pnpm-lock.yaml
 venv/
 env/
 ENV/
+nepse-smart/
 
 # IDE & Editors
 .vscode/
@@ -64,6 +65,10 @@ Desktop.ini
 
 # Application Specific
 *.wasm.backup
+
+# JSON Files (ignore locally generated, but allow data/ files to be tracked)
+*.json
+!data/**/*.json
 
 # Working Examples & Development
 working-example/

@@ -1,0 +1,15 @@
+# Production NEPSE Scraper - Minimal Dependencies
+# Only essential packages for web scraping and data processing
+
+# HTTP Client for web requests
+requests>=2.31.0
+
+# HTML/XML parsing for web scraping
+beautifulsoup4>=4.12.2
+lxml>=4.9.3
+
+# Lightweight data processing 
+pandas>=2.1.4
+
+# Note: python-dateutil comes with pandas
+# Total: 4 essential packages (~50MB vs 500MB+ full requirements)

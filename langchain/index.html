@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEPSE Smart Agent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .loader {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #3498db;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .agent-card {
+        transition: all 0.3s ease;
+      }
+      .agent-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <!-- Loading indicator while Vue is mounting -->
+    <div id="loading" class="container mx-auto p-8 text-center">
+      <div class="loader mx-auto mb-4"></div>
+      <p>Loading NEPSE Smart Agent...</p>
+    </div>
+
+    <div id="app" class="container mx-auto p-4 md:p-8 max-w-4xl" style="display: none;">
+      <header class="text-center mb-8">
+        <h1 class="text-4xl font-bold text-gray-900">NEPSE Smart Agent</h1>
+        <p class="text-gray-600 mt-2">
+          Get AI-powered analysis and ask questions about NEPSE stocks using our
+          sophisticated multi-agent system.
+        </p>
+        <div class="mt-4 flex justify-center space-x-4 text-sm flex-wrap">
+          <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full mb-2">Technical Analysis</span>
+          <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full mb-2">Fundamental Analysis</span>
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full mb-2">Macro/News Analysis</span>
+          <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full mb-2">Natural Language Q&A</span>
+        </div>
+      </header>
+
+      <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+        <!-- Mode Switcher -->
+        <div class="mb-6">
+          <div class="flex justify-center space-x-1 bg-gray-100 rounded-lg p-1">
+            <button
+              @click="switchMode('analysis')"
+              :class="{
+                'bg-white shadow-sm': mode === 'analysis',
+                'hover:bg-gray-200': mode !== 'analysis'
+              }"
+              class="px-4 py-2 text-sm font-medium rounded-md transition-all"
+            >
+              📊 Stock Analysis
+            </button>
+            <button
+              @click="switchMode('question')"
+              :class="{
+                'bg-white shadow-sm': mode === 'question',
+                'hover:bg-gray-200': mode !== 'question'
+              }"
+              class="px-4 py-2 text-sm font-medium rounded-md transition-all"
+            >
+              💬 Ask Questions
+            </button>
+          </div>
+        </div>
+
+        <!-- Stock Analysis Mode -->
+        <div v-show="mode === 'analysis'" class="mb-4">
+          <label for="stockSymbol" class="block text-sm font-medium text-gray-700 mb-1">
+            Enter Stock Symbol
+          </label>
+          <div class="flex space-x-2">
+            <input
+              type="text"
+              id="stockSymbol"
+              v-model="stockSymbol"
+              @keyup.enter="analyzeStock"
+              placeholder="e.g., NABIL, ADBL, EBL"
+              class="flex-grow p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+            />
+            <button
+              @click="analyzeStock"
+              :disabled="isLoading || !stockSymbol"
+              class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-gray-400 disabled:cursor-not-allowed transition"
+            >
+              <span v-if="!isLoading">Analyze</span>
+              <span v-else class="flex items-center">
+                <div class="loader mr-2" style="width: 20px; height: 20px; border-width: 2px;"></div>
+                Analyzing...
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Question Mode -->
+        <div v-show="mode === 'question'" class="mb-4">
+          <label for="question" class="block text-sm font-medium text-gray-700 mb-1">
+            Ask a Question
+          </label>
+          <div class="mb-2">
+            <textarea
+              id="question"
+              v-model="question"
+              @keydown.ctrl.enter="askQuestion"
+              placeholder="e.g., Is NABIL a good buy for the next 6 months? Which company has better fundamentals, NABIL or ADBL?"
+              class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition resize-none"
+              rows="3"
+            ></textarea>
+            <p class="text-xs text-gray-500 mt-1">
+              Press Ctrl+Enter to submit, or use the button below
+            </p>
+          </div>
+          <div class="flex justify-between items-start flex-wrap gap-4">
+            <div class="flex flex-wrap gap-2">
+              <button
+                v-for="example in exampleQuestions"
+                :key="example"
+                @click="question = example"
+                class="text-xs px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded-md transition"
+              >
+                {{ example }}
+              </button>
+            </div>
+            <button
+              @click="askQuestion"
+              :disabled="isLoading || !question.trim()"
+              class="px-6 py-2 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:bg-gray-400 disabled:cursor-not-allowed transition"
+            >
+              <span v-if="!isLoading">Ask</span>
+              <span v-else class="flex items-center">
+                <div class="loader mr-2" style="width: 20px; height: 20px; border-width: 2px;"></div>
+                Thinking...
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Agent Status Indicators -->
+        <div v-if="isLoading" class="mb-6">
+          <h3 class="text-lg font-semibold mb-3">
+            {{ mode === 'analysis' ? 'Agent Analysis Progress' : 'Processing Your Question' }}
+          </h3>
+          <div v-if="mode === 'analysis'" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="agent-card p-4 border rounded-lg bg-blue-50 border-blue-200">
+              <div class="flex items-center">
+                <div class="loader mr-3" style="width: 20px; height: 20px; border-width: 2px;"></div>
+                <span class="font-medium">Technical Agent</span>
+              </div>
+              <p class="text-sm text-gray-600 mt-1">Analyzing price trends, RSI, MACD...</p>
+            </div>
+            <div class="agent-card p-4 border rounded-lg bg-green-50 border-green-200">
+              <div class="flex items-center">
+                <div class="loader mr-3" style="width: 20px; height: 20px; border-width: 2px;"></div>
+                <span class="font-medium">Fundamental Agent</span>
+              </div>
+              <p class="text-sm text-gray-600 mt-1">Evaluating P/E ratio, EPS, debt levels...</p>
+            </div>
+            <div class="agent-card p-4 border rounded-lg bg-purple-50 border-purple-200">
+              <div class="flex items-center">
+                <div class="loader mr-3" style="width: 20px; height: 20px; border-width: 2px;"></div>
+                <span class="font-medium">Macro/News Agent</span>
+              </div>
+              <p class="text-sm text-gray-600 mt-1">Processing market sentiment, news...</p>
+            </div>
+          </div>
+          <div v-else class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="agent-card p-4 border rounded-lg bg-blue-50 border-blue-200">
+              <div class="flex items-center">
+                <div class="loader mr-3" style="width: 20px; height: 20px; border-width: 2px;"></div>
+                <span class="font-medium">Question Parser</span>
+              </div>
+              <p class="text-sm text-gray-600 mt-1">Understanding your question...</p>
+            </div>
+            <div class="agent-card p-4 border rounded-lg bg-green-50 border-green-200">
+              <div class="flex items-center">
+                <div class="loader mr-3" style="width: 20px; height: 20px; border-width: 2px;"></div>
+                <span class="font-medium">Data Gatherer</span>
+              </div>
+              <p class="text-sm text-gray-600 mt-1">Collecting relevant stock data...</p>
+            </div>
+            <div class="agent-card p-4 border rounded-lg bg-purple-50 border-purple-200">
+              <div class="flex items-center">
+                <div class="loader mr-3" style="width: 20px; height: 20px; border-width: 2px;"></div>
+                <span class="font-medium">Multi-Agent Analysis</span>
+              </div>
+              <p class="text-sm text-gray-600 mt-1">Running comprehensive analysis...</p>
+            </div>
+            <div class="agent-card p-4 border rounded-lg bg-orange-50 border-orange-200">
+              <div class="flex items-center">
+                <div class="loader mr-3" style="width: 20px; height: 20px; border-width: 2px;"></div>
+                <span class="font-medium">Answer Generator</span>
+              </div>
+              <p class="text-sm text-gray-600 mt-1">Formulating your answer...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Error Section -->
+        <div v-if="error" class="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-md">
+          <p><strong class="font-bold">Error:</strong> {{ error }}</p>
+          <button @click="clearError" class="mt-2 text-sm underline hover:no-underline">
+            Clear Error
+          </button>
+        </div>
+
+        <!-- Stock Analysis Results -->
+        <div v-if="analysisResult && mode === 'analysis'" class="mt-6 space-y-6">
+          <!-- Stock Header with Overall Score -->
+          <div class="text-center bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">📊 {{ stockSymbol.toUpperCase() }}</h2>
+            <div class="flex justify-center items-center space-x-4">
+              <div class="text-center">
+                <div class="text-4xl font-bold" :class="getScoreColor(analysisResult.overall_score)">
+                  {{ analysisResult.overall_score > 0 ? '+' : '' }}{{ analysisResult.overall_score }}
+                </div>
+                <div class="text-sm text-gray-600">Overall Score</div>
+              </div>
+              <div class="text-center">
+                <div 
+                  class="text-2xl font-bold px-4 py-2 rounded-full"
+                  :class="getRecommendationBadge(getRecommendationFromScore(analysisResult.overall_score))"
+                >
+                  {{ getRecommendationFromScore(analysisResult.overall_score) }}
+                </div>
+                <div class="text-sm text-gray-600">Recommendation</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Agent Scores Grid -->
+          <div v-if="analysisResult.agent_details" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div
+              v-for="(detail, agent) in analysisResult.agent_details"
+              :key="agent"
+              class="bg-white rounded-lg shadow-md p-6 border-l-4"
+              :class="getAgentCardClass(agent)"
+            >
+              <div class="flex justify-between items-center mb-3">
+                <h4 class="font-semibold text-gray-900">
+                  {{ formatAgentName(agent) }}
+                </h4>
+                <div class="text-2xl font-bold" :class="getAgentScoreColor(agent, detail.score)">
+                  {{ detail.score }}
+                </div>
+              </div>
+              
+              <!-- Extract key metrics from summary -->
+              <div class="text-sm text-gray-600">
+                {{ getSummaryHighlight(detail.summary) }}
+              </div>
+              
+              <!-- Show key signals/factors -->
+              <div class="mt-3 flex flex-wrap gap-1">
+                <span 
+                  v-for="signal in extractSignals(detail.summary)"
+                  :key="signal"
+                  class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs"
+                >
+                  {{ signal }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Concise Analysis Summary -->
+          <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-green-500">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+              <span class="mr-2">📈</span>
+              Investment Summary
+            </h3>
+            
+            <!-- Extract key points from the full analysis -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold text-green-700 mb-2">✅ Strengths</h4>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li v-for="strength in extractStrengths(analysisResult.analysis)" :key="strength">
+                    • {{ strength }}
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-red-700 mb-2">⚠️ Risks</h4>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li v-for="risk in extractRisks(analysisResult.analysis)" :key="risk">
+                    • {{ risk }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Processing Info -->
+          <div class="text-center text-sm text-gray-500 bg-gray-50 rounded-lg p-3">
+            ⏱️ Analysis completed in {{ analysisResult.processing_time_ms }}ms
+          </div>
+        </div>
+
+        <!-- Question & Answer Results -->
+        <div v-if="questionResult && mode === 'question'" class="mt-6 space-y-6">
+          <!-- Question Header -->
+          <div class="text-center">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">💬 Your Question</h2>
+            <p class="text-gray-600 italic bg-blue-50 p-3 rounded-lg border-l-4 border-blue-500">
+              "{{ questionResult.question }}"
+            </p>
+          </div>
+
+          <!-- Stock Metrics Cards (if available) -->
+          <div v-if="questionResult.structured_response && questionResult.structured_response.stock_metrics" 
+               class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div 
+              v-for="(metrics, stock) in questionResult.structured_response.stock_metrics"
+              :key="stock"
+              class="bg-white rounded-lg shadow-md border-l-4 p-4"
+              :class="getStockCardColor(metrics.recommendation)"
+            >
+              <div class="flex justify-between items-center mb-3">
+                <h3 class="text-lg font-bold text-gray-900">{{ stock }}</h3>
+                <span 
+                  class="px-3 py-1 rounded-full text-sm font-semibold"
+                  :class="getRecommendationBadge(metrics.recommendation)"
+                >
+                  {{ metrics.recommendation }}
+                </span>
+              </div>
+              
+              <div class="grid grid-cols-4 gap-2 text-center">
+                <div>
+                  <div class="text-xs text-gray-500">Overall</div>
+                  <div class="text-lg font-bold" :class="getScoreColor(metrics.overall_score)">
+                    {{ metrics.overall_score }}
+                  </div>
+                </div>
+                <div>
+                  <div class="text-xs text-gray-500">Tech</div>
+                  <div class="text-lg font-bold text-blue-600">{{ metrics.technical_score }}</div>
+                </div>
+                <div>
+                  <div class="text-xs text-gray-500">Fund</div>
+                  <div class="text-lg font-bold text-green-600">{{ metrics.fundamental_score }}</div>
+                </div>
+                <div>
+                  <div class="text-xs text-gray-500">Macro</div>
+                  <div class="text-lg font-bold text-purple-600">{{ metrics.macro_score }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Answer Section -->
+          <div v-if="questionResult.structured_response && questionResult.structured_response.quick_answer" 
+               class="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-6 border-l-4 border-green-500">
+            <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+              <span class="mr-2">🎯</span>
+              Quick Answer
+            </h3>
+            <p class="text-gray-800 leading-relaxed">
+              {{ questionResult.structured_response.quick_answer }}
+            </p>
+          </div>
+
+          <!-- Key Insights & Recommendation Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Key Insights -->
+            <div v-if="questionResult.structured_response && questionResult.structured_response.key_insights.length > 0" 
+                 class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
+              <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                <span class="mr-2">💡</span>
+                Key Insights
+              </h3>
+              <ul class="space-y-2">
+                <li v-for="insight in questionResult.structured_response.key_insights" 
+                    :key="insight"
+                    class="flex items-start">
+                  <span class="text-blue-500 mr-2 mt-1">•</span>
+                  <span class="text-gray-700">{{ insight }}</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Recommendation -->
+            <div v-if="questionResult.structured_response && questionResult.structured_response.recommendation" 
+                 class="bg-white rounded-lg shadow-md p-6 border-l-4 border-orange-500">
+              <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                <span class="mr-2">📈</span>
+                Recommendation
+              </h3>
+              <p class="text-gray-700 leading-relaxed">
+                {{ questionResult.structured_response.recommendation }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Risk Factors -->
+          <div v-if="questionResult.structured_response && questionResult.structured_response.risk_factors" 
+               class="bg-red-50 rounded-lg p-6 border-l-4 border-red-500">
+            <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+              <span class="mr-2">⚠️</span>
+              Risk Factors
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+              {{ questionResult.structured_response.risk_factors }}
+            </p>
+          </div>
+
+          <!-- Metadata Footer -->
+          <div class="flex justify-between items-center text-sm text-gray-500 bg-gray-50 rounded-lg p-4">
+            <div class="flex items-center space-x-4">
+              <span>🏷️ Stocks: {{ questionResult.related_stocks.join(', ') }}</span>
+              <span>🎯 Confidence: 
+                <span :class="getConfidenceColor(questionResult.confidence)" class="font-semibold">
+                  {{ questionResult.confidence }}
+                </span>
+              </span>
+            </div>
+            <div>⏱️ {{ questionResult.processing_time_ms }}ms</div>
+          </div>
+
+          <!-- Fallback: Show full answer if structured parsing failed -->
+          <div v-if="!questionResult.structured_response || !questionResult.structured_response.quick_answer" 
+               class="bg-gray-50 rounded-lg p-6 border-l-4 border-gray-400">
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">🤖 AI Response</h3>
+            <div class="text-gray-700 leading-relaxed max-h-96 overflow-y-auto">
+              {{ questionResult.answer }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="text-center mt-8 text-sm text-gray-500">
+        <p>Powered by LangChain, Groq, and Vue.js | Multi-Agent AI System with Natural Language Q&A</p>
+        <p class="mt-2 text-xs">
+          ⚠️ This is for educational purposes only. Not financial advice. Always consult qualified financial advisors.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // Error handling for Vue initialization
+      window.addEventListener('error', function(e) {
+        console.error('JavaScript Error:', e.error);
+        document.getElementById('loading').innerHTML = `
+          <div class="text-center text-red-600">
+            <h2 class="text-xl font-bold mb-2">Error Loading Application</h2>
+            <p class="mb-4">There was an error loading the NEPSE Smart Agent.</p>
+            <p class="text-sm">Error: ${e.error.message}</p>
+            <button onclick="location.reload()" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+              Reload Page
+            </button>
+          </div>
+        `;
+      });
+
+      // Initialize Vue app
+      try {
+        const { createApp } = Vue;
+
+        const app = createApp({
+          data() {
+            return {
+              mode: "analysis",
+              stockSymbol: "NABIL",
+              question: "",
+              isLoading: false,
+              analysisResult: null,
+              questionResult: null,
+              error: null,
+              backendUrl: "http://127.0.0.1:8000",
+              exampleQuestions: [
+                "Is NABIL a good buy?",
+                "Compare NABIL vs ADBL fundamentals",
+                "Which stock has the best P/E ratio?",
+                "Technical outlook for EBL?"
+              ]
+            };
+          },
+          mounted() {
+            // Hide loading and show app
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('app').style.display = 'block';
+            console.log('NEPSE Smart Agent loaded successfully');
+          },
+          methods: {
+            switchMode(newMode) {
+              this.mode = newMode;
+              this.analysisResult = null;
+              this.questionResult = null;
+              this.error = null;
+            },
+            
+            clearError() {
+              this.error = null;
+            },
+
+            async analyzeStock() {
+              if (!this.stockSymbol) return;
+
+              this.isLoading = true;
+              this.analysisResult = null;
+              this.questionResult = null;
+              this.error = null;
+
+              try {
+                const response = await fetch(`${this.backendUrl}/analyze`, {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    stock_symbol: this.stockSymbol,
+                  }),
+                });
+
+                if (!response.ok) {
+                  const errorData = await response.json();
+                  throw new Error(
+                    errorData.detail ||
+                      errorData.error ||
+                      "Network response was not ok"
+                  );
+                }
+
+                const data = await response.json();
+                if (data.analysis) {
+                  this.analysisResult = data;
+                } else if (data.error) {
+                  this.error = data.error;
+                }
+              } catch (err) {
+                console.error("Stock analysis fetch error:", err);
+                this.error = `Failed to fetch analysis. Please ensure the backend server is running and accessible at ${this.backendUrl}. Error: ${err.message}`;
+              } finally {
+                this.isLoading = false;
+              }
+            },
+
+            async askQuestion() {
+              if (!this.question.trim()) return;
+
+              this.isLoading = true;
+              this.analysisResult = null;
+              this.questionResult = null;
+              this.error = null;
+
+              try {
+                const response = await fetch(`${this.backendUrl}/ask`, {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    question: this.question.trim(),
+                  }),
+                });
+
+                if (!response.ok) {
+                  const errorData = await response.json();
+                  throw new Error(
+                    errorData.detail ||
+                      errorData.error ||
+                      "Network response was not ok"
+                  );
+                }
+
+                const data = await response.json();
+                if (data.answer) {
+                  this.questionResult = data;
+                } else if (data.error) {
+                  this.error = data.error;
+                }
+              } catch (err) {
+                console.error("Question fetch error:", err);
+                this.error = `Failed to process your question. Please ensure the backend server is running and accessible at ${this.backendUrl}. Error: ${err.message}`;
+              } finally {
+                this.isLoading = false;
+              }
+            },
+
+            getAgentCardClass(agent) {
+              if (agent.includes('technical')) {
+                return 'bg-blue-50 border-blue-200';
+              } else if (agent.includes('fundamental')) {
+                return 'bg-green-50 border-green-200';
+              } else if (agent.includes('macro')) {
+                return 'bg-purple-50 border-purple-200';
+              }
+              return 'bg-gray-50 border-gray-200';
+            },
+
+            formatAgentName(agent) {
+              return agent.replace(/_/g, ' ').replace(/analysis/g, 'Analysis');
+            },
+
+            getScoreColor(score) {
+              if (score > 0) return 'text-green-600';
+              if (score < 0) return 'text-red-600';
+              return 'text-gray-600';
+            },
+
+            getScoreLabel(score) {
+              if (score > 0) return 'Bullish';
+              if (score < 0) return 'Bearish';
+              return 'Neutral';
+            },
+
+            getConfidenceColor(confidence) {
+              if (confidence === 'High') return 'text-green-600';
+              if (confidence === 'Medium') return 'text-yellow-600';
+              return 'text-red-600';
+            },
+
+            getStockCardColor(recommendation) {
+              if (recommendation === 'BUY') return 'border-green-500';
+              if (recommendation === 'HOLD') return 'border-yellow-500';
+              if (recommendation === 'SELL') return 'border-red-500';
+              return 'border-gray-500';
+            },
+
+            getRecommendationBadge(recommendation) {
+              if (recommendation === 'BUY') return 'bg-green-100 text-green-800';
+              if (recommendation === 'HOLD') return 'bg-yellow-100 text-yellow-800';
+              if (recommendation === 'SELL') return 'bg-red-100 text-red-800';
+              return 'bg-gray-100 text-gray-800';
+            },
+
+            getRecommendationFromScore(score) {
+              if (score >= 5) return 'BUY';
+              if (score >= 2) return 'HOLD';
+              if (score >= -2) return 'NEUTRAL';
+              return 'SELL';
+            },
+
+            getAgentScoreColor(agent, score) {
+              if (agent.includes('technical')) return score > 0 ? 'text-blue-600' : 'text-blue-400';
+              if (agent.includes('fundamental')) return score > 0 ? 'text-green-600' : 'text-green-400';
+              if (agent.includes('macro')) return score > 0 ? 'text-purple-600' : 'text-purple-400';
+              return 'text-gray-600';
+            },
+
+            getSummaryHighlight(summary) {
+              // Extract the first sentence or key metric
+              const sentences = summary.split('.').filter(s => s.trim());
+              return sentences[0] + (sentences.length > 1 ? '...' : '');
+            },
+
+            extractSignals(summary) {
+              // Extract key signals/indicators from summary
+              const signals = [];
+              const lowerSummary = summary.toLowerCase();
+              
+              if (lowerSummary.includes('uptrend')) signals.push('Uptrend');
+              if (lowerSummary.includes('downtrend')) signals.push('Downtrend');
+              if (lowerSummary.includes('bullish')) signals.push('Bullish');
+              if (lowerSummary.includes('bearish')) signals.push('Bearish');
+              if (lowerSummary.includes('oversold')) signals.push('Oversold');
+              if (lowerSummary.includes('overbought')) signals.push('Overbought');
+              if (lowerSummary.includes('strong')) signals.push('Strong');
+              if (lowerSummary.includes('weak')) signals.push('Weak');
+              
+              return signals.slice(0, 3); // Limit to 3 signals
+            },
+
+            extractStrengths(analysis) {
+              // Extract positive points from analysis
+              const strengths = [];
+              const sentences = analysis.split('.').filter(s => s.trim());
+              
+              sentences.forEach(sentence => {
+                const lower = sentence.toLowerCase();
+                if (lower.includes('strong') || lower.includes('good') || lower.includes('positive') || 
+                    lower.includes('uptrend') || lower.includes('bullish') || lower.includes('growth')) {
+                  strengths.push(sentence.trim());
+                }
+              });
+              
+              return strengths.slice(0, 3).map(s => s.length > 60 ? s.substring(0, 60) + '...' : s);
+            },
+
+            extractRisks(analysis) {
+              // Extract risk factors from analysis
+              const risks = [];
+              const sentences = analysis.split('.').filter(s => s.trim());
+              
+              sentences.forEach(sentence => {
+                const lower = sentence.toLowerCase();
+                if (lower.includes('risk') || lower.includes('concern') || lower.includes('negative') || 
+                    lower.includes('downtrend') || lower.includes('bearish') || lower.includes('high')) {
+                  risks.push(sentence.trim());
+                }
+              });
+              
+              return risks.slice(0, 3).map(s => s.length > 60 ? s.substring(0, 60) + '...' : s);
+            }
+          }
+        });
+
+        app.mount('#app');
+
+      } catch (error) {
+        console.error('Error initializing Vue app:', error);
+        document.getElementById('loading').innerHTML = `
+          <div class="text-center text-red-600">
+            <h2 class="text-xl font-bold mb-2">Failed to Load Application</h2>
+            <p class="mb-4">Could not initialize the NEPSE Smart Agent.</p>
+            <p class="text-sm">Error: ${error.message}</p>
+            <button onclick="location.reload()" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+              Reload Page
+            </button>
+          </div>
+        `;
+      }
+    </script>
+  </body>
+</html>

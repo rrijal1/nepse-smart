@@ -1,14 +1,67 @@
-# NEPSE Smart - Nepal Stock Exchange Trading Platform
+# NEPSE Smart - Complete Data Scraping & Analysis System
 
-A comprehensive stock market analysis and trading platform for the Nepal Stock Exchange (NEPSE), built with a modern Vue 3 and FastAPI architecture.
+A comprehensive system for scraping, storing, and analyzing Nepal Stock Exchange (NEPSE) data with automated daily collection via GitHub Actions.
 
-## 🚀 Quick Start
+## 🚀 Features
 
-Get up and running in 2 minutes with Docker.
+### Automated Data Collection
+
+- **Daily Scraping**: Runs automatically at midnight via GitHub Actions
+- **Comprehensive Data**: Share prices, floorsheet, market indices
+- **Historical Database**: Builds growing database over time
+- **Error Handling**: Robust error handling and retry mechanisms
+
+### Data Processing & Analysis
+
+- **Multiple Formats**: JSON and CSV output
+- **Real-time API**: FastAPI server for data access
+- **Interactive Dashboard**: Streamlit-based visualization
+- **Data Validation**: Automated quality checks
+
+### Integration Ready
+
+- **Vue.js Frontend**: Ready for integration with existing frontend
+- **REST API**: Standard endpoints for all data types
+- **Flexible Export**: Easy data export and processing
+
+## �️ Quick Start
+
+### 1. Setup Data Scraping
+
+```bash
+# Install Python dependencies
+cd data-scraper
+pip install -r requirements.txt
+
+# Test the scraper
+python test_scraper.py
+
+# Run manual scrape
+python scraper.py
+```
+
+### 2. Start the Data API Server
+
+```bash
+cd data-scraper
+python api.py
+```
+
+API will be available at: `http://localhost:8001`
+
+### 3. Launch Interactive Dashboard
+
+```bash
+cd data-scraper
+streamlit run dashboard.py
+```
+
+Dashboard will open in your browser at: `http://localhost:8501`
 
 ### Prerequisites
 
-- Docker and Docker Compose
+- Python 3.8+
+- Docker and Docker Compose (optional)
 - Node.js 18+ (for local development)
 - Python 3.11+ (for local development)
 
@@ -62,11 +115,11 @@ npm run dev
 
 ## 🛠️ Technology Stack
 
-| Area          | Technology                                                              |
-|---------------|-------------------------------------------------------------------------|
-| **Frontend**  | Vue 3, TypeScript, Vite, Tailwind CSS, Axios                            |
-| **Backend**   | FastAPI, Python 3.11+, Uvicorn, NepseUnofficialApi                      |
-| **Infrastructure** | Docker, Docker Compose, Nginx, Redis                                  |
+| Area               | Technology                                         |
+| ------------------ | -------------------------------------------------- |
+| **Frontend**       | Vue 3, TypeScript, Vite, Tailwind CSS, Axios       |
+| **Backend**        | FastAPI, Python 3.11+, Uvicorn, NepseUnofficialApi |
+| **Infrastructure** | Docker, Docker Compose, Nginx, Redis               |
 
 ## ✨ Core Features
 
