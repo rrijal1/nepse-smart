@@ -6,10 +6,10 @@ Production MeroLagani Floorsheet Scraper
 - Optimized for reliability and speed
 """
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 import pandas as pd
 from datetime import datetime, timedelta
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, cast
 import re
 
 from shared_utils import ScraperBase, clean_numeric_value, create_data_filepath
@@ -32,6 +32,10 @@ class ProductionFloorsheetScraper(ScraperBase):
         
         try:
             response = self.make_request(url)
+            if not response:
+                self.log_error("Failed to fetch page")
+                return None
+                
             soup = BeautifulSoup(response.content, 'lxml')
             
             # Extract floorsheet data
@@ -74,7 +78,8 @@ class ProductionFloorsheetScraper(ScraperBase):
             table = soup.select_one(selector)
             if table:
                 # Check if this looks like a floorsheet table
-                headers = [th.get_text(strip=True).lower() for th in table.find_all('th')]
+                table_tag = cast(Tag, table)
+                headers = [th.get_text(strip=True).lower() for th in table_tag.find_all('th')]
                 if any(h in headers for h in ['stock symbol', 'buyer', 'seller', 'quantity']):
                     break
         
@@ -83,10 +88,16 @@ class ProductionFloorsheetScraper(ScraperBase):
             return []
         
         # Extract table rows
-        rows = table.find_all('tr')[1:]  # Skip header row
+        table_tag = cast(Tag, table)
+        all_rows = table_tag.find_all('tr')
+        if not all_rows or len(all_rows) <= 1:
+            self.log_error("Table has no data rows")
+            return []
+            
+        rows = all_rows[1:]  # Skip header row
         
         for row in rows:
-            cols = row.find_all(['td', 'th'])
+            cols = cast(Tag, row).find_all(['td', 'th'])
             if len(cols) >= 6:  # Minimum columns expected
                 try:
                     floorsheet_info = {

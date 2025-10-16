@@ -129,17 +129,27 @@
     <!-- Main Chart Area -->
     <div class="bg-gray-50 rounded-xl p-6 relative">
       <!-- Loading Spinner -->
-      <div v-if="isLoading" class="absolute inset-0 flex items-center justify-center bg-gray-50 bg-opacity-75 z-10">
+      <div
+        v-if="isLoading"
+        class="absolute inset-0 flex items-center justify-center bg-gray-50 bg-opacity-75 z-10"
+      >
         <div class="flex items-center space-x-2">
-          <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[rgb(var(--color-nepse-primary))]"></div>
+          <div
+            class="animate-spin rounded-full h-8 w-8 border-b-2 border-[rgb(var(--color-nepse-primary))]"
+          ></div>
           <span class="text-gray-600">Loading chart data...</span>
         </div>
       </div>
 
       <!-- Error Message -->
-      <div v-if="error && !isLoading" class="absolute inset-0 flex items-center justify-center bg-gray-50 z-10">
+      <div
+        v-if="error && !isLoading"
+        class="absolute inset-0 flex items-center justify-center bg-gray-50 z-10"
+      >
         <div class="text-center">
-          <div class="text-red-500 text-lg font-semibold mb-2">Error Loading Data</div>
+          <div class="text-red-500 text-lg font-semibold mb-2">
+            Error Loading Data
+          </div>
           <div class="text-gray-600">{{ error }}</div>
           <button
             @click="loadChartData"
@@ -307,8 +317,8 @@ const getSampleData = async () => {
     const response = await fetchCompanyHistory(selectedStock.value, 30);
     return parseHistoricalData(response);
   } catch (err) {
-    console.error('Error fetching data:', err);
-    error.value = 'Failed to load chart data';
+    console.error("Error fetching data:", err);
+    error.value = "Failed to load chart data";
     return { candlestickData: [], volumeData: [] };
   }
 };

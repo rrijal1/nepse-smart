@@ -6,10 +6,10 @@ Production NEPSE Indices Scraper
 - Optimized for reliability and speed
 """
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 import pandas as pd
 from datetime import datetime, timedelta
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, cast
 import re
 
 from shared_utils import ScraperBase, clean_numeric_value, create_data_filepath
@@ -29,6 +29,10 @@ class ProductionIndicesScraper(ScraperBase):
         
         try:
             response = self.make_request(url)
+            if not response:
+                self.log_error("Failed to fetch page")
+                return None
+                
             soup = BeautifulSoup(response.content, 'lxml')
             
             # Extract indices data
@@ -83,12 +87,13 @@ class ProductionIndicesScraper(ScraperBase):
             
             for table in tables:
                 # Check if this table contains index data
-                table_text = table.get_text()
+                table_tag = cast(Tag, table)
+                table_text = table_tag.get_text()
                 if 'NEPSE Index' in table_text and 'Close' in table_text:
-                    rows = table.find_all('tr')
+                    rows = table_tag.find_all('tr')
                     
                     for row in rows[1:]:  # Skip header
-                        cells = row.find_all(['td', 'th'])
+                        cells = cast(Tag, row).find_all(['td', 'th'])
                         if len(cells) >= 7:
                             try:
                                 index_info = {
@@ -127,12 +132,13 @@ class ProductionIndicesScraper(ScraperBase):
             
             for table in tables:
                 # Check if this table contains sub-index data
-                table_text = table.get_text()
+                table_tag = cast(Tag, table)
+                table_text = table_tag.get_text()
                 if 'Sub Index' in table_text or ('Banking' in table_text and 'Development Bank' in table_text):
-                    rows = table.find_all('tr')
+                    rows = table_tag.find_all('tr')
                     
                     for row in rows[1:]:  # Skip header
-                        cells = row.find_all(['td', 'th'])
+                        cells = cast(Tag, row).find_all(['td', 'th'])
                         if len(cells) >= 7:
                             try:
                                 index_info = {

@@ -6,10 +6,10 @@ Production ShareSansar Stock Prices Scraper
 - Optimized for reliability and speed
 """
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 import pandas as pd
 from datetime import datetime, timedelta
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, cast
 import re
 
 from shared_utils import ScraperBase, clean_numeric_value, create_data_filepath
@@ -29,6 +29,10 @@ class ProductionPricesScraper(ScraperBase):
         
         try:
             response = self.make_request(url)
+            if not response:
+                self.log_error("Failed to fetch page")
+                return None
+                
             soup = BeautifulSoup(response.content, 'lxml')
             
             # Extract stock data
@@ -61,7 +65,8 @@ class ProductionPricesScraper(ScraperBase):
             # Fallback: look for any table with stock-like headers
             tables = soup.find_all('table')
             for t in tables:
-                headers = [th.get_text(strip=True).lower() for th in t.find_all('th')]
+                t_tag = cast(Tag, t)
+                headers = [th.get_text(strip=True).lower() for th in t_tag.find_all('th')]
                 if any(h in headers for h in ['symbol', 'ltp', 'high', 'low']):
                     table = t
                     break
@@ -71,10 +76,17 @@ class ProductionPricesScraper(ScraperBase):
             return []
         
         # Extract table rows (skip header row)
-        rows = table.find_all('tr')[1:]
+        # Cast to Tag to satisfy type checker
+        table_tag = cast(Tag, table)
+        all_rows = table_tag.find_all('tr')
+        if not all_rows or len(all_rows) <= 1:
+            self.log_error("Table has no data rows")
+            return []
+        
+        rows = all_rows[1:]
         
         for row in rows:
-            cols = row.find_all(['td', 'th'])
+            cols = cast(Tag, row).find_all(['td', 'th'])
             if len(cols) >= 24:  # Full table should have 24 columns
                 try:
                     stock_info = {

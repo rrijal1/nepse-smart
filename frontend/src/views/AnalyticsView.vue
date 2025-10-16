@@ -1,7 +1,10 @@
 <template>
   <div class="flex h-[calc(100vh-120px)]">
     <!-- Left Sidebar -->
-    <Sidebar v-model:activeSection="activeSection" :sidebarItems="sidebarItems" />
+    <Sidebar
+      v-model:activeSection="activeSection"
+      :sidebarItems="sidebarItems"
+    />
 
     <!-- Main Content Area -->
     <div class="flex-1 bg-white rounded-lg shadow-lg overflow-hidden">
@@ -42,10 +45,11 @@
       <!-- Dynamic Content -->
       <div class="p-6 h-full overflow-y-auto">
         <ChartsSection v-if="activeSection === 'charts'" />
-        <SseTrendingStocksSection v-if="activeSection === 'sse-trending'" />
         <TradingStrategiesSection v-if="activeSection === 'strategies'" />
         <SectorRotationSection v-if="activeSection === 'sectors'" />
-        <DistributionAccumulationSection v-if="activeSection === 'distribution'" />
+        <DistributionAccumulationSection
+          v-if="activeSection === 'distribution'"
+        />
         <ExpertChatSection v-if="activeSection === 'expert-chat'" />
         <AiChatSection v-if="activeSection === 'ai-chat'" />
       </div>
@@ -68,14 +72,11 @@ import PieChartIcon from "../components/icons/PieChartIcon.vue";
 import TrendingUpIcon from "../components/icons/TrendingUpIcon.vue";
 import UsersIcon from "../components/icons/UsersIcon.vue";
 import SparklesIcon from "../components/icons/SparklesIcon.vue";
-import SseTrendingStocksSection from "../components/SseTrendingStocksSection.vue";
-import FireIcon from "../components/icons/FireIcon.vue";
 
 const activeSection = ref("charts");
 
 const sidebarItems = [
   { id: "charts", label: "Charts", icon: ChartIcon },
-  { id: "sse-trending", label: "Real-time Trending", icon: FireIcon },
   { id: "strategies", label: "Trading Strategies", icon: CogIcon },
   { id: "sectors", label: "Sector Rotation", icon: PieChartIcon },
   {
@@ -96,7 +97,6 @@ const getCurrentSectionDescription = () => {
   const descriptions: Record<string, string> = {
     charts:
       "Advanced technical analysis with support/resistance levels and liquidity zones",
-    "sse-trending": "Live top gainers and losers using Server-Sent Events",
     strategies:
       "Proven trading strategies with performance metrics and risk analysis",
     sectors: "Smart money flow analysis and sector rotation patterns",

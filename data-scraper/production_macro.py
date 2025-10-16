@@ -6,10 +6,10 @@ Production NRB Banking & Macro Economic Data Scraper
 - Optimized for reliability and speed
 """
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 import pandas as pd
 from datetime import datetime, timedelta
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, cast
 import re
 
 from shared_utils import ScraperBase, clean_numeric_value, create_data_filepath
@@ -167,10 +167,14 @@ class ProductionMacroScraper(ScraperBase):
         banking_data = []
         
         try:
-            rows = table.find_all('tr')[1:]  # Skip header row
+            table_tag = cast(Tag, table)
+            all_rows = table_tag.find_all('tr')
+            if not all_rows or len(all_rows) <= 1:
+                return []
+            rows = all_rows[1:]  # Skip header row
             
             for i, row in enumerate(rows):
-                cols = row.find_all(['td', 'th'])
+                cols = cast(Tag, row).find_all(['td', 'th'])
                 if len(cols) >= 2:
                     try:
                         # Extract banking information
@@ -204,17 +208,18 @@ class ProductionMacroScraper(ScraperBase):
         forex_data = []
         
         try:
-            rows = table.find_all('tr')
+            table_tag = cast(Tag, table)
+            rows = table_tag.find_all('tr')
             headers = []
             
             # Find headers
             if rows:
-                header_row = rows[0]
+                header_row = cast(Tag, rows[0])
                 headers = [th.get_text().strip() for th in header_row.find_all(['th', 'td'])]
             
             # Process data rows
             for row in rows[1:]:
-                cells = row.find_all(['td', 'th'])
+                cells = cast(Tag, row).find_all(['td', 'th'])
                 if len(cells) >= 2:
                     row_data = [cell.get_text().strip() for cell in cells]
                     
@@ -289,13 +294,14 @@ class ProductionMacroScraper(ScraperBase):
             # Look for tables that contain banking indicators
             tables = soup.find_all('table')
             for table in tables:
-                text_content = table.get_text()
+                table_tag = cast(Tag, table)
+                text_content = table_tag.get_text()
                 # Check if this table contains banking indicators
                 if any(indicator in text_content for indicator in ['Total Deposits', 'Total Lending', 'CD Ratio', 'Interbank']):
-                    rows = table.find_all('tr')
+                    rows = table_tag.find_all('tr')
                     
                     for row in rows:
-                        cells = row.find_all(['td', 'th'])
+                        cells = cast(Tag, row).find_all(['td', 'th'])
                         if len(cells) >= 3:
                             cell_texts = [cell.get_text().strip() for cell in cells]
                             
@@ -340,14 +346,16 @@ class ProductionMacroScraper(ScraperBase):
             # Look for elements that contain short term rates patterns
             # First try to find by text content
             for element in soup.find_all(['div', 'section']):
-                text_content = element.get_text()
+                element_tag = cast(Tag, element)
+                text_content = element_tag.get_text()
                 if 'Short Term Interest Rates' in text_content:
                     # Look for the rate values in divs within this section
-                    rate_divs = element.find_all('div', class_='col-3')
+                    rate_divs = element_tag.find_all('div', class_='col-3')
                     
                     for div in rate_divs:
-                        rate_value_div = div.find('div', class_='text-secondary')
-                        rate_label_div = div.find('div', class_='font-size-xs')
+                        div_tag = cast(Tag, div)
+                        rate_value_div = div_tag.find('div', class_='text-secondary')
+                        rate_label_div = div_tag.find('div', class_='font-size-xs')
                         
                         if rate_value_div and rate_label_div:
                             rate_info = {

@@ -3,13 +3,18 @@
     <!-- Loading State -->
     <div v-if="loading" class="flex justify-center items-center h-64">
       <div class="text-center">
-        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[rgb(var(--color-nepse-primary))] mx-auto mb-4"></div>
+        <div
+          class="animate-spin rounded-full h-12 w-12 border-b-2 border-[rgb(var(--color-nepse-primary))] mx-auto mb-4"
+        ></div>
         <p class="text-gray-600">Loading indices data...</p>
       </div>
     </div>
 
     <!-- Error State -->
-    <div v-else-if="error" class="flex flex-col justify-center items-center h-64 text-red-600">
+    <div
+      v-else-if="error"
+      class="flex flex-col justify-center items-center h-64 text-red-600"
+    >
       <div class="text-lg font-semibold mb-2">Error Loading Data</div>
       <div class="text-sm mb-4">{{ error }}</div>
       <button
@@ -45,7 +50,9 @@
           <div class="space-y-2 text-sm">
             <div class="flex justify-between">
               <span class="text-gray-600">Current:</span>
-              <span class="font-mono font-semibold">{{ index.current_value.toLocaleString() }}</span>
+              <span class="font-mono font-semibold">{{
+                index.current_value.toLocaleString()
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span class="text-gray-600">Change:</span>
@@ -68,7 +75,9 @@
             </div>
             <div class="flex justify-between">
               <span class="text-gray-600">Turnover:</span>
-              <span class="font-mono text-xs">{{ (index.turnover / 10000000).toFixed(1) }} Cr</span>
+              <span class="font-mono text-xs"
+                >{{ (index.turnover / 10000000).toFixed(1) }} Cr</span
+              >
             </div>
           </div>
         </div>
@@ -84,7 +93,9 @@
             class="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
           >
             <div class="flex items-center justify-between mb-2">
-              <span class="font-medium text-gray-800 text-sm">{{ sector.index_name }}</span>
+              <span class="font-medium text-gray-800 text-sm">{{
+                sector.index_name
+              }}</span>
               <span
                 :class="[
                   'px-2 py-1 rounded-full text-xs font-medium',
@@ -99,7 +110,9 @@
             <div class="space-y-1 text-xs">
               <div class="flex justify-between">
                 <span class="text-gray-600">Current:</span>
-                <span class="font-mono font-semibold">{{ sector.current_value.toLocaleString() }}</span>
+                <span class="font-mono font-semibold">{{
+                  sector.current_value.toLocaleString()
+                }}</span>
               </div>
               <div class="flex justify-between">
                 <span class="text-gray-600">Change:</span>
@@ -122,7 +135,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { fetchNepseIndex, fetchSubIndices } from "../services/marketData_enhanced";
+import {
+  fetchNepseIndex,
+  fetchSubIndices,
+} from "../services/marketData_enhanced";
 
 const mainIndices = ref<any[]>([]);
 const sectorIndices = ref<any[]>([]);
@@ -144,7 +160,6 @@ const fetchIndicesData = async () => {
 
     // Fetch sector indices
     sectorIndices.value = await fetchSubIndices();
-
   } catch (err) {
     console.error("Error fetching indices data:", err);
     error.value = "Failed to load indices data";

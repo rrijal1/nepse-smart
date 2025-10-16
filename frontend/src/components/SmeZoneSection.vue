@@ -3,13 +3,18 @@
     <!-- Loading State -->
     <div v-if="loading" class="flex justify-center items-center h-64">
       <div class="text-center">
-        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[rgb(var(--color-nepse-primary))] mx-auto mb-4"></div>
+        <div
+          class="animate-spin rounded-full h-12 w-12 border-b-2 border-[rgb(var(--color-nepse-primary))] mx-auto mb-4"
+        ></div>
         <p class="text-gray-600">Loading SME data...</p>
       </div>
     </div>
 
     <!-- Error State -->
-    <div v-else-if="error" class="flex flex-col justify-center items-center h-64 text-red-600">
+    <div
+      v-else-if="error"
+      class="flex flex-col justify-center items-center h-64 text-red-600"
+    >
       <div class="text-lg font-semibold mb-2">Error Loading Data</div>
       <div class="text-sm mb-4">{{ error }}</div>
       <button
@@ -21,7 +26,10 @@
     </div>
 
     <!-- Data Display -->
-    <div v-else class="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-xl">
+    <div
+      v-else
+      class="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-xl"
+    >
       <h3 class="text-lg font-semibold text-gray-800 mb-4">
         SME Platform Overview
       </h3>
@@ -72,19 +80,26 @@ const fetchSmeData = async () => {
     const allStocks = await fetchPriceVolume();
 
     // Filter stocks that could be considered SME (lower turnover)
-    const smeStocks = allStocks.filter((stock: any) => stock.turnover < SME_TURNOVER_THRESHOLD);
+    const smeStocks = allStocks.filter(
+      (stock: any) => stock.turnover < SME_TURNOVER_THRESHOLD
+    );
 
     // Calculate aggregated statistics
     const totalCompanies = smeStocks.length;
-    const totalVolume = smeStocks.reduce((sum: number, stock: any) => sum + (stock.quantity || 0), 0);
-    const totalTurnover = smeStocks.reduce((sum: number, stock: any) => sum + stock.turnover, 0);
+    const totalVolume = smeStocks.reduce(
+      (sum: number, stock: any) => sum + (stock.quantity || 0),
+      0
+    );
+    const totalTurnover = smeStocks.reduce(
+      (sum: number, stock: any) => sum + stock.turnover,
+      0
+    );
 
     smeStats.value = {
       totalCompanies,
       totalVolume: formatNumber(totalVolume),
       totalTurnover: formatCurrency(totalTurnover),
     };
-
   } catch (err) {
     console.error("Error fetching SME data:", err);
     error.value = "Failed to load SME data";
@@ -103,9 +118,11 @@ const formatNumber = (value: number) => {
 };
 
 const formatCurrency = (value: number) => {
-  if (value >= 10000000) { // 1 crore
+  if (value >= 10000000) {
+    // 1 crore
     return "Rs. " + (value / 10000000).toFixed(1) + "Cr";
-  } else if (value >= 100000) { // 1 lakh
+  } else if (value >= 100000) {
+    // 1 lakh
     return "Rs. " + (value / 100000).toFixed(1) + "L";
   } else {
     return "Rs. " + value.toLocaleString();
