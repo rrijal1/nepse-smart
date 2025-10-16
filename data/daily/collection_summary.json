@@ -1,6 +1,6 @@
 {
   "collection_date": "2025-10-16",
-  "generated_at": "2025-10-16T11:53:20.085778",
+  "generated_at": "2025-10-16T10:00:34.333250",
   "scrapers": {
     "prices": {
       "status": "success",
@@ -9,7 +9,7 @@
       "size_mb": 0.1,
       "quality": "good",
       "issues": [],
-      "last_modified": "2025-10-16T11:48:45.479516"
+      "last_modified": "2025-10-16T10:00:33.987195"
     },
     "floorsheet": {
       "status": "success",
@@ -18,7 +18,7 @@
       "size_mb": 11.98,
       "quality": "good",
       "issues": [],
-      "last_modified": "2025-10-16T09:15:27.862627"
+      "last_modified": "2025-10-16T10:00:33.986195"
     },
     "indices": {
       "status": "success",
@@ -27,7 +27,7 @@
       "size_mb": 0.0,
       "quality": "good",
       "issues": [],
-      "last_modified": "2025-10-16T11:48:47.552620"
+      "last_modified": "2025-10-16T10:00:33.986195"
     },
     "macro": {
       "status": "success",
@@ -36,7 +36,7 @@
       "size_mb": 0.0,
       "quality": "good",
       "issues": [],
-      "last_modified": "2025-10-16T11:48:48.596350"
+      "last_modified": "2025-10-16T10:00:33.986195"
     }
   },
   "totals": {
@@ -57,7 +57,7 @@
       },
       "last_update": "2025-10-16",
       "file_size_mb": 0.1,
-      "last_modified": "2025-10-16T11:48:45.483687"
+      "last_modified": "2025-10-16T10:00:34.011195"
     },
     "floorsheet": {
       "file_exists": true,
@@ -69,7 +69,7 @@
       },
       "last_update": "2025-10-16",
       "file_size_mb": 11.98,
-      "last_modified": "2025-10-16T09:15:27.862627"
+      "last_modified": "2025-10-16T10:00:34.010195"
     },
     "indices": {
       "file_exists": true,
@@ -81,7 +81,7 @@
       },
       "last_update": "2025-10-16",
       "file_size_mb": 0.0,
-      "last_modified": "2025-10-16T11:48:47.554274"
+      "last_modified": "2025-10-16T10:00:34.010195"
     },
     "macro": {
       "file_exists": true,
@@ -93,7 +93,7 @@
       },
       "last_update": "2025-10-16",
       "file_size_mb": 0.0,
-      "last_modified": "2025-10-16T11:48:48.598012"
+      "last_modified": "2025-10-16T10:00:34.010195"
     }
   },
   "system_health": {
