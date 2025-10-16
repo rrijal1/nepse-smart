@@ -46,7 +46,7 @@
       </div>
 
       <!-- Dynamic Content -->
-      <div class="p-6 h-full overflow-y-auto">
+      <div class="p-6 overflow-y-auto" style="height: calc(100% - 100px);">
         <IndicesSection v-if="activeSection === 'indices'" />
         <TrendingStocksSection v-if="activeSection === 'trending'" />
         <NewsSection v-if="activeSection === 'news'" />

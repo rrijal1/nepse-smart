@@ -31,7 +31,7 @@
       </div>
 
       <!-- Dynamic Content -->
-      <div class="p-6 h-full overflow-y-auto">
+      <div class="p-6 overflow-y-auto" style="height: calc(100% - 100px);">
         <WatchlistSection v-if="activeSection === 'watchlist'" />
         <MyNewsSection v-if="activeSection === 'news'" />
         <FundamentalsSection v-if="activeSection === 'fundamentals'" />

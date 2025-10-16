@@ -43,7 +43,7 @@
       </div>
 
       <!-- Dynamic Content -->
-      <div class="p-6 h-full overflow-y-auto">
+      <div class="p-6 overflow-y-auto" style="height: calc(100% - 100px);">
         <ChartsSection v-if="activeSection === 'charts'" />
         <TradingStrategiesSection v-if="activeSection === 'strategies'" />
         <SectorRotationSection v-if="activeSection === 'sectors'" />
