@@ -87,9 +87,9 @@ import NewsIcon from "../components/icons/NewsIcon.vue";
 import PortfolioIcon from "../components/icons/PortfolioIcon.vue";
 import {
   analyzeAgentStock,
-  fetchAgentStocks,
   type AgentAnalysisResponse,
 } from "../services/agent";
+import { fetchCompanyList } from "../services/marketData_enhanced";
 
 const activeSection = ref("analysis");
 const selectedSymbol = ref("NABIL");
@@ -118,15 +118,22 @@ const handleAnalyze = async (symbol?: string) => {
 };
 
 onMounted(async () => {
-  const symbols = await fetchAgentStocks();
-  availableSymbols.value = symbols;
+  const companies = await fetchCompanyList();
+  const symbols: string[] = (companies || [])
+    .map((c: any) => c?.symbol)
+    .filter((s: any) => typeof s === "string" && s.length > 0);
+
+  availableSymbols.value = Array.from(new Set(symbols)).sort();
 
   if (selectedSymbol.value) {
-    if (!symbols.includes(selectedSymbol.value)) {
-      availableSymbols.value = [selectedSymbol.value, ...symbols];
+    if (!availableSymbols.value.includes(selectedSymbol.value)) {
+      availableSymbols.value = [
+        selectedSymbol.value,
+        ...availableSymbols.value,
+      ];
     }
-  } else if (symbols.length > 0) {
-    selectedSymbol.value = symbols[0];
+  } else if (availableSymbols.value.length > 0) {
+    selectedSymbol.value = availableSymbols.value[0];
   }
 });
 

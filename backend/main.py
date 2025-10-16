@@ -27,6 +27,7 @@ from nepse_data_service import NepseDataService
 from database import engine, Base
 from portfolio_routes import router as portfolio_router
 from agent_routes import router as agent_router
+from backend.agent_service import generate_agent_metrics_for_all_symbols
 
 # Load environment variables from .env if present (useful in local/dev setups)
 load_dotenv()
@@ -65,6 +66,12 @@ async def startup_event():
     try:
         Base.metadata.create_all(bind=engine)
         logger.info("✅ Database tables initialized")
+        # Ensure agent metrics are generated and persisted for today's session
+        try:
+            generate_agent_metrics_for_all_symbols()
+            logger.info("🧩 Agent metrics generated for all active symbols")
+        except Exception as gen_exc:
+            logger.warning(f"Agent metrics generation failed: {gen_exc}")
     except Exception as e:
         logger.error(f"❌ Database initialization error: {e}")
 

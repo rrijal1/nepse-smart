@@ -6,16 +6,22 @@ import logging
 import os
 import re
 from datetime import datetime
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Tuple, Optional
 
 from fastapi import HTTPException
 from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate
+from nepse_data_service import NepseDataService
+from pathlib import Path
+import json
 
 logger = logging.getLogger(__name__)
+_data_service: Optional[NepseDataService] = None
+_DATA_PATH = str((Path("/app") / "data").resolve())
 
 # --- Mock data -----------------------------------------------------------------
 
+# Default mock seeds for a few symbols; used for fallbacks/generation
 MOCK_STOCK_DATA: Dict[str, Dict[str, Any]] = {
     "NABIL": {
         "fundamentals": {
@@ -136,12 +142,117 @@ def _create_llm(model: str, temperature: float = 0.0) -> ChatGroq:
     return ChatGroq(model=model, temperature=temperature)
 
 
+def _ensure_data_service() -> NepseDataService:
+    global _data_service
+    if _data_service is None:
+        _data_service = NepseDataService(data_path=_DATA_PATH)
+    return _data_service
+
+def _get_active_symbols() -> List[str]:
+    svc = _ensure_data_service()
+    companies = svc.get_company_list() or []
+    return sorted([str(c.get("symbol")) for c in companies if c.get("symbol")])
+
+def _get_price_record(symbol: str) -> Optional[Dict[str, Any]]:
+    svc = _ensure_data_service()
+    prices = svc.get_daily_data("prices") or []
+    sym = symbol.upper()
+    for rec in prices:
+        if rec.get("symbol") == sym:
+            return rec
+    return None
+
+def _generate_mock_for_symbol(symbol: str) -> Dict[str, Any]:
+    """Create a deterministic mock block for any symbol, using price data if available."""
+    base = MOCK_STOCK_DATA.get("NABIL")
+    price = _get_price_record(symbol)
+    # Simple derivations from price data when present
+    ltp = float(price.get("ltp", 800.0)) if price else 800.0
+    volume = int(price.get("volume", 750_000)) if price else 750_000
+    diff_pct = float(price.get("diff_percent", 0.0)) if price else 0.0
+
+    # Deterministic pseudo-random from symbol
+    seed = sum(ord(c) for c in symbol)
+    rsi = 35 + (seed % 40)  # 35..75
+    ema21 = ltp * (0.97 + ((seed % 6) * 0.005))
+    ema50 = ltp * (0.94 + ((seed % 6) * 0.004))
+    macd = ["bullish_crossover", "bearish_crossover", "neutral"][seed % 3]
+
+    fundamentals = {
+        "pe_ratio": round(12 + (seed % 20) * 0.9, 1),
+        "eps": round(25 + (seed % 40) * 0.5, 1),
+        "debt_to_equity": round(0.4 + (seed % 8) * 0.1, 2),
+        "status": ["strong", "stable", "dwindling"][seed % 3],
+        "market_cap": round(8 + (seed % 60) * 0.7, 1),
+        "book_value": round(300 + (seed % 400) * 1.5, 1),
+        "dividend_yield": round(3 + (seed % 9) * 0.7, 1),
+    }
+
+    technicals = {
+        "price": round(ltp, 2),
+        "ema_21": round(ema21, 2),
+        "ema_50": round(ema50, 2),
+        "rsi_14": round(rsi, 1),
+        "macd_signal": macd,
+        "volume": volume,
+        "52_week_high": round(max(ltp, ltp * 1.18), 2),
+        "52_week_low": round(min(ltp * 0.82, ltp), 2),
+    }
+
+    news = [
+        f"{symbol} sees sector-specific developments and regulatory updates.",
+        "Liquidity conditions and policy rates influence banking valuations.",
+        "Investors track earnings momentum and dividend guidance.",
+    ]
+
+    return {"fundamentals": fundamentals, "technicals": technicals, "news": news}
+
+
+def generate_agent_metrics_for_all_symbols() -> Dict[str, Dict[str, Any]]:
+    """Generate deterministic mock metrics for all active symbols and persist to daily file.
+
+    Output path: /app/data/daily/<YYYY-MM-DD>_agent_metrics.json
+    """
+    svc = _ensure_data_service()
+    # Get today's date key based on latest available prices file date if present
+    today = datetime.now().strftime("%Y-%m-%d")
+
+    symbols = _get_active_symbols()
+    if not symbols:
+        # As a last resort, take symbols from prices file directly
+        prices = svc.get_daily_data("prices") or []
+        symbols = sorted([str(rec.get("symbol")) for rec in prices if rec.get("symbol")])
+
+    metrics: Dict[str, Dict[str, Any]] = {}
+    for sym in symbols:
+        try:
+            metrics[sym] = _generate_mock_for_symbol(sym)
+        except Exception as exc:
+            logger.warning("Failed to generate metrics for %s: %s", sym, exc)
+
+    # Persist to daily file
+    daily_dir = Path(_DATA_PATH) / "daily"
+    daily_dir.mkdir(parents=True, exist_ok=True)
+    out_path = daily_dir / f"{today}_agent_metrics.json"
+    try:
+        with open(out_path, "w", encoding="utf-8") as f:
+            json.dump(metrics, f, ensure_ascii=False, indent=2)
+        logger.info("Saved agent metrics for %d symbols to %s", len(metrics), out_path)
+    except Exception as exc:
+        logger.error("Could not write agent metrics file: %s", exc)
+
+    return metrics
+
+
 # --- Agent implementations -----------------------------------------------------
 
 def technical_analysis_agent(stock_symbol: str) -> str:
     """Perform rule-based technical analysis for the given stock."""
     logger.info("Running Technical Analysis for %s", stock_symbol)
-    data = MOCK_STOCK_DATA.get(stock_symbol, {}).get("technicals")
+    data = (
+        MOCK_STOCK_DATA.get(stock_symbol, {}).get("technicals")
+        or _generate_mock_for_symbol(stock_symbol).get("technicals")
+    )
     if not data:
         return "Technical data not found. Score: 0."
 
@@ -229,7 +340,10 @@ def technical_analysis_agent(stock_symbol: str) -> str:
 def fundamental_analysis_agent(stock_symbol: str) -> str:
     """Perform rule-based fundamental analysis for the given stock."""
     logger.info("Running Fundamental Analysis for %s", stock_symbol)
-    data = MOCK_STOCK_DATA.get(stock_symbol, {}).get("fundamentals")
+    data = (
+        MOCK_STOCK_DATA.get(stock_symbol, {}).get("fundamentals")
+        or _generate_mock_for_symbol(stock_symbol).get("fundamentals")
+    )
     if not data:
         return "Fundamental data not found. Score: 0."
 
@@ -317,7 +431,10 @@ def fundamental_analysis_agent(stock_symbol: str) -> str:
 def macro_news_agent(stock_symbol: str) -> str:
     """Analyze macro/news sentiment for the stock using an LLM (with fallback)."""
     logger.info("Running Macro/News Analysis for %s", stock_symbol)
-    news = MOCK_STOCK_DATA.get(stock_symbol, {}).get("news")
+    news = (
+        MOCK_STOCK_DATA.get(stock_symbol, {}).get("news")
+        or _generate_mock_for_symbol(stock_symbol).get("news")
+    )
     if not news:
         return "No news found. Score: 0."
 
@@ -486,20 +603,22 @@ def extract_stock_symbols_from_question(question: str) -> List[str]:
     question_upper = question.upper()
     mentioned_stocks: List[str] = []
 
-    for symbol in MOCK_STOCK_DATA.keys():
+    # Use active symbols when available
+    active_symbols = set(_get_active_symbols() or [])
+    for symbol in (active_symbols or MOCK_STOCK_DATA.keys()):
         if symbol in question_upper:
             mentioned_stocks.append(symbol)
 
-    company_names = {
-        "NABIL": ["NABIL", "NABIL BANK"],
-        "ADBL": ["ADBL", "AGRICULTURAL", "AGRICULTURE"],
-        "EBL": ["EBL", "EVEREST", "EVEREST BANK"],
-    }
-    for symbol, names in company_names.items():
-        for name in names:
-            if name in question_upper and symbol not in mentioned_stocks:
-                mentioned_stocks.append(symbol)
-                break
+    # Try mapping by company_name from prices
+    svc = _ensure_data_service()
+    prices = svc.get_daily_data("prices") or []
+    for rec in prices:
+        sym = rec.get("symbol")
+        name = str(rec.get("company_name", "")).upper()
+        if not sym or not name:
+            continue
+        if name in question_upper and sym not in mentioned_stocks:
+            mentioned_stocks.append(sym)
     return mentioned_stocks
 
 
@@ -595,14 +714,9 @@ def parse_structured_answer(
 def perform_stock_analysis(stock_symbol: str) -> Dict[str, Any]:
     """Run the full agent pipeline for a single stock."""
     stock_symbol = stock_symbol.upper()
-    if stock_symbol not in MOCK_STOCK_DATA:
-        available = ", ".join(MOCK_STOCK_DATA.keys())
-        raise HTTPException(
-            status_code=404,
-            detail=(
-                f"Stock symbol '{stock_symbol}' not found. Available stocks: {available}"
-            ),
-        )
+    active = set(_get_active_symbols() or [])
+    if active and stock_symbol not in active:
+        raise HTTPException(status_code=404, detail=f"Unknown or inactive symbol: {stock_symbol}")
 
     start_time = datetime.now()
     results = run_multi_agent_analysis(stock_symbol)
@@ -649,16 +763,26 @@ def answer_natural_language_question(question: str) -> Dict[str, Any]:
 
     start_time = datetime.now()
     mentioned_stocks = extract_stock_symbols_from_question(question)
+
+    # Filter to active symbols if available; otherwise keep what was found
+    active = set(_get_active_symbols() or [])
+    if active:
+        mentioned_stocks = [s for s in mentioned_stocks if s in active]
+
+    # If still empty, pick a small representative set (prefer a few active ones)
     if not mentioned_stocks:
-        mentioned_stocks = list(MOCK_STOCK_DATA.keys())
+        if active:
+            mentioned_stocks = list(sorted(active))[:3]
+        else:
+            mentioned_stocks = list(MOCK_STOCK_DATA.keys())
 
     stock_data: Dict[str, Dict[str, Any]] = {}
     agent_results: Dict[str, AgentResults] = {}
 
     for stock in mentioned_stocks:
-        if stock in MOCK_STOCK_DATA:
-            stock_data[stock] = MOCK_STOCK_DATA[stock]
-            agent_results[stock] = run_multi_agent_analysis(stock)
+        # Always produce data and results for any stock (active set preferred)
+        stock_data[stock] = _generate_mock_for_symbol(stock)
+        agent_results[stock] = run_multi_agent_analysis(stock)
 
     try:
         llm = _create_llm(model="llama-3.3-70b-versatile", temperature=0.1)
@@ -673,15 +797,15 @@ USER QUESTION: {question}
 AVAILABLE STOCK DATA AND ANALYSIS:
 """
     for stock, results in agent_results.items():
+        fundamentals = stock_data[stock]["fundamentals"]
+        technicals = stock_data[stock]["technicals"]
         context += (
             f"\n{stock}:\n"
-            f"- Technical: {results.technical_score}/10 | {results.technical_summary[:100]}...\n"
-            f"- Fundamental: {results.fundamental_score}/10 | {results.fundamental_summary[:100]}...\n"
-            f"- Macro: {results.macro_score}/10 | {results.macro_summary[:100]}...\n"
+            f"- Technical: {results.technical_score}/10 | {results.technical_summary[:140]}...\n"
+            f"- Fundamental: {results.fundamental_score}/10 | {results.fundamental_summary[:140]}...\n"
+            f"- Macro: {results.macro_score}/10 | {results.macro_summary[:140]}...\n"
             f"- Overall: {results.overall_score}/10\n"
-            f"- Key Data: P/E={stock_data[stock]['fundamentals']['pe_ratio']}, "
-            f"EPS={stock_data[stock]['fundamentals']['eps']}, "
-            f"Price={stock_data[stock]['technicals']['price']}\n"
+            f"- Key Data: P/E={fundamentals['pe_ratio']}, EPS={fundamentals['eps']}, Price={technicals['price']}, RSI={technicals['rsi_14']}\n"
         )
 
     context += """
@@ -723,8 +847,6 @@ Keep each section CONCISE (max 2-3 lines each). Use specific numbers and data po
 
     parsed_response = parse_structured_answer(answer, mentioned_stocks, agent_results)
     confidence = "High" if len(mentioned_stocks) <= 2 else "Medium"
-    if not any(stock in MOCK_STOCK_DATA for stock in mentioned_stocks):
-        confidence = "Low"
 
     processing_time = int((datetime.now() - start_time).total_seconds() * 1000)
     return {
