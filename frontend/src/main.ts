@@ -10,7 +10,12 @@ import "./style.css";
 const routes = [
   { path: "/", redirect: "/market" },
   { path: "/market", name: "Market", component: MarketView },
-  { path: "/analytics", name: "Analytics", component: AnalyticsView },
+  {
+    path: "/analytics/:section?/:symbol?",
+    name: "Analytics",
+    component: AnalyticsView,
+    props: true,
+  },
   { path: "/agent", name: "Agent", component: AgentView },
   { path: "/my-corner", name: "MyCorner", component: MyCornerView },
 ];

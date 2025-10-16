@@ -1,5 +1,9 @@
 <template>
-  <div
+  <router-link
+    :to="{
+      name: 'Analytics',
+      params: { section: 'charts', symbol: stock.symbol },
+    }"
     class="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm transition-all duration-200 hover:shadow-md"
   >
     <div>
@@ -16,7 +20,7 @@
         {{ formattedPointChange }}
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script setup lang="ts">

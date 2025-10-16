@@ -183,6 +183,31 @@ export const checkMarketStatus = async () => {
   }
 };
 
+export const fetchHistoricalPrices = async (symbol?: string) => {
+  try {
+    // Use the API endpoint - axios instance already has /api baseURL
+    const url = symbol
+      ? `/historical-prices?symbol=${encodeURIComponent(symbol)}`
+      : "/historical-prices";
+
+    const response = await api.get(url);
+
+    if (response.data.error) {
+      return { data: [], error: response.data.error };
+    }
+
+    return {
+      data: response.data.data || [],
+      error: null,
+      count: response.data.count || 0,
+      symbol: response.data.symbol,
+    };
+  } catch (error) {
+    console.error("Error fetching historical prices:", error);
+    return { data: [], error: "Failed to fetch historical prices" };
+  }
+};
+
 // Utility Functions
 export const formatCurrency = (value: number | null | undefined): string => {
   if (value === null || value === undefined) return "N/A";

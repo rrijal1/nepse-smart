@@ -325,6 +325,49 @@ def get_company_history(
         logger.error(f"Company history error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/api/historical-prices", tags=["Historical Data"])
+def get_historical_prices(symbol: Optional[str] = Query(None, description="Filter by stock symbol")):
+    """Get historical prices data, optionally filtered by symbol"""
+    try:
+        # Load historical prices data
+        filepath = Path("data/historical/historical_prices.json")
+        if not filepath.exists():
+            raise HTTPException(status_code=404, detail="Historical prices data not found")
+        
+        with open(filepath, 'r', encoding='utf-8') as f:
+            all_data = json.load(f)
+        
+        if symbol:
+            # Filter by symbol
+            symbol_upper = symbol.upper()
+            filtered_data = [item for item in all_data if item.get('symbol') == symbol_upper]
+            
+            if not filtered_data:
+                raise HTTPException(
+                    status_code=404,
+                    detail=f"No historical data found for symbol {symbol}"
+                )
+            
+            return {
+                "symbol": symbol_upper,
+                "data": filtered_data,
+                "count": len(filtered_data),
+                "filtered": True
+            }
+        else:
+            # Return all data
+            return {
+                "data": all_data,
+                "count": len(all_data),
+                "filtered": False
+            }
+            
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Historical prices error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 # Search and Filter Endpoints
 @app.get("/api/search-stocks", tags=["Search"])
 def search_stocks(

@@ -58,7 +58,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
 import Sidebar from "../components/Sidebar.vue";
 import ChartsSection from "../components/ChartsSection.vue";
 import TradingStrategiesSection from "../components/TradingStrategiesSection.vue";
@@ -73,7 +74,26 @@ import TrendingUpIcon from "../components/icons/TrendingUpIcon.vue";
 import UsersIcon from "../components/icons/UsersIcon.vue";
 import SparklesIcon from "../components/icons/SparklesIcon.vue";
 
-const activeSection = ref("charts");
+const props = defineProps({
+  section: {
+    type: String,
+    default: "charts",
+  },
+  symbol: {
+    type: String,
+    default: null,
+  },
+});
+
+const route = useRoute();
+const activeSection = ref(props.section || "charts");
+
+watch(
+  () => route.params.section,
+  (newSection) => {
+    activeSection.value = (newSection as string) || "charts";
+  }
+);
 
 const sidebarItems = [
   { id: "charts", label: "Charts", icon: ChartIcon },
@@ -106,4 +126,5 @@ const getCurrentSectionDescription = () => {
   };
   return descriptions[activeSection.value] || "Advanced analytics and insights";
 };
+
 </script>
