@@ -1,0 +1,29 @@
+{
+  "collection_date": "2025-10-16",
+  "generated_at": "2025-10-16T08:53:21.871271",
+  "workflow": "parallel-scraping",
+  "jobs_completed": 4,
+  "files": {
+    "prices": {
+      "filename": "2025-10-16_prices.json",
+      "records": 318,
+      "size_mb": 0.11
+    },
+    "floorsheet": {
+      "filename": "2025-10-16_floorsheet.json",
+      "records": 36000,
+      "size_mb": 11.98
+    },
+    "indices": {
+      "status": "missing"
+    },
+    "nrb_banking": {
+      "status": "missing"
+    }
+  },
+  "totals": {
+    "total_records": 36318,
+    "total_files": 2
+  },
+  "success": true
+}
