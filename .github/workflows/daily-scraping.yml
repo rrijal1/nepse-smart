@@ -21,6 +21,9 @@ jobs:
     scrape-data:
         runs-on: ubuntu-latest
         timeout-minutes: 45 # Increased to handle full floorsheet collection
+        permissions:
+            contents: write
+            actions: read
 
         steps:
             - name: Checkout repository
