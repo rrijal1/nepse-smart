@@ -18,12 +18,18 @@ import json
 from typing import List, Optional, Dict, Any
 import logging
 
+from dotenv import load_dotenv
+
 # Import our new data service
 from nepse_data_service import NepseDataService
 
 # Import database initialization
 from database import engine, Base
 from portfolio_routes import router as portfolio_router
+from agent_routes import router as agent_router
+
+# Load environment variables from .env if present (useful in local/dev setups)
+load_dotenv()
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -46,6 +52,9 @@ app.add_middleware(
 
 # Include portfolio & watchlist routes
 app.include_router(portfolio_router)
+
+# Include LangChain agent routes
+app.include_router(agent_router, prefix="/api")
 
 # Initialize our data service
 nepse_data = NepseDataService(data_path="data")

@@ -17,7 +17,7 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 # Copy application files
 COPY backend/main.py backend/start.py backend/nepse_data_service.py /app/
-COPY backend/database.py backend/models.py backend/schemas.py backend/init_db.py backend/portfolio_routes.py /app/
+COPY backend/database.py backend/models.py backend/schemas.py backend/init_db.py backend/portfolio_routes.py backend/agent_routes.py backend/agent_service.py /app/
 COPY data/ /app/data/ 
 # Create non-root user
 RUN useradd --create-home --shell /bin/bash nepse \

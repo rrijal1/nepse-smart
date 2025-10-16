@@ -4,16 +4,32 @@
     <!-- Chart Controls -->
     <div class="flex items-center justify-between mb-6">
       <div class="flex items-center gap-4">
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 relative">
           <label class="text-sm font-medium text-gray-700">Symbol:</label>
           <input
+            ref="stockInputRef"
             v-model="selectedStock"
             @input="handleStockInput"
             @keyup.enter="handleStockSelection"
+            @focus="showStockDropdown = filteredStocks.length > 0"
             placeholder="Enter stock symbol"
             class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[rgb(var(--color-nepse-primary))] focus:border-transparent"
-            style="width: 120px;"
+            style="width: 120px"
           />
+          <!-- Stock Suggestions Dropdown -->
+          <div
+            v-if="showStockDropdown && filteredStocks.length > 0"
+            class="absolute top-full left-16 mt-1 w-48 bg-white border border-gray-300 rounded-lg shadow-lg z-10 max-h-60 overflow-y-auto"
+          >
+            <div
+              v-for="stock in filteredStocks"
+              :key="stock.symbol"
+              @click="selectStockFromDropdown(stock.symbol)"
+              class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm border-b border-gray-100 last:border-b-0"
+            >
+              {{ stock.symbol }}
+            </div>
+          </div>
         </div>
         <div class="flex items-center gap-2">
           <button
@@ -128,7 +144,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, onBeforeUnmount, watch, computed } from "vue";
 import {
   fetchHistoricalPrices,
   fetchCompanyList,
@@ -154,8 +170,23 @@ const selectedStock = ref(props.symbol);
 const allStocks = ref<{ symbol: string }[]>([]);
 const selectedTimeframe = ref("1D");
 const timeframes = ["1D", "1W", "1M"];
-const selectedIndicator = ref("none");
+const selectedIndicator = ref("RSI");
 const indicators = ["none", "SMA 20", "EMA 20", "RSI", "MACD"];
+
+const showStockDropdown = ref(false);
+const stockInputRef = ref<HTMLInputElement | null>(null);
+
+// Computed property for filtered stocks
+const filteredStocks = computed(() => {
+  if (!selectedStock.value || selectedStock.value.length < 1) {
+    return [];
+  }
+
+  const query = selectedStock.value.toUpperCase();
+  return allStocks.value
+    .filter((stock) => stock.symbol.toUpperCase().includes(query))
+    .slice(0, 10); // Limit to 10 results
+});
 
 const chartSeries = ref<any[]>([]);
 const chartOptions = ref<any>(null);
@@ -167,10 +198,25 @@ const handleIndicatorChange = () => {
 const handleStockInput = () => {
   // Convert to uppercase as user types
   selectedStock.value = selectedStock.value.toUpperCase();
+  showStockDropdown.value = filteredStocks.value.length > 0;
 };
 
 const handleStockSelection = () => {
+  showStockDropdown.value = false;
   loadChartData();
+};
+
+const selectStockFromDropdown = (symbol: string) => {
+  selectedStock.value = symbol;
+  showStockDropdown.value = false;
+  loadChartData();
+};
+
+const handleClickOutside = (event: Event) => {
+  const target = event.target as HTMLElement;
+  if (stockInputRef.value && !stockInputRef.value.contains(target)) {
+    showStockDropdown.value = false;
+  }
 };
 
 // Calculate Simple Moving Average
@@ -246,7 +292,7 @@ const loadChartData = async () => {
     const volumeData = recentData.map((d: any) => ({
       x: new Date(d.date).getTime(),
       y: d.vol,
-      fillColor: (d.close || d.ltp) > d.open ? '#00C853' : '#FF1744', // Green for up, red for down
+      fillColor: (d.close || d.ltp) > d.open ? "#00C853" : "#FF1744", // Green for up, red for down
     }));
 
     // Set up chart series - TradingView style with volume overlay
@@ -262,10 +308,10 @@ const loadChartData = async () => {
         type: "bar",
         data: volumeData,
         group: "volume",
-        color: function({ dataPointIndex, seriesIndex, w }: any) {
+        color: function ({ dataPointIndex, seriesIndex, w }: any) {
           const data = w.config.series[seriesIndex].data[dataPointIndex];
-          return data.fillColor || '#666';
-        }
+          return data.fillColor || "#666";
+        },
       },
     ];
 
@@ -356,7 +402,7 @@ const loadChartData = async () => {
             show: true,
             color: "#ddd",
           },
-          height: '70%', // Price takes 70% of height
+          height: "70%", // Price takes 70% of height
         },
         {
           // Secondary y-axis for volume - takes bottom 30% of chart
@@ -374,7 +420,7 @@ const loadChartData = async () => {
           axisTicks: {
             show: false,
           },
-          height: '30%', // Volume takes 30% of height
+          height: "30%", // Volume takes 30% of height
           offsetY: 70, // Offset to position below price
         },
       ],
@@ -483,6 +529,14 @@ const loadChartData = async () => {
 onMounted(async () => {
   allStocks.value = await fetchCompanyList();
   await loadChartData();
+
+  // Add click outside listener
+  document.addEventListener("click", handleClickOutside);
+});
+
+onBeforeUnmount(() => {
+  // Remove click outside listener
+  document.removeEventListener("click", handleClickOutside);
 });
 
 watch(

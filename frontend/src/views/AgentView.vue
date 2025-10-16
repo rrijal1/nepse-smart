@@ -35,20 +35,38 @@
       </div>
 
       <!-- Dynamic Content -->
-      <div class="flex h-full">
+      <div class="flex" style="height: calc(100% - 120px)">
         <!-- Main Analysis Area -->
         <div class="flex-1 p-6 overflow-y-auto">
-          <StockAnalysisSection v-if="activeSection === 'analysis'" />
-          <TechnicalIndicatorsSection v-if="activeSection === 'technical'" />
-          <NewsAnalysisSection v-if="activeSection === 'news'" />
+          <StockAnalysisSection
+            v-if="activeSection === 'analysis'"
+            v-model:selected-symbol="selectedSymbol"
+            :available-symbols="availableSymbols"
+            :analysis-result="analysisResult"
+            :is-loading="isAnalyzing"
+            :error="analysisError"
+            @analyze="handleAnalyze"
+          />
+          <TechnicalIndicatorsSection
+            v-if="activeSection === 'technical'"
+            :analysis-result="analysisResult"
+            :is-loading="isAnalyzing"
+          />
+          <NewsAnalysisSection
+            v-if="activeSection === 'news'"
+            :analysis-result="analysisResult"
+            :is-loading="isAnalyzing"
+          />
           <PortfolioRecommendationsSection
             v-if="activeSection === 'portfolio'"
+            :analysis-result="analysisResult"
+            :is-loading="isAnalyzing"
           />
         </div>
 
         <!-- Right Panel - AI Chat -->
-        <div class="w-96 border-l border-gray-200 bg-gray-50">
-          <AiChatPanel />
+        <div class="w-96 border-l border-gray-200 bg-gray-50 p-4 flex flex-col">
+          <AiChatSection class="flex-1 min-h-0" />
         </div>
       </div>
     </div>
@@ -56,19 +74,61 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import Sidebar from "../components/Sidebar.vue";
 import StockAnalysisSection from "../components/agent/StockAnalysisSection.vue";
 import TechnicalIndicatorsSection from "../components/agent/TechnicalIndicatorsSection.vue";
 import NewsAnalysisSection from "../components/agent/NewsAnalysisSection.vue";
 import PortfolioRecommendationsSection from "../components/agent/PortfolioRecommendationsSection.vue";
-import AiChatPanel from "../components/agent/AiChatPanel.vue";
+import AiChatSection from "../components/AiChatSection.vue";
 import SparklesIcon from "../components/icons/SparklesIcon.vue";
 import ChartIcon from "../components/icons/ChartIcon.vue";
 import NewsIcon from "../components/icons/NewsIcon.vue";
 import PortfolioIcon from "../components/icons/PortfolioIcon.vue";
+import {
+  analyzeAgentStock,
+  fetchAgentStocks,
+  type AgentAnalysisResponse,
+} from "../services/agent";
 
 const activeSection = ref("analysis");
+const selectedSymbol = ref("NABIL");
+const availableSymbols = ref<string[]>([]);
+
+const analysisResult = ref<AgentAnalysisResponse | null>(null);
+const isAnalyzing = ref(false);
+const analysisError = ref<string | null>(null);
+
+const handleAnalyze = async (symbol?: string) => {
+  const targetSymbol = (symbol || selectedSymbol.value || "").toUpperCase();
+  if (!targetSymbol) return;
+
+  isAnalyzing.value = true;
+  analysisError.value = null;
+
+  try {
+    const result = await analyzeAgentStock(targetSymbol);
+    analysisResult.value = result;
+    selectedSymbol.value = result.stock_symbol;
+  } catch (error: any) {
+    analysisError.value = error?.message || "Failed to analyze stock.";
+  } finally {
+    isAnalyzing.value = false;
+  }
+};
+
+onMounted(async () => {
+  const symbols = await fetchAgentStocks();
+  availableSymbols.value = symbols;
+
+  if (selectedSymbol.value) {
+    if (!symbols.includes(selectedSymbol.value)) {
+      availableSymbols.value = [selectedSymbol.value, ...symbols];
+    }
+  } else if (symbols.length > 0) {
+    selectedSymbol.value = symbols[0];
+  }
+});
 
 const sidebarItems = [
   { id: "analysis", label: "Stock Analysis", icon: ChartIcon },
