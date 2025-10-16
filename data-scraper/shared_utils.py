@@ -155,6 +155,98 @@ def create_data_filepath(data_type: str, date: Optional[str] = None) -> str:
     filename = f"{date}_{data_type}.json"
     return str(data_dir / filename)
 
+def create_historical_filepath(data_type: str) -> str:
+    """Create standardized historical data file path"""
+    historical_dir = Path(__file__).parent.parent / "data" / "historical"
+    historical_dir.mkdir(parents=True, exist_ok=True)
+    
+    filename = f"historical_{data_type}.json"
+    return str(historical_dir / filename)
+
+def append_to_historical_data(daily_filepath: str, historical_filepath: str, logger: Optional[logging.Logger] = None) -> bool:
+    """Append daily data to historical data file"""
+    try:
+        # Check if daily file exists
+        if not Path(daily_filepath).exists():
+            if logger:
+                logger.warning(f"Daily file not found: {daily_filepath}")
+            return False
+        
+        # Load daily data
+        with open(daily_filepath, 'r', encoding='utf-8') as f:
+            daily_data = json.load(f)
+        
+        if not daily_data:
+            if logger:
+                logger.warning(f"No data in daily file: {daily_filepath}")
+            return False
+        
+        # Load existing historical data or create empty list
+        historical_data = []
+        if Path(historical_filepath).exists():
+            try:
+                with open(historical_filepath, 'r', encoding='utf-8') as f:
+                    historical_data = json.load(f)
+            except json.JSONDecodeError:
+                if logger:
+                    logger.warning(f"Invalid JSON in historical file, starting fresh: {historical_filepath}")
+                historical_data = []
+        
+        # Get the date from daily data to check for duplicates
+        daily_date = None
+        if isinstance(daily_data, list) and daily_data:
+            daily_date = daily_data[0].get('date')
+        
+        # Remove any existing data for the same date (to handle re-runs)
+        if daily_date and isinstance(historical_data, list):
+            historical_data = [record for record in historical_data 
+                             if isinstance(record, dict) and record.get('date') != daily_date]
+        
+        # Append new data
+        if isinstance(daily_data, list):
+            historical_data.extend(daily_data)
+        else:
+            historical_data.append(daily_data)
+        
+        # Sort by date (most recent first)
+        if isinstance(historical_data, list) and historical_data:
+            historical_data.sort(key=lambda x: x.get('date', ''), reverse=True)
+        
+        # Save updated historical data
+        with open(historical_filepath, 'w', encoding='utf-8') as f:
+            json.dump(historical_data, f, indent=2, default=str, ensure_ascii=False)
+        
+        if logger:
+            logger.info(f"✅ Updated historical data: {historical_filepath} ({len(daily_data)} new records)")
+        return True
+        
+    except Exception as e:
+        if logger:
+            logger.error(f"❌ Failed to update historical data: {e}")
+        print(f"❌ Failed to update historical data: {e}")
+        return False
+
+def manage_historical_data(data_type: str, daily_data: Any, date: Optional[str] = None, logger: Optional[logging.Logger] = None) -> Dict[str, bool]:
+    """Complete historical data management - save daily and update historical"""
+    if not date:
+        date = datetime.now().strftime('%Y-%m-%d')
+    
+    results = {
+        'daily_saved': False,
+        'historical_updated': False
+    }
+    
+    # Save daily data
+    daily_filepath = create_data_filepath(data_type, date)
+    results['daily_saved'] = save_json_data(daily_data, daily_filepath, logger)
+    
+    # Update historical data
+    if results['daily_saved']:
+        historical_filepath = create_historical_filepath(data_type)
+        results['historical_updated'] = append_to_historical_data(daily_filepath, historical_filepath, logger)
+    
+    return results
+
 class ScraperBase:
     """Base class for all NEPSE scrapers with common functionality"""
     
@@ -200,6 +292,10 @@ class ScraperBase:
     def save_data(self, data: Any, filepath: str) -> bool:
         """Save data using shared utility"""
         return save_json_data(data, filepath, self.logger)
+    
+    def save_with_history(self, data: Any, data_type: str, date: Optional[str] = None) -> Dict[str, bool]:
+        """Save data with historical management"""
+        return manage_historical_data(data_type, data, date, self.logger)
     
     def validate_data(self, data: Any, expected_keys: List[str], min_records: int = 1) -> Dict[str, Any]:
         """Validate data using shared utility"""

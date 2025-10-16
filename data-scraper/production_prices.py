@@ -105,14 +105,13 @@ class ProductionPricesScraper(ScraperBase):
         
         return stock_data
     
-    def save_prices_data(self, data: List[Dict], date: Optional[str] = None) -> bool:
-        """Save stock prices data to JSON file"""
+    def save_prices_data(self, data: List[Dict], date: Optional[str] = None) -> Dict[str, bool]:
+        """Save stock prices data to daily and historical files"""
         if not data:
             self.log_error("No data to save")
-            return False
+            return {'daily_saved': False, 'historical_updated': False}
         
-        filepath = create_data_filepath("prices", date)
-        return self.save_data(data, filepath)
+        return self.save_with_history(data, "prices", date)
     
     def run_daily_collection(self) -> Dict:
         """Run complete daily stock prices collection"""
@@ -133,13 +132,17 @@ class ProductionPricesScraper(ScraperBase):
             
             if stock_data:
                 # Save data
-                if self.save_prices_data(stock_data):
+                save_results = self.save_prices_data(stock_data)
+                if save_results['daily_saved']:
                     result.update({
                         'status': 'success',
                         'records': len(stock_data),
-                        'file_path': create_data_filepath("prices")
+                        'file_path': create_data_filepath("prices"),
+                        'historical_updated': save_results['historical_updated']
                     })
                     self.log_success(f"Daily collection completed: {len(stock_data)} records")
+                    if save_results['historical_updated']:
+                        self.log_success("Historical data updated successfully")
                 else:
                     result['errors'].append("Failed to save data")
             else:

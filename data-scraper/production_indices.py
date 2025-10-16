@@ -161,14 +161,13 @@ class ProductionIndicesScraper(ScraperBase):
         
         return indices_data
     
-    def save_indices_data(self, data: List[Dict], date: Optional[str] = None) -> bool:
-        """Save indices data to JSON file"""
+    def save_indices_data(self, data: List[Dict], date: Optional[str] = None) -> Dict[str, bool]:
+        """Save indices data to daily and historical files"""
         if not data:
             self.log_error("No data to save")
-            return False
+            return {'daily_saved': False, 'historical_updated': False}
         
-        filepath = create_data_filepath("indices", date)
-        return self.save_data(data, filepath)
+        return self.save_with_history(data, "indices", date)
     
     def run_daily_collection(self) -> Dict:
         """Run complete daily indices collection"""
@@ -189,13 +188,17 @@ class ProductionIndicesScraper(ScraperBase):
             
             if indices_data:
                 # Save data
-                if self.save_indices_data(indices_data):
+                save_results = self.save_indices_data(indices_data)
+                if save_results['daily_saved']:
                     result.update({
                         'status': 'success',
                         'records': len(indices_data),
-                        'file_path': create_data_filepath("indices")
+                        'file_path': create_data_filepath("indices"),
+                        'historical_updated': save_results['historical_updated']
                     })
                     self.log_success(f"Daily collection completed: {len(indices_data)} records")
+                    if save_results['historical_updated']:
+                        self.log_success("Historical data updated successfully")
                 else:
                     result['errors'].append("Failed to save data")
             else:

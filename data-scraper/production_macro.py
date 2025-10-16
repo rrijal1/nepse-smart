@@ -405,14 +405,13 @@ class ProductionMacroScraper(ScraperBase):
             self.log_error(f"NRB homepage scraping failed: {e}")
             return None
     
-    def save_macro_data(self, data: List[Dict], date: Optional[str] = None) -> bool:
-        """Save macro economic data to JSON file"""
+    def save_macro_data(self, data: List[Dict], date: Optional[str] = None) -> Dict[str, bool]:
+        """Save macro economic data to daily and historical files"""
         if not data:
             self.log_error("No data to save")
-            return False
+            return {'daily_saved': False, 'historical_updated': False}
         
-        filepath = create_data_filepath("nrb_banking", date)
-        return self.save_data(data, filepath)
+        return self.save_with_history(data, "macro", date)
     
     def run_daily_collection(self) -> Dict:
         """Run complete daily macro data collection"""
@@ -437,13 +436,17 @@ class ProductionMacroScraper(ScraperBase):
             
             if nrb_data:
                 # Save data
-                if self.save_macro_data(nrb_data):
+                save_results = self.save_macro_data(nrb_data)
+                if save_results['daily_saved']:
                     result.update({
                         'status': 'success',
                         'records': len(nrb_data),
-                        'file_path': create_data_filepath("nrb_banking")
+                        'file_path': create_data_filepath("macro"),
+                        'historical_updated': save_results['historical_updated']
                     })
                     self.log_success(f"Daily collection completed: {len(nrb_data)} records")
+                    if save_results['historical_updated']:
+                        self.log_success("Historical data updated successfully")
                 else:
                     result['errors'].append("Failed to save data")
             else:

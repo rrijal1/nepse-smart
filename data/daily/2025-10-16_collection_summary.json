@@ -1,0 +1,58 @@
+{
+  "collection_date": "2025-10-16",
+  "collection_time": "2025-10-16T11:53:53.547276",
+  "runtime_seconds": 4.001518,
+  "total_records": 344,
+  "scrapers": {
+    "total": 4,
+    "successful": 3,
+    "failed": 1
+  },
+  "successful_scrapers": [
+    "prices",
+    "indices",
+    "macro"
+  ],
+  "failed_scrapers": [
+    "floorsheet"
+  ],
+  "detailed_results": {
+    "prices": {
+      "scraper": "prices",
+      "date": "2025-10-16",
+      "status": "success",
+      "records": 311,
+      "file_path": "/Users/rrijal/Desktop/Create/nepse-smart/data/daily/2025-10-16_prices.json",
+      "errors": [],
+      "historical_updated": true
+    },
+    "floorsheet": {
+      "scraper": "floorsheet",
+      "date": "2025-10-16",
+      "status": "failed",
+      "records": 0,
+      "file_path": null,
+      "errors": [
+        "Failed to scrape data"
+      ]
+    },
+    "indices": {
+      "scraper": "indices",
+      "date": "2025-10-16",
+      "status": "success",
+      "records": 17,
+      "file_path": "/Users/rrijal/Desktop/Create/nepse-smart/data/daily/2025-10-16_indices.json",
+      "errors": [],
+      "historical_updated": true
+    },
+    "macro": {
+      "scraper": "macro",
+      "date": "2025-10-16",
+      "status": "success",
+      "records": 16,
+      "file_path": "/Users/rrijal/Desktop/Create/nepse-smart/data/daily/2025-10-16_macro.json",
+      "errors": [],
+      "historical_updated": true
+    }
+  }
+}

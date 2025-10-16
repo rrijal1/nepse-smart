@@ -117,14 +117,13 @@ class ProductionFloorsheetScraper(ScraperBase):
         
         return floorsheet_data
     
-    def save_floorsheet_data(self, data: List[Dict], date: Optional[str] = None) -> bool:
-        """Save floorsheet data to JSON file"""
+    def save_floorsheet_data(self, data: List[Dict], date: Optional[str] = None) -> Dict[str, bool]:
+        """Save floorsheet data to daily and historical files"""
         if not data:
             self.log_error("No data to save")
-            return False
+            return {'daily_saved': False, 'historical_updated': False}
         
-        filepath = create_data_filepath("floorsheet", date)
-        return self.save_data(data, filepath)
+        return self.save_with_history(data, "floorsheet", date)
     
     def run_daily_collection(self) -> Dict:
         """Run complete daily floorsheet collection"""
@@ -145,13 +144,17 @@ class ProductionFloorsheetScraper(ScraperBase):
             
             if floorsheet_data:
                 # Save data
-                if self.save_floorsheet_data(floorsheet_data):
+                save_results = self.save_floorsheet_data(floorsheet_data)
+                if save_results['daily_saved']:
                     result.update({
                         'status': 'success',
                         'records': len(floorsheet_data),
-                        'file_path': create_data_filepath("floorsheet")
+                        'file_path': create_data_filepath("floorsheet"),
+                        'historical_updated': save_results['historical_updated']
                     })
                     self.log_success(f"Daily collection completed: {len(floorsheet_data)} records")
+                    if save_results['historical_updated']:
+                        self.log_success("Historical data updated successfully")
                 else:
                     result['errors'].append("Failed to save data")
             else:

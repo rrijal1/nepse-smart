@@ -1,29 +1,106 @@
 {
   "collection_date": "2025-10-16",
-  "generated_at": "2025-10-16T08:53:21.871271",
-  "workflow": "parallel-scraping",
-  "jobs_completed": 4,
-  "files": {
+  "generated_at": "2025-10-16T11:53:20.085778",
+  "scrapers": {
     "prices": {
+      "status": "success",
       "filename": "2025-10-16_prices.json",
-      "records": 318,
-      "size_mb": 0.11
+      "records": 311,
+      "size_mb": 0.1,
+      "quality": "good",
+      "issues": [],
+      "last_modified": "2025-10-16T11:48:45.479516"
     },
     "floorsheet": {
+      "status": "success",
       "filename": "2025-10-16_floorsheet.json",
       "records": 36000,
-      "size_mb": 11.98
+      "size_mb": 11.98,
+      "quality": "good",
+      "issues": [],
+      "last_modified": "2025-10-16T09:15:27.862627"
     },
     "indices": {
-      "status": "missing"
+      "status": "success",
+      "filename": "2025-10-16_indices.json",
+      "records": 17,
+      "size_mb": 0.0,
+      "quality": "good",
+      "issues": [],
+      "last_modified": "2025-10-16T11:48:47.552620"
     },
-    "nrb_banking": {
-      "status": "missing"
+    "macro": {
+      "status": "success",
+      "filename": "2025-10-16_macro.json",
+      "records": 16,
+      "size_mb": 0.0,
+      "quality": "good",
+      "issues": [],
+      "last_modified": "2025-10-16T11:48:48.596350"
     }
   },
   "totals": {
-    "total_records": 36318,
-    "total_files": 2
+    "total_records": 36344,
+    "total_files": 4,
+    "total_size_mb": 12.08
   },
-  "success": true
+  "success": true,
+  "quality_checks": {},
+  "historical_data": {
+    "prices": {
+      "file_exists": true,
+      "total_historical_records": 311,
+      "unique_dates": 1,
+      "date_range": {
+        "earliest": "2025-10-16",
+        "latest": "2025-10-16"
+      },
+      "last_update": "2025-10-16",
+      "file_size_mb": 0.1,
+      "last_modified": "2025-10-16T11:48:45.483687"
+    },
+    "floorsheet": {
+      "file_exists": true,
+      "total_historical_records": 36000,
+      "unique_dates": 1,
+      "date_range": {
+        "earliest": "2025-10-16",
+        "latest": "2025-10-16"
+      },
+      "last_update": "2025-10-16",
+      "file_size_mb": 11.98,
+      "last_modified": "2025-10-16T09:15:27.862627"
+    },
+    "indices": {
+      "file_exists": true,
+      "total_historical_records": 17,
+      "unique_dates": 1,
+      "date_range": {
+        "earliest": "2025-10-16",
+        "latest": "2025-10-16"
+      },
+      "last_update": "2025-10-16",
+      "file_size_mb": 0.0,
+      "last_modified": "2025-10-16T11:48:47.554274"
+    },
+    "macro": {
+      "file_exists": true,
+      "total_historical_records": 16,
+      "unique_dates": 1,
+      "date_range": {
+        "earliest": "2025-10-16",
+        "latest": "2025-10-16"
+      },
+      "last_update": "2025-10-16",
+      "file_size_mb": 0.0,
+      "last_modified": "2025-10-16T11:48:48.598012"
+    }
+  },
+  "system_health": {
+    "overall_status": "healthy",
+    "active_scrapers": 4,
+    "total_scrapers": 4,
+    "data_freshness": "current"
+  },
+  "recommendations": []
 }

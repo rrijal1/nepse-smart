@@ -1,373 +1,296 @@
 name: Parallel NEPSE Data Collection
 
 on:
-    schedule:
-        # Run every day at 3:00 AM NPT (9:15 PM UTC)
-        - cron: "15 21 * * *"
+  schedule:
+    # Run every day at 3:00 AM NPT (9:15 PM UTC)
+    - cron: "15 21 * * *"
 
-    # Allow manual triggering
-    workflow_dispatch:
+  # Allow manual triggering
+  workflow_dispatch:
 
 jobs:
-    # Job 1: Stock Prices from ShareSansar
-    scrape-prices:
-        runs-on: ubuntu-latest
-        timeout-minutes: 10
-        permissions:
-            contents: write
-            actions: read
+  # Job 1: Stock Prices from ShareSansar
+  scrape-prices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  fetch-depth: 0
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-            - name: Set up Python
-              uses: actions/setup-python@v5
-              with:
-                  python-version: "3.11"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-            - name: Cache Python dependencies
-              uses: actions/cache@v4
-              with:
-                  path: ~/.cache/pip
-                  key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
-                  restore-keys: |
-                      ${{ runner.os }}-pip-scraper-
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-scraper-
 
-            - name: Install dependencies
-              run: |
-                  python -m pip install --upgrade pip
-                  pip install -r data-scraper/requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r data-scraper/requirements.txt
 
-            - name: Create data directories
-              run: |
-                  mkdir -p data/daily data/historical data-scraper/logs
+      - name: Create data directories
+        run: |
+          mkdir -p data/daily data/historical data-scraper/logs
 
-            - name: Scrape stock prices
-              id: scrape-prices
-              run: |
-                  cd data-scraper
-                  python production_main.py --scraper prices
-              continue-on-error: true
+      - name: Scrape stock prices
+        id: scrape-prices
+        run: |
+          cd data-scraper
+          python production_main.py --scraper prices
+        continue-on-error: true
 
-            - name: Configure Git
-              if: always()
-              run: |
-                  git config --local user.email "action@github.com"
-                  git config --local user.name "GitHub Action - Prices Scraper"
+      - name: Configure Git
+        if: always()
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action - Prices Scraper"
 
-            - name: Commit prices data
-              if: always()
-              run: |
-                  git add data/daily/*_prices.json || true
-                  if git diff --staged --quiet; then
-                    echo "No prices data to commit"
-                  else
-                    git commit -m "Stock prices data: $(date +'%Y-%m-%d')" || true
-                    git push || true
-                  fi
+      - name: Commit prices data
+        if: always()
+        run: |
+          git add data/daily/*_prices.json data/historical/historical_prices.json || true
+          if git diff --staged --quiet; then
+            echo "No prices data to commit"
+          else
+            git commit -m "Stock prices data: $(date +'%Y-%m-%d')" || true
+            git push || true
+          fi
 
-    # Job 2: Floorsheet from MeroLagani
-    scrape-floorsheet:
-        runs-on: ubuntu-latest
-        timeout-minutes: 20
-        permissions:
-            contents: write
-            actions: read
+  # Job 2: Floorsheet from MeroLagani
+  scrape-floorsheet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: read
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  fetch-depth: 0
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-            - name: Set up Python
-              uses: actions/setup-python@v5
-              with:
-                  python-version: "3.11"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-            - name: Cache Python dependencies
-              uses: actions/cache@v4
-              with:
-                  path: ~/.cache/pip
-                  key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
-                  restore-keys: |
-                      ${{ runner.os }}-pip-scraper-
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-scraper-
 
-            - name: Install dependencies
-              run: |
-                  python -m pip install --upgrade pip
-                  pip install -r data-scraper/requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r data-scraper/requirements.txt
 
-            - name: Create data directories
-              run: |
-                  mkdir -p data/daily data/historical data-scraper/logs
+      - name: Create data directories
+        run: |
+          mkdir -p data/daily data/historical data-scraper/logs
 
-            - name: Scrape floorsheet
-              id: scrape-floorsheet
-              run: |
-                  cd data-scraper
-                  python production_main.py --scraper floorsheet
-              continue-on-error: true
+      - name: Scrape floorsheet
+        id: scrape-floorsheet
+        run: |
+          cd data-scraper
+          python production_main.py --scraper floorsheet
+        continue-on-error: true
 
-            - name: Configure Git
-              if: always()
-              run: |
-                  git config --local user.email "action@github.com"
-                  git config --local user.name "GitHub Action - Floorsheet Scraper"
+      - name: Configure Git
+        if: always()
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action - Floorsheet Scraper"
 
-            - name: Commit floorsheet data
-              if: always()
-              run: |
-                  git add data/daily/*_floorsheet.json || true
-                  if git diff --staged --quiet; then
-                    echo "No floorsheet data to commit"
-                  else
-                    git commit -m "Floorsheet data: $(date +'%Y-%m-%d')" || true
-                    git push || true
-                  fi
+      - name: Commit floorsheet data
+        if: always()
+        run: |
+          git add data/daily/*_floorsheet.json data/historical/historical_floorsheet.json || true
+          if git diff --staged --quiet; then
+            echo "No floorsheet data to commit"
+          else
+            git commit -m "Floorsheet data: $(date +'%Y-%m-%d')" || true
+            git push || true
+          fi
 
-    # Job 3: Indices from NEPSE
-    scrape-indices:
-        runs-on: ubuntu-latest
-        timeout-minutes: 8
-        permissions:
-            contents: write
-            actions: read
+  # Job 3: Indices from NEPSE
+  scrape-indices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: write
+      actions: read
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  fetch-depth: 0
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-            - name: Set up Python
-              uses: actions/setup-python@v5
-              with:
-                  python-version: "3.11"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-            - name: Cache Python dependencies
-              uses: actions/cache@v4
-              with:
-                  path: ~/.cache/pip
-                  key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
-                  restore-keys: |
-                      ${{ runner.os }}-pip-scraper-
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-scraper-
 
-            - name: Install dependencies
-              run: |
-                  python -m pip install --upgrade pip
-                  pip install -r data-scraper/requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r data-scraper/requirements.txt
 
-            - name: Create data directories
-              run: |
-                  mkdir -p data/daily data/historical data-scraper/logs
+      - name: Create data directories
+        run: |
+          mkdir -p data/daily data/historical data-scraper/logs
 
-            - name: Scrape indices
-              id: scrape-indices
-              run: |
-                  cd data-scraper
-                  python production_main.py --scraper indices
-              continue-on-error: true
+      - name: Scrape indices
+        id: scrape-indices
+        run: |
+          cd data-scraper
+          python production_main.py --scraper indices
+        continue-on-error: true
 
-            - name: Configure Git
-              if: always()
-              run: |
-                  git config --local user.email "action@github.com"
-                  git config --local user.name "GitHub Action - Indices Scraper"
+      - name: Configure Git
+        if: always()
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action - Indices Scraper"
 
-            - name: Commit indices data
-              if: always()
-              run: |
-                  git add data/daily/*_indices.json || true
-                  if git diff --staged --quiet; then
-                    echo "No indices data to commit"
-                  else
-                    git commit -m "Indices data: $(date +'%Y-%m-%d')" || true
-                    git push || true
-                  fi
+      - name: Commit indices data
+        if: always()
+        run: |
+          git add data/daily/*_indices.json data/historical/historical_indices.json || true
+          if git diff --staged --quiet; then
+            echo "No indices data to commit"
+          else
+            git commit -m "Indices data: $(date +'%Y-%m-%d')" || true
+            git push || true
+          fi
 
-    # Job 4: NRB Banking Data
-    scrape-macro:
-        runs-on: ubuntu-latest
-        timeout-minutes: 8
-        permissions:
-            contents: write
-            actions: read
+  # Job 4: NRB Banking Data
+  scrape-macro:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: write
+      actions: read
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  fetch-depth: 0
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-            - name: Set up Python
-              uses: actions/setup-python@v5
-              with:
-                  python-version: "3.11"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-            - name: Cache Python dependencies
-              uses: actions/cache@v4
-              with:
-                  path: ~/.cache/pip
-                  key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
-                  restore-keys: |
-                      ${{ runner.os }}-pip-scraper-
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-scraper-
 
-            - name: Install dependencies
-              run: |
-                  python -m pip install --upgrade pip
-                  pip install -r data-scraper/requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r data-scraper/requirements.txt
 
-            - name: Create data directories
-              run: |
-                  mkdir -p data/daily data/historical data-scraper/logs
+      - name: Create data directories
+        run: |
+          mkdir -p data/daily data/historical data-scraper/logs
 
-            - name: Scrape NRB data
-              id: scrape-macro
-              run: |
-                  cd data-scraper
-                  python production_main.py --scraper macro
-              continue-on-error: true
+      - name: Scrape NRB data
+        id: scrape-macro
+        run: |
+          cd data-scraper
+          python production_main.py --scraper macro
+        continue-on-error: true
 
-            - name: Configure Git
-              if: always()
-              run: |
-                  git config --local user.email "action@github.com"
-                  git config --local user.name "GitHub Action - Macro Scraper"
+      - name: Configure Git
+        if: always()
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action - Macro Scraper"
 
-            - name: Commit macro data
-              if: always()
-              run: |
-                  git add data/daily/*_nrb_banking.json || true
-                  if git diff --staged --quiet; then
-                    echo "No macro data to commit"
-                  else
-                    git commit -m "Macro banking data: $(date +'%Y-%m-%d')" || true
-                    git push || true
-                  fi
+      - name: Commit macro data
+        if: always()
+        run: |
+          git add data/daily/*_macro.json data/historical/historical_macro.json || true
+          if git diff --staged --quiet; then
+            echo "No macro data to commit"
+          else
+            git commit -m "Macro banking data: $(date +'%Y-%m-%d')" || true
+            git push || true
+          fi
 
-    # Job 5: Generate Summary Report
-    generate-summary:
-        runs-on: ubuntu-latest
-        timeout-minutes: 5
-        permissions:
-            contents: write
-            actions: read
-        needs: [scrape-prices, scrape-floorsheet, scrape-indices, scrape-macro]
-        if: always() # Run even if some jobs fail
+  # Job 5: Generate Summary Report
+  generate-summary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      actions: read
+    needs: [scrape-prices, scrape-floorsheet, scrape-indices, scrape-macro]
+    if: always() # Run even if some jobs fail
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  fetch-depth: 0
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-            - name: Set up Python
-              uses: actions/setup-python@v5
-              with:
-                  python-version: "3.11"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-            - name: Generate collection summary
-              run: |
-                  python3 -c "
-                  import json
-                  import os
-                  from datetime import datetime
-                  from pathlib import Path
+      - name: Generate collection summary
+        run: |
+          cd data-scraper
+          python3 generate_summary.py
 
-                  data_dir = Path('data/daily')
-                  today = datetime.now().strftime('%Y-%m-%d')
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action - Summary Generator"
 
-                  summary = {
-                      'collection_date': today,
-                      'generated_at': datetime.now().isoformat(),
-                      'workflow': 'parallel-scraping',
-                      'jobs_completed': 4,
-                      'files': {},
-                      'totals': {
-                          'total_records': 0,
-                          'total_files': 0
-                      },
-                      'success': True
-                  }
-
-                  # Check each data type
-                  data_types = ['prices', 'floorsheet', 'indices', 'nrb_banking']
-                  successful_files = 0
-
-                  for data_type in data_types:
-                      file_pattern = f'{today}_{data_type}.json'
-                      files = list(data_dir.glob(file_pattern))
-                      
-                      if files:
-                          file_path = files[0]
-                          try:
-                              with open(file_path, 'r') as f:
-                                  data = json.load(f)
-                              
-                              if isinstance(data, list):
-                                  record_count = len(data)
-                              elif isinstance(data, dict):
-                                  record_count = sum(len(v) if isinstance(v, list) else 1 for v in data.values())
-                              else:
-                                  record_count = 1
-                              
-                              summary['files'][data_type] = {
-                                  'filename': file_path.name,
-                                  'records': record_count,
-                                  'size_mb': round(file_path.stat().st_size / (1024*1024), 2)
-                              }
-                              
-                              summary['totals']['total_records'] += record_count
-                              successful_files += 1
-                              
-                          except Exception as e:
-                              print(f'⚠️ Error reading {file_path}: {e}')
-                              summary['files'][data_type] = {'error': str(e)}
-                      else:
-                          print(f'⚠️ Missing {data_type} file')
-                          summary['files'][data_type] = {'status': 'missing'}
-
-                  summary['totals']['total_files'] = successful_files
-                  summary['success'] = successful_files >= 2  # At least 2 out of 4 files
-
-                  # Save summary
-                  os.makedirs('data/daily', exist_ok=True)
-                  with open('data/daily/collection_summary.json', 'w') as f:
-                      json.dump(summary, f, indent=2)
-
-                  # Print results
-                  print('📊 PARALLEL NEPSE DATA COLLECTION SUMMARY')
-                  print('=' * 50)
-                  print(f'📅 Date: {today}')
-                  print(f'📁 Files: {successful_files}/4')
-                  print(f'📈 Total Records: {summary[\"totals\"][\"total_records\"]}')
-                  print(f'🎯 Success: {\"✅ YES\" if summary[\"success\"] else \"❌ NO\"}')
-                  
-                  if not summary['success']:
-                      print('❌ Less than 2 scrapers succeeded')
-                      exit(1)
-                  "
-
-            - name: Configure Git
-              run: |
-                  git config --local user.email "action@github.com"
-                  git config --local user.name "GitHub Action - Summary Generator"
-
-            - name: Commit summary
-              run: |
-                  git add data/daily/collection_summary.json || true
-                  if git diff --staged --quiet; then
-                    echo "No summary to commit"
-                  else
-                    git commit -m "Collection summary: $(date +'%Y-%m-%d')" || true
-                    git push || true
-                  fi
+      - name: Commit summary
+        run: |
+          git add data/daily/collection_summary.json || true
+          if git diff --staged --quiet; then
+            echo "No summary to commit"
+          else
+            git commit -m "Collection summary: $(date +'%Y-%m-%d')" || true
+            git push || true
+          fi
