@@ -8,16 +8,8 @@ Optimized production scraper that collects comprehensive NEPSE data with minimal
 
 ### 📊 Data Sources
 
-- **ShareSansar.com**: 318+ stock prices and market indices
-- **MeroLagani.com**: 500-35,750 floorsheet transactions (with full pagination)
-
-### ⚡ Optimization Features
-
-- **90% Smaller**: Only 4 essential dependencies vs 24 in full project
-- **75% Faster**: ~2 minutes vs ~8 minutes installation time
-- **JSON-Only**: Storage efficient (~2-10MB per collection)
-- **Smart Caching**: GitHub Actions dependency caching
-- **Error Resilient**: Comprehensive retry logic and fallbacks
+- **ShareSansar.com**: stock prices and market indices
+- **MeroLagani.com**: floorsheet transactions (with full pagination)
 
 ## 🚀 Quick Start
 
@@ -37,7 +29,7 @@ FLOORSHEET_PAGES=72 python production_scraper.py
 ### GitHub Actions
 
 - **Automatic**: Runs daily at midnight UTC (5:45 AM NPT)
-- **Complete**: Collects ALL 72 pages (~35,750 transactions) by default
+- **Complete**: Collects ALL pages by default
 - **Manual**: Trigger with custom page count via workflow dispatch
 - **Fast**: ~6-12 minutes for full collection vs ~30+ minutes before optimization
 
@@ -53,16 +45,6 @@ pandas>=2.1.4            # Data processing (~30MB)
 Total: ~50MB vs 500MB+ full installation
 ```
 
-## 📈 Performance Comparison
-
-| Metric                 | Full Requirements | Optimized  | Improvement   |
-| ---------------------- | ----------------- | ---------- | ------------- |
-| Dependencies           | 24 packages       | 4 packages | 83% reduction |
-| Install Size           | ~500MB            | ~50MB      | 90% reduction |
-| Install Time           | ~8 minutes        | ~2 minutes | 75% reduction |
-| Memory Usage           | ~500MB            | ~100MB     | 80% reduction |
-| GitHub Actions Runtime | ~15 minutes       | ~5 minutes | 67% reduction |
-
 ## 🎯 Data Collection Capabilities
 
 ### Stock Prices (ShareSansar)
@@ -73,7 +55,7 @@ Total: ~50MB vs 500MB+ full installation
 
 ### Floorsheet Transactions (MeroLagani)
 
-- **Configurable pages**: 1-72 pages (500 transactions each)
+- **Configurable pages**: variable pages pages (500 transactions each)
 - **Complete transaction data**: Symbol, brokers, quantity, rate, amount
 - **JSON output**: ~2-10MB per collection (based on pages)
 

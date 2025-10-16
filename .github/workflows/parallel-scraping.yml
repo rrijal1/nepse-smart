@@ -1,0 +1,399 @@
+name: Parallel NEPSE Data Collection
+
+on:
+    schedule:
+        # Run every day at 3:00 AM NPT (9:15 PM UTC)
+        - cron: "15 21 * * *"
+
+    # Allow manual triggering
+    workflow_dispatch:
+        inputs:
+            pages:
+                description: "Number of floorsheet pages to scrape (0 = all pages)"
+                required: false
+                default: "0"
+                type: string
+
+env:
+    FLOORSHEET_PAGES: ${{ github.event.inputs.pages || '0' }}
+
+jobs:
+    # Job 1: Stock Prices from ShareSansar
+    scrape-prices:
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        permissions:
+            contents: write
+            actions: read
+        outputs:
+            prices-success: ${{ steps.scrape-prices.outcome }}
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  fetch-depth: 0
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.11"
+
+            - name: Cache Python dependencies
+              uses: actions/cache@v3
+              with:
+                  path: ~/.cache/pip
+                  key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pip-scraper-
+
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install -r data-scraper/requirements.txt
+
+            - name: Create data directories
+              run: |
+                  mkdir -p data/daily data/historical data-scraper/logs
+
+            - name: Scrape stock prices
+              id: scrape-prices
+              run: |
+                  cd data-scraper
+                  python production_main.py --scraper prices
+              continue-on-error: true
+
+            - name: Upload prices artifact
+              uses: actions/upload-artifact@v3
+              if: always()
+              with:
+                  name: prices-data
+                  path: data/daily/*_prices.json
+                  retention-days: 1
+
+    # Job 2: Floorsheet from MeroLagani
+    scrape-floorsheet:
+        runs-on: ubuntu-latest
+        timeout-minutes: 20
+        permissions:
+            contents: write
+            actions: read
+        outputs:
+            floorsheet-success: ${{ steps.scrape-floorsheet.outcome }}
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  fetch-depth: 0
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.11"
+
+            - name: Cache Python dependencies
+              uses: actions/cache@v3
+              with:
+                  path: ~/.cache/pip
+                  key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pip-scraper-
+
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install -r data-scraper/requirements.txt
+
+            - name: Create data directories
+              run: |
+                  mkdir -p data/daily data/historical data-scraper/logs
+
+            - name: Scrape floorsheet
+              id: scrape-floorsheet
+              run: |
+                  cd data-scraper
+                  python production_main.py --scraper floorsheet
+              continue-on-error: true
+
+            - name: Upload floorsheet artifact
+              uses: actions/upload-artifact@v3
+              if: always()
+              with:
+                  name: floorsheet-data
+                  path: data/daily/*_floorsheet.json
+                  retention-days: 1
+
+    # Job 3: Indices and Sub-Indices from ShareSansar
+    scrape-indices:
+        runs-on: ubuntu-latest
+        timeout-minutes: 8
+        permissions:
+            contents: write
+            actions: read
+        outputs:
+            indices-success: ${{ steps.scrape-indices.outcome }}
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  fetch-depth: 0
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.11"
+
+            - name: Cache Python dependencies
+              uses: actions/cache@v3
+              with:
+                  path: ~/.cache/pip
+                  key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pip-scraper-
+
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install -r data-scraper/requirements.txt
+
+            - name: Create data directories
+              run: |
+                  mkdir -p data/daily data/historical data-scraper/logs
+
+            - name: Scrape indices
+              id: scrape-indices
+              run: |
+                  cd data-scraper
+                  python production_main.py --scraper indices
+              continue-on-error: true
+
+            - name: Upload indices artifact
+              uses: actions/upload-artifact@v3
+              if: always()
+              with:
+                  name: indices-data
+                  path: data/daily/*_indices.json
+                  retention-days: 1
+
+    # Job 4: NRB Banking Data
+    scrape-nrb:
+        runs-on: ubuntu-latest
+        timeout-minutes: 8
+        permissions:
+            contents: write
+            actions: read
+        outputs:
+            nrb-success: ${{ steps.scrape-nrb.outcome }}
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  fetch-depth: 0
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.11"
+
+            - name: Cache Python dependencies
+              uses: actions/cache@v3
+              with:
+                  path: ~/.cache/pip
+                  key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pip-scraper-
+
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install -r data-scraper/requirements.txt
+
+            - name: Create data directories
+              run: |
+                  mkdir -p data/daily data/historical data-scraper/logs
+
+            - name: Scrape NRB data
+              id: scrape-nrb
+              run: |
+                  cd data-scraper
+                  python production_main.py --scraper macro
+              continue-on-error: true
+
+            - name: Upload NRB artifact
+              uses: actions/upload-artifact@v3
+              if: always()
+              with:
+                  name: nrb-data
+                  path: data/daily/*_nrb_banking.json
+                  retention-days: 1
+
+    # Job 5: Consolidate and Commit All Data
+    consolidate-and-commit:
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        permissions:
+            contents: write
+            actions: read
+        needs: [scrape-prices, scrape-floorsheet, scrape-indices, scrape-nrb]
+        if: always() # Run even if some jobs fail
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  fetch-depth: 0
+
+            - name: Create data directories
+              run: |
+                  mkdir -p data/daily data/historical
+
+            - name: Download all artifacts
+              uses: actions/download-artifact@v3
+              with:
+                  path: artifacts/
+
+            - name: Consolidate data files
+              run: |
+                  echo "📦 Consolidating scraped data..."
+
+                  # Move all JSON files to data/daily
+                  find artifacts/ -name "*.json" -exec cp {} data/daily/ \;
+
+                  # List what we have
+                  echo "📁 Files collected:"
+                  ls -la data/daily/
+
+            - name: Generate comprehensive summary
+              run: |
+                  python3 -c "
+                  import json
+                  import os
+                  from datetime import datetime
+                  from pathlib import Path
+
+                  data_dir = Path('data/daily')
+                  today = datetime.now().strftime('%Y-%m-%d')
+
+                  summary = {
+                      'collection_date': today,
+                      'generated_at': datetime.now().isoformat(),
+                      'jobs_status': {
+                          'prices': '${{ needs.scrape-prices.outputs.prices-success }}',
+                          'floorsheet': '${{ needs.scrape-floorsheet.outputs.floorsheet-success }}',
+                          'indices': '${{ needs.scrape-indices.outputs.indices-success }}',
+                          'nrb': '${{ needs.scrape-nrb.outputs.nrb-success }}'
+                      },
+                      'files': {},
+                      'totals': {
+                          'prices': 0,
+                          'floorsheet': 0,
+                          'indices': 0,
+                          'nrb_indicators': 0,
+                          'total_records': 0
+                      },
+                      'success': True
+                  }
+
+                  # Check each data type
+                  data_types = ['prices', 'floorsheet', 'indices', 'nrb_banking']
+
+                  for data_type in data_types:
+                      file_pattern = f'{today}_{data_type}.json'
+                      files = list(data_dir.glob(file_pattern))
+                      
+                      if files:
+                          file_path = files[0]
+                          try:
+                              with open(file_path, 'r') as f:
+                                  data = json.load(f)
+                              
+                              if data_type == 'indices':
+                                  main_count = len(data.get('main_indices', []))
+                                  sub_count = len(data.get('sub_indices', []))
+                                  record_count = main_count + sub_count
+                              elif data_type == 'nrb_banking':
+                                  indicators_count = len(data.get('indicators', []))
+                                  forex_count = len(data.get('foreign_exchange', []))
+                                  record_count = indicators_count + forex_count
+                              else:
+                                  record_count = len(data) if isinstance(data, list) else 1
+                              
+                              summary['files'][data_type] = {
+                                  'filename': file_path.name,
+                                  'records': record_count,
+                                  'size_mb': round(file_path.stat().st_size / (1024*1024), 2)
+                              }
+                              
+                              if data_type in ['prices', 'floorsheet', 'indices']:
+                                  summary['totals'][data_type] = record_count
+                              elif data_type == 'nrb_banking':
+                                  summary['totals']['nrb_indicators'] = record_count
+                              
+                              summary['totals']['total_records'] += record_count
+                              
+                          except Exception as e:
+                              print(f'⚠️ Error reading {file_path}: {e}')
+                              summary['files'][data_type] = {'error': str(e)}
+                      else:
+                          print(f'⚠️ Missing {data_type} file')
+                          summary['files'][data_type] = {'status': 'missing'}
+
+                  # Check overall success (at least 2 out of 4 jobs successful)
+                  success_count = len([status for status in summary['jobs_status'].values() if status == 'success'])  
+                  summary['success'] = success_count >= 2
+
+                  # Save summary
+                  with open('data/daily/parallel_collection_summary.json', 'w') as f:
+                      json.dump(summary, f, indent=2)
+
+                  # Print results
+                  print('📊 PARALLEL NEPSE DATA COLLECTION SUMMARY')
+                  print('=' * 50)
+                  print('🔄 Job Status:')
+                  for job, status in summary['jobs_status'].items():
+                      icon = '✅' if status == 'success' else '❌'
+                      print(f'  {icon} {job.title()}: {status}')
+
+                  print()
+                  print('📁 Data Files:')
+                  for data_type, info in summary['files'].items():
+                      if 'records' in info:
+                          print(f'  ✅ {data_type.replace(\"_\", \" \").title()}: {info[\"records\"]} records ({info[\"size_mb\"]}MB)')
+                      elif 'error' in info:
+                          print(f'  ❌ {data_type.replace(\"_\", \" \").title()}: Error - {info[\"error\"]}')
+                      else:
+                          print(f'  ⚠️ {data_type.replace(\"_\", \" \").title()}: Missing')
+
+                  print(f'')
+                  print(f'📈 Total Records: {summary[\"totals\"][\"total_records\"]}')
+                  print(f'🎯 Collection Success: {\"✅ YES\" if summary[\"success\"] else \"❌ NO\"}')
+                  print(f'⚡ Jobs Successful: {success_count}/4')
+
+                  # Exit with error if critical failure (less than 2 jobs successful)
+                  if not summary['success']:
+                      print('❌ Critical failure: Too many jobs failed')
+                      exit(1)
+                  "
+
+            - name: Configure Git
+              run: |
+                  git config --local user.email "action@github.com"
+                  git config --local user.name "GitHub Action - Parallel Collection"
+
+            - name: Commit and push all data
+              run: |
+                  git add data/
+                  if git diff --staged --quiet; then
+                    echo "No new data to commit"
+                  else
+                    git commit -m "Parallel data collection: $(date +'%Y-%m-%d') - 4 scrapers"
+                    git push
+                  fi

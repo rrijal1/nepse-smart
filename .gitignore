@@ -40,6 +40,15 @@ nepse-smart/
 *.log
 logs/
 
+# Test Files and Temporary Data
+test_*.py
+test_*.json
+enhanced_*.py
+enhanced_*.json
+parallel_test_*.json
+parallel_simulation.py
+*_test_*.json
+
 # Testing & Coverage
 .coverage
 coverage/
