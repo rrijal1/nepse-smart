@@ -19,19 +19,11 @@
               {{ getCurrentSectionDescription() }}
             </p>
           </div>
-          <div class="flex items-center gap-3">
-            <button
-              class="px-4 py-2 bg-[rgb(var(--color-nepse-primary))] text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              <PlusIcon class="w-4 h-4 inline mr-2" />
-              Add to Watchlist
-            </button>
-          </div>
         </div>
       </div>
 
       <!-- Dynamic Content -->
-      <div class="p-6 overflow-y-auto" style="height: calc(100% - 100px);">
+      <div class="p-6 overflow-y-auto" style="height: calc(100% - 100px)">
         <WatchlistSection v-if="activeSection === 'watchlist'" />
         <MyNewsSection v-if="activeSection === 'news'" />
         <FundamentalsSection v-if="activeSection === 'fundamentals'" />
@@ -50,21 +42,20 @@ import MyNewsSection from "../components/MyNewsSection.vue";
 import FundamentalsSection from "../components/FundamentalsSection.vue";
 import TechnicalSection from "../components/TechnicalSection.vue";
 import PortfolioSection from "../components/PortfolioSection.vue";
-import PlusIcon from "../components/icons/PlusIcon.vue";
 import EyeIcon from "../components/icons/EyeIcon.vue";
 import NewsIcon from "../components/icons/NewsIcon.vue";
 import DocumentIcon from "../components/icons/DocumentIcon.vue";
 import ChartIcon from "../components/icons/ChartIcon.vue";
 import PortfolioIcon from "../components/icons/PortfolioIcon.vue";
 
-const activeSection = ref("watchlist");
+const activeSection = ref("portfolio");
 
 const sidebarItems = [
-  { id: "watchlist", label: "My Watchlist", icon: EyeIcon },
+  { id: "portfolio", label: "Portfolio", icon: PortfolioIcon },
   { id: "news", label: "News & Updates", icon: NewsIcon, badge: "12" },
   { id: "fundamentals", label: "Fundamentals", icon: DocumentIcon },
   { id: "technical", label: "Technical Analysis", icon: ChartIcon },
-  { id: "portfolio", label: "Portfolio", icon: PortfolioIcon },
+  { id: "watchlist", label: "My Watchlist", icon: EyeIcon },
 ];
 
 const getCurrentSectionTitle = () => {

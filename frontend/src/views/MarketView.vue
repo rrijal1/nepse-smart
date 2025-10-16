@@ -1,7 +1,10 @@
 <template>
   <div class="flex h-[calc(100vh-120px)]">
     <!-- Left Sidebar -->
-    <Sidebar v-model:activeSection="activeSection" :sidebarItems="sidebarItems" />
+    <Sidebar
+      v-model:activeSection="activeSection"
+      :sidebarItems="sidebarItems"
+    />
 
     <!-- Main Content Area -->
     <div class="flex-1 bg-white rounded-lg shadow-lg overflow-hidden">
@@ -46,7 +49,7 @@
       </div>
 
       <!-- Dynamic Content -->
-      <div class="p-6 overflow-y-auto" style="height: calc(100% - 100px);">
+      <div class="p-6 overflow-y-auto" style="height: calc(100% - 100px)">
         <IndicesSection v-if="activeSection === 'indices'" />
         <TrendingStocksSection v-if="activeSection === 'trending'" />
         <NewsSection v-if="activeSection === 'news'" />

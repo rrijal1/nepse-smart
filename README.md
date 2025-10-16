@@ -72,13 +72,89 @@ Dashboard will open in your browser at: `http://localhost:8501`
 git clone <repository-url>
 cd nepse-smart
 
-# 2. Start all services
+# 2. Install Python dependencies
+pip3 install -r requirements.txt
+
+# 3. Start all services (PostgreSQL, backend, frontend)
 docker-compose up --build
 
-# 3. Access the application
+# 4. Initialize database (first time only)
+# In another terminal:
+cd backend
+python3 init_db.py
+
+# 5. Access the application
 # Frontend: http://localhost:3000
 # Backend API: http://localhost:8000
 # API Docs: http://localhost:8000/docs
+# PostgreSQL: localhost:5432
+```
+
+### Database Access
+
+To view and manage PostgreSQL data:
+
+````bash
+# Method 1: Connect using Docker (Recommended)
+docker exec -it nepse-postgres psql -U nepse_user -d nepse_db
+
+
+**PostgreSQL psql Cheat Sheet:**
+
+```sql
+-- Navigation Commands
+\dt                          -- List all tables
+\d watchlist                 -- Describe watchlist table structure
+\l                           -- List all databases
+\du                          -- List users
+\x                           -- Toggle expanded display (better for wide tables)
+\q                           -- Quit psql
+
+-- View Data
+SELECT * FROM watchlist;                                    -- View all watchlist items
+SELECT * FROM portfolio;                                    -- View all portfolio holdings
+SELECT * FROM transactions ORDER BY transaction_date DESC;  -- View recent transactions
+
+-- Add to Watchlist
+INSERT INTO watchlist (symbol, added_date, favorite, notes)
+VALUES ('NABIL', CURRENT_DATE, true, 'Banking sector leader');
+
+-- Add to Portfolio
+INSERT INTO portfolio (symbol, quantity, avg_price, buy_date, notes)
+VALUES ('NABIL', 100, 1200.50, '2025-10-15', 'Long-term hold');
+
+-- Update Watchlist (Toggle favorite)
+UPDATE watchlist SET favorite = NOT favorite WHERE symbol = 'NABIL';
+
+-- Update Portfolio (Add more shares)
+UPDATE portfolio
+SET quantity = quantity + 50,
+    avg_price = ((avg_price * quantity) + (1250.00 * 50)) / (quantity + 50)
+WHERE symbol = 'NABIL';
+
+-- Delete Operations
+DELETE FROM watchlist WHERE symbol = 'NABIL';
+DELETE FROM portfolio WHERE id = 1;
+
+-- Analytics Queries
+SELECT symbol, quantity, avg_price,
+       (quantity * avg_price) as invested_amount
+FROM portfolio ORDER BY invested_amount DESC;
+
+SELECT COUNT(*) as total_stocks,
+       SUM(quantity * avg_price) as total_invested
+FROM portfolio;
+````
+
+### Quick Portfolio Setup
+
+For setting up just the portfolio management feature:
+
+```bash
+# Automated setup
+./setup_portfolio.sh
+
+# Or manual setup - see SETUP_PORTFOLIO.md
 ```
 
 ### Local Development
@@ -115,15 +191,17 @@ npm run dev
 
 ## 🛠️ Technology Stack
 
-| Area               | Technology                                         |
-| ------------------ | -------------------------------------------------- |
-| **Frontend**       | Vue 3, TypeScript, Vite, Tailwind CSS, Axios       |
-| **Backend**        | FastAPI, Python 3.11+, Uvicorn, NepseUnofficialApi |
-| **Infrastructure** | Docker, Docker Compose, Nginx, Redis               |
+| Area               | Technology                                   |
+| ------------------ | -------------------------------------------- |
+| **Frontend**       | Vue 3, TypeScript, Vite, Tailwind CSS, Axios |
+| **Backend**        | FastAPI, Python 3.11+, Uvicorn, SQLAlchemy   |
+| **Database**       | PostgreSQL 15, psycopg2                      |
+| **Infrastructure** | Docker, Docker Compose, Nginx                |
 
 ## ✨ Core Features
 
 - **Live Market Data:** Real-time stock prices, top gainers/losers, and market status.
+- **Portfolio & Watchlist Management:** Track your holdings, monitor P&L, and manage watchlists with PostgreSQL persistence.
 - **Trading Signals & Alerts:** Automated buy/sell signals and pattern recognition.
 - **Technical & Fundamental Analysis:** Advanced charting, stock screening, and valuation tools.
 - **Broker Analytics:** Institutional flow tracking and bulk transaction alerts.
@@ -135,11 +213,21 @@ npm run dev
 ```
 nepse-smart/
 ├── frontend/              # Vue 3 + Tailwind CSS frontend
+│   └── src/services/      # API service layer
 ├── backend/               # FastAPI backend
-├── api/                   # NepseUnofficialApi library
+│   ├── models.py          # SQLAlchemy database models
+│   ├── schemas.py         # Pydantic schemas
+│   ├── database.py        # Database configuration
+│   ├── portfolio_routes.py # Portfolio API endpoints
+│   └── init_db.py         # Database initialization
+├── data/                  # Scraped market data
+├── data-scraper/          # Data collection scripts
 ├── docker-compose.yml     # Development environment
 ├── docker-compose.prod.yml # Production environment
-└── README.md
+├── requirements.txt       # Python dependencies
+├── setup_portfolio.sh     # Portfolio feature setup script
+├── PORTFOLIO_FEATURE.md   # Portfolio feature documentation
+└── SETUP_PORTFOLIO.md     # Setup instructions
 ```
 
 ## ⚡ Scalability and Performance

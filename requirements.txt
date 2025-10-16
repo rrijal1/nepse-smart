@@ -9,6 +9,11 @@ python-multipart>=0.0.6
 # Data Models & Validation
 pydantic>=2.5.0,<3.0.0
 
+# Database
+sqlalchemy>=2.0.0,<3.0.0
+psycopg2-binary>=2.9.9
+alembic>=1.13.0
+
 # HTTP Clients & Networking
 httpx[http2]>=0.25.0
 requests>=2.31.0

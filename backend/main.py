@@ -4,6 +4,7 @@ Updated FastAPI Backend - Using Our Own Scraped Data
 - Replaces unofficial NEPSE API dependency
 - Uses comprehensive scraped historical data
 - Provides enhanced market data endpoints
+- Portfolio and Watchlist management with PostgreSQL
 """
 
 import sys
@@ -19,6 +20,10 @@ import logging
 
 # Import our new data service
 from nepse_data_service import NepseDataService
+
+# Import database initialization
+from database import engine, Base
+from portfolio_routes import router as portfolio_router
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -39,8 +44,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Include portfolio & watchlist routes
+app.include_router(portfolio_router)
+
 # Initialize our data service
 nepse_data = NepseDataService(data_path="data")
+
+@app.on_event("startup")
+async def startup_event():
+    """Run on application startup"""
+    try:
+        Base.metadata.create_all(bind=engine)
+        logger.info("✅ Database tables initialized")
+    except Exception as e:
+        logger.error(f"❌ Database initialization error: {e}")
 
 @app.get("/", tags=["System"])
 def read_root():
@@ -64,6 +81,12 @@ def read_root():
             "historical": [
                 "/api/historical/{data_type}",
                 "/api/company-history/{symbol}"
+            ],
+            "portfolio": [
+                "/api/watchlist",
+                "/api/portfolio",
+                "/api/portfolio/summary",
+                "/api/transactions"
             ],
             "system": [
                 "/api/system-status",

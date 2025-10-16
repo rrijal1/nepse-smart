@@ -1,4 +1,23 @@
 services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: nepse-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=nepse_user
+      - POSTGRES_PASSWORD=nepse_password
+      - POSTGRES_DB=nepse_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nepse_user -d nepse_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   # FastAPI Backend (Development)
   backend:
     build:
@@ -9,6 +28,8 @@ services:
       - "8000:8000"
     env_file:
       - ./.env
+    environment:
+      - DATABASE_URL=postgresql://nepse_user:nepse_password@postgres:5432/nepse_db
     volumes:
       # Live reload for development
       - ./backend:/app/backend
@@ -28,6 +49,9 @@ services:
         "8000",
         "--reload",
       ]
+    depends_on:
+      postgres:
+        condition: service_healthy
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/"]
@@ -45,14 +69,18 @@ services:
       - "3000:3000"
     environment:
       - VITE_API_BASE_URL=http://backend:8000
+      - NODE_ENV=development
     volumes:
       - ./frontend:/app
       - /app/node_modules
     command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
     depends_on:
-      backend:
-        condition: service_healthy
+      - backend
     restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
 
 networks:
   default:
