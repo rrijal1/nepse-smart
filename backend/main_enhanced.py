@@ -40,7 +40,7 @@ app.add_middleware(
 )
 
 # Initialize our data service
-nepse_data = NepseDataService(data_path="../data")
+nepse_data = NepseDataService(data_path="data")
 
 @app.get("/", tags=["System"])
 def read_root():

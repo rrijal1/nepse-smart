@@ -11,20 +11,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-# Copy and install backend requirements
-COPY backend/requirements.txt /tmp/backend-requirements.txt
-RUN pip install --no-cache-dir -r /tmp/backend-requirements.txt
-
-# Copy and install API requirements
-COPY api/requirements.txt /tmp/api-requirements.txt
-RUN pip install --no-cache-dir -r /tmp/api-requirements.txt
-
-# Install NEPSE package
-COPY api/ ./api/
-RUN cd ./api && pip install -e .
+# Copy and install requirements
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 # Copy application files
-COPY backend/main.py backend/start.py 
+COPY backend/main.py backend/start.py backend/nepse_data_service.py /app/
+COPY data/ /app/data/ 
 # Create non-root user
 RUN useradd --create-home --shell /bin/bash nepse \
     && chown -R nepse:nepse /app

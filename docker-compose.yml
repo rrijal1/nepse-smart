@@ -13,6 +13,7 @@ services:
       # Live reload for development
       - ./backend:/app/backend
       - ./api:/app/api
+      - ./data:/app/data
       # Mount Google Cloud credentials
       - ~/.config/gcloud:/home/nepse/.config/gcloud:ro
     command:

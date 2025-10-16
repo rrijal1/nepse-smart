@@ -28,10 +28,10 @@
             </div>
             <div class="text-right">
               <div class="text-green-600 font-semibold">
-                +{{ stock.percentageChange }}%
+                +{{ stock.diff_percent }}%
               </div>
               <div class="text-sm text-gray-600">
-                +{{ stock.pointChange }}
+                +{{ stock.diff }}
               </div>
             </div>
           </div>
@@ -62,10 +62,10 @@
             </div>
             <div class="text-right">
               <div class="text-red-600 font-semibold">
-                {{ stock.percentageChange }}%
+                {{ stock.diff_percent }}%
               </div>
               <div class="text-sm text-gray-600">
-                {{ stock.pointChange }}
+                {{ stock.diff }}
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@
 
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
-import { fetchTopGainers, fetchTopLosers } from "../services/marketData";
+import { fetchTopGainers, fetchTopLosers } from "../services/marketData_enhanced";
 import TrendingUpIcon from "./icons/TrendingUpIcon.vue";
 import TrendingDownIcon from "./icons/TrendingDownIcon.vue";
 import Spinner from "./Spinner.vue";
@@ -101,7 +101,7 @@ const fetchMarketData = async () => {
   else {
     // Keep using sample data if API is not available
     topGainers.splice(0, topGainers.length, 
-        ...[{ symbol: "NABIL", ltp: 1235, pointChange: 45, percentageChange: 3.78 }, { symbol: "SCBL", ltp: 567, pointChange: 23, percentageChange: 4.23 }, { symbol: "HBL", ltp: 689, pointChange: 28, percentageChange: 4.24 }, { symbol: "EBL", ltp: 890, pointChange: 35, percentageChange: 4.09 }, { symbol: "BOKL", ltp: 345, pointChange: 15, percentageChange: 4.55 }, { symbol: "MBL", ltp: 456, pointChange: 18, percentageChange: 4.11 }, { symbol: "CBL", ltp: 278, pointChange: 11, percentageChange: 4.12 }, { symbol: "PRVU", ltp: 567, pointChange: 22, percentageChange: 4.04 }]
+        ...[{ symbol: "NABIL", ltp: 1235, diff: 45, diff_percent: 3.78 }, { symbol: "SCBL", ltp: 567, diff: 23, diff_percent: 4.23 }, { symbol: "HBL", ltp: 689, diff: 28, diff_percent: 4.24 }, { symbol: "EBL", ltp: 890, diff: 35, diff_percent: 4.09 }, { symbol: "BOKL", ltp: 345, diff: 15, diff_percent: 4.55 }, { symbol: "MBL", ltp: 456, diff: 18, diff_percent: 4.11 }, { symbol: "CBL", ltp: 278, diff: 11, diff_percent: 4.12 }, { symbol: "PRVU", ltp: 567, diff: 22, diff_percent: 4.04 }]
     );
   }
 
@@ -111,7 +111,7 @@ const fetchMarketData = async () => {
   else {
     // Keep using sample data if API is not available
     topLosers.splice(0, topLosers.length, 
-        ...[{ symbol: "UPPER", ltp: 456, pointChange: -23, percentageChange: -4.79 }, { symbol: "CHCL", ltp: 567, pointChange: -28, percentageChange: -4.7 }, { symbol: "AKPL", ltp: 234, pointChange: -12, percentageChange: -4.88 }, { symbol: "UMHL", ltp: 345, pointChange: -17, percentageChange: -4.69 }, { symbol: "NYADI", ltp: 789, pointChange: -38, percentageChange: -4.59 }, { symbol: "KKHC", ltp: 123, pointChange: -6, percentageChange: -4.65 }, { symbol: "RHPL", ltp: 456, pointChange: -22, percentageChange: -4.61 }, { symbol: "SHEL", ltp: 234, pointChange: -11, percentageChange: -4.49 }]
+        ...[{ symbol: "UPPER", ltp: 456, diff: -23, diff_percent: -4.79 }, { symbol: "CHCL", ltp: 567, diff: -28, diff_percent: -4.7 }, { symbol: "AKPL", ltp: 234, diff: -12, diff_percent: -4.88 }, { symbol: "UMHL", ltp: 345, diff: -17, diff_percent: -4.69 }, { symbol: "NYADI", ltp: 789, diff: -38, diff_percent: -4.59 }, { symbol: "KKHC", ltp: 123, diff: -6, diff_percent: -4.65 }, { symbol: "RHPL", ltp: 456, diff: -22, diff_percent: -4.61 }, { symbol: "SHEL", ltp: 234, diff: -11, diff_percent: -4.49 }]
     );
   }
   loading.value = false;

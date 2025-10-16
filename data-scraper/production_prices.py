@@ -39,7 +39,7 @@ class ProductionPricesScraper(ScraperBase):
                 return None
             
             # Validate data
-            validation = self.validate_data(stock_data, ['symbol', 'ltp'], min_records=300)
+            validation = self.validate_data(stock_data, ['symbol', 'ltp', 'high', 'low', 'open', 'close'], min_records=300)
             if not validation['valid']:
                 self.log_error(f"Data validation failed: {validation['errors']}")
                 return None
@@ -55,8 +55,8 @@ class ProductionPricesScraper(ScraperBase):
         """Extract stock data from HTML table"""
         stock_data = []
         
-        # Find the main stock table
-        table = soup.find('table', {'id': 'myTableCopy'})
+        # Find the main stock table - updated to use correct table ID
+        table = soup.find('table', {'id': 'headFixed'})
         if not table:
             # Fallback: look for any table with stock-like headers
             tables = soup.find_all('table')
@@ -70,27 +70,51 @@ class ProductionPricesScraper(ScraperBase):
             self.log_error("Could not find stock prices table")
             return []
         
-        # Extract table rows
-        rows = table.find_all('tr')[1:]  # Skip header row
+        # Extract table rows (skip header row)
+        rows = table.find_all('tr')[1:]
         
         for row in rows:
             cols = row.find_all(['td', 'th'])
-            if len(cols) >= 7:  # Minimum columns expected
+            if len(cols) >= 24:  # Full table should have 24 columns
                 try:
                     stock_info = {
+                        # Basic identifiers
+                        's_no': clean_numeric_value(cols[0].get_text(strip=True)),
                         'symbol': cols[1].get_text(strip=True),
-                        'ltp': clean_numeric_value(cols[2].get_text(strip=True)),
-                        'high': clean_numeric_value(cols[3].get_text(strip=True)),
-                        'low': clean_numeric_value(cols[4].get_text(strip=True)),
-                        'open': clean_numeric_value(cols[5].get_text(strip=True)),
-                        'qty': clean_numeric_value(cols[6].get_text(strip=True)),
-                        'turnover': clean_numeric_value(cols[7].get_text(strip=True)) if len(cols) > 7 else None,
-                        'trans': clean_numeric_value(cols[8].get_text(strip=True)) if len(cols) > 8 else None,
-                        'diff': clean_numeric_value(cols[9].get_text(strip=True)) if len(cols) > 9 else None,
-                        'range': cols[10].get_text(strip=True) if len(cols) > 10 else None,
-                        'diff_percent': clean_numeric_value(cols[11].get_text(strip=True)) if len(cols) > 11 else None,
-                        'last_trade_time': cols[12].get_text(strip=True) if len(cols) > 12 else None,
-                        'prev_close': clean_numeric_value(cols[13].get_text(strip=True)) if len(cols) > 13 else None,
+                        'conf': cols[2].get_text(strip=True),
+                        
+                        # Price data
+                        'open': clean_numeric_value(cols[3].get_text(strip=True)),
+                        'high': clean_numeric_value(cols[4].get_text(strip=True)),
+                        'low': clean_numeric_value(cols[5].get_text(strip=True)),
+                        'close': clean_numeric_value(cols[6].get_text(strip=True)),
+                        'ltp': clean_numeric_value(cols[7].get_text(strip=True)),
+                        
+                        # Change calculations
+                        'close_minus_ltp': clean_numeric_value(cols[8].get_text(strip=True)),
+                        'close_minus_ltp_percent': clean_numeric_value(cols[9].get_text(strip=True)),
+                        
+                        # Trading data
+                        'vwap': clean_numeric_value(cols[10].get_text(strip=True)),
+                        'vol': clean_numeric_value(cols[11].get_text(strip=True)),
+                        'prev_close': clean_numeric_value(cols[12].get_text(strip=True)),
+                        'turnover': clean_numeric_value(cols[13].get_text(strip=True)),
+                        'trans': clean_numeric_value(cols[14].get_text(strip=True)),
+                        
+                        # Additional metrics
+                        'diff': clean_numeric_value(cols[15].get_text(strip=True)),
+                        'range': clean_numeric_value(cols[16].get_text(strip=True)),
+                        'diff_percent': clean_numeric_value(cols[17].get_text(strip=True)),
+                        'range_percent': clean_numeric_value(cols[18].get_text(strip=True)),
+                        'vwap_percent': clean_numeric_value(cols[19].get_text(strip=True)),
+                        
+                        # Historical data
+                        '120_days': clean_numeric_value(cols[20].get_text(strip=True)),
+                        '180_days': clean_numeric_value(cols[21].get_text(strip=True)),
+                        '52_weeks_high': clean_numeric_value(cols[22].get_text(strip=True)),
+                        '52_weeks_low': clean_numeric_value(cols[23].get_text(strip=True)),
+                        
+                        # Metadata
                         'date': datetime.now().strftime('%Y-%m-%d'),
                         'source': 'sharesansar'
                     }

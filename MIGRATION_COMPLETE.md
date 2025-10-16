@@ -9,6 +9,7 @@ We have successfully transitioned from the **unofficial NEPSE API** to using our
 ## 🔄 **What Changed**
 
 ### **Before (Unofficial API)**
+
 ```python
 # Old backend using unofficial NEPSE API
 from nepse import Nepse
@@ -17,7 +18,8 @@ data = nepse.getPriceVolume()  # External dependency
 ```
 
 ### **After (Our Own Data)**
-```python  
+
+```python
 # New backend using our scraped data
 from nepse_data_service import NepseDataService
 nepse_data = NepseDataService()
@@ -29,14 +31,16 @@ data = nepse_data.get_price_volume()  # Our own data
 ## 📈 **Enhanced Capabilities**
 
 ### **Data Sources**
-| Type | Source | Records | Update Frequency |
-|------|--------|---------|------------------|
-| **Prices** | ShareSansar | 311 stocks | Daily |
-| **Indices** | ShareSansar | 17 indices/sub-indices | Daily |
-| **Macro** | NRB Homepage | 16 economic indicators | Daily |
-| **Floorsheet** | MeroLagani | ~36,000 transactions | Daily |
+
+| Type           | Source       | Records                | Update Frequency |
+| -------------- | ------------ | ---------------------- | ---------------- |
+| **Prices**     | ShareSansar  | 311 stocks             | Daily            |
+| **Indices**    | ShareSansar  | 17 indices/sub-indices | Daily            |
+| **Macro**      | NRB Homepage | 16 economic indicators | Daily            |
+| **Floorsheet** | MeroLagani   | ~36,000 transactions   | Daily            |
 
 ### **New API Endpoints**
+
 - ✅ **Historical Data**: `/api/historical/{data_type}?days=30`
 - ✅ **Company History**: `/api/company-history/{symbol}?days=30`
 - ✅ **Macro Data**: `/api/macro-data` (forex, banking, rates)
@@ -50,6 +54,7 @@ data = nepse_data.get_price_volume()  # Our own data
 ## 🔧 **Technical Architecture**
 
 ### **Data Flow**
+
 ```
 GitHub Actions (Parallel) → Data Scrapers → Historical Storage → API Service → Frontend
      ↓
@@ -57,7 +62,7 @@ Daily Schedule (3 AM NPT)
      ↓
 4 Parallel Jobs:
 - Prices (ShareSansar)
-- Indices (ShareSansar) 
+- Indices (ShareSansar)
 - Macro (NRB)
 - Floorsheet (MeroLagani)
      ↓
@@ -71,6 +76,7 @@ Vue.js Frontend
 ```
 
 ### **File Structure**
+
 ```
 nepse-smart/
 ├── data/
@@ -85,7 +91,7 @@ nepse-smart/
 │       └── historical_macro.json       (All historical macro)
 ├── data-scraper/                  # Production scrapers
 │   ├── production_prices.py            (ShareSansar stocks)
-│   ├── production_indices.py           (NEPSE indices)  
+│   ├── production_indices.py           (NEPSE indices)
 │   ├── production_macro.py             (NRB macro data)
 │   ├── shared_utils.py                 (Common utilities)
 │   └── generate_summary.py             (Enhanced reporting)
@@ -103,18 +109,21 @@ nepse-smart/
 ## 🎯 **Key Benefits**
 
 ### **Reliability**
+
 - ✅ **No external API dependencies** - Own scraped data
 - ✅ **Duplicate prevention** - Smart historical data management
 - ✅ **Error resilience** - Comprehensive error handling
 - ✅ **Data validation** - Quality checks at every step
 
-### **Performance** 
+### **Performance**
+
 - ✅ **Caching system** - 5-minute cache for frequent requests
 - ✅ **Parallel scraping** - 47% faster than sequential
 - ✅ **Optimized queries** - Direct JSON file access
 - ✅ **Background processing** - GitHub Actions automation
 
 ### **Features**
+
 - ✅ **Historical data** - Complete price/index/macro history
 - ✅ **System monitoring** - Health checks and quality metrics
 - ✅ **Search capabilities** - Stock/company search
@@ -126,6 +135,7 @@ nepse-smart/
 ## 📊 **Current Data Coverage**
 
 ### **Daily Collection (Latest)**
+
 ```json
 {
   "collection_date": "2025-10-16",
@@ -133,7 +143,7 @@ nepse-smart/
   "successful_scrapers": "3/4",
   "data_sources": {
     "prices": "✅ 311 stocks",
-    "indices": "✅ 17 indices", 
+    "indices": "✅ 17 indices",
     "macro": "✅ 16 indicators",
     "floorsheet": "⚠️ Website issue"
   }
@@ -141,6 +151,7 @@ nepse-smart/
 ```
 
 ### **Historical Accumulation**
+
 - **Prices**: All stock price history with OHLC data
 - **Indices**: NEPSE index and sub-indices performance
 - **Macro**: Economic indicators, forex rates, banking data
@@ -151,6 +162,7 @@ nepse-smart/
 ## 🚀 **Usage Examples**
 
 ### **Backend API Usage**
+
 ```python
 # Market summary
 GET /api/summary
@@ -164,7 +176,7 @@ GET /api/historical/prices?days=30
 {
   "data_type": "prices",
   "count": 9330,
-  "date_range": {"from": "2025-09-16", "to": "2025-10-16"}  
+  "date_range": {"from": "2025-09-16", "to": "2025-10-16"}
 }
 
 # Company history
@@ -177,16 +189,17 @@ GET /api/company-history/NABIL?days=7
 ```
 
 ### **Frontend Integration**
+
 ```typescript
 // Enhanced service usage
-import { fetchMarketSummary, fetchHistoricalData } from './marketData_enhanced';
+import { fetchMarketSummary, fetchHistoricalData } from "./marketData_enhanced";
 
 // Get market summary
 const summary = await fetchMarketSummary();
 console.log(`NEPSE: ${summary.nepse_index.value}`);
 
-// Get 30-day price history  
-const history = await fetchHistoricalData('prices', 30);
+// Get 30-day price history
+const history = await fetchHistoricalData("prices", 30);
 console.log(`${history.count} historical records`);
 ```
 
@@ -195,17 +208,19 @@ console.log(`${history.count} historical records`);
 ## 🔧 **Deployment & Monitoring**
 
 ### **GitHub Actions Workflow**
+
 - **Schedule**: Daily at 3:00 AM NPT (21:15 UTC)
 - **Jobs**: 4 parallel scrapers + summary generation
 - **Duration**: ~4 seconds total runtime
 - **Status**: All working except floorsheet (website issue)
 
 ### **System Health**
+
 ```bash
 # Check system status
 curl http://localhost:8000/api/system-status
 
-# Check data freshness  
+# Check data freshness
 curl http://localhost:8000/api/data-freshness
 
 # Check data quality
@@ -217,7 +232,7 @@ curl http://localhost:8000/api/data-quality
 ## ✅ **Migration Checklist**
 
 - [x] **Data Scrapers**: All 4 scrapers working with historical data
-- [x] **Backend Migration**: Transitioned to own data service  
+- [x] **Backend Migration**: Transitioned to own data service
 - [x] **API Compatibility**: All existing endpoints maintained
 - [x] **Enhanced Features**: Historical data, search, monitoring
 - [x] **Frontend Service**: Enhanced TypeScript service created
@@ -232,7 +247,7 @@ curl http://localhost:8000/api/data-quality
 **NEPSE Smart is now completely self-sufficient!**
 
 - 🚫 **No more external API dependencies**
-- 📊 **Comprehensive historical data**  
+- 📊 **Comprehensive historical data**
 - 🔧 **Enhanced monitoring and quality control**
 - 🚀 **Ready for production deployment**
 
@@ -240,6 +255,6 @@ The system now provides **344 daily records** across multiple data types with fu
 
 ---
 
-*Migration completed: October 16, 2025*
-*Total development time: Enhanced system with historical data management*
-*Status: ✅ Production Ready*
+_Migration completed: October 16, 2025_
+_Total development time: Enhanced system with historical data management_
+_Status: ✅ Production Ready_

@@ -1,9 +1,7 @@
 // Enhanced Market Data Service - Using Our Own Data
 import axios from "axios";
 
-const API_BASE = process.env.NODE_ENV === 'production' 
-  ? '/api' 
-  : 'http://localhost:8000/api';
+const API_BASE = '/api';
 
 // Create axios instance with base configuration
 const api = axios.create({
