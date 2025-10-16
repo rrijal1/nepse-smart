@@ -148,7 +148,7 @@
                 {{ holding.symbol }}
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-right font-mono">
-                {{ holding.quantity }}
+                {{ formatCountCompact(holding.quantity) }}
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-right font-mono">
                 Rs. {{ (holding.avg_price || 0).toLocaleString() }}
@@ -162,8 +162,7 @@
                   (holding.pnl || 0) >= 0 ? 'text-green-600' : 'text-red-600'
                 "
               >
-                {{ (holding.pnl || 0) >= 0 ? "+" : "" }}Rs.
-                {{ Math.abs(holding.pnl || 0).toLocaleString() }}
+                {{ formatCurrencySigned(holding.pnl || 0) }}
               </td>
               <td
                 class="px-6 py-4 whitespace-nowrap text-right font-mono font-semibold"
@@ -377,6 +376,27 @@ const formatPercent = (value: number | null | undefined): string => {
   if (value === null || value === undefined) return "N/A";
   const sign = value >= 0 ? "+" : "";
   return `${sign}${value.toFixed(2)}%`;
+};
+
+// Compact integer formatter for share counts (e.g., 3.3L, 1.2Cr)
+const formatCountCompact = (value: number | null | undefined): string => {
+  if (value === null || value === undefined) return "N/A";
+  const absValue = Math.abs(value);
+  const sign = value < 0 ? "-" : "";
+  if (absValue >= 10000000)
+    return `${sign}${(absValue / 10000000).toFixed(2)}Cr`;
+  if (absValue >= 100000) return `${sign}${(absValue / 100000).toFixed(2)}L`;
+  if (absValue >= 10000) return `${sign}${(absValue / 1000).toFixed(1)}K`;
+  return `${sign}${absValue.toLocaleString("en-IN", {
+    maximumFractionDigits: 0,
+  })}`;
+};
+
+// Signed currency version of formatCurrency
+const formatCurrencySigned = (value: number): string => {
+  if (value === 0) return "+Rs. 0";
+  const formatted = formatCurrency(value);
+  return value > 0 ? formatted.replace("Rs.", "+Rs.") : formatted;
 };
 
 // Edit Modal Functions
