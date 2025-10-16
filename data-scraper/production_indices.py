@@ -19,20 +19,20 @@ class ProductionIndicesScraper(ScraperBase):
     
     def __init__(self):
         super().__init__("NEPSE-Indices")
-        self.base_url = "https://www.nepalstock.com"
+        self.base_url = "https://www.sharesansar.com"
     
     def scrape_indices(self) -> Optional[List[Dict]]:
-        """Scrape NEPSE indices and sub-indices"""
+        """Scrape NEPSE indices and sub-indices from ShareSansar"""
         self.logger.info("🔍 Starting indices scraping...")
         
-        url = f"{self.base_url}/indices"
+        url = f"{self.base_url}/market"
         
         try:
             response = self.make_request(url)
             soup = BeautifulSoup(response.content, 'lxml')
             
             # Extract indices data
-            indices_data = self._extract_indices_data(soup)
+            indices_data = self._extract_sharesansar_indices(soup)
             
             if not indices_data:
                 self.log_error("No indices data found")
@@ -51,140 +51,113 @@ class ProductionIndicesScraper(ScraperBase):
             self.log_error(f"Indices scraping failed: {e}")
             return None
     
-    def _extract_indices_data(self, soup: BeautifulSoup) -> List[Dict]:
-        """Extract indices data from HTML"""
-        indices_data = []
-        
-        # Try multiple approaches to find indices data
-        
-        # Method 1: Look for indices table
-        table = soup.find('table', class_='table')
-        if table:
-            indices_data = self._parse_indices_table(table)
-        
-        # Method 2: Look for indices cards/divs if table not found
-        if not indices_data:
-            indices_data = self._parse_indices_cards(soup)
-        
-        # Method 3: Parse from script data if available
-        if not indices_data:
-            indices_data = self._parse_indices_from_scripts(soup)
-        
-        return indices_data
-    
-    def _parse_indices_table(self, table) -> List[Dict]:
-        """Parse indices from table format"""
+    def _extract_sharesansar_indices(self, soup: BeautifulSoup) -> List[Dict]:
+        """Extract indices data from ShareSansar market page"""
         indices_data = []
         
         try:
-            rows = table.find_all('tr')[1:]  # Skip header
+            # Method 1: Parse from detailed indices table
+            table_indices = self._parse_indices_table_sharesansar(soup)
+            if table_indices:
+                indices_data.extend(table_indices)
             
-            for row in rows:
-                cols = row.find_all(['td', 'th'])
-                if len(cols) >= 3:
-                    try:
-                        index_info = {
-                            'index_name': cols[0].get_text(strip=True),
-                            'current_value': clean_numeric_value(cols[1].get_text(strip=True)),
-                            'change': clean_numeric_value(cols[2].get_text(strip=True)),
-                            'change_percent': clean_numeric_value(cols[3].get_text(strip=True)) if len(cols) > 3 else None,
-                            'high': clean_numeric_value(cols[4].get_text(strip=True)) if len(cols) > 4 else None,
-                            'low': clean_numeric_value(cols[5].get_text(strip=True)) if len(cols) > 5 else None,
-                            'date': datetime.now().strftime('%Y-%m-%d'),
-                            'source': 'nepalstock'
-                        }
-                        
-                        if index_info['index_name'] and index_info['current_value']:
-                            indices_data.append(index_info)
-                    
-                    except Exception as e:
-                        self.log_warning(f"Error parsing index row: {e}")
-                        continue
+            # Method 2: Parse from sub-indices table  
+            subindices = self._parse_subindices_table_sharesansar(soup)
+            if subindices:
+                indices_data.extend(subindices)
+            
+        except Exception as e:
+            self.log_warning(f"Error extracting ShareSansar indices: {e}")
         
+        return indices_data
+    
+
+    
+    def _parse_indices_table_sharesansar(self, soup: BeautifulSoup) -> List[Dict]:
+        """Parse main indices table from ShareSansar"""
+        indices_data = []
+        
+        try:
+            # Find tables that contain indices data
+            tables = soup.find_all('table')
+            
+            for table in tables:
+                # Check if this table contains index data
+                table_text = table.get_text()
+                if 'NEPSE Index' in table_text and 'Close' in table_text:
+                    rows = table.find_all('tr')
+                    
+                    for row in rows[1:]:  # Skip header
+                        cells = row.find_all(['td', 'th'])
+                        if len(cells) >= 7:
+                            try:
+                                index_info = {
+                                    'index_name': cells[0].get_text(strip=True),
+                                    'open': clean_numeric_value(cells[1].get_text(strip=True)),
+                                    'high': clean_numeric_value(cells[2].get_text(strip=True)),
+                                    'low': clean_numeric_value(cells[3].get_text(strip=True)),
+                                    'current_value': clean_numeric_value(cells[4].get_text(strip=True)),
+                                    'change': clean_numeric_value(cells[5].get_text(strip=True)),
+                                    'change_percent': clean_numeric_value(cells[6].get_text(strip=True)),
+                                    'turnover': clean_numeric_value(cells[7].get_text(strip=True)) if len(cells) > 7 else None,
+                                    'date': datetime.now().strftime('%Y-%m-%d'),
+                                    'source': 'sharesansar_table'
+                                }
+                                
+                                if index_info['index_name'] and index_info['current_value']:
+                                    indices_data.append(index_info)
+                                    
+                            except Exception as e:
+                                self.log_warning(f"Error parsing table row: {e}")
+                                continue
+                    break
+                        
         except Exception as e:
             self.log_warning(f"Error parsing indices table: {e}")
         
         return indices_data
     
-    def _parse_indices_cards(self, soup: BeautifulSoup) -> List[Dict]:
-        """Parse indices from card/div format"""
+    def _parse_subindices_table_sharesansar(self, soup: BeautifulSoup) -> List[Dict]:
+        """Parse sub-indices table from ShareSansar"""
         indices_data = []
         
         try:
-            # Look for index cards or similar structures
-            index_containers = soup.find_all(['div', 'section'], class_=re.compile(r'index|indices', re.I))
+            # Find tables that contain sub-indices data
+            tables = soup.find_all('table')
             
-            for container in index_containers:
-                index_items = container.find_all(['div', 'li'], class_=re.compile(r'item|card|index', re.I))
-                
-                for item in index_items:
-                    try:
-                        # Extract index name and value
-                        name_elem = item.find(['h3', 'h4', 'span', 'div'], class_=re.compile(r'name|title', re.I))
-                        value_elem = item.find(['span', 'div'], class_=re.compile(r'value|price|current', re.I))
-                        change_elem = item.find(['span', 'div'], class_=re.compile(r'change|diff', re.I))
-                        
-                        if name_elem and value_elem:
-                            index_info = {
-                                'index_name': name_elem.get_text(strip=True),
-                                'current_value': clean_numeric_value(value_elem.get_text(strip=True)),
-                                'change': clean_numeric_value(change_elem.get_text(strip=True)) if change_elem else None,
-                                'date': datetime.now().strftime('%Y-%m-%d'),
-                                'source': 'nepalstock'
-                            }
-                            
-                            if index_info['index_name'] and index_info['current_value']:
-                                indices_data.append(index_info)
+            for table in tables:
+                # Check if this table contains sub-index data
+                table_text = table.get_text()
+                if 'Sub Index' in table_text or ('Banking' in table_text and 'Development Bank' in table_text):
+                    rows = table.find_all('tr')
                     
-                    except Exception as e:
-                        self.log_warning(f"Error parsing index card: {e}")
-                        continue
-        
-        except Exception as e:
-            self.log_warning(f"Error parsing indices cards: {e}")
-        
-        return indices_data
-    
-    def _parse_indices_from_scripts(self, soup: BeautifulSoup) -> List[Dict]:
-        """Parse indices data from JavaScript/JSON in script tags"""
-        indices_data = []
-        
-        try:
-            scripts = soup.find_all('script')
-            
-            for script in scripts:
-                if script.string:
-                    script_content = script.string
-                    
-                    # Look for JSON data containing indices
-                    if 'index' in script_content.lower() and '{' in script_content:
-                        # Try to extract JSON-like data
-                        import json
-                        
-                        # Simple regex to find potential JSON objects
-                        json_matches = re.findall(r'\{[^{}]*".*?"[^{}]*\}', script_content)
-                        
-                        for match in json_matches:
+                    for row in rows[1:]:  # Skip header
+                        cells = row.find_all(['td', 'th'])
+                        if len(cells) >= 7:
                             try:
-                                data = json.loads(match)
-                                if isinstance(data, dict) and any(key in str(data).lower() for key in ['index', 'nepse']):
-                                    # Extract relevant fields
-                                    index_info = {
-                                        'index_name': data.get('name', 'NEPSE Index'),
-                                        'current_value': clean_numeric_value(str(data.get('value', data.get('current', '')))),
-                                        'change': clean_numeric_value(str(data.get('change', ''))),
-                                        'date': datetime.now().strftime('%Y-%m-%d'),
-                                        'source': 'nepalstock'
-                                    }
+                                index_info = {
+                                    'index_name': cells[0].get_text(strip=True),
+                                    'open': clean_numeric_value(cells[1].get_text(strip=True)),
+                                    'high': clean_numeric_value(cells[2].get_text(strip=True)),
+                                    'low': clean_numeric_value(cells[3].get_text(strip=True)),
+                                    'current_value': clean_numeric_value(cells[4].get_text(strip=True)),
+                                    'change': clean_numeric_value(cells[5].get_text(strip=True)),
+                                    'change_percent': clean_numeric_value(cells[6].get_text(strip=True)),
+                                    'turnover': clean_numeric_value(cells[7].get_text(strip=True)) if len(cells) > 7 else None,
+                                    'date': datetime.now().strftime('%Y-%m-%d'),
+                                    'source': 'sharesansar_subindex'
+                                }
+                                
+                                if index_info['index_name'] and index_info['current_value']:
+                                    indices_data.append(index_info)
                                     
-                                    if index_info['current_value']:
-                                        indices_data.append(index_info)
-                            
-                            except (json.JSONDecodeError, ValueError):
+                            except Exception as e:
+                                self.log_warning(f"Error parsing subindex row: {e}")
                                 continue
-        
+                    break
+                        
         except Exception as e:
-            self.log_warning(f"Error parsing indices from scripts: {e}")
+            self.log_warning(f"Error parsing subindices table: {e}")
         
         return indices_data
     

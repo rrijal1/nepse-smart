@@ -52,8 +52,19 @@ class ProductionMacroScraper(ScraperBase):
     def _scrape_deposit_rates(self) -> Optional[List[Dict]]:
         """Scrape deposit rates from NRB"""
         try:
-            url = f"{self.base_url}/fxmexchangerate.php?YY=2024&MM=12&DD=01&B1=Go"
+            # Try specific deposit/lending rates page first
+            url = f"{self.base_url}/cmfm_rates/lending_rates"
             response = self.make_request(url)
+            
+            if not response:
+                # Fallback to general interest rates page
+                url = f"{self.base_url}/category/interest-rate-structure/"
+                response = self.make_request(url)
+            
+            if not response:
+                self.log_warning("No response from deposit rates pages")
+                return None
+                
             soup = BeautifulSoup(response.content, 'lxml')
             
             deposit_data = []
@@ -76,8 +87,24 @@ class ProductionMacroScraper(ScraperBase):
     def _scrape_lending_rates(self) -> Optional[List[Dict]]:
         """Scrape lending rates from NRB"""
         try:
-            url = f"{self.base_url}/fxmexchangerate.php?YY=2024&MM=12&DD=01&B1=Go"
+            # Try specific lending rates page first
+            url = f"{self.base_url}/cmfm_rates/lending_rates"
             response = self.make_request(url)
+            
+            if not response:
+                # Fallback to policy rates
+                url = f"{self.base_url}/cmfm_rates/policy_rates"
+                response = self.make_request(url)
+            
+            if not response:
+                # Final fallback to general interest rates page
+                url = f"{self.base_url}/category/interest-rate-structure/"
+                response = self.make_request(url)
+            
+            if not response:
+                self.log_warning("No response from lending rates pages")
+                return None
+                
             soup = BeautifulSoup(response.content, 'lxml')
             
             lending_data = []
@@ -87,7 +114,7 @@ class ProductionMacroScraper(ScraperBase):
             for table in tables:
                 # Check if this looks like a lending rates table
                 text_content = table.get_text().lower()
-                if 'lending' in text_content or 'loan' in text_content or 'credit' in text_content:
+                if 'lending' in text_content or 'loan' in text_content or 'credit' in text_content or 'policy' in text_content:
                     lending_data = self._parse_banking_table(table, 'lending_rates')
                     break
             
@@ -96,6 +123,44 @@ class ProductionMacroScraper(ScraperBase):
         except Exception as e:
             self.log_warning(f"Failed to scrape lending rates: {e}")
             return None
+    
+    def _parse_api_forex_data(self, forex_data: List[Dict]) -> List[Dict]:
+        """Parse forex data from NRB API"""
+        exchange_data = []
+        
+        try:
+            for item in forex_data:
+                if isinstance(item, dict):
+                    # Extract relevant fields from API response
+                    exchange_info = {
+                        'data_type': 'exchange_rates',
+                        'currency': item.get('title', {}).get('rendered', ''),
+                        'content': item.get('content', {}).get('rendered', ''),
+                        'date_published': item.get('date', ''),
+                        'date': datetime.now().strftime('%Y-%m-%d'),
+                        'source': 'nrb_api'
+                    }
+                    
+                    # Try to extract rates from content if available
+                    if exchange_info['content']:
+                        # Parse HTML content for rates
+                        from bs4 import BeautifulSoup
+                        soup = BeautifulSoup(exchange_info['content'], 'lxml')
+                        text = soup.get_text()
+                        
+                        # Look for numeric values that might be rates
+                        import re
+                        rates = re.findall(r'\d+\.?\d*', text)
+                        if rates:
+                            exchange_info['rates'] = [float(r) for r in rates[:2]]  # Usually buy/sell rates
+                    
+                    if exchange_info['currency']:
+                        exchange_data.append(exchange_info)
+        
+        except Exception as e:
+            self.log_warning(f"Error parsing API forex data: {e}")
+        
+        return exchange_data
     
     def _parse_banking_table(self, table, data_type: str) -> List[Dict]:
         """Parse banking data from table"""
@@ -134,47 +199,210 @@ class ProductionMacroScraper(ScraperBase):
         
         return banking_data
     
-    def scrape_exchange_rates(self) -> Optional[List[Dict]]:
-        """Scrape foreign exchange rates from NRB"""
-        self.logger.info("🔍 Starting exchange rates scraping...")
+    def _parse_forex_table(self, table) -> List[Dict]:
+        """Parse forex exchange rates table"""
+        forex_data = []
         
         try:
-            url = f"{self.base_url}/fxmexchangerate.php"
-            response = self.make_request(url)
-            soup = BeautifulSoup(response.content, 'lxml')
+            rows = table.find_all('tr')
+            headers = []
             
-            exchange_data = []
+            # Find headers
+            if rows:
+                header_row = rows[0]
+                headers = [th.get_text().strip() for th in header_row.find_all(['th', 'td'])]
             
-            # Look for exchange rates table
-            table = soup.find('table')
-            if table:
-                rows = table.find_all('tr')[1:]  # Skip header
-                
-                for row in rows:
-                    cols = row.find_all(['td', 'th'])
-                    if len(cols) >= 4:
-                        try:
-                            exchange_info = {
-                                'data_type': 'exchange_rates',
-                                'currency': cols[0].get_text(strip=True),
-                                'currency_code': cols[1].get_text(strip=True) if len(cols) > 1 else None,
-                                'buying_rate': clean_numeric_value(cols[2].get_text(strip=True)) if len(cols) > 2 else None,
-                                'selling_rate': clean_numeric_value(cols[3].get_text(strip=True)) if len(cols) > 3 else None,
-                                'date': datetime.now().strftime('%Y-%m-%d'),
-                                'source': 'nrb'
-                            }
-                            
-                            if exchange_info['currency'] and (exchange_info['buying_rate'] or exchange_info['selling_rate']):
-                                exchange_data.append(exchange_info)
+            # Process data rows
+            for row in rows[1:]:
+                cells = row.find_all(['td', 'th'])
+                if len(cells) >= 2:
+                    row_data = [cell.get_text().strip() for cell in cells]
+                    
+                    # Look for currency data
+                    if any(currency in ' '.join(row_data).upper() for currency in ['USD', 'EUR', 'GBP', 'JPY', 'INR', 'CNY']):
+                        forex_info = {
+                            'data_type': 'exchange_rates',
+                            'currency': row_data[0] if row_data else 'Unknown',
+                            'rates': row_data[1:] if len(row_data) > 1 else [],
+                            'headers': headers,
+                            'date': datetime.now().strftime('%Y-%m-%d'),
+                            'source': 'nrb'
+                        }
+                        forex_data.append(forex_info)
                         
-                        except Exception as e:
-                            self.log_warning(f"Error parsing exchange rate row: {e}")
-                            continue
+        except Exception as e:
+            self.log_warning(f"Error parsing forex table: {e}")
+        
+        return forex_data
+    
+    def _extract_rates_from_element(self, element) -> List[Dict]:
+        """Extract rate information from any HTML element"""
+        rates_data = []
+        
+        try:
+            text_content = element.get_text()
             
-            return exchange_data
+            # Look for numeric values that might be rates
+            import re
+            numbers = re.findall(r'\d+\.?\d*', text_content)
+            
+            if numbers and any(keyword in text_content.lower() for keyword in ['rate', 'exchange', 'forex', 'currency']):
+                rate_info = {
+                    'data_type': 'exchange_rates',
+                    'content': text_content.strip(),
+                    'numbers': [float(n) for n in numbers if n],
+                    'date': datetime.now().strftime('%Y-%m-%d'),
+                    'source': 'nrb'
+                }
+                rates_data.append(rate_info)
+                
+        except Exception as e:
+            self.log_warning(f"Error extracting rates from element: {e}")
+        
+        return rates_data
+    
+    def _scrape_forex_from_homepage(self, soup) -> List[Dict]:
+        """Scrape foreign exchange rates from homepage"""
+        forex_data = []
+        
+        try:
+            # Look for tables that contain forex data by checking for currency codes
+            tables = soup.find_all('table')
+            for table in tables:
+                text_content = table.get_text()
+                if any(currency in text_content.upper() for currency in ['USD', 'EUR', 'GBP', 'JPY']):
+                    forex_data = self._parse_forex_table(table)
+                    if forex_data:
+                        self.log_success(f"Found forex table with {len(forex_data)} currencies")
+                        break
+                    
+        except Exception as e:
+            self.log_warning(f"Error scraping forex from homepage: {e}")
+        
+        return forex_data
+    
+    def _scrape_indicators_from_homepage(self, soup) -> List[Dict]:
+        """Scrape banking indicators from homepage"""
+        indicators_data = []
+        
+        try:
+            # Look for tables that contain banking indicators
+            tables = soup.find_all('table')
+            for table in tables:
+                text_content = table.get_text()
+                # Check if this table contains banking indicators
+                if any(indicator in text_content for indicator in ['Total Deposits', 'Total Lending', 'CD Ratio', 'Interbank']):
+                    rows = table.find_all('tr')
+                    
+                    for row in rows:
+                        cells = row.find_all(['td', 'th'])
+                        if len(cells) >= 3:
+                            cell_texts = [cell.get_text().strip() for cell in cells]
+                            
+                            # Skip header rows
+                            if 'Last Updated' in cell_texts[0] or not cell_texts[0]:
+                                continue
+                                
+                            # Extract indicator name and values
+                            indicator_name = cell_texts[0]
+                            if len(cell_texts) >= 3 and indicator_name:
+                                indicator_info = {
+                                    'data_type': 'banking_indicators',
+                                    'indicator': indicator_name,
+                                    'current_value': cell_texts[1],
+                                    'previous_value': cell_texts[2] if len(cell_texts) > 2 else None,
+                                    'date': datetime.now().strftime('%Y-%m-%d'),
+                                    'source': 'nrb_homepage'
+                                }
+                                
+                                # Extract unit from indicator name if present
+                                if '(' in indicator_name and ')' in indicator_name:
+                                    parts = indicator_name.split('(')
+                                    indicator_info['indicator'] = parts[0].strip()
+                                    indicator_info['unit'] = parts[1].split(')')[0].strip()
+                                
+                                indicators_data.append(indicator_info)
+                    
+                    if indicators_data:
+                        self.log_success(f"Found indicators table with {len(indicators_data)} indicators")
+                        break
+                    
+        except Exception as e:
+            self.log_warning(f"Error scraping indicators from homepage: {e}")
+        
+        return indicators_data
+    
+    def _scrape_short_term_rates_from_homepage(self, soup) -> List[Dict]:
+        """Scrape short term interest rates from homepage"""
+        rates_data = []
+        
+        try:
+            # Look for elements that contain short term rates patterns
+            # First try to find by text content
+            for element in soup.find_all(['div', 'section']):
+                text_content = element.get_text()
+                if 'Short Term Interest Rates' in text_content:
+                    # Look for the rate values in divs within this section
+                    rate_divs = element.find_all('div', class_='col-3')
+                    
+                    for div in rate_divs:
+                        rate_value_div = div.find('div', class_='text-secondary')
+                        rate_label_div = div.find('div', class_='font-size-xs')
+                        
+                        if rate_value_div and rate_label_div:
+                            rate_info = {
+                                'data_type': 'short_term_rates',
+                                'maturity': rate_label_div.get_text().strip(),
+                                'rate': rate_value_div.get_text().strip(),
+                                'date': datetime.now().strftime('%Y-%m-%d'),
+                                'source': 'nrb_homepage'
+                            }
+                            rates_data.append(rate_info)
+                    
+                    if rates_data:
+                        self.log_success(f"Found short term rates with {len(rates_data)} maturities")
+                        break
+                    
+        except Exception as e:
+            self.log_warning(f"Error scraping short term rates from homepage: {e}")
+        
+        return rates_data
+    
+    def scrape_nrb_homepage_data(self) -> Optional[List[Dict]]:
+        """Scrape all data from NRB homepage - forex, indicators, and interest rates"""
+        self.logger.info("🔍 Starting NRB homepage data scraping...")
+        
+        try:
+            # Use the main homepage which has all the tables
+            url = f"{self.base_url}/"
+            response = self.make_request(url)
+            
+            if not response:
+                self.log_warning("No response from NRB homepage")
+                return None
+            
+            soup = BeautifulSoup(response.content, 'lxml')
+            all_data = []
+            
+            # 1. Scrape Foreign Exchange Rates
+            forex_data = self._scrape_forex_from_homepage(soup)
+            if forex_data:
+                all_data.extend(forex_data)
+            
+            # 2. Scrape Banking Indicators
+            indicators_data = self._scrape_indicators_from_homepage(soup)
+            if indicators_data:
+                all_data.extend(indicators_data)
+            
+            # 3. Scrape Short Term Interest Rates
+            interest_rates_data = self._scrape_short_term_rates_from_homepage(soup)
+            if interest_rates_data:
+                all_data.extend(interest_rates_data)
+            
+            return all_data if all_data else None
             
         except Exception as e:
-            self.log_error(f"Exchange rates scraping failed: {e}")
+            self.log_error(f"NRB homepage scraping failed: {e}")
             return None
     
     def save_macro_data(self, data: List[Dict], date: Optional[str] = None) -> bool:
@@ -200,16 +428,12 @@ class ProductionMacroScraper(ScraperBase):
         }
         
         try:
-            # Scrape NRB data
-            nrb_data = self.scrape_nrb_data()
+            # Scrape all NRB data from homepage (forex, indicators, rates)
+            nrb_data = self.scrape_nrb_homepage_data()
             
-            # Also try to get exchange rates
-            exchange_data = self.scrape_exchange_rates()
-            if exchange_data:
-                if nrb_data:
-                    nrb_data.extend(exchange_data)
-                else:
-                    nrb_data = exchange_data
+            # If homepage fails, try individual methods
+            if not nrb_data:
+                nrb_data = self.scrape_nrb_data()
             
             if nrb_data:
                 # Save data
