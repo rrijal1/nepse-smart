@@ -5,11 +5,11 @@ from __future__ import annotations
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-from agent_service import (
+from backend.agent_service import (
     answer_natural_language_question,
     perform_stock_analysis,
 )
-from nepse_data_service import NepseDataService
+from backend.nepse_data_service import NepseDataService
 from pathlib import Path
 import json
 from datetime import datetime
@@ -57,41 +57,6 @@ class StockRequest(BaseModel):
 class QuestionRequest(BaseModel):
     question: str
 
-
-@router.get("/stocks")
-def get_available_stocks() -> dict:
-    """Expose the list of currently active stocks (symbols only)."""
-    # Fresh service instance to avoid stale cache between reloads
-    svc = NepseDataService(data_path=_DATA_DIR)
-    companies = svc.get_company_list() or []
-    if not companies:
-        # Fallback: read directly from today's prices
-        symbols = _symbols_from_prices_fallback(_DATA_DIR)
-    else:
-        symbols = sorted([str(c.get("symbol")) for c in companies if c.get("symbol")])
-    if not symbols:
-        symbols = _symbols_from_prices_fallback(_DATA_DIR)
-    # Fallback to mock if empty
-    if not symbols:
-        symbols = ["NABIL", "ADBL", "EBL"]
-    return {"available_stocks": symbols}
-
-
-@router.get("/metrics")
-def get_agent_metrics() -> dict:
-    """Return the pre-generated per-symbol agent metrics from daily file."""
-    data = _read_agent_metrics(_DATA_DIR)
-    return {"count": len(data), "data": data}
-
-
-@router.get("/metrics/{symbol}")
-def get_agent_metrics_for_symbol(symbol: str) -> dict:
-    """Return metrics for a single symbol from the daily file, 404 if missing."""
-    data = _read_agent_metrics(_DATA_DIR)
-    sym = symbol.upper()
-    if sym not in data:
-        raise HTTPException(status_code=404, detail=f"No metrics found for {sym}")
-    return {"symbol": sym, "data": data[sym]}
 
 
 @router.post("/analyze")

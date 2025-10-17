@@ -294,3 +294,58 @@ jobs:
             git commit -m "Collection summary: $(date +'%Y-%m-%d')" || true
             git push || true
           fi
+
+  # Job 6: Generate Technical Indicators
+  generate-technicals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read
+    needs: [generate-summary]
+    if: always()
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-scraper-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r data-scraper/requirements.txt
+
+      - name: Generate technical indicators
+        run: |
+          cd data-scraper
+          python generate_technicals.py
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action - Technicals Generator"
+
+      - name: Commit technical indicators
+        run: |
+          git add data/daily/*_technicals.json || true
+          if git diff --staged --quiet; then
+            echo "No technical indicators to commit"
+          else
+            git commit -m "Technical indicators: $(date +'%Y-%m-%d')" || true
+            git push || true
+          fi

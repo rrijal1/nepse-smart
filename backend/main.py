@@ -21,13 +21,14 @@ import logging
 from dotenv import load_dotenv
 
 # Import our new data service
-from nepse_data_service import NepseDataService
+from backend.nepse_data_service import NepseDataService
 
 # Import database initialization
-from database import engine, Base
-from portfolio_routes import router as portfolio_router
-from agent_routes import router as agent_router
-from backend.agent_service import generate_agent_metrics_for_all_symbols
+from backend.database import engine, Base
+from backend.portfolio_routes import router as portfolio_router
+from backend.agent_routes import router as agent_router
+from backend.papertrading_routes import router as papertrading_router
+
 
 # Load environment variables from .env if present (useful in local/dev setups)
 load_dotenv()
@@ -53,6 +54,7 @@ app.add_middleware(
 
 # Include portfolio & watchlist routes
 app.include_router(portfolio_router)
+app.include_router(papertrading_router)
 
 # Include LangChain agent routes
 app.include_router(agent_router, prefix="/api")
@@ -66,12 +68,7 @@ async def startup_event():
     try:
         Base.metadata.create_all(bind=engine)
         logger.info("✅ Database tables initialized")
-        # Ensure agent metrics are generated and persisted for today's session
-        try:
-            generate_agent_metrics_for_all_symbols()
-            logger.info("🧩 Agent metrics generated for all active symbols")
-        except Exception as gen_exc:
-            logger.warning(f"Agent metrics generation failed: {gen_exc}")
+
     except Exception as e:
         logger.error(f"❌ Database initialization error: {e}")
 

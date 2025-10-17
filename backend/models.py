@@ -3,7 +3,7 @@ Database models for Portfolio and Watchlist management
 """
 from sqlalchemy import Integer, String, Float, Date, Boolean, DateTime, Text, func
 from sqlalchemy.orm import Mapped, mapped_column
-from database import Base
+from backend.database import Base
 from datetime import date, datetime
 from typing import Optional
 
@@ -71,3 +71,79 @@ class Transaction(Base):
     def total_amount(self) -> float:
         """Calculate total transaction amount"""
         return float(self.quantity * self.price)
+
+class PaperPortfolio(Base):
+    """
+    Paper trading portfolio model
+    """
+    __tablename__ = "paper_portfolio"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(Integer, default=1, nullable=False)
+    symbol: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
+    quantity: Mapped[int] = mapped_column(Integer, nullable=False)
+    avg_price: Mapped[float] = mapped_column(Float, nullable=False)
+    buy_date: Mapped[date] = mapped_column(Date, nullable=False)
+    notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    updated_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), onupdate=func.now(), nullable=True)
+
+    def __repr__(self):
+        return f"<PaperPortfolio(user_id={self.user_id}, symbol={self.symbol}, quantity={self.quantity})>"
+
+    @property
+    def invested_amount(self) -> float:
+        return float(self.quantity * self.avg_price)
+
+class PaperTransaction(Base):
+    """
+    Paper trading transaction model
+    """
+    __tablename__ = "paper_transactions"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(Integer, default=1, nullable=False)
+    symbol: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
+    transaction_type: Mapped[str] = mapped_column(String(10), nullable=False)
+    quantity: Mapped[int] = mapped_column(Integer, nullable=False)
+    price: Mapped[float] = mapped_column(Float, nullable=False)
+    transaction_date: Mapped[date] = mapped_column(Date, nullable=False)
+    notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+    def __repr__(self):
+        return f"<PaperTransaction(user_id={self.user_id}, symbol={self.symbol}, type={self.transaction_type})>"
+
+    @property
+    def total_amount(self) -> float:
+        return float(self.quantity * self.price)
+
+class PaperAccount(Base):
+    """
+    Paper trading account model storing virtual cash for a user
+    """
+    __tablename__ = "paper_accounts"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(Integer, unique=True, nullable=False, index=True)
+    initial_capital: Mapped[float] = mapped_column(Float, nullable=False, default=0.0)
+    cash_balance: Mapped[float] = mapped_column(Float, nullable=False, default=0.0)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    updated_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), onupdate=func.now(), nullable=True)
+
+    def __repr__(self):
+        return f"<PaperAccount(user_id={self.user_id}, cash_balance={self.cash_balance})>"
+
+
+class PaperAccountFunding(Base):
+    """
+    Track when virtual cash was funded into a paper trading account.
+    Kept as a separate table to avoid altering existing tables in place.
+    """
+    __tablename__ = "paper_account_funding"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(Integer, nullable=False, index=True)
+    funded_amount: Mapped[float] = mapped_column(Float, nullable=False)
+    funded_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())

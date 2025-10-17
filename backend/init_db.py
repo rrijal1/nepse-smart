@@ -2,8 +2,8 @@
 Database initialization script
 Creates all tables and optionally seeds sample data
 """
-from database import engine, Base
-from models import Watchlist, Portfolio, Transaction
+from backend.database import engine, Base
+from backend.models import Watchlist, Portfolio, Transaction
 import logging
 
 logging.basicConfig(level=logging.INFO)

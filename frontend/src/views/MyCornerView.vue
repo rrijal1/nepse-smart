@@ -29,6 +29,7 @@
         <FundamentalsSection v-if="activeSection === 'fundamentals'" />
         <TechnicalSection v-if="activeSection === 'technical'" />
         <PortfolioSection v-if="activeSection === 'portfolio'" />
+        <PaperTradingSection v-if="activeSection === 'paper-trading'" />
       </div>
     </div>
   </div>
@@ -42,16 +43,19 @@ import MyNewsSection from "../components/MyNewsSection.vue";
 import FundamentalsSection from "../components/FundamentalsSection.vue";
 import TechnicalSection from "../components/TechnicalSection.vue";
 import PortfolioSection from "../components/PortfolioSection.vue";
+import PaperTradingSection from "../components/PaperTradingSection.vue";
 import EyeIcon from "../components/icons/EyeIcon.vue";
 import NewsIcon from "../components/icons/NewsIcon.vue";
 import DocumentIcon from "../components/icons/DocumentIcon.vue";
 import ChartIcon from "../components/icons/ChartIcon.vue";
 import PortfolioIcon from "../components/icons/PortfolioIcon.vue";
+import BriefcaseIcon from "../components/icons/BriefcaseIcon.vue";
 
 const activeSection = ref("portfolio");
 
 const sidebarItems = [
   { id: "portfolio", label: "Portfolio", icon: PortfolioIcon },
+  { id: "paper-trading", label: "Paper Trading", icon: BriefcaseIcon },
   { id: "news", label: "News & Updates", icon: NewsIcon, badge: "12" },
   { id: "fundamentals", label: "Fundamentals", icon: DocumentIcon },
   { id: "technical", label: "Technical Analysis", icon: ChartIcon },
@@ -70,6 +74,7 @@ const getCurrentSectionDescription = () => {
     fundamentals: "Analyze stocks based on financial metrics and ratios",
     technical: "Technical analysis and trading signals for your stocks",
     portfolio: "Track your portfolio performance and holdings",
+    "paper-trading": "Practice trading with a virtual portfolio",
   };
   return descriptions[activeSection.value] || "Your personalized trading hub";
 };

@@ -24,7 +24,19 @@ A comprehensive system for scraping, storing, and analyzing Nepal Stock Exchange
 - **REST API**: Standard endpoints for all data types
 - **Flexible Export**: Easy data export and processing
 
-## �️ Quick Start
+### Paper Trading (Virtual)
+
+- **Virtual Cash Account**: Start with Rs. 50L (on-demand via CTA)
+- **Market-Price Execution**: Buy/Sell executes at current LTP
+- **Portfolio Summary**: Live P&L, invested amount, cash available
+- **APY Estimation**: Annualized return since funding date
+
+### Agent Chat
+
+- **Ask Anything**: Natural-language Q&A about stocks and market data
+- **Per-Symbol Analysis**: Multi-agent analysis for a given symbol
+
+## ⚡ Quick Start
 
 ### 1. Setup Data Scraping
 
@@ -88,6 +100,13 @@ python3 init_db.py
 # Backend API: http://localhost:8000
 # API Docs: http://localhost:8000/docs
 # PostgreSQL: localhost:5432
+
+Optional quick checks (from your host):
+
+- Health: GET http://localhost:8000/health
+- Market Summary: GET http://localhost:8000/api/summary
+- Company List: GET http://localhost:8000/api/company-list
+- API Docs (Swagger): http://localhost:8000/docs
 ```
 
 ### Database Access
@@ -146,6 +165,61 @@ SELECT COUNT(*) as total_stocks,
 FROM portfolio;
 ````
 
+## 📈 Paper Trading API (Virtual)
+
+Base path: `/api/paper-trading`
+
+- POST `/account/fund` → One-time grant of Rs. 50,00,000 to start practicing.
+- GET `/account` → Current account state with `funded_at` if funded.
+- POST `/trade` → Execute a buy/sell at current LTP.
+- GET `/portfolio/summary` → Invested, current value, P&L, cash, APY.
+- GET `/portfolio` → Holdings with live prices and per-holding P&L.
+- GET `/transactions` → Recent paper transactions.
+- POST `/account/reset` → Reset account to zero and clear holdings/transactions.
+
+Quick examples (optional):
+
+```bash
+# Fund the paper account (Rs. 50L)
+curl -X POST http://localhost:8000/api/paper-trading/account/fund
+
+# Place a quick buy at market price
+curl -X POST http://localhost:8000/api/paper-trading/trade \
+    -H 'Content-Type: application/json' \
+    -d '{"symbol":"NABIL","side":"buy","quantity":10}'
+
+# Portfolio summary with APY (when funded)
+curl http://localhost:8000/api/paper-trading/portfolio/summary
+```
+
+Frontend behavior:
+
+- Paper Trading tab is hidden behind a CTA until the account is funded.
+- Funding CTA grants Rs. 50L and reveals summary/holdings.
+- Quick Trade modal includes type-to-search, inline validation, and LTP-based estimates.
+- APY is displayed when funded (simple annualized estimate from funded date).
+
+## 🤖 Agent API
+
+Base path: `/agent`
+
+- POST `/agent/analyze` → Run per-symbol analysis.
+    - Body: `{ "stock_symbol": "NABIL" }`
+- POST `/agent/ask` → Natural-language Q&A.
+    - Body: `{ "question": "What were top gainers today?" }`
+
+Quick examples (optional):
+
+```bash
+curl -X POST http://localhost:8000/agent/analyze \
+    -H 'Content-Type: application/json' \
+    -d '{"stock_symbol":"NABIL"}'
+
+curl -X POST http://localhost:8000/agent/ask \
+    -H 'Content-Type: application/json' \
+    -d '{"question":"Show me the latest summary."}'
+```
+
 ### Quick Portfolio Setup
 
 For setting up just the portfolio management feature:
@@ -175,6 +249,9 @@ pip3 install -r requirements.txt
 # Start the API server
 python3 main.py
 # Backend runs on http://localhost:8000
+
+# Alternatively, with Uvicorn (hot reload):
+# uvicorn backend.main:app --reload
 ```
 
 #### 2. Frontend Setup
@@ -207,6 +284,26 @@ npm run dev
 - **Broker Analytics:** Institutional flow tracking and bulk transaction alerts.
 - **Advanced Tools:** Custom signal builder, backtesting engine, and portfolio management.
 - **Modern UX:** Responsive design, dark/light themes, and real-time notifications.
+
+## 🔌 API Quick Reference
+
+Market Data (base `/api`):
+- `/summary`, `/top-gainers`, `/top-losers`, `/nepse-index`, `/sub-indices`
+- `/price-volume`, `/company-list`, `/macro-data`
+- `/historical/{prices|indices|macro|floorsheet}?days=N`
+- `/company-history/{symbol}?days=N`
+- `/historical-prices?symbol=SYM`
+- `/system-status`, `/data-freshness`, `/data-quality`, `/market-status`
+
+Portfolio & Watchlist (base `/api`):
+- `/watchlist` (GET/POST/PATCH/DELETE)
+- `/portfolio` (GET/POST/PUT/DELETE)
+- `/portfolio/summary`
+- `/transactions` (GET/POST)
+
+Paper Trading (base `/api/paper-trading`): see section above.
+
+Agent (base `/agent`): see section above.
 
 ## 📁 Project Structure
 
