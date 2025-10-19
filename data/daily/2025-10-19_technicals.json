@@ -1,0 +1,3112 @@
+{
+  "ACLBSL": {
+    "price": 970.0,
+    "ema_21": 970.0,
+    "ema_50": 970.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 912.0,
+    "52_week_high": 1284.9,
+    "52_week_low": 950.0
+  },
+  "ADBL": {
+    "price": 308.9,
+    "ema_21": 308.9,
+    "ema_50": 308.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 18464.0,
+    "52_week_high": 400.0,
+    "52_week_low": 272.3
+  },
+  "AHL": {
+    "price": 615.0,
+    "ema_21": 615.0,
+    "ema_50": 615.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 6431.0,
+    "52_week_high": 891.0,
+    "52_week_low": 577.4
+  },
+  "AHPC": {
+    "price": 270.2,
+    "ema_21": 270.2,
+    "ema_50": 270.2,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 115412.0,
+    "52_week_high": 334.0,
+    "52_week_low": 239.3
+  },
+  "AKJCL": {
+    "price": 183.4,
+    "ema_21": 183.4,
+    "ema_50": 183.4,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 48520.0,
+    "52_week_high": 233.5,
+    "52_week_low": 172.9
+  },
+  "AKPL": {
+    "price": 235.0,
+    "ema_21": 235.0,
+    "ema_50": 235.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 59712.0,
+    "52_week_high": 306.5,
+    "52_week_low": 216.1
+  },
+  "ALBSL": {
+    "price": 956.0,
+    "ema_21": 956.0,
+    "ema_50": 956.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 16259.0,
+    "52_week_high": 1097.0,
+    "52_week_low": 771.0
+  },
+  "ALICL": {
+    "price": 448.0,
+    "ema_21": 448.0,
+    "ema_50": 448.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 7845.0,
+    "52_week_high": 831.0,
+    "52_week_low": 430.0
+  },
+  "ANLB": {
+    "price": 6100.1,
+    "ema_21": 6100.1,
+    "ema_50": 6100.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1396.0,
+    "52_week_high": 6735.0,
+    "52_week_low": 4146.0
+  },
+  "API": {
+    "price": 270.2,
+    "ema_21": 270.2,
+    "ema_50": 270.2,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 60777.0,
+    "52_week_high": 335.0,
+    "52_week_low": 246.2
+  },
+  "AVYAN": {
+    "price": 924.0,
+    "ema_21": 924.0,
+    "ema_50": 924.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2718.0,
+    "52_week_high": 1306.8,
+    "52_week_low": 882.0
+  },
+  "BARUN": {
+    "price": 306.0,
+    "ema_21": 306.0,
+    "ema_50": 306.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 19122.0,
+    "52_week_high": 589.0,
+    "52_week_low": 292.1
+  },
+  "BBC": {
+    "price": 4765.0,
+    "ema_21": 4765.0,
+    "ema_50": 4765.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 551.0,
+    "52_week_high": 7247.0,
+    "52_week_low": 4057.2
+  },
+  "BEDC": {
+    "price": 527.0,
+    "ema_21": 527.0,
+    "ema_50": 527.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 22448.0,
+    "52_week_high": 1080.0,
+    "52_week_low": 448.0
+  },
+  "BFC": {
+    "price": 430.1,
+    "ema_21": 430.1,
+    "ema_50": 430.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 9685.0,
+    "52_week_high": 951.6,
+    "52_week_low": 411.5
+  },
+  "BGWT": {
+    "price": 779.0,
+    "ema_21": 779.0,
+    "ema_50": 779.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 570.0,
+    "52_week_high": 1241.0,
+    "52_week_low": 760.0
+  },
+  "BHCL": {
+    "price": 400.0,
+    "ema_21": 400.0,
+    "ema_50": 400.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 22993.0,
+    "52_week_high": 625.7,
+    "52_week_low": 292.1
+  },
+  "BHDC": {
+    "price": 546.0,
+    "ema_21": 546.0,
+    "ema_50": 546.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 84355.0,
+    "52_week_high": 760.2,
+    "52_week_low": 426.0
+  },
+  "BHL": {
+    "price": 175.5,
+    "ema_21": 175.5,
+    "ema_50": 175.5,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 55863.0,
+    "52_week_high": 520.0,
+    "52_week_low": 164.0
+  },
+  "BHPL": {
+    "price": 656.7,
+    "ema_21": 656.7,
+    "ema_50": 656.7,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1007.0,
+    "52_week_high": 1308.4,
+    "52_week_low": 651.0
+  },
+  "BNHC": {
+    "price": 403.0,
+    "ema_21": 403.0,
+    "ema_50": 403.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 15761.0,
+    "52_week_high": 608.0,
+    "52_week_low": 395.1
+  },
+  "BNT": {
+    "price": 10908.0,
+    "ema_21": 10908.0,
+    "ema_50": 10908.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 80.0,
+    "52_week_high": 15289.7,
+    "52_week_low": 10666.1
+  },
+  "BPCL": {
+    "price": 660.0,
+    "ema_21": 660.0,
+    "ema_50": 660.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 98102.0,
+    "52_week_high": 1065.0,
+    "52_week_low": 375.1
+  },
+  "C30MF": {
+    "price": 9.11,
+    "ema_21": 9.11,
+    "ema_50": 9.11,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 32056.0,
+    "52_week_high": 10.71,
+    "52_week_low": 8.65
+  },
+  "CBBL": {
+    "price": 960.0,
+    "ema_21": 960.0,
+    "ema_50": 960.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 27353.0,
+    "52_week_high": 1144.8,
+    "52_week_low": 821.5
+  },
+  "CBLD88": {
+    "price": 1218.0,
+    "ema_21": 1218.0,
+    "ema_50": 1218.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 100.0,
+    "52_week_high": 1254.2,
+    "52_week_low": 1080.2
+  },
+  "CFCL": {
+    "price": 463.0,
+    "ema_21": 463.0,
+    "ema_50": 463.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 6822.0,
+    "52_week_high": 745.9,
+    "52_week_low": 445.1
+  },
+  "CGH": {
+    "price": 823.8,
+    "ema_21": 823.8,
+    "ema_50": 823.8,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 20696.0,
+    "52_week_high": 1150.0,
+    "52_week_low": 803.0
+  },
+  "CHCL": {
+    "price": 484.0,
+    "ema_21": 484.0,
+    "ema_50": 484.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 29239.0,
+    "52_week_high": 610.0,
+    "52_week_low": 456.0
+  },
+  "CHDC": {
+    "price": 2130.0,
+    "ema_21": 2130.0,
+    "ema_50": 2130.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 41251.0,
+    "52_week_high": 2997.9,
+    "52_week_low": 1545.3
+  },
+  "CHL": {
+    "price": 227.9,
+    "ema_21": 227.9,
+    "ema_50": 227.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 26363.0,
+    "52_week_high": 599.7,
+    "52_week_low": 225.0
+  },
+  "CIT": {
+    "price": 1828.0,
+    "ema_21": 1828.0,
+    "ema_50": 1828.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 11281.0,
+    "52_week_high": 2299.0,
+    "52_week_low": 1730.8
+  },
+  "CITY": {
+    "price": 518.0,
+    "ema_21": 518.0,
+    "ema_50": 518.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5762.0,
+    "52_week_high": 1025.0,
+    "52_week_low": 506.1
+  },
+  "CKHL": {
+    "price": 572.0,
+    "ema_21": 572.0,
+    "ema_50": 572.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 770.0,
+    "52_week_high": 910.0,
+    "52_week_low": 561.0
+  },
+  "CLI": {
+    "price": 435.2,
+    "ema_21": 435.2,
+    "ema_50": 435.2,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 9782.0,
+    "52_week_high": 774.9,
+    "52_week_low": 411.0
+  },
+  "CMF2": {
+    "price": 9.18,
+    "ema_21": 9.18,
+    "ema_50": 9.18,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1000.0,
+    "52_week_high": 10.86,
+    "52_week_low": 8.64
+  },
+  "CORBL": {
+    "price": 1730.0,
+    "ema_21": 1730.0,
+    "ema_50": 1730.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 4676.0,
+    "52_week_high": 2842.3,
+    "52_week_low": 823.4
+  },
+  "CREST": {
+    "price": 1231.1,
+    "ema_21": 1231.1,
+    "ema_50": 1231.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 25135.0,
+    "52_week_high": 2458.2,
+    "52_week_low": 302.5
+  },
+  "CYCL": {
+    "price": 1506.5,
+    "ema_21": 1506.5,
+    "ema_50": 1506.5,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1212.0,
+    "52_week_high": 2040.0,
+    "52_week_low": 1490.0
+  },
+  "CZBIL": {
+    "price": 202.0,
+    "ema_21": 202.0,
+    "ema_50": 202.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 28700.0,
+    "52_week_high": 265.3,
+    "52_week_low": 196.0
+  },
+  "DDBL": {
+    "price": 806.0,
+    "ema_21": 806.0,
+    "ema_50": 806.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 4831.0,
+    "52_week_high": 1010.0,
+    "52_week_low": 759.0
+  },
+  "DHPL": {
+    "price": 285.0,
+    "ema_21": 285.0,
+    "ema_50": 285.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 7509.0,
+    "52_week_high": 427.2,
+    "52_week_low": 235.0
+  },
+  "DLBS": {
+    "price": 1247.6,
+    "ema_21": 1247.6,
+    "ema_50": 1247.6,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1922.0,
+    "52_week_high": 2250.0,
+    "52_week_low": 1247.6
+  },
+  "DOLTI": {
+    "price": 498.0,
+    "ema_21": 498.0,
+    "ema_50": 498.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2871.0,
+    "52_week_high": 1017.0,
+    "52_week_low": 490.0
+  },
+  "DORDI": {
+    "price": 218.1,
+    "ema_21": 218.1,
+    "ema_50": 218.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 31176.0,
+    "52_week_high": 696.0,
+    "52_week_low": 215.1
+  },
+  "EBL": {
+    "price": 640.1,
+    "ema_21": 640.1,
+    "ema_50": 640.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 49689.0,
+    "52_week_high": 780.6,
+    "52_week_low": 570.0
+  },
+  "EBLD85": {
+    "price": 1165.0,
+    "ema_21": 1165.0,
+    "ema_50": 1165.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 300.0,
+    "52_week_high": 1200.0,
+    "52_week_low": 1099.7
+  },
+  "EBLD91": {
+    "price": 1105.0,
+    "ema_21": 1105.0,
+    "ema_50": 1105.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 275.0,
+    "52_week_high": 1123.0,
+    "52_week_low": 994.4
+  },
+  "EDBL": {
+    "price": 556.3,
+    "ema_21": 556.3,
+    "ema_50": 556.3,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 6890.0,
+    "52_week_high": 838.2,
+    "52_week_low": 530.7
+  },
+  "EHPL": {
+    "price": 457.0,
+    "ema_21": 457.0,
+    "ema_50": 457.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1722.0,
+    "52_week_high": 992.3,
+    "52_week_low": 455.0
+  },
+  "ENL": {
+    "price": 894.8,
+    "ema_21": 894.8,
+    "ema_50": 894.8,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1535.0,
+    "52_week_high": 1452.0,
+    "52_week_low": 866.0
+  },
+  "FMDBL": {
+    "price": 765.0,
+    "ema_21": 765.0,
+    "ema_50": 765.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 21646.0,
+    "52_week_high": 1038.8,
+    "52_week_low": 712.0
+  },
+  "FOWAD": {
+    "price": 1080.0,
+    "ema_21": 1080.0,
+    "ema_50": 1080.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2805.0,
+    "52_week_high": 1552.0,
+    "52_week_low": 1046.3
+  },
+  "GBBL": {
+    "price": 403.0,
+    "ema_21": 403.0,
+    "ema_50": 403.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 50045.0,
+    "52_week_high": 498.0,
+    "52_week_low": 378.7
+  },
+  "GBILD84/85": {
+    "price": 1209.0,
+    "ema_21": 1209.0,
+    "ema_50": 1209.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 70.0,
+    "52_week_high": 1220.0,
+    "52_week_low": 1104.0
+  },
+  "GBIME": {
+    "price": 236.0,
+    "ema_21": 236.0,
+    "ema_50": 236.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 212927.0,
+    "52_week_high": 278.9,
+    "52_week_low": 210.7
+  },
+  "GBIMESY2": {
+    "price": 9.1,
+    "ema_21": 9.1,
+    "ema_50": 9.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2200.0,
+    "52_week_high": 10.0,
+    "52_week_low": 8.65
+  },
+  "GBLBS": {
+    "price": 780.0,
+    "ema_21": 780.0,
+    "ema_50": 780.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 14510.0,
+    "52_week_high": 987.0,
+    "52_week_low": 698.0
+  },
+  "GCIL": {
+    "price": 419.5,
+    "ema_21": 419.5,
+    "ema_50": 419.5,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 14899.0,
+    "52_week_high": 613.0,
+    "52_week_low": 419.5
+  },
+  "GFCL": {
+    "price": 561.0,
+    "ema_21": 561.0,
+    "ema_50": 561.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 12064.0,
+    "52_week_high": 1200.0,
+    "52_week_low": 528.3
+  },
+  "GHL": {
+    "price": 200.9,
+    "ema_21": 200.9,
+    "ema_50": 200.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 45708.0,
+    "52_week_high": 318.0,
+    "52_week_low": 197.0
+  },
+  "GIBF1": {
+    "price": 10.2,
+    "ema_21": 10.2,
+    "ema_50": 10.2,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 93504.0,
+    "52_week_high": 11.68,
+    "52_week_low": 9.11
+  },
+  "GILB": {
+    "price": 1144.0,
+    "ema_21": 1144.0,
+    "ema_50": 1144.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1151.0,
+    "52_week_high": 1441.6,
+    "52_week_low": 1131.9
+  },
+  "GLBSL": {
+    "price": 1966.0,
+    "ema_21": 1966.0,
+    "ema_50": 1966.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1923.0,
+    "52_week_high": 3486.0,
+    "52_week_low": 1560.0
+  },
+  "GLH": {
+    "price": 244.0,
+    "ema_21": 244.0,
+    "ema_50": 244.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 32558.0,
+    "52_week_high": 306.3,
+    "52_week_low": 227.4
+  },
+  "GMFBS": {
+    "price": 1454.5,
+    "ema_21": 1454.5,
+    "ema_50": 1454.5,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1887.0,
+    "52_week_high": 1980.0,
+    "52_week_low": 1395.0
+  },
+  "GMFIL": {
+    "price": 418.0,
+    "ema_21": 418.0,
+    "ema_50": 418.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 13874.0,
+    "52_week_high": 735.9,
+    "52_week_low": 393.1
+  },
+  "GMLI": {
+    "price": 1934.3,
+    "ema_21": 1934.3,
+    "ema_50": 1934.3,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1759.0,
+    "52_week_high": 2778.0,
+    "52_week_low": 301.0
+  },
+  "GRDBL": {
+    "price": 1011.0,
+    "ema_21": 1011.0,
+    "ema_50": 1011.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 7158.0,
+    "52_week_high": 2001.4,
+    "52_week_low": 701.0
+  },
+  "GSY": {
+    "price": 9.0,
+    "ema_21": 9.0,
+    "ema_50": 9.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 3240.0,
+    "52_week_high": 10.3,
+    "52_week_low": 8.75
+  },
+  "GUFL": {
+    "price": 474.0,
+    "ema_21": 474.0,
+    "ema_50": 474.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2814.0,
+    "52_week_high": 840.0,
+    "52_week_low": 465.5
+  },
+  "GVL": {
+    "price": 472.1,
+    "ema_21": 472.1,
+    "ema_50": 472.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 18776.0,
+    "52_week_high": 662.0,
+    "52_week_low": 424.0
+  },
+  "GWFD83": {
+    "price": 1190.0,
+    "ema_21": 1190.0,
+    "ema_50": 1190.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 100.0,
+    "52_week_high": 1464.8,
+    "52_week_low": 1090.0
+  },
+  "H8020": {
+    "price": 10.65,
+    "ema_21": 10.65,
+    "ema_50": 10.65,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 80110.0,
+    "52_week_high": 12.21,
+    "52_week_low": 9.6
+  },
+  "HATHY": {
+    "price": 920.0,
+    "ema_21": 920.0,
+    "ema_50": 920.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5901.0,
+    "52_week_high": 1600.0,
+    "52_week_low": 884.0
+  },
+  "HBL": {
+    "price": 194.8,
+    "ema_21": 194.8,
+    "ema_50": 194.8,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 34884.0,
+    "52_week_high": 286.0,
+    "52_week_low": 184.0
+  },
+  "HDHPC": {
+    "price": 169.9,
+    "ema_21": 169.9,
+    "ema_50": 169.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 48285.0,
+    "52_week_high": 228.8,
+    "52_week_low": 162.0
+  },
+  "HDL": {
+    "price": 1310.0,
+    "ema_21": 1310.0,
+    "ema_50": 1310.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 71639.0,
+    "52_week_high": 1556.1,
+    "52_week_low": 1136.0
+  },
+  "HEI": {
+    "price": 461.1,
+    "ema_21": 461.1,
+    "ema_50": 461.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 17704.0,
+    "52_week_high": 722.0,
+    "52_week_low": 461.0
+  },
+  "HHL": {
+    "price": 315.0,
+    "ema_21": 315.0,
+    "ema_50": 315.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 12499.0,
+    "52_week_high": 635.0,
+    "52_week_low": 312.8
+  },
+  "HIDCL": {
+    "price": 251.5,
+    "ema_21": 251.5,
+    "ema_50": 251.5,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 126265.0,
+    "52_week_high": 340.0,
+    "52_week_low": 225.4
+  },
+  "HIDCLP": {
+    "price": 178.1,
+    "ema_21": 178.1,
+    "ema_50": 178.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 94393.0,
+    "52_week_high": 239.0,
+    "52_week_low": 153.9
+  },
+  "HIMSTAR": {
+    "price": 602.0,
+    "ema_21": 602.0,
+    "ema_50": 602.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 11442.0,
+    "52_week_high": 762.3,
+    "52_week_low": 252.2
+  },
+  "HLBSL": {
+    "price": 869.0,
+    "ema_21": 869.0,
+    "ema_50": 869.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2324.0,
+    "52_week_high": 1140.0,
+    "52_week_low": 864.0
+  },
+  "HLI": {
+    "price": 355.1,
+    "ema_21": 355.1,
+    "ema_50": 355.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 44972.0,
+    "52_week_high": 517.9,
+    "52_week_low": 354.8
+  },
+  "HPPL": {
+    "price": 465.0,
+    "ema_21": 465.0,
+    "ema_50": 465.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 39564.0,
+    "52_week_high": 711.0,
+    "52_week_low": 310.0
+  },
+  "HRL": {
+    "price": 775.0,
+    "ema_21": 775.0,
+    "ema_50": 775.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 123658.0,
+    "52_week_high": 1156.0,
+    "52_week_low": 762.1
+  },
+  "HURJA": {
+    "price": 206.0,
+    "ema_21": 206.0,
+    "ema_50": 206.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 74855.0,
+    "52_week_high": 283.4,
+    "52_week_low": 205.0
+  },
+  "ICFC": {
+    "price": 606.0,
+    "ema_21": 606.0,
+    "ema_50": 606.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 9717.0,
+    "52_week_high": 872.0,
+    "52_week_low": 555.0
+  },
+  "ICFCD83": {
+    "price": 1185.0,
+    "ema_21": 1185.0,
+    "ema_50": 1185.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 200.0,
+    "52_week_high": 1368.9,
+    "52_week_low": 1155.0
+  },
+  "ICFCD88": {
+    "price": 1115.0,
+    "ema_21": 1115.0,
+    "ema_50": 1115.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 50.0,
+    "52_week_high": 1129.0,
+    "52_week_low": 1000.0
+  },
+  "IGI": {
+    "price": 395.0,
+    "ema_21": 395.0,
+    "ema_50": 395.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 15526.0,
+    "52_week_high": 690.8,
+    "52_week_low": 395.0
+  },
+  "IHL": {
+    "price": 515.0,
+    "ema_21": 515.0,
+    "ema_50": 515.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 4944.0,
+    "52_week_high": 838.0,
+    "52_week_low": 489.2
+  },
+  "ILBS": {
+    "price": 1167.7,
+    "ema_21": 1167.7,
+    "ema_50": 1167.7,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 7003.0,
+    "52_week_high": 1311.0,
+    "52_week_low": 795.2
+  },
+  "ILI": {
+    "price": 425.0,
+    "ema_21": 425.0,
+    "ema_50": 425.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 6056.0,
+    "52_week_high": 530.0,
+    "52_week_low": 405.0
+  },
+  "JBBD87": {
+    "price": 1125.0,
+    "ema_21": 1125.0,
+    "ema_50": 1125.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 26.0,
+    "52_week_high": 1182.0,
+    "52_week_low": 1032.7
+  },
+  "JBBL": {
+    "price": 305.0,
+    "ema_21": 305.0,
+    "ema_50": 305.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 33979.0,
+    "52_week_high": 430.9,
+    "52_week_low": 295.0
+  },
+  "JBLB": {
+    "price": 1366.0,
+    "ema_21": 1366.0,
+    "ema_50": 1366.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 4347.0,
+    "52_week_high": 1705.0,
+    "52_week_low": 1270.7
+  },
+  "JFL": {
+    "price": 420.0,
+    "ema_21": 420.0,
+    "ema_50": 420.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5085.0,
+    "52_week_high": 1083.3,
+    "52_week_low": 395.0
+  },
+  "JOSHI": {
+    "price": 285.0,
+    "ema_21": 285.0,
+    "ema_50": 285.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 8056.0,
+    "52_week_high": 521.6,
+    "52_week_low": 254.0
+  },
+  "JSLBB": {
+    "price": 1124.0,
+    "ema_21": 1124.0,
+    "ema_50": 1124.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 364.0,
+    "52_week_high": 1860.4,
+    "52_week_low": 1105.0
+  },
+  "KBL": {
+    "price": 181.4,
+    "ema_21": 181.4,
+    "ema_50": 181.4,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 109025.0,
+    "52_week_high": 253.5,
+    "52_week_low": 175.5
+  },
+  "KBLD89": {
+    "price": 1279.1,
+    "ema_21": 1279.1,
+    "ema_50": 1279.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 56.0,
+    "52_week_high": 1279.1,
+    "52_week_low": 1107.0
+  },
+  "KBSH": {
+    "price": 1749.0,
+    "ema_21": 1749.0,
+    "ema_50": 1749.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 10.0,
+    "52_week_high": 3300.0,
+    "52_week_low": 1700.0
+  },
+  "KDBY": {
+    "price": 8.93,
+    "ema_21": 8.93,
+    "ema_50": 8.93,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 700.0,
+    "52_week_high": 10.57,
+    "52_week_low": 8.67
+  },
+  "KDL": {
+    "price": 901.9,
+    "ema_21": 901.9,
+    "ema_50": 901.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1672.0,
+    "52_week_high": 1306.3,
+    "52_week_low": 884.2
+  },
+  "KEF": {
+    "price": 8.96,
+    "ema_21": 8.96,
+    "ema_50": 8.96,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 7150.0,
+    "52_week_high": 10.42,
+    "52_week_low": 8.25
+  },
+  "KKHC": {
+    "price": 221.0,
+    "ema_21": 221.0,
+    "ema_50": 221.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 6160.0,
+    "52_week_high": 475.9,
+    "52_week_low": 216.7
+  },
+  "KMCDB": {
+    "price": 1015.0,
+    "ema_21": 1015.0,
+    "ema_50": 1015.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 4287.0,
+    "52_week_high": 1270.0,
+    "52_week_low": 942.0
+  },
+  "KPCL": {
+    "price": 537.8,
+    "ema_21": 537.8,
+    "ema_50": 537.8,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 22875.0,
+    "52_week_high": 711.0,
+    "52_week_low": 479.5
+  },
+  "KSBBL": {
+    "price": 413.0,
+    "ema_21": 413.0,
+    "ema_50": 413.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 29581.0,
+    "52_week_high": 588.0,
+    "52_week_low": 405.0
+  },
+  "KSY": {
+    "price": 8.91,
+    "ema_21": 8.91,
+    "ema_50": 8.91,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 200.0,
+    "52_week_high": 10.64,
+    "52_week_low": 8.25
+  },
+  "LBBL": {
+    "price": 443.9,
+    "ema_21": 443.9,
+    "ema_50": 443.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 72905.0,
+    "52_week_high": 646.3,
+    "52_week_low": 376.5
+  },
+  "LEC": {
+    "price": 192.0,
+    "ema_21": 192.0,
+    "ema_50": 192.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 111734.0,
+    "52_week_high": 299.0,
+    "52_week_low": 186.0
+  },
+  "LICN": {
+    "price": 795.0,
+    "ema_21": 795.0,
+    "ema_50": 795.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 7038.0,
+    "52_week_high": 2159.0,
+    "52_week_low": 773.0
+  },
+  "LLBS": {
+    "price": 875.0,
+    "ema_21": 875.0,
+    "ema_50": 875.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1186.0,
+    "52_week_high": 1367.3,
+    "52_week_low": 875.0
+  },
+  "LSL": {
+    "price": 217.0,
+    "ema_21": 217.0,
+    "ema_50": 217.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 37330.0,
+    "52_week_high": 274.9,
+    "52_week_low": 201.0
+  },
+  "LUK": {
+    "price": 9.48,
+    "ema_21": 9.48,
+    "ema_50": 9.48,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 4100.0,
+    "52_week_high": 11.97,
+    "52_week_low": 8.98
+  },
+  "LVF2": {
+    "price": 9.1,
+    "ema_21": 9.1,
+    "ema_50": 9.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 34500.0,
+    "52_week_high": 11.45,
+    "52_week_low": 8.74
+  },
+  "MAKAR": {
+    "price": 540.0,
+    "ema_21": 540.0,
+    "ema_50": 540.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2004.0,
+    "52_week_high": 860.0,
+    "52_week_low": 464.0
+  },
+  "MANDU": {
+    "price": 785.0,
+    "ema_21": 785.0,
+    "ema_50": 785.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1103.0,
+    "52_week_high": 1090.0,
+    "52_week_low": 766.5
+  },
+  "MATRI": {
+    "price": 975.0,
+    "ema_21": 975.0,
+    "ema_50": 975.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 865.0,
+    "52_week_high": 1482.0,
+    "52_week_low": 950.0
+  },
+  "MBJC": {
+    "price": 270.3,
+    "ema_21": 270.3,
+    "ema_50": 270.3,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 12261.0,
+    "52_week_high": 410.0,
+    "52_week_low": 270.0
+  },
+  "MBL": {
+    "price": 209.4,
+    "ema_21": 209.4,
+    "ema_50": 209.4,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 34843.0,
+    "52_week_high": 290.0,
+    "52_week_low": 208.0
+  },
+  "MBLEF": {
+    "price": 9.07,
+    "ema_21": 9.07,
+    "ema_50": 9.07,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 800.0,
+    "52_week_high": 10.19,
+    "52_week_low": 8.59
+  },
+  "MCHL": {
+    "price": 485.0,
+    "ema_21": 485.0,
+    "ema_50": 485.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 3360.0,
+    "52_week_high": 714.0,
+    "52_week_low": 450.4
+  },
+  "MDB": {
+    "price": 540.0,
+    "ema_21": 540.0,
+    "ema_50": 540.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 34584.0,
+    "52_week_high": 843.5,
+    "52_week_low": 535.0
+  },
+  "MEHL": {
+    "price": 382.9,
+    "ema_21": 382.9,
+    "ema_50": 382.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5834.0,
+    "52_week_high": 696.0,
+    "52_week_low": 363.6
+  },
+  "MEL": {
+    "price": 269.0,
+    "ema_21": 269.0,
+    "ema_50": 269.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 15813.0,
+    "52_week_high": 393.0,
+    "52_week_low": 262.0
+  },
+  "MEN": {
+    "price": 598.3,
+    "ema_21": 598.3,
+    "ema_50": 598.3,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 32749.0,
+    "52_week_high": 758.0,
+    "52_week_low": 552.4
+  },
+  "MERO": {
+    "price": 730.0,
+    "ema_21": 730.0,
+    "ema_50": 730.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 8286.0,
+    "52_week_high": 1000.0,
+    "52_week_low": 648.0
+  },
+  "MFIL": {
+    "price": 567.0,
+    "ema_21": 567.0,
+    "ema_50": 567.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 14776.0,
+    "52_week_high": 834.0,
+    "52_week_low": 560.0
+  },
+  "MHCL": {
+    "price": 379.0,
+    "ema_21": 379.0,
+    "ema_50": 379.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 4333.0,
+    "52_week_high": 655.0,
+    "52_week_low": 374.6
+  },
+  "MHL": {
+    "price": 452.1,
+    "ema_21": 452.1,
+    "ema_50": 452.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 8021.0,
+    "52_week_high": 1088.0,
+    "52_week_low": 450.0
+  },
+  "MHNL": {
+    "price": 239.0,
+    "ema_21": 239.0,
+    "ema_50": 239.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 7519.0,
+    "52_week_high": 316.0,
+    "52_week_low": 231.4
+  },
+  "MKCL": {
+    "price": 1456.0,
+    "ema_21": 1456.0,
+    "ema_50": 1456.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 7965.0,
+    "52_week_high": 1900.0,
+    "52_week_low": 1378.9
+  },
+  "MKHC": {
+    "price": 344.0,
+    "ema_21": 344.0,
+    "ema_50": 344.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 4356.0,
+    "52_week_high": 627.0,
+    "52_week_low": 331.3
+  },
+  "MKHL": {
+    "price": 674.0,
+    "ema_21": 674.0,
+    "ema_50": 674.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1216.0,
+    "52_week_high": 1027.0,
+    "52_week_low": 488.0
+  },
+  "MKJC": {
+    "price": 550.0,
+    "ema_21": 550.0,
+    "ema_50": 550.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 63042.0,
+    "52_week_high": 635.0,
+    "52_week_low": 442.0
+  },
+  "MLBBL": {
+    "price": 1399.0,
+    "ema_21": 1399.0,
+    "ema_50": 1399.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2560.0,
+    "52_week_high": 2019.0,
+    "52_week_low": 1360.0
+  },
+  "MLBL": {
+    "price": 363.9,
+    "ema_21": 363.9,
+    "ema_50": 363.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 31713.0,
+    "52_week_high": 488.0,
+    "52_week_low": 348.9
+  },
+  "MLBLD89": {
+    "price": 1250.0,
+    "ema_21": 1250.0,
+    "ema_50": 1250.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 95.0,
+    "52_week_high": 1260.0,
+    "52_week_low": 1158.0
+  },
+  "MLBS": {
+    "price": 1474.0,
+    "ema_21": 1474.0,
+    "ema_50": 1474.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 40.0,
+    "52_week_high": 2530.0,
+    "52_week_low": 1400.1
+  },
+  "MLBSL": {
+    "price": 1930.0,
+    "ema_21": 1930.0,
+    "ema_50": 1930.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1057.0,
+    "52_week_high": 2648.7,
+    "52_week_low": 1911.1
+  },
+  "MMF1": {
+    "price": 8.73,
+    "ema_21": 8.73,
+    "ema_50": 8.73,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5265.0,
+    "52_week_high": 9.95,
+    "52_week_low": 8.05
+  },
+  "MMKJL": {
+    "price": 594.0,
+    "ema_21": 594.0,
+    "ema_50": 594.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 9124.0,
+    "52_week_high": 890.4,
+    "52_week_low": 492.4
+  },
+  "MNBBL": {
+    "price": 435.5,
+    "ema_21": 435.5,
+    "ema_50": 435.5,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 350740.0,
+    "52_week_high": 503.0,
+    "52_week_low": 349.0
+  },
+  "MNMF1": {
+    "price": 8.9,
+    "ema_21": 8.9,
+    "ema_50": 8.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 4210.0,
+    "52_week_high": 10.42,
+    "52_week_low": 8.67
+  },
+  "MPFL": {
+    "price": 505.0,
+    "ema_21": 505.0,
+    "ema_50": 505.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 9855.0,
+    "52_week_high": 839.4,
+    "52_week_low": 499.0
+  },
+  "MSHL": {
+    "price": 909.0,
+    "ema_21": 909.0,
+    "ema_50": 909.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5403.0,
+    "52_week_high": 1135.0,
+    "52_week_low": 808.5
+  },
+  "MSLB": {
+    "price": 1273.9,
+    "ema_21": 1273.9,
+    "ema_50": 1273.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 3944.0,
+    "52_week_high": 1851.0,
+    "52_week_low": 1130.2
+  },
+  "NABBC": {
+    "price": 720.0,
+    "ema_21": 720.0,
+    "ema_50": 720.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 119254.0,
+    "52_week_high": 2060.0,
+    "52_week_low": 610.1
+  },
+  "NABIL": {
+    "price": 509.0,
+    "ema_21": 509.0,
+    "ema_50": 509.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 37341.0,
+    "52_week_high": 619.0,
+    "52_week_low": 471.0
+  },
+  "NADEP": {
+    "price": 710.0,
+    "ema_21": 710.0,
+    "ema_50": 710.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2505.0,
+    "52_week_high": 1085.0,
+    "52_week_low": 696.0
+  },
+  "NBBD2085": {
+    "price": 1132.0,
+    "ema_21": 1132.0,
+    "ema_50": 1132.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 60.0,
+    "52_week_high": 1195.0,
+    "52_week_low": 1078.6
+  },
+  "NBF2": {
+    "price": 9.2,
+    "ema_21": 9.2,
+    "ema_50": 9.2,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1500.0,
+    "52_week_high": 11.1,
+    "52_week_low": 8.86
+  },
+  "NBF3": {
+    "price": 8.93,
+    "ema_21": 8.93,
+    "ema_50": 8.93,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 30200.0,
+    "52_week_high": 10.67,
+    "52_week_low": 8.61
+  },
+  "NBL": {
+    "price": 241.0,
+    "ema_21": 241.0,
+    "ema_50": 241.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 27154.0,
+    "52_week_high": 313.0,
+    "52_week_low": 225.4
+  },
+  "NESDO": {
+    "price": 1439.0,
+    "ema_21": 1439.0,
+    "ema_50": 1439.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 792.0,
+    "52_week_high": 2522.0,
+    "52_week_low": 1380.1
+  },
+  "NFS": {
+    "price": 609.0,
+    "ema_21": 609.0,
+    "ema_50": 609.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 12968.0,
+    "52_week_high": 1605.0,
+    "52_week_low": 576.0
+  },
+  "NGPL": {
+    "price": 350.0,
+    "ema_21": 350.0,
+    "ema_50": 350.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 153146.0,
+    "52_week_high": 571.0,
+    "52_week_low": 250.0
+  },
+  "NHDL": {
+    "price": 636.3,
+    "ema_21": 636.3,
+    "ema_50": 636.3,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2147.0,
+    "52_week_high": 1002.6,
+    "52_week_low": 562.0
+  },
+  "NHPC": {
+    "price": 185.0,
+    "ema_21": 185.0,
+    "ema_50": 185.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 42597.0,
+    "52_week_high": 254.0,
+    "52_week_low": 178.6
+  },
+  "NIBD84": {
+    "price": 1051.0,
+    "ema_21": 1051.0,
+    "ema_50": 1051.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 25.0,
+    "52_week_high": 1077.0,
+    "52_week_low": 1013.1
+  },
+  "NIBLGF": {
+    "price": 8.55,
+    "ema_21": 8.55,
+    "ema_50": 8.55,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2400.0,
+    "52_week_high": 10.09,
+    "52_week_low": 7.84
+  },
+  "NIBLSTF": {
+    "price": 8.5,
+    "ema_21": 8.5,
+    "ema_50": 8.5,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 16100.0,
+    "52_week_high": 10.08,
+    "52_week_low": 7.85
+  },
+  "NIBSF2": {
+    "price": 8.41,
+    "ema_21": 8.41,
+    "ema_50": 8.41,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 4400.0,
+    "52_week_high": 9.58,
+    "52_week_low": 8.01
+  },
+  "NICA": {
+    "price": 314.1,
+    "ema_21": 314.1,
+    "ema_50": 314.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 33027.0,
+    "52_week_high": 505.0,
+    "52_week_low": 308.7
+  },
+  "NICAD2091": {
+    "price": 1060.0,
+    "ema_21": 1060.0,
+    "ema_50": 1060.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 125.0,
+    "52_week_high": 1087.0,
+    "52_week_low": 1005.2
+  },
+  "NICBF": {
+    "price": 9.11,
+    "ema_21": 9.11,
+    "ema_50": 9.11,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1076.0,
+    "52_week_high": 10.6,
+    "52_week_low": 8.55
+  },
+  "NICFC": {
+    "price": 8.98,
+    "ema_21": 8.98,
+    "ema_50": 8.98,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1700.0,
+    "52_week_high": 10.4,
+    "52_week_low": 8.6
+  },
+  "NICGF2": {
+    "price": 8.51,
+    "ema_21": 8.51,
+    "ema_50": 8.51,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1620.0,
+    "52_week_high": 9.98,
+    "52_week_low": 8.33
+  },
+  "NICL": {
+    "price": 498.5,
+    "ema_21": 498.5,
+    "ema_50": 498.5,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5081.0,
+    "52_week_high": 1064.0,
+    "52_week_low": 489.1
+  },
+  "NICLBSL": {
+    "price": 537.0,
+    "ema_21": 537.0,
+    "ema_50": 537.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5346.0,
+    "52_week_high": 775.0,
+    "52_week_low": 535.0
+  },
+  "NICSF": {
+    "price": 8.74,
+    "ema_21": 8.74,
+    "ema_50": 8.74,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 7300.0,
+    "52_week_high": 10.4,
+    "52_week_low": 8.53
+  },
+  "NIFRA": {
+    "price": 264.4,
+    "ema_21": 264.4,
+    "ema_50": 264.4,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 199625.0,
+    "52_week_high": 328.1,
+    "52_week_low": 240.1
+  },
+  "NIFRAGED": {
+    "price": 1005.0,
+    "ema_21": 1005.0,
+    "ema_50": 1005.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 25.0,
+    "52_week_high": 1020.0,
+    "52_week_low": 948.0
+  },
+  "NIL": {
+    "price": 580.0,
+    "ema_21": 580.0,
+    "ema_50": 580.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 10851.0,
+    "52_week_high": 999.0,
+    "52_week_low": 574.0
+  },
+  "NIMB": {
+    "price": 197.5,
+    "ema_21": 197.5,
+    "ema_50": 197.5,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 59423.0,
+    "52_week_high": 264.9,
+    "52_week_low": 189.2
+  },
+  "NIMBPO": {
+    "price": 164.3,
+    "ema_21": 164.3,
+    "ema_50": 164.3,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1180.0,
+    "52_week_high": 186.8,
+    "52_week_low": 147.7
+  },
+  "NLG": {
+    "price": 697.0,
+    "ema_21": 697.0,
+    "ema_50": 697.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 9679.0,
+    "52_week_high": 1380.0,
+    "52_week_low": 660.0
+  },
+  "NLIC": {
+    "price": 744.8,
+    "ema_21": 744.8,
+    "ema_50": 744.8,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 20842.0,
+    "52_week_high": 920.0,
+    "52_week_low": 702.0
+  },
+  "NLICL": {
+    "price": 578.0,
+    "ema_21": 578.0,
+    "ema_50": 578.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 12000.0,
+    "52_week_high": 738.0,
+    "52_week_low": 539.0
+  },
+  "NMB": {
+    "price": 235.0,
+    "ema_21": 235.0,
+    "ema_50": 235.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 149580.0,
+    "52_week_high": 288.0,
+    "52_week_low": 230.0
+  },
+  "NMB50": {
+    "price": 10.2,
+    "ema_21": 10.2,
+    "ema_50": 10.2,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 19810.0,
+    "52_week_high": 11.93,
+    "52_week_low": 9.75
+  },
+  "NMBHF2": {
+    "price": 8.85,
+    "ema_21": 8.85,
+    "ema_50": 8.85,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5800.0,
+    "52_week_high": 10.0,
+    "52_week_low": 8.16
+  },
+  "NMBMF": {
+    "price": 617.1,
+    "ema_21": 617.1,
+    "ema_50": 617.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 6097.0,
+    "52_week_high": 876.0,
+    "52_week_low": 613.6
+  },
+  "NMBPO": {
+    "price": 133.3,
+    "ema_21": 133.3,
+    "ema_50": 133.3,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 52808.0,
+    "52_week_high": 140.0,
+    "52_week_low": 115.0
+  },
+  "NMFBS": {
+    "price": 1218.0,
+    "ema_21": 1218.0,
+    "ema_50": 1218.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2804.0,
+    "52_week_high": 1639.5,
+    "52_week_low": 1161.0
+  },
+  "NMIC": {
+    "price": 1375.9,
+    "ema_21": 1375.9,
+    "ema_50": 1375.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 21789.0,
+    "52_week_high": 2703.3,
+    "52_week_low": 302.3
+  },
+  "NMLBBL": {
+    "price": 603.5,
+    "ema_21": 603.5,
+    "ema_50": 603.5,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 4983.0,
+    "52_week_high": 828.2,
+    "52_week_low": 600.0
+  },
+  "NRIC": {
+    "price": 1250.0,
+    "ema_21": 1250.0,
+    "ema_50": 1250.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 102789.0,
+    "52_week_high": 1842.0,
+    "52_week_low": 722.0
+  },
+  "NRM": {
+    "price": 395.0,
+    "ema_21": 395.0,
+    "ema_50": 395.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 22070.0,
+    "52_week_high": 645.0,
+    "52_week_low": 395.0
+  },
+  "NRN": {
+    "price": 1831.0,
+    "ema_21": 1831.0,
+    "ema_50": 1831.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 54228.0,
+    "52_week_high": 2444.0,
+    "52_week_low": 885.0
+  },
+  "NSIF2": {
+    "price": 10.2,
+    "ema_21": 10.2,
+    "ema_50": 10.2,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 34400.0,
+    "52_week_high": 11.93,
+    "52_week_low": 9.75
+  },
+  "NTC": {
+    "price": 845.8,
+    "ema_21": 845.8,
+    "ema_50": 845.8,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 12178.0,
+    "52_week_high": 1107.0,
+    "52_week_low": 762.5
+  },
+  "NUBL": {
+    "price": 719.9,
+    "ema_21": 719.9,
+    "ema_50": 719.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2732.0,
+    "52_week_high": 854.4,
+    "52_week_low": 650.0
+  },
+  "NWCL": {
+    "price": 747.3,
+    "ema_21": 747.3,
+    "ema_50": 747.3,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2026.0,
+    "52_week_high": 1147.0,
+    "52_week_low": 745.0
+  },
+  "NYADI": {
+    "price": 363.2,
+    "ema_21": 363.2,
+    "ema_50": 363.2,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1416.0,
+    "52_week_high": 880.0,
+    "52_week_low": 297.1
+  },
+  "OHL": {
+    "price": 670.0,
+    "ema_21": 670.0,
+    "ema_50": 670.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 3984.0,
+    "52_week_high": 1100.0,
+    "52_week_low": 650.0
+  },
+  "OMPL": {
+    "price": 1152.0,
+    "ema_21": 1152.0,
+    "ema_50": 1152.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 11945.0,
+    "52_week_high": 2167.2,
+    "52_week_low": 270.0
+  },
+  "PBD88": {
+    "price": 1180.0,
+    "ema_21": 1180.0,
+    "ema_50": 1180.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 100.0,
+    "52_week_high": 1255.0,
+    "52_week_low": 1077.0
+  },
+  "PCBL": {
+    "price": 232.8,
+    "ema_21": 232.8,
+    "ema_50": 232.8,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 26930.0,
+    "52_week_high": 305.7,
+    "52_week_low": 226.0
+  },
+  "PFL": {
+    "price": 367.0,
+    "ema_21": 367.0,
+    "ema_50": 367.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 7122.0,
+    "52_week_high": 794.9,
+    "52_week_low": 339.9
+  },
+  "PHCL": {
+    "price": 347.1,
+    "ema_21": 347.1,
+    "ema_50": 347.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5860.0,
+    "52_week_high": 745.6,
+    "52_week_low": 326.8
+  },
+  "PMHPL": {
+    "price": 310.0,
+    "ema_21": 310.0,
+    "ema_50": 310.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 36188.0,
+    "52_week_high": 468.0,
+    "52_week_low": 257.0
+  },
+  "PMLI": {
+    "price": 452.2,
+    "ema_21": 452.2,
+    "ema_50": 452.2,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5949.0,
+    "52_week_high": 665.0,
+    "52_week_low": 445.0
+  },
+  "PPCL": {
+    "price": 289.0,
+    "ema_21": 289.0,
+    "ema_50": 289.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 15549.0,
+    "52_week_high": 409.9,
+    "52_week_low": 249.0
+  },
+  "PPL": {
+    "price": 279.0,
+    "ema_21": 279.0,
+    "ema_50": 279.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 4352.0,
+    "52_week_high": 648.6,
+    "52_week_low": 279.0
+  },
+  "PRIN": {
+    "price": 646.0,
+    "ema_21": 646.0,
+    "ema_50": 646.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2219.0,
+    "52_week_high": 1088.8,
+    "52_week_low": 638.0
+  },
+  "PROFL": {
+    "price": 431.0,
+    "ema_21": 431.0,
+    "ema_50": 431.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 7584.0,
+    "52_week_high": 768.0,
+    "52_week_low": 430.1
+  },
+  "PRSF": {
+    "price": 10.4,
+    "ema_21": 10.4,
+    "ema_50": 10.4,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 112100.0,
+    "52_week_high": 12.05,
+    "52_week_low": 9.35
+  },
+  "PRVU": {
+    "price": 198.0,
+    "ema_21": 198.0,
+    "ema_50": 198.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 95955.0,
+    "52_week_high": 273.0,
+    "52_week_low": 186.0
+  },
+  "PSF": {
+    "price": 10.65,
+    "ema_21": 10.65,
+    "ema_50": 10.65,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 121729.0,
+    "52_week_high": 11.9,
+    "52_week_low": 9.23
+  },
+  "PURE": {
+    "price": 742.0,
+    "ema_21": 742.0,
+    "ema_50": 742.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5541.0,
+    "52_week_high": 1327.9,
+    "52_week_low": 289.3
+  },
+  "RADHI": {
+    "price": 631.6,
+    "ema_21": 631.6,
+    "ema_50": 631.6,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 91798.0,
+    "52_week_high": 905.6,
+    "52_week_low": 322.2
+  },
+  "RAWA": {
+    "price": 709.0,
+    "ema_21": 709.0,
+    "ema_50": 709.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 993.0,
+    "52_week_high": 990.0,
+    "52_week_low": 690.0
+  },
+  "RBCL": {
+    "price": 14640.0,
+    "ema_21": 14640.0,
+    "ema_50": 14640.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 10.0,
+    "52_week_high": 18409.0,
+    "52_week_low": 14024.0
+  },
+  "RBCLPO": {
+    "price": 11900.0,
+    "ema_21": 11900.0,
+    "ema_50": 11900.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 90.0,
+    "52_week_high": 13530.0,
+    "52_week_low": 11007.1
+  },
+  "RFPL": {
+    "price": 313.0,
+    "ema_21": 313.0,
+    "ema_50": 313.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 12052.0,
+    "52_week_high": 1484.0,
+    "52_week_low": 308.7
+  },
+  "RHGCL": {
+    "price": 227.0,
+    "ema_21": 227.0,
+    "ema_50": 227.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 17172.0,
+    "52_week_high": 708.0,
+    "52_week_low": 226.1
+  },
+  "RHPL": {
+    "price": 262.3,
+    "ema_21": 262.3,
+    "ema_50": 262.3,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 20532.0,
+    "52_week_high": 527.0,
+    "52_week_low": 262.0
+  },
+  "RIDI": {
+    "price": 217.1,
+    "ema_21": 217.1,
+    "ema_50": 217.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 46993.0,
+    "52_week_high": 302.0,
+    "52_week_low": 203.5
+  },
+  "RLFL": {
+    "price": 410.1,
+    "ema_21": 410.1,
+    "ema_50": 410.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 6066.0,
+    "52_week_high": 740.0,
+    "52_week_low": 400.0
+  },
+  "RMF1": {
+    "price": 9.2,
+    "ema_21": 9.2,
+    "ema_50": 9.2,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 28900.0,
+    "52_week_high": 11.4,
+    "52_week_low": 8.38
+  },
+  "RMF2": {
+    "price": 8.95,
+    "ema_21": 8.95,
+    "ema_50": 8.95,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 35000.0,
+    "52_week_high": 10.58,
+    "52_week_low": 8.73
+  },
+  "RNLI": {
+    "price": 436.0,
+    "ema_21": 436.0,
+    "ema_50": 436.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 13100.0,
+    "52_week_high": 593.0,
+    "52_week_low": 416.0
+  },
+  "RSDC": {
+    "price": 596.5,
+    "ema_21": 596.5,
+    "ema_50": 596.5,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 3461.0,
+    "52_week_high": 880.0,
+    "52_week_low": 590.0
+  },
+  "RSY": {
+    "price": 8.84,
+    "ema_21": 8.84,
+    "ema_50": 8.84,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1000.0,
+    "52_week_high": 10.08,
+    "52_week_low": 8.58
+  },
+  "RURU": {
+    "price": 689.9,
+    "ema_21": 689.9,
+    "ema_50": 689.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5058.0,
+    "52_week_high": 853.0,
+    "52_week_low": 640.0
+  },
+  "SADBL": {
+    "price": 383.0,
+    "ema_21": 383.0,
+    "ema_50": 383.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 36262.0,
+    "52_week_high": 526.5,
+    "52_week_low": 372.4
+  },
+  "SAGF": {
+    "price": 9.43,
+    "ema_21": 9.43,
+    "ema_50": 9.43,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5100.0,
+    "52_week_high": 11.0,
+    "52_week_low": 8.92
+  },
+  "SAHAS": {
+    "price": 614.9,
+    "ema_21": 614.9,
+    "ema_50": 614.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 56256.0,
+    "52_week_high": 705.0,
+    "52_week_low": 463.0
+  },
+  "SALICO": {
+    "price": 602.0,
+    "ema_21": 602.0,
+    "ema_50": 602.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2739.0,
+    "52_week_high": 818.0,
+    "52_week_low": 570.1
+  },
+  "SAMAJ": {
+    "price": 1875.8,
+    "ema_21": 1875.8,
+    "ema_50": 1875.8,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2893.0,
+    "52_week_high": 4181.0,
+    "52_week_low": 1875.8
+  },
+  "SANIMA": {
+    "price": 305.0,
+    "ema_21": 305.0,
+    "ema_50": 305.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 63297.0,
+    "52_week_high": 391.0,
+    "52_week_low": 285.0
+  },
+  "SANVI": {
+    "price": 563.2,
+    "ema_21": 563.2,
+    "ema_50": 563.2,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5651.0,
+    "52_week_high": 930.4,
+    "52_week_low": 359.0
+  },
+  "SAPDBL": {
+    "price": 790.0,
+    "ema_21": 790.0,
+    "ema_50": 790.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 29444.0,
+    "52_week_high": 1622.7,
+    "52_week_low": 540.0
+  },
+  "SARBTM": {
+    "price": 832.0,
+    "ema_21": 832.0,
+    "ema_50": 832.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 16714.0,
+    "52_week_high": 1048.0,
+    "52_week_low": 700.0
+  },
+  "SBCF": {
+    "price": 9.1,
+    "ema_21": 9.1,
+    "ema_50": 9.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 31550.0,
+    "52_week_high": 12.03,
+    "52_week_low": 8.66
+  },
+  "SBI": {
+    "price": 376.1,
+    "ema_21": 376.1,
+    "ema_50": 376.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 13570.0,
+    "52_week_high": 549.0,
+    "52_week_low": 363.0
+  },
+  "SBID89": {
+    "price": 1155.0,
+    "ema_21": 1155.0,
+    "ema_50": 1155.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 25.0,
+    "52_week_high": 1206.0,
+    "52_week_low": 1039.0
+  },
+  "SBL": {
+    "price": 342.9,
+    "ema_21": 342.9,
+    "ema_50": 342.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 70963.0,
+    "52_week_high": 408.0,
+    "52_week_low": 261.0
+  },
+  "SBLD2091": {
+    "price": 1071.0,
+    "ema_21": 1071.0,
+    "ema_50": 1071.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 325.0,
+    "52_week_high": 1108.0,
+    "52_week_low": 825.35
+  },
+  "SCB": {
+    "price": 613.0,
+    "ema_21": 613.0,
+    "ema_50": 613.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 24469.0,
+    "52_week_high": 779.2,
+    "52_week_low": 594.9
+  },
+  "SEF": {
+    "price": 9.3,
+    "ema_21": 9.3,
+    "ema_50": 9.3,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 6560.0,
+    "52_week_high": 11.5,
+    "52_week_low": 8.97
+  },
+  "SFCL": {
+    "price": 376.0,
+    "ema_21": 376.0,
+    "ema_50": 376.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 13943.0,
+    "52_week_high": 1117.9,
+    "52_week_low": 373.1
+  },
+  "SFEF": {
+    "price": 9.07,
+    "ema_21": 9.07,
+    "ema_50": 9.07,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 61000.0,
+    "52_week_high": 11.12,
+    "52_week_low": 8.82
+  },
+  "SFMF": {
+    "price": 9.7,
+    "ema_21": 9.7,
+    "ema_50": 9.7,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1100.0,
+    "52_week_high": 11.74,
+    "52_week_low": 9.4
+  },
+  "SGHC": {
+    "price": 299.9,
+    "ema_21": 299.9,
+    "ema_50": 299.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 8100.0,
+    "52_week_high": 649.5,
+    "52_week_low": 297.0
+  },
+  "SGIC": {
+    "price": 455.3,
+    "ema_21": 455.3,
+    "ema_50": 455.3,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 16752.0,
+    "52_week_high": 817.1,
+    "52_week_low": 455.0
+  },
+  "SHEL": {
+    "price": 266.0,
+    "ema_21": 266.0,
+    "ema_50": 266.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 103822.0,
+    "52_week_high": 347.8,
+    "52_week_low": 227.4
+  },
+  "SHINE": {
+    "price": 393.1,
+    "ema_21": 393.1,
+    "ema_50": 393.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 27595.0,
+    "52_week_high": 508.0,
+    "52_week_low": 382.0
+  },
+  "SHIVM": {
+    "price": 559.9,
+    "ema_21": 559.9,
+    "ema_50": 559.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 200217.0,
+    "52_week_high": 709.0,
+    "52_week_low": 495.0
+  },
+  "SHL": {
+    "price": 485.0,
+    "ema_21": 485.0,
+    "ema_50": 485.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 19520.0,
+    "52_week_high": 619.0,
+    "52_week_low": 455.0
+  },
+  "SHLB": {
+    "price": 1793.9,
+    "ema_21": 1793.9,
+    "ema_50": 1793.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 290.0,
+    "52_week_high": 2907.0,
+    "52_week_low": 1710.1
+  },
+  "SHPC": {
+    "price": 487.0,
+    "ema_21": 487.0,
+    "ema_50": 487.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 66152.0,
+    "52_week_high": 684.9,
+    "52_week_low": 438.1
+  },
+  "SICL": {
+    "price": 610.6,
+    "ema_21": 610.6,
+    "ema_50": 610.6,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5638.0,
+    "52_week_high": 905.0,
+    "52_week_low": 588.8
+  },
+  "SIFC": {
+    "price": 459.0,
+    "ema_21": 459.0,
+    "ema_50": 459.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 15343.0,
+    "52_week_high": 728.1,
+    "52_week_low": 459.0
+  },
+  "SIGS2": {
+    "price": 9.25,
+    "ema_21": 9.25,
+    "ema_50": 9.25,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 7000.0,
+    "52_week_high": 11.7,
+    "52_week_low": 8.9
+  },
+  "SIGS3": {
+    "price": 9.4,
+    "ema_21": 9.4,
+    "ema_50": 9.4,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5100.0,
+    "52_week_high": 11.46,
+    "52_week_low": 8.5
+  },
+  "SIKLES": {
+    "price": 613.0,
+    "ema_21": 613.0,
+    "ema_50": 613.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 11212.0,
+    "52_week_high": 1475.0,
+    "52_week_low": 609.0
+  },
+  "SINDU": {
+    "price": 690.0,
+    "ema_21": 690.0,
+    "ema_50": 690.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 11673.0,
+    "52_week_high": 1482.0,
+    "52_week_low": 608.0
+  },
+  "SJCL": {
+    "price": 270.7,
+    "ema_21": 270.7,
+    "ema_50": 270.7,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 4047.0,
+    "52_week_high": 393.7,
+    "52_week_low": 267.0
+  },
+  "SJLIC": {
+    "price": 407.0,
+    "ema_21": 407.0,
+    "ema_50": 407.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 17710.0,
+    "52_week_high": 520.8,
+    "52_week_low": 390.0
+  },
+  "SKBBL": {
+    "price": 863.9,
+    "ema_21": 863.9,
+    "ema_50": 863.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 13365.0,
+    "52_week_high": 999.0,
+    "52_week_low": 780.0
+  },
+  "SLBBL": {
+    "price": 816.0,
+    "ema_21": 816.0,
+    "ema_50": 816.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 7345.0,
+    "52_week_high": 1159.4,
+    "52_week_low": 780.0
+  },
+  "SLBSL": {
+    "price": 1361.5,
+    "ema_21": 1361.5,
+    "ema_50": 1361.5,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 8878.0,
+    "52_week_high": 3047.0,
+    "52_week_low": 1234.5
+  },
+  "SLCF": {
+    "price": 9.23,
+    "ema_21": 9.23,
+    "ema_50": 9.23,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5000.0,
+    "52_week_high": 11.99,
+    "52_week_low": 8.6
+  },
+  "SMATA": {
+    "price": 825.0,
+    "ema_21": 825.0,
+    "ema_50": 825.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 18414.0,
+    "52_week_high": 1382.0,
+    "52_week_low": 734.1
+  },
+  "SMB": {
+    "price": 2093.0,
+    "ema_21": 2093.0,
+    "ema_50": 2093.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1323.0,
+    "52_week_high": 4026.2,
+    "52_week_low": 1738.6
+  },
+  "SMFBS": {
+    "price": 1549.0,
+    "ema_21": 1549.0,
+    "ema_50": 1549.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1891.0,
+    "52_week_high": 2426.4,
+    "52_week_low": 1467.0
+  },
+  "SMH": {
+    "price": 825.0,
+    "ema_21": 825.0,
+    "ema_50": 825.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1290.0,
+    "52_week_high": 1283.0,
+    "52_week_low": 777.3
+  },
+  "SMHL": {
+    "price": 784.0,
+    "ema_21": 784.0,
+    "ema_50": 784.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5610.0,
+    "52_week_high": 1657.0,
+    "52_week_low": 581.0
+  },
+  "SMJC": {
+    "price": 489.0,
+    "ema_21": 489.0,
+    "ema_50": 489.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2175.0,
+    "52_week_high": 735.0,
+    "52_week_low": 483.0
+  },
+  "SMPDA": {
+    "price": 866.9,
+    "ema_21": 866.9,
+    "ema_50": 866.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1616.0,
+    "52_week_high": 1205.0,
+    "52_week_low": 850.5
+  },
+  "SNLI": {
+    "price": 427.5,
+    "ema_21": 427.5,
+    "ema_50": 427.5,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 10021.0,
+    "52_week_high": 744.5,
+    "52_week_low": 411.6
+  },
+  "SONA": {
+    "price": 405.0,
+    "ema_21": 405.0,
+    "ema_50": 405.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 28647.0,
+    "52_week_high": 545.0,
+    "52_week_low": 403.0
+  },
+  "SPC": {
+    "price": 444.0,
+    "ema_21": 444.0,
+    "ema_50": 444.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2644.0,
+    "52_week_high": 722.0,
+    "52_week_low": 441.0
+  },
+  "SPDL": {
+    "price": 367.0,
+    "ema_21": 367.0,
+    "ema_50": 367.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 95746.0,
+    "52_week_high": 465.0,
+    "52_week_low": 295.0
+  },
+  "SPHL": {
+    "price": 497.0,
+    "ema_21": 497.0,
+    "ema_50": 497.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2020.0,
+    "52_week_high": 922.0,
+    "52_week_low": 481.0
+  },
+  "SPIL": {
+    "price": 635.0,
+    "ema_21": 635.0,
+    "ema_50": 635.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 8733.0,
+    "52_week_high": 980.4,
+    "52_week_low": 632.0
+  },
+  "SPL": {
+    "price": 925.0,
+    "ema_21": 925.0,
+    "ema_50": 925.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 20.0,
+    "52_week_high": 1102.2,
+    "52_week_low": 765.0
+  },
+  "SRLI": {
+    "price": 369.9,
+    "ema_21": 369.9,
+    "ema_50": 369.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 9705.0,
+    "52_week_high": 480.0,
+    "52_week_low": 363.9
+  },
+  "SSHL": {
+    "price": 165.0,
+    "ema_21": 165.0,
+    "ema_50": 165.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 66654.0,
+    "52_week_high": 313.8,
+    "52_week_low": 156.0
+  },
+  "STC": {
+    "price": 5055.0,
+    "ema_21": 5055.0,
+    "ema_50": 5055.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 380.0,
+    "52_week_high": 6399.0,
+    "52_week_low": 4832.0
+  },
+  "SWBBL": {
+    "price": 781.0,
+    "ema_21": 781.0,
+    "ema_50": 781.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 4690.0,
+    "52_week_high": 1092.0,
+    "52_week_low": 756.9
+  },
+  "SWMF": {
+    "price": 654.0,
+    "ema_21": 654.0,
+    "ema_50": 654.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1197.0,
+    "52_week_high": 897.0,
+    "52_week_low": 646.8
+  },
+  "TAMOR": {
+    "price": 454.2,
+    "ema_21": 454.2,
+    "ema_50": 454.2,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 6885.0,
+    "52_week_high": 637.0,
+    "52_week_low": 443.0
+  },
+  "TPC": {
+    "price": 280.9,
+    "ema_21": 280.9,
+    "ema_50": 280.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 28981.0,
+    "52_week_high": 671.6,
+    "52_week_low": 270.2
+  },
+  "TRH": {
+    "price": 807.9,
+    "ema_21": 807.9,
+    "ema_50": 807.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2479.0,
+    "52_week_high": 1284.0,
+    "52_week_low": 793.0
+  },
+  "TSHL": {
+    "price": 663.0,
+    "ema_21": 663.0,
+    "ema_50": 663.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5935.0,
+    "52_week_high": 1169.9,
+    "52_week_low": 616.8
+  },
+  "TTL": {
+    "price": 695.0,
+    "ema_21": 695.0,
+    "ema_50": 695.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 15523.0,
+    "52_week_high": 1262.8,
+    "52_week_low": 366.1
+  },
+  "TVCL": {
+    "price": 405.0,
+    "ema_21": 405.0,
+    "ema_50": 405.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 3764.0,
+    "52_week_high": 697.0,
+    "52_week_low": 405.0
+  },
+  "UAIL": {
+    "price": 438.5,
+    "ema_21": 438.5,
+    "ema_50": 438.5,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 10312.0,
+    "52_week_high": 767.0,
+    "52_week_low": 422.1
+  },
+  "UHEWA": {
+    "price": 532.0,
+    "ema_21": 532.0,
+    "ema_50": 532.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 3926.0,
+    "52_week_high": 993.4,
+    "52_week_low": 467.9
+  },
+  "ULBSL": {
+    "price": 3522.0,
+    "ema_21": 3522.0,
+    "ema_50": 3522.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 620.0,
+    "52_week_high": 6600.0,
+    "52_week_low": 2931.0
+  },
+  "ULHC": {
+    "price": 426.9,
+    "ema_21": 426.9,
+    "ema_50": 426.9,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 5221.0,
+    "52_week_high": 693.0,
+    "52_week_low": 384.5
+  },
+  "UMHL": {
+    "price": 510.0,
+    "ema_21": 510.0,
+    "ema_50": 510.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 152517.0,
+    "52_week_high": 625.0,
+    "52_week_low": 304.7
+  },
+  "UMRH": {
+    "price": 537.4,
+    "ema_21": 537.4,
+    "ema_50": 537.4,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 6514.0,
+    "52_week_high": 790.0,
+    "52_week_low": 455.8
+  },
+  "UNHPL": {
+    "price": 472.0,
+    "ema_21": 472.0,
+    "ema_50": 472.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 195805.0,
+    "52_week_high": 529.9,
+    "52_week_low": 255.3
+  },
+  "UNL": {
+    "price": 48100.0,
+    "ema_21": 48100.0,
+    "ema_50": 48100.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 95.0,
+    "52_week_high": 50724.0,
+    "52_week_low": 43800.0
+  },
+  "UNLB": {
+    "price": 1821.0,
+    "ema_21": 1821.0,
+    "ema_50": 1821.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1792.0,
+    "52_week_high": 3223.0,
+    "52_week_low": 1821.0
+  },
+  "UPCL": {
+    "price": 349.0,
+    "ema_21": 349.0,
+    "ema_50": 349.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 111217.0,
+    "52_week_high": 489.0,
+    "52_week_low": 259.1
+  },
+  "UPPER": {
+    "price": 176.0,
+    "ema_21": 176.0,
+    "ema_50": 176.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 77825.0,
+    "52_week_high": 231.9,
+    "52_week_low": 166.0
+  },
+  "USHEC": {
+    "price": 434.0,
+    "ema_21": 434.0,
+    "ema_50": 434.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 4780.0,
+    "52_week_high": 752.0,
+    "52_week_low": 410.0
+  },
+  "USHL": {
+    "price": 673.5,
+    "ema_21": 673.5,
+    "ema_50": 673.5,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 2671.0,
+    "52_week_high": 941.8,
+    "52_week_low": 588.0
+  },
+  "USLB": {
+    "price": 1794.1,
+    "ema_21": 1794.1,
+    "ema_50": 1794.1,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 49391.0,
+    "52_week_high": 2750.0,
+    "52_week_low": 1386.0
+  },
+  "VLBS": {
+    "price": 750.0,
+    "ema_21": 750.0,
+    "ema_50": 750.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 1759.0,
+    "52_week_high": 1008.0,
+    "52_week_low": 739.1
+  },
+  "VLUCL": {
+    "price": 561.0,
+    "ema_21": 561.0,
+    "ema_50": 561.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 6092.0,
+    "52_week_high": 802.0,
+    "52_week_low": 516.0
+  },
+  "WNLB": {
+    "price": 1945.0,
+    "ema_21": 1945.0,
+    "ema_50": 1945.0,
+    "rsi_14": NaN,
+    "macd_signal": "neutral",
+    "volume": 192.0,
+    "52_week_high": 4271.0,
+    "52_week_low": 1800.0
+  }
+}
