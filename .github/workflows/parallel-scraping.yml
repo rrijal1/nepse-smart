@@ -2,17 +2,31 @@ name: Parallel NEPSE Data Collection
 
 on:
   schedule:
-    # Run every day at 3:00 AM NPT (9:15 PM UTC)
-    - cron: "15 21 * * *"
+    # Run during NEPSE trading hours (Nepal time UTC+5:45)
+    # Convert to UTC: Trading is roughly 11:00-15:00 NPT = 05:15-09:15 UTC
+    - cron: "30 5 * * 0-4" # 11:15 AM NPT on trading days
+    - cron: "0 7 * * 0-4" # 12:45 PM NPT on trading days
+    - cron: "30 8 * * 0-4" # 2:15 PM NPT on trading days
 
   # Allow manual triggering
   workflow_dispatch:
+    inputs:
+      scraper_type:
+        description: "Scraper to run"
+        required: true
+        default: "all"
+        type: choice
+        options:
+          - all
+          - official_api
+          - indices
+          - macro
 
 jobs:
-  # Job 1: Stock Prices from ShareSansar
-  scrape-prices:
+  # Job 1: Official NEPSE API (Company List, Floorsheet, Market Status)
+  scrape-official-api:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     permissions:
       contents: write
       actions: read
@@ -37,66 +51,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-scraper-
 
-      - name: Install dependencies
+      - name: Install system dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r data-scraper/requirements.txt
-
-      - name: Create data directories
-        run: |
-          mkdir -p data/daily data/historical data-scraper/logs
-
-      - name: Scrape stock prices
-        id: scrape-prices
-        run: |
-          cd data-scraper
-          python production_main.py --scraper prices
-        continue-on-error: true
-
-      - name: Configure Git
-        if: always()
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action - Prices Scraper"
-
-      - name: Commit prices data
-        if: always()
-        run: |
-          git add data/daily/*_prices.json data/historical/historical_prices.json || true
-          if git diff --staged --quiet; then
-            echo "No prices data to commit"
-          else
-            git commit -m "Stock prices data: $(date +'%Y-%m-%d')" || true
-            git push || true
-          fi
-
-  # Job 2: Floorsheet from MeroLagani
-  scrape-floorsheet:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    permissions:
-      contents: write
-      actions: read
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Cache Python dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-scraper-
+          sudo apt-get update
+          sudo apt-get install -y wkhtmltopdf xvfb
 
       - name: Install dependencies
         run: |
@@ -107,31 +65,31 @@ jobs:
         run: |
           mkdir -p data/daily data/historical data-scraper/logs
 
-      - name: Scrape floorsheet
-        id: scrape-floorsheet
+      - name: Scrape official NEPSE API
+        id: scrape-official
         run: |
           cd data-scraper
-          python production_main.py --scraper floorsheet
+          python production_main.py --scraper official_api
         continue-on-error: true
 
       - name: Configure Git
         if: always()
         run: |
           git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action - Floorsheet Scraper"
+          git config --local user.name "GitHub Action - Official API Scraper"
 
-      - name: Commit floorsheet data
+      - name: Commit official API data
         if: always()
         run: |
-          git add data/daily/*_floorsheet.json data/historical/historical_floorsheet.json || true
+          git add data/daily/*_company_list.json data/daily/*_floorsheet.json data/daily/*_market_status.json || true
           if git diff --staged --quiet; then
-            echo "No floorsheet data to commit"
+            echo "No official API data to commit"
           else
-            git commit -m "Floorsheet data: $(date +'%Y-%m-%d')" || true
+            git commit -m "Official NEPSE API data: $(date +'%Y-%m-%d')" || true
             git push || true
           fi
 
-  # Job 3: Indices from NEPSE
+  # Job 2: Indices from NEPSE
   scrape-indices:
     runs-on: ubuntu-latest
     timeout-minutes: 8
@@ -192,7 +150,7 @@ jobs:
             git push || true
           fi
 
-  # Job 4: NRB Banking Data
+  # Job 3: NRB Banking Data
   scrape-macro:
     runs-on: ubuntu-latest
     timeout-minutes: 8
@@ -253,82 +211,14 @@ jobs:
             git push || true
           fi
 
-  # Job 5: Listed Companies (NEPSE)
-  scrape-companies:
-    runs-on: ubuntu-latest
-    timeout-minutes: 8
-    permissions:
-      contents: write
-      actions: read
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Cache Python dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-scraper-
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r data-scraper/requirements.txt
-
-      - name: Create data directories
-        run: |
-          mkdir -p data/daily data-scraper/logs
-
-      - name: Scrape listed companies
-        id: scrape-companies
-        run: |
-          cd data-scraper
-          python production_companies.py
-        continue-on-error: true
-
-      - name: Configure Git
-        if: always()
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action - Companies Scraper"
-
-      - name: Commit company list
-        if: always()
-        run: |
-          git add data/daily/*_company_list.json || true
-          if git diff --staged --quiet; then
-            echo "No company list to commit"
-          else
-            git commit -m "Company list: $(date +'%Y-%m-%d')" || true
-            git push || true
-          fi
-
-  # Job 5: Generate Technical Indicators
+  # Job 4: Generate Technical Indicators
   generate-technicals:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       contents: write
       actions: read
-    needs:
-      [
-        scrape-prices,
-        scrape-floorsheet,
-        scrape-indices,
-        scrape-macro,
-        scrape-companies,
-      ]
+    needs: [scrape-official-api, scrape-indices, scrape-macro]
     if: always()
 
     steps:

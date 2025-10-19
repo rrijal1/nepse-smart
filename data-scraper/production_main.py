@@ -20,6 +20,7 @@ from production_floorsheet import ProductionFloorsheetScraper
 from production_indices import ProductionIndicesScraper
 from production_macro import ProductionMacroScraper
 from production_companies import ProductionCompaniesScraper
+from nepse_official_data_fetcher import NEPSEOfficialDataFetcher
 from shared_utils import setup_logging, create_data_filepath
 
 class ProductionOrchestrator:
@@ -40,6 +41,7 @@ class ProductionOrchestrator:
             'indices': ProductionIndicesScraper,
             'macro': ProductionMacroScraper,
             'companies': ProductionCompaniesScraper,
+            'official_api': NEPSEOfficialDataFetcher,
         }
         
         if scraper_type not in scrapers:
@@ -53,10 +55,35 @@ class ProductionOrchestrator:
         
         try:
             scraper = scrapers[scraper_type]()
-            result = scraper.run_daily_collection()
+            
+            # Handle different result formats
+            if scraper_type == 'official_api':
+                result = scraper.run_core_collection()
+                # Convert official API result format to standard format
+                result = {
+                    'scraper': 'official_api',
+                    'status': 'success' if result['success_count'] > 0 else 'failed',
+                    'records': result.get('total_records', 0),
+                    'file_path': f"data/daily/{datetime.now().strftime('%Y-%m-%d')}_official_api.json",
+                    'errors': [r.get('error', '') for r in result.get('failed_methods', [])],
+                    'method_results': result
+                }
+            else:
+                result = scraper.run_daily_collection()
+            
             scraper.close_session()
             
             self.logger.info(f"✅ {scraper_type} completed: {result['status']} ({result.get('records', 0)} records)")
+            
+            # Debug: Check if files were actually created
+            if result['status'] == 'success' and result.get('file_path'):
+                import os
+                if os.path.exists(result['file_path']):
+                    file_size = os.path.getsize(result['file_path'])
+                    self.logger.info(f"📁 File created: {result['file_path']} ({file_size} bytes)")
+                else:
+                    self.logger.error(f"❌ Expected file not found: {result['file_path']}")
+            
             return result
             
         except Exception as e:
@@ -72,10 +99,25 @@ class ProductionOrchestrator:
         """Run all scrapers sequentially"""
         self.logger.info("🔄 Starting complete NEPSE data collection...")
         
-        scrapers = ['prices', 'floorsheet', 'indices', 'macro']
+        # Official API for high-value authenticated data
+        official_scrapers = ['official_api']
+        # Traditional scrapers for other data types  
+        traditional_scrapers = ['indices', 'macro']
+        
         results = {}
         
-        for scraper_type in scrapers:
+        # Run official API first for core data
+        for scraper_type in official_scrapers:
+            result = self.run_single_scraper(scraper_type)
+            results[scraper_type] = result
+            
+            if result['status'] == 'success':
+                self.logger.info(f"✅ {scraper_type}: {result.get('records', 0)} records")
+            else:
+                self.logger.error(f"❌ {scraper_type}: {result.get('error', 'Unknown error')}")
+        
+        # Run traditional scrapers for remaining data
+        for scraper_type in traditional_scrapers:
             result = self.run_single_scraper(scraper_type)
             results[scraper_type] = result
             
@@ -160,9 +202,9 @@ def main():
     """Main entry point for the production orchestrator"""
     parser = argparse.ArgumentParser(description='NEPSE Production Data Scraper')
     parser.add_argument('--scraper', 
-                       choices=['prices', 'floorsheet', 'indices', 'macro', 'companies', 'all'],
+                       choices=['indices', 'macro', 'official_api', 'all'],
                        default='all',
-                       help='Specific scraper to run (default: all)')
+                       help='Specific scraper to run (official_api=company/floorsheet/status, indices=market indices, macro=economic data)')
     parser.add_argument('--verbose', '-v', action='store_true',
                        help='Enable verbose logging')
     
