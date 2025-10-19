@@ -30,9 +30,9 @@ class NEPSEOfficialDataFetcher(ScraperBase):
         self.nepse.setTLSVerification(False)
         
         # Define core data methods for official API (high-value, authenticated data)
+        # Note: Floorsheet removed due to API library parsing issues - using traditional scraper instead
         self.core_methods = {
             "company_list": self.nepse.getCompanyList,
-            "floorsheet": self.nepse.getFloorSheet,
             "market_status": self.nepse.getMarketStatus,
         }
         
@@ -90,61 +90,20 @@ class NEPSEOfficialDataFetcher(ScraperBase):
                 "status": "error"
             }
     
-    def fetch_floorsheet_data(self) -> Optional[Dict]:
-        """Fetch floorsheet data with special handling for large datasets"""
-        try:
-            self.log_success("Fetching floorsheet data...")
-            start_time = time.time()
-            
-            floorsheet_data = self.nepse.getFloorSheet()
-            fetch_time = time.time() - start_time
-            
-            if floorsheet_data:
-                result = {
-                    "method_name": "floorsheet",
-                    "data": floorsheet_data,
-                    "record_count": len(floorsheet_data),
-                    "timestamp": time.time(),
-                    "date": datetime.now().strftime("%Y-%m-%d"),
-                    "fetch_time_seconds": round(fetch_time, 2),
-                    "status": "success"
-                }
-                self.log_success(f"✅ Floorsheet: {len(floorsheet_data)} records ({fetch_time:.1f}s)")
-                return result
-            else:
-                self.log_warning("⚪ Floorsheet: No data returned")
-                return {
-                    "method_name": "floorsheet",
-                    "data": None,
-                    "timestamp": time.time(),
-                    "date": datetime.now().strftime("%Y-%m-%d"),
-                    "fetch_time_seconds": round(fetch_time, 2),
-                    "status": "empty"
-                }
-                
-        except Exception as e:
-            self.log_error(f"❌ Floorsheet fetch failed: {e}")
-            return {
-                "method_name": "floorsheet",
-                "data": None,
-                "error": str(e),
-                "timestamp": time.time(),
-                "date": datetime.now().strftime("%Y-%m-%d"),
-                "status": "error"
-            }
+
     
     def run_core_collection(self) -> Dict[str, Any]:
-        """Run core data collection (essential market data)"""
-        return self._run_collection(self.core_methods, include_floorsheet=True, collection_type="core")
+        """Run core data collection (company list + market status only)"""
+        return self._run_collection(self.core_methods, include_floorsheet=False, collection_type="core")
     
     def run_comprehensive_collection(self) -> Dict[str, Any]:
         """Run comprehensive data collection (all available data)"""
         all_methods = {**self.core_methods, **self.comprehensive_methods}
-        return self._run_collection(all_methods, include_floorsheet=True, collection_type="comprehensive")
+        return self._run_collection(all_methods, include_floorsheet=False, collection_type="comprehensive")
     
-    def _run_collection(self, methods: Dict, include_floorsheet: bool = True, collection_type: str = "core") -> Dict[str, Any]:
+    def _run_collection(self, methods: Dict, include_floorsheet: bool = False, collection_type: str = "core") -> Dict[str, Any]:
         """Internal method to run data collection"""
-        total_methods = len(methods) + (1 if include_floorsheet else 0)
+        total_methods = len(methods)
         
         results = {
             "scraper": "nepse_official_api",
@@ -201,37 +160,6 @@ class NEPSEOfficialDataFetcher(ScraperBase):
             
             time.sleep(0.5)  # Brief pause between requests
         
-        # Fetch floorsheet if requested
-        if include_floorsheet:
-            floorsheet_result = self.fetch_floorsheet_data()
-            if floorsheet_result:
-                if floorsheet_result["status"] == "success":
-                    results["successful_methods"].append(floorsheet_result)
-                    results["success_count"] += 1
-                    results["total_fetch_time"] += floorsheet_result["fetch_time_seconds"]
-                    results["total_records"] += floorsheet_result.get("record_count", 0)
-                    
-                    # Save floorsheet data
-                    from pathlib import Path
-                    import json
-                    
-                    date_str = datetime.now().strftime('%Y-%m-%d')
-                    data_dir = Path(__file__).parent.parent / 'data' / 'daily'
-                    data_dir.mkdir(parents=True, exist_ok=True)
-                    
-                    filename = data_dir / f"{date_str}_floorsheet.json"
-                    with open(filename, 'w', encoding='utf-8') as f:
-                        json.dump(floorsheet_result["data"], f, ensure_ascii=False, indent=2, default=str)
-                    
-                    self.logger.info(f"✅ Floorsheet: {len(floorsheet_result['data'])} records → {filename}")
-                    
-                elif floorsheet_result["status"] == "empty":
-                    results["empty_methods"].append(floorsheet_result)
-                    results["empty_count"] += 1
-                else:
-                    results["failed_methods"].append(floorsheet_result)
-                    results["failure_count"] += 1
-        
         results["total_collection_time"] = round(time.time() - collection_start, 2)
         return results
 
@@ -272,19 +200,7 @@ def main():
                 error = method_result.get('error', 'Unknown error')
                 print(f"  ❌ {method_result['method_name']}: {error}")
         
-        # Save comprehensive results
-        from pathlib import Path
-        import json
-        
-        date_str = datetime.now().strftime('%Y-%m-%d')
-        data_dir = Path(__file__).parent.parent / 'data' / 'daily'
-        data_dir.mkdir(parents=True, exist_ok=True)
-        
-        summary_file = data_dir / f"{date_str}_collection_summary.json"
-        with open(summary_file, 'w', encoding='utf-8') as f:
-            json.dump(results, f, ensure_ascii=False, indent=2, default=str)
-        
-        print(f"\n📋 Collection summary saved to {summary_file}")
+        # Collection complete - no summary file needed
         
     except Exception as e:
         print(f"❌ Collection failed: {e}")

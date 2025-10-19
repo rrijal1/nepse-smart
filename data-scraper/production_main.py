@@ -61,10 +61,9 @@ class ProductionOrchestrator:
                 result = scraper.run_core_collection()
                 # Convert official API result format to standard format
                 date_str = datetime.now().strftime('%Y-%m-%d')
-                # Official API saves multiple files, list the main ones
+                # Official API saves only company list and market status
                 expected_files = [
                     f"data/daily/{date_str}_company_list.json",
-                    f"data/daily/{date_str}_floorsheet.json", 
                     f"data/daily/{date_str}_market_status.json"
                 ]
                 result = {
@@ -122,10 +121,10 @@ class ProductionOrchestrator:
         """Run all scrapers sequentially"""
         self.logger.info("🔄 Starting complete NEPSE data collection...")
         
-        # Official API for high-value authenticated data
+        # Official API for authenticated data (company_list, market_status only)
         official_scrapers = ['official_api']
-        # Traditional scrapers for other data types  
-        traditional_scrapers = ['indices', 'macro']
+        # Traditional scrapers for other data types (including floorsheet from MeroLagani)
+        traditional_scrapers = ['floorsheet', 'indices', 'macro']
         
         results = {}
         
@@ -225,9 +224,9 @@ def main():
     """Main entry point for the production orchestrator"""
     parser = argparse.ArgumentParser(description='NEPSE Production Data Scraper')
     parser.add_argument('--scraper', 
-                       choices=['indices', 'macro', 'official_api', 'all'],
+                       choices=['floorsheet', 'indices', 'macro', 'official_api', 'all'],
                        default='all',
-                       help='Specific scraper to run (official_api=company/floorsheet/status, indices=market indices, macro=economic data)')
+                       help='Specific scraper to run (official_api=company/status, floorsheet=transaction data, indices=market indices, macro=economic data)')
     parser.add_argument('--verbose', '-v', action='store_true',
                        help='Enable verbose logging')
     
