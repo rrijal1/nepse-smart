@@ -114,22 +114,27 @@ class ProductionFloorsheetScraper(ScraperBase):
 
         for row in rows:
             cols = row.find_all('td')
-            if len(cols) < 7:
+            # MeroLagani added a 'S.N.' column, so we now expect at least 8 columns.
+            if len(cols) < 8:
                 continue
             
             try:
-                rate = clean_numeric_value(cols[5].get_text(strip=True))
-                quantity = clean_numeric_value(cols[4].get_text(strip=True))
-                amount = clean_numeric_value(cols[6].get_text(strip=True))
+                # ** FIX: Adjusted column indices to match the new table structure **
+                # Old structure: [Contract No, Symbol, Buyer, Seller, Qty, Rate, Amt]
+                # New structure: [S.N., Contract No, Symbol, Buyer, Seller, Qty, Rate, Amt]
+                
+                rate = clean_numeric_value(cols[6].get_text(strip=True))
+                quantity = clean_numeric_value(cols[5].get_text(strip=True))
+                amount = clean_numeric_value(cols[7].get_text(strip=True))
                 
                 # Calculate amount if missing, which is common
                 if not amount and quantity and rate:
                     amount = quantity * rate
 
                 # Safely clean and convert values that should be integers
-                transaction_no_val = clean_numeric_value(cols[0].get_text(strip=True))
-                buyer_broker_val = clean_numeric_value(cols[2].get_text(strip=True))
-                seller_broker_val = clean_numeric_value(cols[3].get_text(strip=True))
+                transaction_no_val = clean_numeric_value(cols[1].get_text(strip=True))
+                buyer_broker_val = clean_numeric_value(cols[3].get_text(strip=True))
+                seller_broker_val = clean_numeric_value(cols[4].get_text(strip=True))
 
                 # Skip row if essential integer identifiers are missing
                 if transaction_no_val is None or buyer_broker_val is None or seller_broker_val is None:
@@ -138,7 +143,7 @@ class ProductionFloorsheetScraper(ScraperBase):
 
                 floorsheet_info = {
                     'transaction_no': int(transaction_no_val),
-                    'stock_symbol': cols[1].get_text(strip=True),
+                    'stock_symbol': cols[2].get_text(strip=True),
                     'buyer_broker': int(buyer_broker_val),
                     'seller_broker': int(seller_broker_val),
                     'quantity': quantity,
@@ -149,7 +154,7 @@ class ProductionFloorsheetScraper(ScraperBase):
                 }
                 floorsheet_data.append(floorsheet_info)
             except (ValueError, TypeError, IndexError) as e:
-                self.log_warning(f"Skipping a row due to parsing error: {e} | Row: {cols}")
+                self.log_warning(f"Skipping a row due to parsing error: {e} | Row: {[c.get_text(strip=True) for c in cols]}")
                 continue
         
         return floorsheet_data
@@ -212,7 +217,3 @@ def main():
         print(f"File: {result['file_path']}")
     if result.get('errors'):
         print(f"Errors: {result['errors']}")
-
-if __name__ == "__main__":
-    main()
-
