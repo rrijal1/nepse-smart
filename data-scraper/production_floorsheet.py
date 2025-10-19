@@ -51,7 +51,8 @@ class ProductionFloorsheetScraper(ScraperBase):
                     self.log_warning(f"No data found on page {page_count}. It might be the end.")
 
                 # Find the 'Next' button to check for more pages
-                next_button = soup.select_one('a.btn.btn-default[href*="lbtnNext"]')
+                # ** FIX: Using a more robust selector for the 'Next' button **
+                next_button = soup.select_one('a[href*="lbtnNext"]')
                 if not next_button:
                     self.log_success("Reached the last page. No 'Next' button found.")
                     break
@@ -217,3 +218,6 @@ def main():
         print(f"File: {result['file_path']}")
     if result.get('errors'):
         print(f"Errors: {result['errors']}")
+
+if __name__ == "__main__":
+    main()
