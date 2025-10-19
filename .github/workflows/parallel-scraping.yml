@@ -314,10 +314,10 @@ jobs:
             git push || true
           fi
 
-  # Job 5: Generate Summary Report
-  generate-summary:
+  # Job 5: Generate Technical Indicators
+  generate-technicals:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     permissions:
       contents: write
       actions: read
@@ -329,55 +329,6 @@ jobs:
         scrape-macro,
         scrape-companies,
       ]
-    if: always() # Run even if some jobs fail
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
-          ref: main
-
-      - name: Fetch latest commits (ensure new data files are present)
-        run: |
-          git fetch origin main
-          git checkout main
-          git pull --rebase
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Generate collection summary
-        run: |
-          cd data-scraper
-          python3 generate_summary.py
-
-      - name: Configure Git
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action - Summary Generator"
-
-      - name: Commit summary
-        run: |
-          git add data/daily/collection_summary.json || true
-          if git diff --staged --quiet; then
-            echo "No summary to commit"
-          else
-            git commit -m "Collection summary: $(date +'%Y-%m-%d')" || true
-            git push || true
-          fi
-
-  # Job 6: Generate Technical Indicators
-  generate-technicals:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: write
-      actions: read
-    needs: [generate-summary]
     if: always()
 
     steps:
@@ -388,7 +339,7 @@ jobs:
           fetch-depth: 0
           ref: main
 
-      - name: Fetch latest commits (ensure summary and daily files are present)
+      - name: Fetch latest commits (ensure daily files are present)
         run: |
           git fetch origin main
           git checkout main
