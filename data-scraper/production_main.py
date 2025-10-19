@@ -60,11 +60,19 @@ class ProductionOrchestrator:
             if scraper_type == 'official_api':
                 result = scraper.run_core_collection()
                 # Convert official API result format to standard format
+                date_str = datetime.now().strftime('%Y-%m-%d')
+                # Official API saves multiple files, list the main ones
+                expected_files = [
+                    f"data/daily/{date_str}_company_list.json",
+                    f"data/daily/{date_str}_floorsheet.json", 
+                    f"data/daily/{date_str}_market_status.json"
+                ]
                 result = {
                     'scraper': 'official_api',
                     'status': 'success' if result['success_count'] > 0 else 'failed',
                     'records': result.get('total_records', 0),
-                    'file_path': f"data/daily/{datetime.now().strftime('%Y-%m-%d')}_official_api.json",
+                    'file_path': expected_files[0],  # Use first file for compatibility
+                    'file_paths': expected_files,    # List all expected files
                     'errors': [r.get('error', '') for r in result.get('failed_methods', [])],
                     'method_results': result
                 }
@@ -76,13 +84,28 @@ class ProductionOrchestrator:
             self.logger.info(f"✅ {scraper_type} completed: {result['status']} ({result.get('records', 0)} records)")
             
             # Debug: Check if files were actually created
-            if result['status'] == 'success' and result.get('file_path'):
+            if result['status'] == 'success':
                 import os
-                if os.path.exists(result['file_path']):
-                    file_size = os.path.getsize(result['file_path'])
-                    self.logger.info(f"📁 File created: {result['file_path']} ({file_size} bytes)")
-                else:
-                    self.logger.error(f"❌ Expected file not found: {result['file_path']}")
+                if scraper_type == 'official_api' and result.get('file_paths'):
+                    # Check multiple files for official API
+                    files_found = 0
+                    total_size = 0
+                    for file_path in result['file_paths']:
+                        if os.path.exists(file_path):
+                            file_size = os.path.getsize(file_path)
+                            total_size += file_size
+                            files_found += 1
+                            self.logger.info(f"📁 File created: {file_path} ({file_size} bytes)")
+                        else:
+                            self.logger.warning(f"⚠️ Expected file not found: {file_path}")
+                    self.logger.info(f"📊 Official API: {files_found}/{len(result['file_paths'])} files created ({total_size} total bytes)")
+                elif result.get('file_path'):
+                    # Check single file for other scrapers
+                    if os.path.exists(result['file_path']):
+                        file_size = os.path.getsize(result['file_path'])
+                        self.logger.info(f"📁 File created: {result['file_path']} ({file_size} bytes)")
+                    else:
+                        self.logger.error(f"❌ Expected file not found: {result['file_path']}")
             
             return result
             
