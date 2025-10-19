@@ -13,3 +13,7 @@ pandas>=2.1.4
 
 # Note: python-dateutil comes with pandas
 # Total: 4 essential packages (~50MB vs 500MB+ full requirements)
+
+# NepseUnofficialApi - unofficial NEPSE API client (provides `nepse` module)
+# Install directly from GitHub to ensure the latest version and included wasm auth
+git+https://github.com/basic-bgnr/NepseUnofficialApi.git#egg=nepse
