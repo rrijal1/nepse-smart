@@ -20,6 +20,7 @@ class ProductionFloorsheetScraper(ScraperBase):
     def __init__(self):
         super().__init__("MeroLagani-Floorsheet")
         self.base_url = "https://merolagani.com"
+        self.floorsheet_path = "/Floorsheet.aspx"  # canonical URL serves actual table
     
     def scrape_floorsheet(self, date: Optional[str] = None) -> Optional[List[Dict]]:
         """Scrape floorsheet data from MeroLagani"""
@@ -28,7 +29,7 @@ class ProductionFloorsheetScraper(ScraperBase):
         
         self.logger.info(f"🔍 Starting floorsheet scraping for {date}...")
         
-        url = f"{self.base_url}/floorsheet/"
+        url = f"{self.base_url}{self.floorsheet_path}"
         
         try:
             response = self.make_request(url)
