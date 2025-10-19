@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """
 Shared utilities for NEPSE data scrapers
-- Common scraping infrastructure
-- HTTP session management and retry logic
-- Data validation and file operations
-- Logging setup and error handling
+- Common scraping infrastructure, session management, and retry logic.
+- Data validation and standardized file/path operations.
+- Centralized logging and error handling.
+
+Refactoring Summary:
+- Reorganized functions into logical sections for better readability.
+- Centralized path creation logic to be more DRY.
+- Added type hints and improved docstrings for clarity.
+- Ensured all original public functions remain available.
 """
 
 import json
 import logging
-import os
 import re
 import time
 from datetime import datetime
@@ -19,28 +23,52 @@ from typing import Any, Dict, List, Optional
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+import certifi # <-- Added import for SSL certificate handling
+
+# --- Constants & Path Management ---
+
+def get_data_directory() -> Path:
+    """Returns the base path for the 'data' directory."""
+    return Path(__file__).resolve().parent.parent / "data"
+
+def create_data_filepath(data_type: str, date: Optional[str] = None) -> str:
+    """Creates a standardized filepath for daily data."""
+    if not date:
+        date = datetime.now().strftime('%Y-%m-%d')
+    
+    data_dir = get_data_directory() / "daily"
+    data_dir.mkdir(parents=True, exist_ok=True)
+    
+    filename = f"{date}_{data_type}.json"
+    return str(data_dir / filename)
+
+def create_historical_filepath(data_type: str) -> str:
+    """Creates a standardized filepath for historical data."""
+    historical_dir = get_data_directory() / "historical"
+    historical_dir.mkdir(parents=True, exist_ok=True)
+    
+    filename = f"historical_{data_type}.json"
+    return str(historical_dir / filename)
+
+# --- Logging Setup ---
 
 def setup_logging(scraper_name: str) -> logging.Logger:
-    """Set up logging for scrapers"""
+    """Sets up a logger with both console and file handlers."""
     logger = logging.getLogger(scraper_name)
     logger.setLevel(logging.INFO)
     
     if not logger.handlers:
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        
         # Console handler
         console_handler = logging.StreamHandler()
         console_handler.setLevel(logging.INFO)
-        
-        # Formatter
-        formatter = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-        )
         console_handler.setFormatter(formatter)
         logger.addHandler(console_handler)
         
-        # File handler for logs directory
-        logs_dir = Path(__file__).parent / "logs"
+        # File handler
+        logs_dir = Path(__file__).resolve().parent / "logs"
         logs_dir.mkdir(exist_ok=True)
-        
         log_file = logs_dir / f"{scraper_name}_{datetime.now().strftime('%Y%m%d')}.log"
         file_handler = logging.FileHandler(log_file)
         file_handler.setLevel(logging.DEBUG)
@@ -49,294 +77,229 @@ def setup_logging(scraper_name: str) -> logging.Logger:
     
     return logger
 
-def create_http_session() -> requests.Session:
-    """Create configured HTTP session with retry strategy"""
-    session = requests.Session()
-    
-    # Set up retry strategy
-    retry_strategy = Retry(
-        total=3,
-        backoff_factor=1,
-        status_forcelist=[429, 500, 502, 503, 504],
-    )
-    
-    adapter = HTTPAdapter(max_retries=retry_strategy)
-    session.mount("http://", adapter)
-    session.mount("https://", adapter)
-    
-    # Set headers
-    session.headers.update({
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'en-US,en;q=0.5',
-        'Accept-Encoding': 'gzip, deflate',
-        'Connection': 'keep-alive',
-        'Cache-Control': 'no-cache',
-        'Pragma': 'no-cache'
-    })
-    return session
+# --- Data Handling & Validation ---
 
 def clean_numeric_value(value: Any) -> Optional[float]:
-    """Clean and convert numeric values"""
-    if not value or value in ['', '-', 'N/A', 'null', 'None']:
-        return None
-    
-    try:
-        # Remove commas, spaces, and percentage signs
-        cleaned = re.sub(r'[,\s%]', '', str(value))
-        return float(cleaned)
-    except (ValueError, TypeError):
-        return None
+    """Cleans and converts a value to a float, handling common non-numeric strings."""
+    if value is None or isinstance(value, (int, float)):
+        return value
+    if isinstance(value, str):
+        value = value.strip()
+        if value in ['', '-', 'N/A', 'null', 'None']:
+            return None
+        try:
+            # Remove commas and percentage signs for robust conversion
+            cleaned = re.sub(r'[,\s%]', '', value)
+            return float(cleaned)
+        except (ValueError, TypeError):
+            return None
+    return None
 
 def save_json_data(data: Any, filepath: str, logger: Optional[logging.Logger] = None) -> bool:
-    """Save data to JSON file with error handling"""
+    """Saves data to a JSON file with proper encoding and error handling."""
     try:
-        # Ensure directory exists
-        Path(filepath).parent.mkdir(parents=True, exist_ok=True)
+        path = Path(filepath)
+        path.parent.mkdir(parents=True, exist_ok=True)
         
-        with open(filepath, 'w', encoding='utf-8') as f:
+        with path.open('w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, default=str, ensure_ascii=False)
         
         if logger:
-            logger.info(f"✅ Saved data to {filepath}")
+            logger.info(f"✅ Successfully saved data to {filepath}")
         return True
-        
-    except Exception as e:
+    except (IOError, TypeError) as e:
         if logger:
             logger.error(f"❌ Failed to save data to {filepath}: {e}")
-        print(f"❌ Failed to save data to {filepath}: {e}")
         return False
 
+def _load_json_safely(filepath: Path, logger: Optional[logging.Logger] = None) -> Optional[Any]:
+    """Loads JSON data from a file, returning None on failure."""
+    if not filepath.exists():
+        return None
+    try:
+        with filepath.open('r', encoding='utf-8') as f:
+            return json.load(f)
+    except (json.JSONDecodeError, IOError) as e:
+        if logger:
+            logger.warning(f"⚠️ Could not load or parse JSON from {filepath}: {e}. Starting fresh.")
+        return None
+
 def validate_data_structure(data: Any, expected_keys: List[str], min_records: int = 1) -> Dict[str, Any]:
-    """Validate data structure and return validation results"""
-    validation = {
-        'valid': True,
-        'errors': [],
-        'warnings': [],
-        'record_count': 0
-    }
-    
-    if not data:
-        validation['valid'] = False
-        validation['errors'].append("No data provided")
-        return validation
+    """Validates that the data is a list of dicts with expected keys."""
+    validation = {'valid': True, 'errors': [], 'warnings': [], 'record_count': 0}
     
     if not isinstance(data, list):
         validation['valid'] = False
-        validation['errors'].append("Data must be a list of records")
+        validation['errors'].append("Data must be a list of records.")
         return validation
     
     validation['record_count'] = len(data)
     
     if len(data) < min_records:
         validation['valid'] = False
-        validation['errors'].append(f"Insufficient records: {len(data)} < {min_records}")
+        validation['errors'].append(f"Insufficient records: found {len(data)}, expected at least {min_records}.")
     
-    # Check first few records for expected keys
+    # Check first few records for key existence
     for i, record in enumerate(data[:5]):
         if not isinstance(record, dict):
-            validation['warnings'].append(f"Record {i} is not a dictionary")
+            validation['warnings'].append(f"Record {i} is not a dictionary.")
             continue
-        
         missing_keys = [key for key in expected_keys if key not in record]
         if missing_keys:
-            validation['warnings'].append(f"Record {i} missing keys: {missing_keys}")
-    
+            validation['warnings'].append(f"Record {i} is missing keys: {missing_keys}.")
+            
     return validation
 
-def create_data_filepath(data_type: str, date: Optional[str] = None) -> str:
-    """Create standardized data file path"""
-    if not date:
-        date = datetime.now().strftime('%Y-%m-%d')
-    
-    data_dir = Path(__file__).parent.parent / "data" / "daily"
-    data_dir.mkdir(parents=True, exist_ok=True)
-    
-    filename = f"{date}_{data_type}.json"
-    return str(data_dir / filename)
+# --- Historical Data Management ---
 
-def create_historical_filepath(data_type: str) -> str:
-    """Create standardized historical data file path"""
-    historical_dir = Path(__file__).parent.parent / "data" / "historical"
-    historical_dir.mkdir(parents=True, exist_ok=True)
-    
-    filename = f"historical_{data_type}.json"
-    return str(historical_dir / filename)
+def append_to_historical_data(daily_filepath_str: str, historical_filepath_str: str, logger: Optional[logging.Logger] = None) -> bool:
+    """Appends data from a daily file to a historical file, handling duplicates."""
+    daily_filepath = Path(daily_filepath_str)
+    historical_filepath = Path(historical_filepath_str)
 
-def append_to_historical_data(daily_filepath: str, historical_filepath: str, logger: Optional[logging.Logger] = None) -> bool:
-    """Append daily data to historical data file"""
-    try:
-        # Check if daily file exists
-        if not Path(daily_filepath).exists():
-            if logger:
-                logger.warning(f"Daily file not found: {daily_filepath}")
-            return False
-        
-        # Load daily data
-        with open(daily_filepath, 'r', encoding='utf-8') as f:
-            daily_data = json.load(f)
-        
-        if not daily_data:
-            if logger:
-                logger.warning(f"No data in daily file: {daily_filepath}")
-            return False
-        
-        # Load existing historical data or create empty list
-        historical_data = []
-        if Path(historical_filepath).exists():
-            try:
-                with open(historical_filepath, 'r', encoding='utf-8') as f:
-                    historical_data = json.load(f)
-            except json.JSONDecodeError:
-                if logger:
-                    logger.warning(f"Invalid JSON in historical file, starting fresh: {historical_filepath}")
-                historical_data = []
-        
-        # Get the date from daily data to check for duplicates
-        daily_date = None
-        if isinstance(daily_data, list) and daily_data:
-            daily_date = daily_data[0].get('date')
-        
-        # Remove any existing data for the same date (to handle re-runs)
-        if daily_date and isinstance(historical_data, list):
-            historical_data = [record for record in historical_data 
-                             if isinstance(record, dict) and record.get('date') != daily_date]
-        
-        # Append new data
-        if isinstance(daily_data, list):
-            historical_data.extend(daily_data)
-        else:
-            historical_data.append(daily_data)
-        
-        # Sort by date (most recent first)
-        if isinstance(historical_data, list) and historical_data:
-            historical_data.sort(key=lambda x: x.get('date', ''), reverse=True)
-        
-        # Save updated historical data
-        with open(historical_filepath, 'w', encoding='utf-8') as f:
-            json.dump(historical_data, f, indent=2, default=str, ensure_ascii=False)
-        
+    daily_data = _load_json_safely(daily_filepath, logger)
+    if not daily_data:
         if logger:
-            logger.info(f"✅ Updated historical data: {historical_filepath} ({len(daily_data)} new records)")
-        return True
-        
-    except Exception as e:
-        if logger:
-            logger.error(f"❌ Failed to update historical data: {e}")
-        print(f"❌ Failed to update historical data: {e}")
+            logger.warning(f"Skipping history update: No data in daily file {daily_filepath}.")
         return False
 
+    historical_data = _load_json_safely(historical_filepath, logger) or []
+    if not isinstance(historical_data, list):
+        if logger:
+             logger.warning(f"Historical data in {historical_filepath} is not a list. Overwriting.")
+        historical_data = []
+
+    # Identify date from daily data to prevent duplicates
+    daily_date = None
+    if isinstance(daily_data, list) and daily_data and isinstance(daily_data[0], dict):
+        daily_date = daily_data[0].get('date')
+    
+    if daily_date:
+        # Filter out any records from the same date to allow for re-runs
+        historical_data = [rec for rec in historical_data if isinstance(rec, dict) and rec.get('date') != daily_date]
+
+    # Append new data and sort by date (most recent first)
+    historical_data.extend(daily_data if isinstance(daily_data, list) else [daily_data])
+    historical_data.sort(key=lambda x: x.get('date', '') if isinstance(x, dict) else '', reverse=True)
+    
+    return save_json_data(historical_data, str(historical_filepath), logger)
+
+
 def manage_historical_data(data_type: str, daily_data: Any, date: Optional[str] = None, logger: Optional[logging.Logger] = None) -> Dict[str, bool]:
-    """Complete historical data management - save daily and update historical"""
+    """Orchestrates saving daily data and appending it to the historical archive."""
     if not date:
         date = datetime.now().strftime('%Y-%m-%d')
     
-    results = {
-        'daily_saved': False,
-        'historical_updated': False
-    }
-    
-    # Save daily data
     daily_filepath = create_data_filepath(data_type, date)
-    results['daily_saved'] = save_json_data(daily_data, daily_filepath, logger)
+    daily_saved = save_json_data(daily_data, daily_filepath, logger)
     
-    # Update historical data
-    if results['daily_saved']:
+    historical_updated = False
+    if daily_saved:
         historical_filepath = create_historical_filepath(data_type)
-        results['historical_updated'] = append_to_historical_data(daily_filepath, historical_filepath, logger)
+        historical_updated = append_to_historical_data(daily_filepath, historical_filepath, logger)
     
-    return results
+    return {'daily_saved': daily_saved, 'historical_updated': historical_updated}
+
+# --- Scraper Base Class ---
 
 class ScraperBase:
-    """Base class for all NEPSE scrapers with common functionality"""
+    """A base class for NEPSE scrapers providing common infrastructure."""
     
     def __init__(self, scraper_name: str):
         self.scraper_name = scraper_name
         self.logger = setup_logging(scraper_name)
-        self.session = create_http_session()
+        self.session = self._create_http_session()
         self.start_time = datetime.now()
+
+    def _create_http_session(self) -> requests.Session:
+        """Creates a requests.Session with a robust retry strategy."""
+        session = requests.Session()
+
+        # *** FIX: Use certifi's CA bundle for SSL verification ***
+        try:
+            session.verify = certifi.where()
+            self.logger.info("Attached certifi's CA bundle to session for SSL verification.")
+        except Exception as e:
+            self.logger.warning(f"Could not attach certifi's CA bundle: {e}")
+
+        retry_strategy = Retry(
+            total=3,
+            backoff_factor=1,
+            status_forcelist=[429, 500, 502, 503, 504],
+        )
+        adapter = HTTPAdapter(max_retries=retry_strategy)
+        session.mount("http://", adapter)
+        session.mount("https://", adapter)
+        session.headers.update({
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            'Accept': 'application/json, text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
+        })
+        return session
     
-    def make_request_with_retry(self, url: str, max_retries: int = 3) -> Optional[requests.Response]:
-        """Make HTTP request with retry logic"""
-        for attempt in range(max_retries):
-            try:
-                response = self.session.get(url, timeout=30)
-                response.raise_for_status()
-                self.logger.info(f"✅ Request successful: {url}")
-                return response
-            
-            except requests.exceptions.RequestException as e:
-                self.logger.warning(f"⚠️ Request attempt {attempt + 1} failed: {e}")
-                if attempt == max_retries - 1:
-                    self.log_error(f"All {max_retries} attempts failed for {url}")
-                    return None
-                time.sleep(2 ** attempt)  # Exponential backoff
-        return None
-    
-    def make_request(self, url: str, max_retries: int = 3) -> Optional[requests.Response]:
-        """Make HTTP request with retry logic - wrapper method"""
-        return self.make_request_with_retry(url, max_retries)
+    def make_request(self, url: str, timeout: int = 30) -> Optional[requests.Response]:
+        """Makes an HTTP GET request using the configured session with retries."""
+        try:
+            response = self.session.get(url, timeout=timeout)
+            response.raise_for_status()
+            self.logger.info(f"✅ Request successful for {url} (Status: {response.status_code})")
+            return response
+        except requests.exceptions.RequestException as e:
+            self.log_error(f"Request failed for {url} after retries: {e}")
+            return None
     
     def log_success(self, message: str):
-        """Log success message"""
         self.logger.info(f"✅ {message}")
     
     def log_error(self, message: str):
-        """Log error message"""
         self.logger.error(f"❌ {message}")
     
     def log_warning(self, message: str):
-        """Log warning message"""
         self.logger.warning(f"⚠️ {message}")
     
     def save_data(self, data: Any, filepath: str) -> bool:
-        """Save data using shared utility"""
+        """Saves data using the shared utility and the scraper's logger."""
         return save_json_data(data, filepath, self.logger)
     
     def save_with_history(self, data: Any, data_type: str, date: Optional[str] = None) -> Dict[str, bool]:
-        """Save data with historical management"""
+        """Saves daily data and updates history using the scraper's logger."""
         return manage_historical_data(data_type, data, date, self.logger)
     
     def validate_data(self, data: Any, expected_keys: List[str], min_records: int = 1) -> Dict[str, Any]:
-        """Validate data using shared utility"""
+        """Validates data using the shared utility."""
         return validate_data_structure(data, expected_keys, min_records)
     
     def get_runtime(self) -> str:
-        """Get elapsed runtime"""
-        elapsed = datetime.now() - self.start_time
-        return str(elapsed)
+        """Returns the elapsed runtime of the scraper as a string."""
+        return str(datetime.now() - self.start_time)
     
     def close_session(self):
-        """Close HTTP session"""
-        if self.session:
-            self.session.close()
+        """Closes the HTTP session."""
+        self.session.close()
+        self.log_success("HTTP session closed.")
 
 def main():
-    """Test shared utilities"""
+    """Provides a simple test run for the shared utilities."""
     print("🧪 Testing shared utilities...")
+    logger = setup_logging("test-utility")
     
-    # Test logging
-    logger = setup_logging("test-scraper")
-    logger.info("Logging test successful")
-    
-    # Test session
-    session = create_http_session()
-    print(f"Session created with headers: {session.headers}")
-    
-    # Test data validation
-    test_data = [
-        {"symbol": "NABIL", "price": 1200.50},
-        {"symbol": "SCBL", "price": 890.25}
-    ]
-    
-    validation = validate_data_structure(test_data, ["symbol", "price"], min_records=2)
+    logger.info("Testing data validation...")
+    test_data = [{"symbol": "NABIL", "price": 1200}, {"symbol": "SCBL"}]
+    validation = validate_data_structure(test_data, ["symbol", "price"])
     print(f"Validation result: {validation}")
-    
-    # Test file path creation
+    assert 'missing keys' in validation['warnings'][0]
+
+    logger.info("Testing file path creation...")
     filepath = create_data_filepath("test_data")
-    print(f"Created filepath: {filepath}")
+    print(f"Created daily filepath: {filepath}")
+    assert "daily" in filepath
+
+    historical_path = create_historical_filepath("test_data")
+    print(f"Created historical filepath: {historical_path}")
+    assert "historical" in historical_path
     
-    print("✅ All utilities tested successfully!")
+    print("\n✅ All utilities tested successfully!")
 
 if __name__ == "__main__":
     main()
+

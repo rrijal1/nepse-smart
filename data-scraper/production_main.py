@@ -19,6 +19,7 @@ from production_prices import ProductionPricesScraper
 from production_floorsheet import ProductionFloorsheetScraper
 from production_indices import ProductionIndicesScraper
 from production_macro import ProductionMacroScraper
+from production_companies import ProductionCompaniesScraper
 from shared_utils import setup_logging, create_data_filepath
 
 class ProductionOrchestrator:
@@ -37,7 +38,8 @@ class ProductionOrchestrator:
             'prices': ProductionPricesScraper,
             'floorsheet': ProductionFloorsheetScraper, 
             'indices': ProductionIndicesScraper,
-            'macro': ProductionMacroScraper
+            'macro': ProductionMacroScraper,
+            'companies': ProductionCompaniesScraper,
         }
         
         if scraper_type not in scrapers:
@@ -158,7 +160,7 @@ def main():
     """Main entry point for the production orchestrator"""
     parser = argparse.ArgumentParser(description='NEPSE Production Data Scraper')
     parser.add_argument('--scraper', 
-                       choices=['prices', 'floorsheet', 'indices', 'macro', 'all'],
+                       choices=['prices', 'floorsheet', 'indices', 'macro', 'companies', 'all'],
                        default='all',
                        help='Specific scraper to run (default: all)')
     parser.add_argument('--verbose', '-v', action='store_true',

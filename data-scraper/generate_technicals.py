@@ -40,16 +40,18 @@ def calculate_technical_indicators(historical_prices_path: Path, output_path: Pa
     for symbol, group in df.groupby('symbol'):
         group = group.copy()
         group.set_index('date', inplace=True)
-        
+
         # EMA
         group['ema_21'] = group['close'].ewm(span=21, adjust=False).mean()
         group['ema_50'] = group['close'].ewm(span=50, adjust=False).mean()
-        
-        # RSI
+
+        # RSI (14) using clipped deltas to avoid dtype issues
         delta = group['close'].diff()
-        gain = (delta.where(delta > 0, 0)).rolling(window=14).mean()
-        loss = (-delta.where(delta < 0, 0)).rolling(window=14).mean()
-        rs = gain / loss
+        gain = delta.clip(lower=0)
+        loss = (-delta).clip(lower=0)
+        roll_up = gain.rolling(window=14).mean()
+        roll_down = loss.rolling(window=14).mean()
+        rs = roll_up / roll_down
         group['rsi_14'] = 100 - (100 / (1 + rs))
 
         # MACD
@@ -57,19 +59,54 @@ def calculate_technical_indicators(historical_prices_path: Path, output_path: Pa
         exp2 = group['close'].ewm(span=26, adjust=False).mean()
         macd = exp1 - exp2
         signal = macd.ewm(span=9, adjust=False).mean()
-        
+        # Store as columns for convenience
+        group['macd'] = macd
+        group['signal'] = signal
+
         latest = group.iloc[-1]
         previous = group.iloc[-2] if len(group) > 1 else latest
 
+        # Determine MACD signal with guards for NaN/short series
+        macd_signal_state = "neutral"
+        try:
+            latest_macd_opt = float(latest['macd']) if pd.notna(latest['macd']) else None
+            latest_signal_opt = float(latest['signal']) if pd.notna(latest['signal']) else None
+            prev_macd_opt = float(previous['macd']) if pd.notna(previous['macd']) else None
+            prev_signal_opt = float(previous['signal']) if pd.notna(previous['signal']) else None
+
+            if (
+                latest_macd_opt is not None and latest_signal_opt is not None and
+                prev_macd_opt is not None and prev_signal_opt is not None
+            ):
+                latest_macd_val: float = latest_macd_opt
+                latest_signal_val: float = latest_signal_opt
+                prev_macd_val: float = prev_macd_opt
+                prev_signal_val: float = prev_signal_opt
+
+                if latest_macd_val > latest_signal_val and prev_macd_val < prev_signal_val:
+                    macd_signal_state = "bullish_crossover"
+                elif latest_macd_val < latest_signal_val and prev_macd_val > prev_signal_val:
+                    macd_signal_state = "bearish_crossover"
+        except Exception:
+            macd_signal_state = "neutral"
+
+        # Resolve price preference
+        price_val = None
+        if isinstance(latest, pd.Series):
+            if 'ltp' in latest and pd.notna(latest['ltp']):
+                price_val = float(latest['ltp'])
+            elif 'close' in latest and pd.notna(latest['close']):
+                price_val = float(latest['close'])
+
         all_technicals[symbol] = {
-            "price": latest.get('ltp'),
+            "price": price_val,
             "ema_21": latest['ema_21'],
             "ema_50": latest['ema_50'],
             "rsi_14": latest['rsi_14'],
-            "macd_signal": "bullish_crossover" if latest['macd'] > latest['signal'] and previous['macd'] < previous['signal'] else "bearish_crossover" if latest['macd'] < latest['signal'] and previous['macd'] > previous['signal'] else "neutral",
-            "volume": latest.get('vol'),
-            "52_week_high": latest.get('52_weeks_high'),
-            "52_week_low": latest.get('52_weeks_low'),
+            "macd_signal": macd_signal_state,
+            "volume": latest.get('vol') if isinstance(latest, pd.Series) else None,
+            "52_week_high": latest.get('52_weeks_high') if isinstance(latest, pd.Series) else None,
+            "52_week_low": latest.get('52_weeks_low') if isinstance(latest, pd.Series) else None,
         }
 
     try:

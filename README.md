@@ -204,9 +204,9 @@ Frontend behavior:
 Base path: `/agent`
 
 - POST `/agent/analyze` → Run per-symbol analysis.
-    - Body: `{ "stock_symbol": "NABIL" }`
+  - Body: `{ "stock_symbol": "NABIL" }`
 - POST `/agent/ask` → Natural-language Q&A.
-    - Body: `{ "question": "What were top gainers today?" }`
+  - Body: `{ "question": "What were top gainers today?" }`
 
 Quick examples (optional):
 
@@ -288,6 +288,7 @@ npm run dev
 ## 🔌 API Quick Reference
 
 Market Data (base `/api`):
+
 - `/summary`, `/top-gainers`, `/top-losers`, `/nepse-index`, `/sub-indices`
 - `/price-volume`, `/company-list`, `/macro-data`
 - `/historical/{prices|indices|macro|floorsheet}?days=N`
@@ -296,6 +297,7 @@ Market Data (base `/api`):
 - `/system-status`, `/data-freshness`, `/data-quality`, `/market-status`
 
 Portfolio & Watchlist (base `/api`):
+
 - `/watchlist` (GET/POST/PATCH/DELETE)
 - `/portfolio` (GET/POST/PUT/DELETE)
 - `/portfolio/summary`
