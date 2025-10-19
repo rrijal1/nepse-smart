@@ -50,30 +50,51 @@ class ProductionFloorsheetScraper(ScraperBase):
                 else:
                     self.log_warning(f"No data found on page {page_count}. It might be the end.")
 
-                # Find the 'Next' button to check for more pages
-                # ** FIX: Using a more robust selector for the 'Next' button **
-                next_button = soup.select_one('a[href*="lbtnNext"]')
-                if not next_button:
+                # Check if there are more pages by looking for Next button
+                next_buttons = [a for a in soup.find_all('a') if a.get_text(strip=True) == 'Next']
+                if not next_buttons:
                     self.log_success("Reached the last page. No 'Next' button found.")
                     break
 
-                # Get hidden form fields required for the POST request (pagination)
-                viewstate = soup.find('input', {'name': '__VIEWSTATE'})
-                viewstategenerator = soup.find('input', {'name': '__VIEWSTATEGENERATOR'})
-                eventvalidation = soup.find('input', {'name': '__EVENTVALIDATION'})
+                # Get the next page number from the Next button's onclick attribute
+                next_page_num = None
+                for btn in next_buttons:
+                    onclick = btn.get('onclick')
+                    if onclick and isinstance(onclick, str) and 'changePageIndex' in onclick:
+                        # Extract page number from onclick="changePageIndex("2",...)"
+                        import re
+                        match = re.search(r'changePageIndex\("(\d+)"', onclick)
+                        if match:
+                            next_page_num = match.group(1)
+                            break
 
-                if not all([viewstate, eventvalidation]):
-                    self.log_error("Could not find __VIEWSTATE or __EVENTVALIDATION form fields to paginate.")
+                if not next_page_num:
+                    self.log_success("Could not determine next page number. Reached end.")
                     break
 
+                # Get hidden form fields required for the POST request (pagination)
+                viewstate = soup.find('input', attrs={'name': '__VIEWSTATE'})
+                viewstategenerator = soup.find('input', attrs={'name': '__VIEWSTATEGENERATOR'})
+                eventvalidation = soup.find('input', attrs={'name': '__EVENTVALIDATION'})
+                
+                # Get current page field and button that we need to simulate clicking
+                current_page_field = soup.find('input', attrs={'name': 'ctl00$ContentPlaceHolder1$PagerControl1$hdnCurrentPage'})
+                
+                if not viewstate or not eventvalidation or not current_page_field:
+                    self.log_error("Could not find required form fields for pagination.")
+                    break
+
+                # Simulate the changePageIndex function: set page number and click button
                 payload = {
-                    '__EVENTTARGET': 'ctl00$ContentPlaceHolder1$lbtnNext',
+                    '__EVENTTARGET': 'ctl00$ContentPlaceHolder1$PagerControl1$btnPaging',
                     '__EVENTARGUMENT': '',
-                    '__VIEWSTATE': viewstate['value'],
-                    '__VIEWSTATEGENERATOR': viewstategenerator['value'] if viewstategenerator else '',
-                    '__EVENTVALIDATION': eventvalidation['value'],
-                    'ctl00$ContentPlaceHolder1$txtSharePrice': '500', # Default value seems required
-                    'ctl00$ContentPlaceHolder1$txtQuantity': '1000' # Default value seems required
+                    '__VIEWSTATE': viewstate.get('value', ''),
+                    '__VIEWSTATEGENERATOR': viewstategenerator.get('value', '') if viewstategenerator else '',
+                    '__EVENTVALIDATION': eventvalidation.get('value', ''),
+                    'ctl00$ContentPlaceHolder1$PagerControl1$hdnCurrentPage': next_page_num,
+                    'ctl00$ContentPlaceHolder1$PagerControl1$btnPaging': 'Page',
+                    'ctl00$ContentPlaceHolder1$txtSharePrice': '',
+                    'ctl00$ContentPlaceHolder1$txtQuantity': ''
                 }
 
                 # Make POST request to get the next page
