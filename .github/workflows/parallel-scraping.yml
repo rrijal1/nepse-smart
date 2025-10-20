@@ -280,7 +280,8 @@ jobs:
     permissions:
       contents: write
       actions: read
-    needs: [scrape-official-api, scrape-floorsheet, scrape-indices, scrape-macro]
+    needs:
+      [scrape-official-api, scrape-floorsheet, scrape-indices, scrape-macro]
     if: always()
 
     steps:
