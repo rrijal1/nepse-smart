@@ -2,11 +2,7 @@ name: Parallel NEPSE Data Collection
 
 on:
   schedule:
-    # Run during NEPSE trading hours (Nepal time UTC+5:45)
-    # Convert to UTC: Trading is roughly 11:00-15:00 NPT = 05:15-09:15 UTC
-    - cron: "30 5 * * 0-4" # 11:15 AM NPT on trading days
-    - cron: "0 7 * * 0-4" # 12:45 PM NPT on trading days
-    - cron: "30 8 * * 0-4" # 2:15 PM NPT on trading days
+    - cron: "0 23 * * 0-4" # 11:00 PM NPT on all days except Saturday and Friday
 
   # Allow manual triggering
   workflow_dispatch:
