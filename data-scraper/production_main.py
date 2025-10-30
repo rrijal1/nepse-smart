@@ -61,17 +61,23 @@ class ProductionOrchestrator:
                 result = scraper.run_core_collection()
                 # Convert official API result format to standard format
                 date_str = datetime.now().strftime('%Y-%m-%d')
+                
+                # Use absolute paths like the scraper does
+                from pathlib import Path
+                project_root = Path(__file__).parent.parent
+                data_dir = project_root / 'data'
+                
                 # Official API saves security list, market status, floorsheet, indices, supply/demand, and lookup
                 expected_files = [
-                    f"data/lookup/{date_str}_security_list.json",
-                    f"data/daily/{date_str}_market_status.json",
-                    f"data/daily/{date_str}_floorsheet.json",
-                    f"data/daily/{date_str}_nepse_index.json",
-                    f"data/daily/{date_str}_nepse_subindices.json",
-                    f"data/daily/{date_str}_supply_demand.json",
-                    f"data/lookup/{date_str}_security_id_key_map.json",
-                    f"data/lookup/{date_str}_sector_scrips.json",
-                    f"data/daily/{date_str}_price_volume_history_today.json"
+                    str(data_dir / 'lookup' / f"{date_str}_security_list.json"),
+                    str(data_dir / 'daily' / f"{date_str}_market_status.json"),
+                    str(data_dir / 'daily' / f"{date_str}_floorsheet.json"),
+                    str(data_dir / 'daily' / f"{date_str}_nepse_index.json"),
+                    str(data_dir / 'daily' / f"{date_str}_nepse_subindices.json"),
+                    str(data_dir / 'daily' / f"{date_str}_supply_demand.json"),
+                    str(data_dir / 'lookup' / f"{date_str}_security_id_key_map.json"),
+                    str(data_dir / 'lookup' / f"{date_str}_sector_scrips.json"),
+                    str(data_dir / 'daily' / f"{date_str}_price_volume_history_today.json")
                 ]
                 result = {
                     'scraper': 'official_api',

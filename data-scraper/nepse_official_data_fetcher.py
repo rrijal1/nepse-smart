@@ -10,7 +10,7 @@ import json
 import os
 import time
 from datetime import datetime
-from typing import Dict, List, Optional, Any
+from typing import Dict, List, Optional, Any, Callable
 
 # Import the NepseUnofficialApi library
 from nepse import Nepse
@@ -771,6 +771,7 @@ class NEPSEOfficialDataFetcher(ScraperBase):
         self.log_success(f"  ⏱️ Total time: {results['total_collection_time']}s")
         
         return results
+    def _run_collection(self, methods: Dict[str, Callable], include_floorsheet: bool = True, collection_type: str = "core") -> Dict[str, Any]:
         """Internal method to run data collection"""
         total_methods = len(methods)
         
