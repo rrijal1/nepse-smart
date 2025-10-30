@@ -12,6 +12,8 @@ A comprehensive system for scraping, storing, and analyzing Nepal Stock Exchange
 - **Bulk Historical Collection**: Automated collection of price/volume data for all stocks
 - **Data Aggregation**: Consolidated historical data for analysis and backtesting
 - **Error Handling**: Robust error handling and retry mechanisms
+- **Dual Storage**: PostgreSQL for long-term storage + JSON for recent data (GitHub-friendly)
+- **Automatic Cleanup**: Keeps GitHub repository lean by removing old JSON files
 
 ### Data Processing & Analysis
 
@@ -58,6 +60,11 @@ python production_main.py --scraper historical_prices --days-back 30
 
 # Aggregate historical data for analysis
 python production_main.py --scraper aggregate_historical --days-back 30
+
+# Data maintenance (when PostgreSQL is available)
+python data_maintenance.py migrate    # Move JSON data to database
+python data_maintenance.py cleanup    # Remove old JSON files
+python data_maintenance.py verify     # Check data integrity
 ```
 
 ### 2. Start the Data API Server
@@ -306,6 +313,12 @@ Market Data (base `/api`):
 - `/historical-price-volume/aggregated?days=N` - Aggregated historical data with statistics
 - `/system-status`, `/data-freshness`, `/data-quality`, `/market-status`
 
+Data Management (base `/api`):
+
+- `/data/summary` - Current data storage summary (JSON files + database records)
+- `/data/cleanup?keep_days=30` - Clean up old JSON files
+- `/data/migrate` - Migrate existing JSON data to PostgreSQL
+
 Portfolio & Watchlist (base `/api`):
 
 - `/watchlist` (GET/POST/PATCH/DELETE)
@@ -329,8 +342,12 @@ nepse-smart/
 │   ├── database.py        # Database configuration
 │   ├── portfolio_routes.py # Portfolio API endpoints
 │   └── init_db.py         # Database initialization
-├── data/                  # Scraped market data
+├── data/                  # Scraped market data (JSON files)
 ├── data-scraper/          # Data collection scripts
+│   ├── data_manager.py    # Dual storage management (PostgreSQL + JSON)
+│   ├── data_maintenance.py # Data cleanup and migration utilities
+│   ├── production_main.py # Main orchestrator for data collection
+│   └── requirements.txt   # Minimal dependencies for scraping
 ├── docker-compose.yml     # Development environment
 ├── docker-compose.prod.yml # Production environment
 ├── requirements.txt       # Python dependencies

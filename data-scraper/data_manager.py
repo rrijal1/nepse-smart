@@ -8,10 +8,10 @@ import logging
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import List, Dict, Any, Optional, Union
-from sqlalchemy import text
 
 # Conditional imports for database functionality
 try:
+    from sqlalchemy import text
     from backend.database import SessionLocal, engine
     from backend.models import HistoricalPriceVolume, Base
     DATABASE_AVAILABLE = True
