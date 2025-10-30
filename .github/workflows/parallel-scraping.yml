@@ -121,7 +121,7 @@ jobs:
 
   #     - name: Create data directories
   #       run: |
-  *         mkdir -p data/daily data/historical data-scraper/logs
+          mkdir -p data/daily data/historical data-scraper/logs
 
   #     - name: Scrape floorsheet
   #       id: scrape-floorsheet
