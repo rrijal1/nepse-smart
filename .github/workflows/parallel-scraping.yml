@@ -79,11 +79,11 @@ jobs:
           git stash || true
           git pull --rebase
           git stash pop || true
-          git add data/daily/*_company_list.json data/daily/*_market_status.json || true
+          git add data/daily/*_company_list.json data/daily/*_market_status.json data/daily/*_floorsheet.json || true
           if git diff --staged --quiet; then
             echo "No official API data to commit"
           else
-            git commit -m "Official NEPSE API data (company list + market status): $(date +'%Y-%m-%d')" || true
+            git commit -m "Official NEPSE API data (company list + market status + floorsheet): $(date +'%Y-%m-%d')" || true
             git push || true
           fi
 

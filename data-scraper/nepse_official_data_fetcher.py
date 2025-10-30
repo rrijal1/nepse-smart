@@ -30,11 +30,10 @@ class NEPSEOfficialDataFetcher(ScraperBase):
         self.nepse.setTLSVerification(False)
         
         # Define core data methods for official API (high-value, authenticated data)
-        # Note: Floorsheet removed due to API library parsing issues - using traditional scraper instead
         self.core_methods = {
             "company_list": self.nepse.getCompanyList,
             "market_status": self.nepse.getMarketStatus,
-            "floorsheet": self.nepse.getTodaysFloorSheet,
+            "floorsheet": self.nepse.getFloorSheet,
         }
         
         # Remove comprehensive methods - keeping only core official data

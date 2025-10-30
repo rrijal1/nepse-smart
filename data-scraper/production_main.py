@@ -60,10 +60,11 @@ class ProductionOrchestrator:
                 result = scraper.run_core_collection()
                 # Convert official API result format to standard format
                 date_str = datetime.now().strftime('%Y-%m-%d')
-                # Official API saves only company list and market status
+                # Official API saves company list, market status, and floorsheet
                 expected_files = [
                     f"data/daily/{date_str}_company_list.json",
-                    f"data/daily/{date_str}_market_status.json"
+                    f"data/daily/{date_str}_market_status.json",
+                    f"data/daily/{date_str}_floorsheet.json"
                 ]
                 result = {
                     'scraper': 'official_api',
