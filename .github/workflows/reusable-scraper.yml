@@ -1,0 +1,71 @@
+name: Reusable Scraper
+
+on:
+  workflow_call:
+    inputs:
+      scraper_name:
+        required: true
+        type: string
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-scraper-
+
+      - name: Install system dependencies
+        if: ${{ inputs.scraper_name == 'official_api' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wkhtmltopdf xvfb
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r data-scraper/requirements.txt
+
+      - name: Create data directories
+        run: |
+          mkdir -p data/daily data/historical data-scraper/logs
+
+      - name: Scrape data
+        id: scrape
+        run: |
+          cd data-scraper
+          python production_main.py --scraper ${{ inputs.scraper_name }}
+
+      - name: Configure Git
+        if: always()
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action - ${{ inputs.scraper_name }} Scraper"
+
+      - name: Commit data
+        if: always()
+        run: |
+          git pull --rebase
+          git add data/daily/*_${{ inputs.scraper_name }}.json data/historical/historical_${{ inputs.scraper_name }}.json || true
+          if git diff --staged --quiet; then
+            echo "No data to commit for ${{ inputs.scraper_name }}"
+          else
+            git commit -m "${{ inputs.scraper_name }} data: $(date +'%Y-%m-%d')" || true
+            git push || true
+          fi

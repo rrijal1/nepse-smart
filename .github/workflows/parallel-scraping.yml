@@ -2,7 +2,7 @@ name: Parallel NEPSE Data Collection
 
 on:
   schedule:
-    - cron: "0 23 * * 0-4" # 11:00 PM NPT on all days except Saturday and Friday
+    - cron: "0 23 * * 1-5" # 11:00 PM NPT on weekdays (Mon-Fri)
 
   # Allow manual triggering
   workflow_dispatch:
@@ -15,7 +15,6 @@ on:
         options:
           - all
           - official_api
-          - floorsheet
           - indices
           - macro
 
@@ -74,10 +73,10 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action - Official API Scraper"
-
       - name: Commit official API data
         if: always()
         run: |
+          git pull --rebase
           git add data/daily/*_company_list.json data/daily/*_market_status.json || true
           if git diff --staged --quiet; then
             echo "No official API data to commit"
@@ -86,190 +85,19 @@ jobs:
             git push || true
           fi
 
-  # Job 2: Floorsheet from MeroLagani
-  # scrape-floorsheet:
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 30
-  #   permissions:
-  #     contents: write
-  #     actions: read
-
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v4
-  #       with:
-  #         token: ${{ secrets.GITHUB_TOKEN }}
-  #         fetch-depth: 0
-
-  #     - name: Set up Python
-  #       uses: actions/setup-python@v5
-  #       with:
-  #         python-version: "3.11"
-
-  #     - name: Cache Python dependencies
-  #       uses: actions/cache@v4
-  #       with:
-  #         path: ~/.cache/pip
-  #         key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-pip-scraper-
-
-  #     - name: Install dependencies
-  #       run: |
-  #         python -m pip install --upgrade pip
-  #         pip install -r data-scraper/requirements.txt
-
-  #     - name: Create data directories
-  #       run: |
-          mkdir -p data/daily data/historical data-scraper/logs
-
-  #     - name: Scrape floorsheet
-  #       id: scrape-floorsheet
-  #       run: |
-  #         cd data-scraper
-  #         python production_main.py --scraper floorsheet
-  #       continue-on-error: true
-
-  #     - name: Configure Git
-  #       if: always()
-  #       run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action - Floorsheet Scraper"
-
-  #     - name: Commit floorsheet data
-  #       if: always()
-  #       run: |
-  #         git add data/daily/*_floorsheet.json data/historical/historical_floorsheet.json || true
-  #         if git diff --staged --quiet; then
-  #           echo "No floorsheet data to commit"
-  #         else
-  #           git commit -m "Floorsheet data: $(date +'%Y-%m-%d')" || true
-  #           git push || true
-  #         fi
+  # Job 2: Floorsheet from MeroLagani (moved to separate scraper)
 
   # Job 3: Indices from NEPSE
   scrape-indices:
-    runs-on: ubuntu-latest
-    timeout-minutes: 8
-    permissions:
-      contents: write
-      actions: read
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Cache Python dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-scraper-
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r data-scraper/requirements.txt
-
-      - name: Create data directories
-        run: |
-          mkdir -p data/daily data/historical data-scraper/logs
-
-      - name: Scrape indices
-        id: scrape-indices
-        run: |
-          cd data-scraper
-          python production_main.py --scraper indices
-        continue-on-error: true
-
-      - name: Configure Git
-        if: always()
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action - Indices Scraper"
-
-      - name: Commit indices data
-        if: always()
-        run: |
-          git pull --rebase
-          git add data/daily/*_indices.json data/historical/historical_indices.json || true
-          if git diff --staged --quiet; then
-            echo "No indices data to commit"
-          else
-            git commit -m "Indices data: $(date +'%Y-%m-%d')" || true
-            git push || true
-          fi
+    uses: ./.github/workflows/reusable-scraper.yml
+    with:
+      scraper_name: indices
 
   # Job 4: NRB Banking Data
   scrape-macro:
-    runs-on: ubuntu-latest
-    timeout-minutes: 8
-    permissions:
-      contents: write
-      actions: read
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Cache Python dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-scraper-
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r data-scraper/requirements.txt
-
-      - name: Create data directories
-        run: |
-          mkdir -p data/daily data/historical data-scraper/logs
-
-      - name: Scrape NRB data
-        id: scrape-macro
-        run: |
-          cd data-scraper
-          python production_main.py --scraper macro
-        continue-on-error: true
-
-      - name: Configure Git
-        if: always()
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action - Macro Scraper"
-
-      - name: Commit macro data
-        if: always()
-        run: |
-          git pull --rebase
-          git add data/daily/*_macro.json data/historical/historical_macro.json || true
-          if git diff --staged --quiet; then
-            echo "No macro data to commit"
-          else
-            git commit -m "Macro banking data: $(date +'%Y-%m-%d')" || true
-            git push || true
-          fi
+    uses: ./.github/workflows/reusable-scraper.yml
+    with:
+      scraper_name: macro
 
   # Job 5: Generate Technical Indicators
   generate-technicals:
@@ -278,8 +106,7 @@ jobs:
     permissions:
       contents: write
       actions: read
-    needs:
-      [scrape-official-api, scrape-indices, scrape-macro]
+    needs: [scrape-official-api, scrape-indices, scrape-macro]
     if: always()
 
     steps:
@@ -325,6 +152,7 @@ jobs:
           git config --local user.name "GitHub Action - Technicals Generator"
 
       - name: Commit technical indicators
+        if: always()
         run: |
           git add data/daily/*_technicals.json || true
           if git diff --staged --quiet; then
