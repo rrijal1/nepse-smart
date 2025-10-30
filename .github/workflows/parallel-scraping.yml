@@ -15,7 +15,6 @@ on:
         options:
           - all
           - official_api
-          - indices
           - macro
 
 jobs:
@@ -79,23 +78,17 @@ jobs:
           git stash || true
           git pull --rebase
           git stash pop || true
-          git add data/daily/*_company_list.json data/daily/*_market_status.json data/daily/*_floorsheet.json || true
+          git add data/daily/*_security_list.json data/daily/*_market_status.json data/daily/*_floorsheet.json data/daily/*_nepse_index.json data/daily/*_nepse_subindices.json data/daily/*_top_gainers.json data/daily/*_top_losers.json data/daily/*_supply_demand.json data/lookup/*_security_id_key_map.json || true
           if git diff --staged --quiet; then
             echo "No official API data to commit"
           else
-            git commit -m "Official NEPSE API data (company list + market status + floorsheet): $(date +'%Y-%m-%d')" || true
+            git commit -m "Official NEPSE API data (security list + market status + floorsheet + indices + top gainers/losers + supply/demand + lookup): $(date +'%Y-%m-%d')" || true
             git push || true
           fi
 
   # Job 2: Floorsheet from MeroLagani (moved to separate scraper)
 
-  # Job 3: Indices from NEPSE
-  scrape-indices:
-    uses: ./.github/workflows/reusable-scraper.yml
-    with:
-      scraper_name: indices
-
-  # Job 4: NRB Banking Data
+  # Job 3: NRB Banking Data
   scrape-macro:
     uses: ./.github/workflows/reusable-scraper.yml
     with:
@@ -108,7 +101,7 @@ jobs:
     permissions:
       contents: write
       actions: read
-    needs: [scrape-official-api, scrape-indices, scrape-macro]
+    needs: [scrape-official-api, scrape-macro]
     if: always()
 
     steps:

@@ -60,11 +60,17 @@ class ProductionOrchestrator:
                 result = scraper.run_core_collection()
                 # Convert official API result format to standard format
                 date_str = datetime.now().strftime('%Y-%m-%d')
-                # Official API saves company list, market status, and floorsheet
+                # Official API saves security list, market status, floorsheet, indices, market summary, supply/demand, and lookup
                 expected_files = [
-                    f"data/daily/{date_str}_company_list.json",
+                    f"data/daily/{date_str}_security_list.json",
                     f"data/daily/{date_str}_market_status.json",
-                    f"data/daily/{date_str}_floorsheet.json"
+                    f"data/daily/{date_str}_floorsheet.json",
+                    f"data/daily/{date_str}_nepse_index.json",
+                    f"data/daily/{date_str}_nepse_subindices.json",
+                    f"data/daily/{date_str}_top_gainers.json",
+                    f"data/daily/{date_str}_top_losers.json",
+                    f"data/daily/{date_str}_supply_demand.json",
+                    f"data/lookup/{date_str}_security_id_key_map.json"
                 ]
                 result = {
                     'scraper': 'official_api',
@@ -123,8 +129,8 @@ class ProductionOrchestrator:
         
         # Official API for authenticated data (company_list, market_status only)
         official_scrapers = ['official_api']
-        # Traditional scrapers for other data types (including floorsheet from MeroLagani)
-        traditional_scrapers = ['indices', 'macro']
+                # Traditional scrapers for remaining data (prices and macro economic data)
+        traditional_scrapers = ['prices', 'macro']
         
         results = {}
         
@@ -224,9 +230,9 @@ def main():
     """Main entry point for the production orchestrator"""
     parser = argparse.ArgumentParser(description='NEPSE Production Data Scraper')
     parser.add_argument('--scraper', 
-                       choices=['indices', 'macro', 'official_api', 'all'],
+                       choices=['prices', 'macro', 'official_api', 'all'],
                        default='all',
-                       help='Specific scraper to run (official_api=company/status, floorsheet=transaction data, indices=market indices, macro=economic data)')
+                       help='Specific scraper to run (official_api=security/status/floorsheet/indices/gainers, prices=price data, macro=economic data)')
     parser.add_argument('--verbose', '-v', action='store_true',
                        help='Enable verbose logging')
     

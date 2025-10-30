@@ -31,9 +31,15 @@ class NEPSEOfficialDataFetcher(ScraperBase):
         
         # Define core data methods for official API (high-value, authenticated data)
         self.core_methods = {
-            "company_list": self.nepse.getCompanyList,
+            "security_list": self.nepse.getSecurityList,
             "market_status": self.nepse.getMarketStatus,
             "floorsheet": self.nepse.getFloorSheet,
+            "nepse_index": self.nepse.getNepseIndex,
+            "nepse_subindices": self.nepse.getNepseSubIndices,
+            "top_gainers": self.nepse.getTopGainers,
+            "top_losers": self.nepse.getTopLosers,
+            "supply_demand": self.nepse.getSupplyDemand,
+            "security_id_key_map": self.nepse.getSecurityIDKeyMap,
         }
         
         # Remove comprehensive methods - keeping only core official data
@@ -142,7 +148,13 @@ class NEPSEOfficialDataFetcher(ScraperBase):
                     import json
                     
                     date_str = datetime.now().strftime('%Y-%m-%d')
-                    data_dir = Path(__file__).parent.parent / 'data' / 'daily'
+                    
+                    # Use lookup directory for reference data
+                    if method_name == "security_id_key_map":
+                        data_dir = Path(__file__).parent.parent / 'data' / 'lookup'
+                    else:
+                        data_dir = Path(__file__).parent.parent / 'data' / 'daily'
+                    
                     data_dir.mkdir(parents=True, exist_ok=True)
                     
                     filename = data_dir / f"{date_str}_{method_name}.json"
