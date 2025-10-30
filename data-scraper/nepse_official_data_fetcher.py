@@ -217,6 +217,262 @@ class NEPSEOfficialDataFetcher(ScraperBase):
         results["total_collection_time"] = round(time.time() - collection_start, 2)
         return results
     
+    def run_complete_historical_price_volume_collection(self) -> Dict[str, Any]:
+        """Run complete historical price/volume data collection - go back as far as possible"""
+        from datetime import datetime, timedelta
+        
+        results = {
+            "scraper": "nepse_official_api",
+            "collection_type": "complete_historical_price_volume",
+            "timestamp": time.time(),
+            "date": datetime.now().strftime("%Y-%m-%d"),
+            "successful_methods": [],
+            "failed_methods": [],
+            "empty_methods": [],
+            "total_methods": 0,
+            "success_count": 0,
+            "failure_count": 0,
+            "empty_count": 0,
+            "total_records": 0,
+            "total_fetch_time": 0,
+            "date_range": {}
+        }
+        
+        self.log_success("Starting complete historical price/volume collection - downloading all available data...")
+        collection_start = time.time()
+        
+        # Start from today and go back until we can't get data anymore
+        business_dates = []
+        current_date = datetime.now()
+        consecutive_failures = 0
+        max_consecutive_failures = 5  # Stop after 5 consecutive failures
+        
+        # Try up to 5 years back (roughly 1250 business days)
+        max_days_back = 1250
+        
+        for i in range(max_days_back):
+            check_date = current_date - timedelta(days=i)
+            # Skip weekends (Saturday=5, Sunday=6)
+            if check_date.weekday() < 5:
+                business_date = check_date.strftime('%Y-%m-%d')
+                business_dates.append(business_date)
+                
+                method_name = f"price_volume_history_{business_date.replace('-', '_')}"
+                
+                try:
+                    self.log_success(f"Fetching price/volume data for {business_date}...")
+                    start_time = time.time()
+                    
+                    data = self.nepse.getPriceVolumeHistory(business_date)
+                    fetch_time = time.time() - start_time
+                    
+                    if data and isinstance(data, dict) and 'content' in data:
+                        content = data['content']
+                        if content:
+                            result = {
+                                "method_name": method_name,
+                                "business_date": business_date,
+                                "data": data,
+                                "timestamp": time.time(),
+                                "date": datetime.now().strftime("%Y-%m-%d"),
+                                "fetch_time_seconds": round(fetch_time, 2),
+                                "record_count": len(content),
+                                "status": "success"
+                            }
+                            
+                            results["successful_methods"].append(result)
+                            results["success_count"] += 1
+                            results["total_records"] += len(content)
+                            results["total_fetch_time"] += fetch_time
+                            consecutive_failures = 0  # Reset consecutive failures
+                            
+                            # Save individual date data
+                            from pathlib import Path
+                            import json
+                            
+                            date_str = datetime.now().strftime('%Y-%m-%d')
+                            data_dir = Path(__file__).parent.parent / 'data' / 'historical'
+                            data_dir.mkdir(parents=True, exist_ok=True)
+                            
+                            filename = data_dir / f"{date_str}_price_volume_history_{business_date.replace('-', '_')}.json"
+                            with open(filename, 'w', encoding='utf-8') as f:
+                                json.dump(data, f, ensure_ascii=False, indent=2, default=str)
+                            
+                            self.logger.info(f"✅ {method_name}: {len(content)} stocks → {filename}")
+                        else:
+                            results["empty_methods"].append({
+                                "method_name": method_name,
+                                "business_date": business_date,
+                                "status": "empty"
+                            })
+                            results["empty_count"] += 1
+                            consecutive_failures += 1
+                    else:
+                        results["failed_methods"].append({
+                            "method_name": method_name,
+                            "business_date": business_date,
+                            "error": "Invalid response format",
+                            "status": "error"
+                        })
+                        results["failure_count"] += 1
+                        consecutive_failures += 1
+                        
+                except Exception as e:
+                    results["failed_methods"].append({
+                        "method_name": method_name,
+                        "business_date": business_date,
+                        "error": str(e),
+                        "status": "error"
+                    })
+                    results["failure_count"] += 1
+                    consecutive_failures += 1
+                
+                # Stop if we've had too many consecutive failures (likely reached the limit of available data)
+                if consecutive_failures >= max_consecutive_failures:
+                    self.log_success(f"Stopping collection after {consecutive_failures} consecutive failures - likely reached end of available data")
+                    break
+                
+                time.sleep(0.5)  # Brief pause between requests
+        
+        results["total_methods"] = len(business_dates)
+        
+        # Set date range
+        if results["successful_methods"]:
+            successful_dates = [m["business_date"] for m in results["successful_methods"]]
+            results["date_range"] = {
+                "start_date": min(successful_dates),
+                "end_date": max(successful_dates),
+                "business_days": len(successful_dates)
+            }
+        
+        results["total_collection_time"] = round(time.time() - collection_start, 2)
+        return results
+    
+    def run_complete_historical_company_data_collection(self) -> Dict[str, Any]:
+        """Run complete historical data collection for all companies using individual company history"""
+        from datetime import datetime
+        
+        results = {
+            "scraper": "nepse_official_api",
+            "collection_type": "complete_historical_company_data",
+            "timestamp": time.time(),
+            "date": datetime.now().strftime("%Y-%m-%d"),
+            "successful_methods": [],
+            "failed_methods": [],
+            "empty_methods": [],
+            "total_methods": 0,
+            "success_count": 0,
+            "failure_count": 0,
+            "empty_count": 0,
+            "total_records": 0,
+            "total_fetch_time": 0,
+            "companies_processed": []
+        }
+        
+        self.log_success("Starting complete historical company data collection - downloading historical data for ALL companies...")
+        collection_start = time.time()
+        
+        # First get the list of all companies
+        try:
+            self.log_success("Fetching company list...")
+            companies_data = self.nepse.getSecurityList()
+            
+            if not companies_data:
+                self.log_error("Failed to get company list")
+                return results
+            
+            # getSecurityList returns a list directly
+            if isinstance(companies_data, list):
+                companies = companies_data
+            elif isinstance(companies_data, dict) and 'content' in companies_data:
+                companies = companies_data['content']
+            else:
+                self.log_error("Unexpected company list format")
+                return results
+                
+            results["total_methods"] = len(companies)
+            
+            self.log_success(f"Found {len(companies)} companies to process")
+            
+        except Exception as e:
+            self.log_error(f"Failed to get company list: {e}")
+            return results
+        
+        # Process each company
+        for i, company in enumerate(companies, 1):
+            symbol = company.get('symbol', '')
+            security_id = company.get('id', '')
+            
+            if not symbol:
+                continue
+                
+            try:
+                self.log_success(f"[{i}/{len(companies)}] Fetching historical data for {symbol}...")
+                start_time = time.time()
+                
+                # Get historical data for this company
+                data = self.nepse.getCompanyPriceVolumeHistory(symbol)
+                fetch_time = time.time() - start_time
+                
+                if data and 'content' in data and data['content']:
+                    content = data['content']
+                    
+                    result = {
+                        "method_name": f"company_history_{symbol}",
+                        "symbol": symbol,
+                        "security_id": security_id,
+                        "data": data,
+                        "timestamp": time.time(),
+                        "date": datetime.now().strftime("%Y-%m-%d"),
+                        "fetch_time_seconds": round(fetch_time, 2),
+                        "record_count": len(content),
+                        "status": "success"
+                    }
+                    
+                    results["successful_methods"].append(result)
+                    results["success_count"] += 1
+                    results["total_records"] += len(content)
+                    results["total_fetch_time"] += fetch_time
+                    results["companies_processed"].append(symbol)
+                    
+                    # Save individual company data
+                    from pathlib import Path
+                    import json
+                    
+                    date_str = datetime.now().strftime('%Y-%m-%d')
+                    data_dir = Path(__file__).parent.parent / 'data' / 'historical' / 'companies'
+                    data_dir.mkdir(parents=True, exist_ok=True)
+                    
+                    filename = data_dir / f"{date_str}_company_history_{symbol}.json"
+                    with open(filename, 'w', encoding='utf-8') as f:
+                        json.dump(data, f, ensure_ascii=False, indent=2, default=str)
+                    
+                    self.logger.info(f"✅ {symbol}: {len(content)} historical records → {filename}")
+                    
+                else:
+                    results["empty_methods"].append({
+                        "method_name": f"company_history_{symbol}",
+                        "symbol": symbol,
+                        "status": "empty"
+                    })
+                    results["empty_count"] += 1
+                    
+            except Exception as e:
+                results["failed_methods"].append({
+                    "method_name": f"company_history_{symbol}",
+                    "symbol": symbol,
+                    "error": str(e),
+                    "status": "error"
+                })
+                results["failure_count"] += 1
+                self.log_error(f"Failed to get historical data for {symbol}: {e}")
+            
+            # Brief pause between requests
+            time.sleep(0.2)
+        
+        results["total_collection_time"] = round(time.time() - collection_start, 2)
+        return results
+    
     def aggregate_historical_price_volume_data(self, days_back: int = 30) -> Dict[str, Any]:
         """Aggregate historical price/volume data into a consolidated format for analysis"""
         from pathlib import Path

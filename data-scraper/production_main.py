@@ -230,9 +230,9 @@ def main():
     """Main entry point for the production orchestrator"""
     parser = argparse.ArgumentParser(description='NEPSE Production Data Scraper')
     parser.add_argument('--scraper', 
-                       choices=['prices', 'macro', 'official_api', 'historical_prices', 'aggregate_historical', 'all'],
+                       choices=['prices', 'macro', 'official_api', 'historical_prices', 'aggregate_historical', 'complete_historical', 'complete_company_historical', 'all'],
                        default='all',
-                       help='Specific scraper to run (official_api=security/status/floorsheet/indices/gainers + price/volume history for all stocks, historical_prices=bulk historical OHLCV for all stocks, aggregate_historical=aggregate existing historical data, prices=price data, macro=economic data)')
+                       help='Specific scraper to run (official_api=security/status/floorsheet/indices/gainers + price/volume history for all stocks, historical_prices=bulk historical OHLCV for all stocks, aggregate_historical=aggregate existing historical data, complete_historical=download ALL available historical data, complete_company_historical=download historical data for ALL individual companies, prices=price data, macro=economic data)')
     parser.add_argument('--days-back', type=int, default=30,
                        help='Number of days back for historical data collection/aggregation (default: 30)')
     parser.add_argument('--verbose', '-v', action='store_true',
@@ -330,6 +330,66 @@ def main():
         
         fetcher.close_session()
         print(f"\nStatus: ✅ SUCCESS - Historical data aggregated")
+        sys.exit(0)
+    
+    elif args.scraper == 'complete_historical':
+        # Run complete historical data collection (all available data)
+        from nepse_official_data_fetcher import NEPSEOfficialDataFetcher
+        fetcher = NEPSEOfficialDataFetcher()
+        
+        print("📊 Starting complete historical price/volume collection - downloading ALL available data...")
+        print("⚠️  This may take a long time and download several years of data...")
+        
+        result = fetcher.run_complete_historical_price_volume_collection()
+        
+        print(f"\n{'='*80}")
+        print(f"COMPLETE HISTORICAL PRICE/VOLUME COLLECTION RESULTS")
+        print(f"{'='*80}")
+        print(f"Total Methods Attempted: {result['total_methods']}")
+        print(f"✅ Successful: {result['success_count']}")
+        print(f"❌ Failed: {result['failure_count']}")
+        print(f"⚪ Empty: {result['empty_count']}")
+        print(f"📊 Success Rate: {(result['success_count']/result['total_methods']*100):.1f}%")
+        print(f"📋 Total Records: {result['total_records']:,}")
+        print(f"⏱️ Total Time: {result['total_collection_time']}s")
+        
+        if result.get('date_range'):
+            date_range = result['date_range']
+            print(f"📅 Date Range: {date_range['start_date']} to {date_range['end_date']}")
+            print(f"📆 Business Days: {date_range['business_days']}")
+        
+        fetcher.close_session()
+        print(f"\nStatus: ✅ SUCCESS - Complete historical data collection finished")
+        sys.exit(0)
+    
+    elif args.scraper == 'complete_company_historical':
+        # Run complete historical data collection for all companies
+        from nepse_official_data_fetcher import NEPSEOfficialDataFetcher
+        fetcher = NEPSEOfficialDataFetcher()
+        
+        print("📊 Starting complete historical company data collection - downloading historical data for ALL companies...")
+        print("⚠️  This will take a very long time and download extensive historical data...")
+        
+        result = fetcher.run_complete_historical_company_data_collection()
+        
+        print(f"\n{'='*90}")
+        print(f"COMPLETE HISTORICAL COMPANY DATA COLLECTION RESULTS")
+        print(f"{'='*90}")
+        print(f"Total Companies Attempted: {result['total_methods']}")
+        print(f"✅ Successful: {result['success_count']}")
+        print(f"❌ Failed: {result['failure_count']}")
+        print(f"⚪ Empty: {result['empty_count']}")
+        print(f"📊 Success Rate: {(result['success_count']/result['total_methods']*100):.1f}%")
+        print(f"📋 Total Records: {result['total_records']:,}")
+        print(f"⏱️ Total Time: {result['total_collection_time']}s")
+        
+        if result.get('companies_processed'):
+            companies = result['companies_processed']
+            print(f"🏢 Companies Processed: {len(companies)}")
+            print(f"Sample companies: {', '.join(companies[:10])}{'...' if len(companies) > 10 else ''}")
+        
+        fetcher.close_session()
+        print(f"\nStatus: ✅ SUCCESS - Complete company historical data collection finished")
         sys.exit(0)
     
     else:

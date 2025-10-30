@@ -1,0 +1,2009 @@
+{
+  "content": [
+    {
+      "businessDate": "2025-10-29",
+      "totalTrades": 172,
+      "totalTradedQuantity": 27920,
+      "totalTradedValue": 8746121.8,
+      "highPrice": 320.0,
+      "lowPrice": 308.7,
+      "closePrice": 312.0
+    },
+    {
+      "businessDate": "2025-10-28",
+      "totalTrades": 150,
+      "totalTradedQuantity": 20072,
+      "totalTradedValue": 6307339.6,
+      "highPrice": 318.0,
+      "lowPrice": 309.0,
+      "closePrice": 315.0
+    },
+    {
+      "businessDate": "2025-10-26",
+      "totalTrades": 124,
+      "totalTradedQuantity": 18308,
+      "totalTradedValue": 5623206.8,
+      "highPrice": 310.0,
+      "lowPrice": 305.0,
+      "closePrice": 309.0
+    },
+    {
+      "businessDate": "2025-10-19",
+      "totalTrades": 118,
+      "totalTradedQuantity": 14571,
+      "totalTradedValue": 4476640.7,
+      "highPrice": 311.0,
+      "lowPrice": 305.0,
+      "closePrice": 309.9
+    },
+    {
+      "businessDate": "2025-10-16",
+      "totalTrades": 123,
+      "totalTradedQuantity": 18464,
+      "totalTradedValue": 5661314.4,
+      "highPrice": 312.0,
+      "lowPrice": 305.5,
+      "closePrice": 308.9
+    },
+    {
+      "businessDate": "2025-10-15",
+      "totalTrades": 114,
+      "totalTradedQuantity": 24390,
+      "totalTradedValue": 7493603.4,
+      "highPrice": 308.5,
+      "lowPrice": 306.0,
+      "closePrice": 308.0
+    },
+    {
+      "businessDate": "2025-10-14",
+      "totalTrades": 137,
+      "totalTradedQuantity": 26968,
+      "totalTradedValue": 8314724.9,
+      "highPrice": 313.9,
+      "lowPrice": 307.0,
+      "closePrice": 309.0
+    },
+    {
+      "businessDate": "2025-10-13",
+      "totalTrades": 193,
+      "totalTradedQuantity": 18227,
+      "totalTradedValue": 5619864.7,
+      "highPrice": 311.0,
+      "lowPrice": 306.2,
+      "closePrice": 310.0
+    },
+    {
+      "businessDate": "2025-10-12",
+      "totalTrades": 295,
+      "totalTradedQuantity": 73570,
+      "totalTradedValue": 22745799.3,
+      "highPrice": 317.0,
+      "lowPrice": 307.0,
+      "closePrice": 307.7
+    },
+    {
+      "businessDate": "2025-10-09",
+      "totalTrades": 227,
+      "totalTradedQuantity": 44571,
+      "totalTradedValue": 14183868.3,
+      "highPrice": 324.0,
+      "lowPrice": 314.0,
+      "closePrice": 317.0
+    },
+    {
+      "businessDate": "2025-10-08",
+      "totalTrades": 211,
+      "totalTradedQuantity": 43145,
+      "totalTradedValue": 13452253.4,
+      "highPrice": 315.0,
+      "lowPrice": 310.5,
+      "closePrice": 312.4
+    },
+    {
+      "businessDate": "2025-10-07",
+      "totalTrades": 183,
+      "totalTradedQuantity": 35362,
+      "totalTradedValue": 11215883.7,
+      "highPrice": 322.9,
+      "lowPrice": 315.8,
+      "closePrice": 316.9
+    },
+    {
+      "businessDate": "2025-09-28",
+      "totalTrades": 130,
+      "totalTradedQuantity": 26821,
+      "totalTradedValue": 8532207.9,
+      "highPrice": 321.0,
+      "lowPrice": 315.0,
+      "closePrice": 319.5
+    },
+    {
+      "businessDate": "2025-09-25",
+      "totalTrades": 132,
+      "totalTradedQuantity": 29186,
+      "totalTradedValue": 9236251.3,
+      "highPrice": 317.9,
+      "lowPrice": 311.0,
+      "closePrice": 317.3
+    },
+    {
+      "businessDate": "2025-09-24",
+      "totalTrades": 184,
+      "totalTradedQuantity": 28083,
+      "totalTradedValue": 8841447.3,
+      "highPrice": 321.5,
+      "lowPrice": 312.0,
+      "closePrice": 316.0
+    },
+    {
+      "businessDate": "2025-09-23",
+      "totalTrades": 335,
+      "totalTradedQuantity": 61925,
+      "totalTradedValue": 19628069.4,
+      "highPrice": 321.0,
+      "lowPrice": 312.2,
+      "closePrice": 317.0
+    },
+    {
+      "businessDate": "2025-09-21",
+      "totalTrades": 468,
+      "totalTradedQuantity": 67958,
+      "totalTradedValue": 21036109.0,
+      "highPrice": 322.0,
+      "lowPrice": 293.0,
+      "closePrice": 317.01
+    },
+    {
+      "businessDate": "2025-09-18",
+      "totalTrades": 31,
+      "totalTradedQuantity": 3170,
+      "totalTradedValue": 948638.0,
+      "highPrice": 310.9,
+      "lowPrice": 293.0,
+      "closePrice": 298.7
+    },
+    {
+      "businessDate": "2025-09-08",
+      "totalTrades": 297,
+      "totalTradedQuantity": 69424,
+      "totalTradedValue": 22091514.0,
+      "highPrice": 321.0,
+      "lowPrice": 317.0,
+      "closePrice": 317.16
+    },
+    {
+      "businessDate": "2025-09-07",
+      "totalTrades": 285,
+      "totalTradedQuantity": 49379,
+      "totalTradedValue": 15897110.9,
+      "highPrice": 327.8,
+      "lowPrice": 320.6,
+      "closePrice": 321.11
+    },
+    {
+      "businessDate": "2025-09-04",
+      "totalTrades": 194,
+      "totalTradedQuantity": 32179,
+      "totalTradedValue": 10417268.6,
+      "highPrice": 325.4,
+      "lowPrice": 322.2,
+      "closePrice": 324.71
+    },
+    {
+      "businessDate": "2025-09-03",
+      "totalTrades": 193,
+      "totalTradedQuantity": 29206,
+      "totalTradedValue": 9482167.1,
+      "highPrice": 326.7,
+      "lowPrice": 323.5,
+      "closePrice": 324.08
+    },
+    {
+      "businessDate": "2025-09-02",
+      "totalTrades": 195,
+      "totalTradedQuantity": 25961,
+      "totalTradedValue": 8487008.4,
+      "highPrice": 334.0,
+      "lowPrice": 325.0,
+      "closePrice": 325.5
+    },
+    {
+      "businessDate": "2025-09-01",
+      "totalTrades": 243,
+      "totalTradedQuantity": 37584,
+      "totalTradedValue": 12228556.1,
+      "highPrice": 329.6,
+      "lowPrice": 323.2,
+      "closePrice": 327.47
+    },
+    {
+      "businessDate": "2025-08-31",
+      "totalTrades": 317,
+      "totalTradedQuantity": 42198,
+      "totalTradedValue": 13713519.1,
+      "highPrice": 331.0,
+      "lowPrice": 322.5,
+      "closePrice": 323.22
+    },
+    {
+      "businessDate": "2025-08-28",
+      "totalTrades": 314,
+      "totalTradedQuantity": 66102,
+      "totalTradedValue": 21736108.5,
+      "highPrice": 332.0,
+      "lowPrice": 326.0,
+      "closePrice": 327.55
+    },
+    {
+      "businessDate": "2025-08-27",
+      "totalTrades": 271,
+      "totalTradedQuantity": 45857,
+      "totalTradedValue": 15106965.6,
+      "highPrice": 332.8,
+      "lowPrice": 326.0,
+      "closePrice": 331.31
+    },
+    {
+      "businessDate": "2025-08-26",
+      "totalTrades": 155,
+      "totalTradedQuantity": 27429,
+      "totalTradedValue": 8951746.5,
+      "highPrice": 329.0,
+      "lowPrice": 325.4,
+      "closePrice": 326.28
+    },
+    {
+      "businessDate": "2025-08-25",
+      "totalTrades": 244,
+      "totalTradedQuantity": 53184,
+      "totalTradedValue": 17307499.8,
+      "highPrice": 328.0,
+      "lowPrice": 323.0,
+      "closePrice": 326.49
+    },
+    {
+      "businessDate": "2025-08-24",
+      "totalTrades": 278,
+      "totalTradedQuantity": 50565,
+      "totalTradedValue": 16540565.6,
+      "highPrice": 330.9,
+      "lowPrice": 326.0,
+      "closePrice": 326.2
+    },
+    {
+      "businessDate": "2025-08-21",
+      "totalTrades": 319,
+      "totalTradedQuantity": 56884,
+      "totalTradedValue": 18775560.3,
+      "highPrice": 334.0,
+      "lowPrice": 328.6,
+      "closePrice": 329.26
+    },
+    {
+      "businessDate": "2025-08-20",
+      "totalTrades": 207,
+      "totalTradedQuantity": 31830,
+      "totalTradedValue": 10611929.6,
+      "highPrice": 338.0,
+      "lowPrice": 332.1,
+      "closePrice": 332.5
+    },
+    {
+      "businessDate": "2025-08-19",
+      "totalTrades": 261,
+      "totalTradedQuantity": 42199,
+      "totalTradedValue": 14206187.0,
+      "highPrice": 339.0,
+      "lowPrice": 335.0,
+      "closePrice": 335.67
+    },
+    {
+      "businessDate": "2025-08-18",
+      "totalTrades": 428,
+      "totalTradedQuantity": 81072,
+      "totalTradedValue": 27303826.8,
+      "highPrice": 338.8,
+      "lowPrice": 334.0,
+      "closePrice": 337.68
+    },
+    {
+      "businessDate": "2025-08-17",
+      "totalTrades": 421,
+      "totalTradedQuantity": 80302,
+      "totalTradedValue": 26881288.1,
+      "highPrice": 337.0,
+      "lowPrice": 332.0,
+      "closePrice": 334.66
+    },
+    {
+      "businessDate": "2025-08-14",
+      "totalTrades": 274,
+      "totalTradedQuantity": 86636,
+      "totalTradedValue": 28776378.5,
+      "highPrice": 333.9,
+      "lowPrice": 330.3,
+      "closePrice": 332.45
+    },
+    {
+      "businessDate": "2025-08-13",
+      "totalTrades": 349,
+      "totalTradedQuantity": 77384,
+      "totalTradedValue": 25688106.5,
+      "highPrice": 335.0,
+      "lowPrice": 330.0,
+      "closePrice": 330.48
+    },
+    {
+      "businessDate": "2025-08-12",
+      "totalTrades": 425,
+      "totalTradedQuantity": 123924,
+      "totalTradedValue": 41007028.9,
+      "highPrice": 334.5,
+      "lowPrice": 328.0,
+      "closePrice": 330.97
+    },
+    {
+      "businessDate": "2025-08-11",
+      "totalTrades": 1246,
+      "totalTradedQuantity": 377771,
+      "totalTradedValue": 127070981.7,
+      "highPrice": 344.9,
+      "lowPrice": 333.0,
+      "closePrice": 334.44
+    },
+    {
+      "businessDate": "2025-08-07",
+      "totalTrades": 251,
+      "totalTradedQuantity": 41801,
+      "totalTradedValue": 13696872.3,
+      "highPrice": 334.3,
+      "lowPrice": 325.1,
+      "closePrice": 326.85
+    },
+    {
+      "businessDate": "2025-08-06",
+      "totalTrades": 233,
+      "totalTradedQuantity": 47800,
+      "totalTradedValue": 15610082.0,
+      "highPrice": 331.8,
+      "lowPrice": 322.5,
+      "closePrice": 327.8
+    },
+    {
+      "businessDate": "2025-08-05",
+      "totalTrades": 287,
+      "totalTradedQuantity": 52835,
+      "totalTradedValue": 17323759.5,
+      "highPrice": 334.0,
+      "lowPrice": 325.0,
+      "closePrice": 325.39
+    },
+    {
+      "businessDate": "2025-08-04",
+      "totalTrades": 276,
+      "totalTradedQuantity": 73743,
+      "totalTradedValue": 24069357.3,
+      "highPrice": 329.0,
+      "lowPrice": 322.0,
+      "closePrice": 327.91
+    },
+    {
+      "businessDate": "2025-08-03",
+      "totalTrades": 439,
+      "totalTradedQuantity": 89591,
+      "totalTradedValue": 29224450.4,
+      "highPrice": 329.9,
+      "lowPrice": 323.0,
+      "closePrice": 326.37
+    },
+    {
+      "businessDate": "2025-07-31",
+      "totalTrades": 441,
+      "totalTradedQuantity": 128639,
+      "totalTradedValue": 42777783.9,
+      "highPrice": 336.6,
+      "lowPrice": 327.0,
+      "closePrice": 332.18
+    },
+    {
+      "businessDate": "2025-07-30",
+      "totalTrades": 442,
+      "totalTradedQuantity": 109653,
+      "totalTradedValue": 36788785.7,
+      "highPrice": 342.0,
+      "lowPrice": 331.5,
+      "closePrice": 332.08
+    },
+    {
+      "businessDate": "2025-07-29",
+      "totalTrades": 620,
+      "totalTradedQuantity": 187129,
+      "totalTradedValue": 63071404.2,
+      "highPrice": 340.1,
+      "lowPrice": 333.1,
+      "closePrice": 335.35
+    },
+    {
+      "businessDate": "2025-07-28",
+      "totalTrades": 658,
+      "totalTradedQuantity": 118015,
+      "totalTradedValue": 38745121.4,
+      "highPrice": 333.5,
+      "lowPrice": 324.0,
+      "closePrice": 331.79
+    },
+    {
+      "businessDate": "2025-07-27",
+      "totalTrades": 627,
+      "totalTradedQuantity": 129779,
+      "totalTradedValue": 43423538.0,
+      "highPrice": 339.0,
+      "lowPrice": 329.9,
+      "closePrice": 332.03
+    },
+    {
+      "businessDate": "2025-07-24",
+      "totalTrades": 408,
+      "totalTradedQuantity": 72244,
+      "totalTradedValue": 24367907.8,
+      "highPrice": 341.0,
+      "lowPrice": 335.1,
+      "closePrice": 336.59
+    },
+    {
+      "businessDate": "2025-07-23",
+      "totalTrades": 523,
+      "totalTradedQuantity": 121584,
+      "totalTradedValue": 41182967.2,
+      "highPrice": 342.0,
+      "lowPrice": 334.2,
+      "closePrice": 339.6
+    },
+    {
+      "businessDate": "2025-07-22",
+      "totalTrades": 612,
+      "totalTradedQuantity": 142308,
+      "totalTradedValue": 48286338.8,
+      "highPrice": 341.9,
+      "lowPrice": 334.0,
+      "closePrice": 339.57
+    },
+    {
+      "businessDate": "2025-07-21",
+      "totalTrades": 473,
+      "totalTradedQuantity": 104403,
+      "totalTradedValue": 34510759.5,
+      "highPrice": 335.0,
+      "lowPrice": 325.4,
+      "closePrice": 332.11
+    },
+    {
+      "businessDate": "2025-07-20",
+      "totalTrades": 855,
+      "totalTradedQuantity": 226513,
+      "totalTradedValue": 76062087.3,
+      "highPrice": 342.0,
+      "lowPrice": 326.0,
+      "closePrice": 330.22
+    },
+    {
+      "businessDate": "2025-07-17",
+      "totalTrades": 521,
+      "totalTradedQuantity": 187049,
+      "totalTradedValue": 62017332.4,
+      "highPrice": 333.5,
+      "lowPrice": 328.0,
+      "closePrice": 331.6
+    },
+    {
+      "businessDate": "2025-07-16",
+      "totalTrades": 546,
+      "totalTradedQuantity": 142187,
+      "totalTradedValue": 46621305.0,
+      "highPrice": 330.1,
+      "lowPrice": 324.0,
+      "closePrice": 327.13
+    },
+    {
+      "businessDate": "2025-07-15",
+      "totalTrades": 412,
+      "totalTradedQuantity": 106227,
+      "totalTradedValue": 33639078.0,
+      "highPrice": 326.0,
+      "lowPrice": 311.7,
+      "closePrice": 323.7
+    },
+    {
+      "businessDate": "2025-07-14",
+      "totalTrades": 525,
+      "totalTradedQuantity": 115004,
+      "totalTradedValue": 36558787.3,
+      "highPrice": 329.0,
+      "lowPrice": 314.2,
+      "closePrice": 315.71
+    },
+    {
+      "businessDate": "2025-07-13",
+      "totalTrades": 895,
+      "totalTradedQuantity": 215092,
+      "totalTradedValue": 70109382.3,
+      "highPrice": 333.5,
+      "lowPrice": 320.9,
+      "closePrice": 327.02
+    },
+    {
+      "businessDate": "2025-07-10",
+      "totalTrades": 1058,
+      "totalTradedQuantity": 258347,
+      "totalTradedValue": 81470959.8,
+      "highPrice": 320.0,
+      "lowPrice": 304.1,
+      "closePrice": 314.7
+    },
+    {
+      "businessDate": "2025-07-09",
+      "totalTrades": 457,
+      "totalTradedQuantity": 122851,
+      "totalTradedValue": 37052937.6,
+      "highPrice": 307.0,
+      "lowPrice": 295.1,
+      "closePrice": 304.2
+    },
+    {
+      "businessDate": "2025-07-08",
+      "totalTrades": 211,
+      "totalTradedQuantity": 76334,
+      "totalTradedValue": 22577732.4,
+      "highPrice": 299.0,
+      "lowPrice": 294.0,
+      "closePrice": 297.08
+    },
+    {
+      "businessDate": "2025-07-07",
+      "totalTrades": 247,
+      "totalTradedQuantity": 58749,
+      "totalTradedValue": 17604399.3,
+      "highPrice": 303.5,
+      "lowPrice": 296.0,
+      "closePrice": 296.51
+    },
+    {
+      "businessDate": "2025-07-06",
+      "totalTrades": 301,
+      "totalTradedQuantity": 72632,
+      "totalTradedValue": 21844890.7,
+      "highPrice": 306.0,
+      "lowPrice": 297.0,
+      "closePrice": 299.94
+    },
+    {
+      "businessDate": "2025-07-03",
+      "totalTrades": 407,
+      "totalTradedQuantity": 123907,
+      "totalTradedValue": 37182630.5,
+      "highPrice": 305.0,
+      "lowPrice": 297.0,
+      "closePrice": 300.74
+    },
+    {
+      "businessDate": "2025-07-02",
+      "totalTrades": 459,
+      "totalTradedQuantity": 124408,
+      "totalTradedValue": 37171581.2,
+      "highPrice": 301.8,
+      "lowPrice": 294.0,
+      "closePrice": 300.65
+    },
+    {
+      "businessDate": "2025-07-01",
+      "totalTrades": 281,
+      "totalTradedQuantity": 65159,
+      "totalTradedValue": 18965466.8,
+      "highPrice": 296.0,
+      "lowPrice": 281.6,
+      "closePrice": 293.7
+    },
+    {
+      "businessDate": "2025-06-30",
+      "totalTrades": 190,
+      "totalTradedQuantity": 25817,
+      "totalTradedValue": 7430581.2,
+      "highPrice": 291.0,
+      "lowPrice": 286.0,
+      "closePrice": 287.28
+    },
+    {
+      "businessDate": "2025-06-29",
+      "totalTrades": 186,
+      "totalTradedQuantity": 37928,
+      "totalTradedValue": 10772527.8,
+      "highPrice": 287.4,
+      "lowPrice": 280.0,
+      "closePrice": 286.67
+    },
+    {
+      "businessDate": "2025-06-26",
+      "totalTrades": 156,
+      "totalTradedQuantity": 30005,
+      "totalTradedValue": 8456034.1,
+      "highPrice": 284.0,
+      "lowPrice": 281.1,
+      "closePrice": 281.85
+    },
+    {
+      "businessDate": "2025-06-25",
+      "totalTrades": 144,
+      "totalTradedQuantity": 17868,
+      "totalTradedValue": 5036748.6,
+      "highPrice": 286.0,
+      "lowPrice": 281.0,
+      "closePrice": 281.73
+    },
+    {
+      "businessDate": "2025-06-24",
+      "totalTrades": 170,
+      "totalTradedQuantity": 24677,
+      "totalTradedValue": 6983497.5,
+      "highPrice": 285.7,
+      "lowPrice": 277.0,
+      "closePrice": 281.48
+    },
+    {
+      "businessDate": "2025-06-23",
+      "totalTrades": 185,
+      "totalTradedQuantity": 28893,
+      "totalTradedValue": 8105916.6,
+      "highPrice": 282.4,
+      "lowPrice": 278.5,
+      "closePrice": 281.24
+    },
+    {
+      "businessDate": "2025-06-22",
+      "totalTrades": 221,
+      "totalTradedQuantity": 37857,
+      "totalTradedValue": 10678944.0,
+      "highPrice": 287.0,
+      "lowPrice": 280.5,
+      "closePrice": 281.08
+    },
+    {
+      "businessDate": "2025-06-19",
+      "totalTrades": 159,
+      "totalTradedQuantity": 19789,
+      "totalTradedValue": 5620534.7,
+      "highPrice": 285.0,
+      "lowPrice": 280.0,
+      "closePrice": 284.18
+    },
+    {
+      "businessDate": "2025-06-18",
+      "totalTrades": 132,
+      "totalTradedQuantity": 17243,
+      "totalTradedValue": 4924385.6,
+      "highPrice": 288.0,
+      "lowPrice": 284.0,
+      "closePrice": 285.52
+    },
+    {
+      "businessDate": "2025-06-17",
+      "totalTrades": 128,
+      "totalTradedQuantity": 19099,
+      "totalTradedValue": 5428592.1,
+      "highPrice": 287.0,
+      "lowPrice": 283.1,
+      "closePrice": 284.77
+    },
+    {
+      "businessDate": "2025-06-16",
+      "totalTrades": 193,
+      "totalTradedQuantity": 25471,
+      "totalTradedValue": 7275801.7,
+      "highPrice": 289.0,
+      "lowPrice": 284.5,
+      "closePrice": 286.05
+    },
+    {
+      "businessDate": "2025-06-15",
+      "totalTrades": 243,
+      "totalTradedQuantity": 35850,
+      "totalTradedValue": 10207666.6,
+      "highPrice": 288.0,
+      "lowPrice": 284.0,
+      "closePrice": 284.25
+    },
+    {
+      "businessDate": "2025-06-12",
+      "totalTrades": 173,
+      "totalTradedQuantity": 28838,
+      "totalTradedValue": 8250613.9,
+      "highPrice": 289.3,
+      "lowPrice": 285.0,
+      "closePrice": 286.2
+    },
+    {
+      "businessDate": "2025-06-11",
+      "totalTrades": 133,
+      "totalTradedQuantity": 13387,
+      "totalTradedValue": 3857620.9,
+      "highPrice": 291.0,
+      "lowPrice": 284.2,
+      "closePrice": 288.09
+    },
+    {
+      "businessDate": "2025-06-10",
+      "totalTrades": 194,
+      "totalTradedQuantity": 25016,
+      "totalTradedValue": 7230860.2,
+      "highPrice": 293.0,
+      "lowPrice": 287.2,
+      "closePrice": 288.33
+    },
+    {
+      "businessDate": "2025-06-09",
+      "totalTrades": 140,
+      "totalTradedQuantity": 17735,
+      "totalTradedValue": 5128465.9,
+      "highPrice": 291.0,
+      "lowPrice": 285.0,
+      "closePrice": 288.44
+    },
+    {
+      "businessDate": "2025-06-08",
+      "totalTrades": 103,
+      "totalTradedQuantity": 10481,
+      "totalTradedValue": 3010633.6,
+      "highPrice": 290.0,
+      "lowPrice": 285.0,
+      "closePrice": 287.6
+    },
+    {
+      "businessDate": "2025-06-05",
+      "totalTrades": 217,
+      "totalTradedQuantity": 43892,
+      "totalTradedValue": 12598798.4,
+      "highPrice": 291.0,
+      "lowPrice": 283.0,
+      "closePrice": 288.25
+    },
+    {
+      "businessDate": "2025-06-04",
+      "totalTrades": 141,
+      "totalTradedQuantity": 21673,
+      "totalTradedValue": 6263062.5,
+      "highPrice": 291.0,
+      "lowPrice": 285.7,
+      "closePrice": 290.21
+    },
+    {
+      "businessDate": "2025-06-03",
+      "totalTrades": 183,
+      "totalTradedQuantity": 37267,
+      "totalTradedValue": 10906849.0,
+      "highPrice": 298.0,
+      "lowPrice": 291.1,
+      "closePrice": 291.42
+    },
+    {
+      "businessDate": "2025-06-02",
+      "totalTrades": 326,
+      "totalTradedQuantity": 56718,
+      "totalTradedValue": 16928950.1,
+      "highPrice": 306.0,
+      "lowPrice": 294.6,
+      "closePrice": 296.78
+    },
+    {
+      "businessDate": "2025-05-28",
+      "totalTrades": 249,
+      "totalTradedQuantity": 49484,
+      "totalTradedValue": 14693755.4,
+      "highPrice": 300.0,
+      "lowPrice": 291.8,
+      "closePrice": 299.6
+    },
+    {
+      "businessDate": "2025-05-27",
+      "totalTrades": 165,
+      "totalTradedQuantity": 37980,
+      "totalTradedValue": 11143808.2,
+      "highPrice": 296.0,
+      "lowPrice": 290.0,
+      "closePrice": 294.44
+    },
+    {
+      "businessDate": "2025-05-26",
+      "totalTrades": 287,
+      "totalTradedQuantity": 56707,
+      "totalTradedValue": 16946564.2,
+      "highPrice": 303.0,
+      "lowPrice": 297.0,
+      "closePrice": 297.05
+    },
+    {
+      "businessDate": "2025-05-25",
+      "totalTrades": 208,
+      "totalTradedQuantity": 29709,
+      "totalTradedValue": 8816051.4,
+      "highPrice": 300.0,
+      "lowPrice": 294.1,
+      "closePrice": 294.98
+    },
+    {
+      "businessDate": "2025-05-22",
+      "totalTrades": 350,
+      "totalTradedQuantity": 59233,
+      "totalTradedValue": 17531706.8,
+      "highPrice": 303.0,
+      "lowPrice": 284.0,
+      "closePrice": 296.73
+    },
+    {
+      "businessDate": "2025-05-21",
+      "totalTrades": 336,
+      "totalTradedQuantity": 57459,
+      "totalTradedValue": 16941172.5,
+      "highPrice": 305.0,
+      "lowPrice": 288.1,
+      "closePrice": 289.29
+    },
+    {
+      "businessDate": "2025-05-20",
+      "totalTrades": 190,
+      "totalTradedQuantity": 29990,
+      "totalTradedValue": 8586259.2,
+      "highPrice": 290.7,
+      "lowPrice": 280.0,
+      "closePrice": 289.4
+    },
+    {
+      "businessDate": "2025-05-19",
+      "totalTrades": 133,
+      "totalTradedQuantity": 21693,
+      "totalTradedValue": 6134099.5,
+      "highPrice": 284.9,
+      "lowPrice": 280.1,
+      "closePrice": 282.78
+    },
+    {
+      "businessDate": "2025-05-18",
+      "totalTrades": 187,
+      "totalTradedQuantity": 26842,
+      "totalTradedValue": 7510458.4,
+      "highPrice": 283.5,
+      "lowPrice": 278.0,
+      "closePrice": 280.36
+    },
+    {
+      "businessDate": "2025-05-15",
+      "totalTrades": 158,
+      "totalTradedQuantity": 26415,
+      "totalTradedValue": 7412963.8,
+      "highPrice": 282.0,
+      "lowPrice": 278.2,
+      "closePrice": 281.11
+    },
+    {
+      "businessDate": "2025-05-14",
+      "totalTrades": 169,
+      "totalTradedQuantity": 18859,
+      "totalTradedValue": 5300226.6,
+      "highPrice": 285.0,
+      "lowPrice": 280.0,
+      "closePrice": 281.08
+    },
+    {
+      "businessDate": "2025-05-13",
+      "totalTrades": 172,
+      "totalTradedQuantity": 21636,
+      "totalTradedValue": 6119318.96,
+      "highPrice": 286.79,
+      "lowPrice": 280.9,
+      "closePrice": 282.06
+    },
+    {
+      "businessDate": "2025-05-11",
+      "totalTrades": 149,
+      "totalTradedQuantity": 21211,
+      "totalTradedValue": 6046435.5,
+      "highPrice": 292.0,
+      "lowPrice": 284.0,
+      "closePrice": 284.27
+    },
+    {
+      "businessDate": "2025-05-08",
+      "totalTrades": 175,
+      "totalTradedQuantity": 22151,
+      "totalTradedValue": 6385490.4,
+      "highPrice": 292.0,
+      "lowPrice": 283.0,
+      "closePrice": 287.17
+    },
+    {
+      "businessDate": "2025-05-07",
+      "totalTrades": 210,
+      "totalTradedQuantity": 29812,
+      "totalTradedValue": 8423092.2,
+      "highPrice": 287.0,
+      "lowPrice": 272.3,
+      "closePrice": 286.33
+    },
+    {
+      "businessDate": "2025-05-06",
+      "totalTrades": 222,
+      "totalTradedQuantity": 24515,
+      "totalTradedValue": 6822398.1,
+      "highPrice": 281.0,
+      "lowPrice": 277.5,
+      "closePrice": 277.83
+    },
+    {
+      "businessDate": "2025-05-05",
+      "totalTrades": 143,
+      "totalTradedQuantity": 14774,
+      "totalTradedValue": 4139184.2,
+      "highPrice": 281.5,
+      "lowPrice": 279.0,
+      "closePrice": 280.16
+    },
+    {
+      "businessDate": "2025-05-04",
+      "totalTrades": 199,
+      "totalTradedQuantity": 19617,
+      "totalTradedValue": 5507240.8,
+      "highPrice": 285.0,
+      "lowPrice": 279.0,
+      "closePrice": 280.11
+    },
+    {
+      "businessDate": "2025-04-30",
+      "totalTrades": 179,
+      "totalTradedQuantity": 25703,
+      "totalTradedValue": 7211538.1,
+      "highPrice": 281.9,
+      "lowPrice": 279.0,
+      "closePrice": 280.63
+    },
+    {
+      "businessDate": "2025-04-29",
+      "totalTrades": 176,
+      "totalTradedQuantity": 16939,
+      "totalTradedValue": 4768573.8,
+      "highPrice": 283.0,
+      "lowPrice": 280.0,
+      "closePrice": 281.09
+    },
+    {
+      "businessDate": "2025-04-28",
+      "totalTrades": 167,
+      "totalTradedQuantity": 22512,
+      "totalTradedValue": 6342921.2,
+      "highPrice": 282.8,
+      "lowPrice": 280.0,
+      "closePrice": 282.06
+    },
+    {
+      "businessDate": "2025-04-27",
+      "totalTrades": 222,
+      "totalTradedQuantity": 26308,
+      "totalTradedValue": 7412711.0,
+      "highPrice": 285.9,
+      "lowPrice": 280.3,
+      "closePrice": 281.27
+    },
+    {
+      "businessDate": "2025-04-24",
+      "totalTrades": 189,
+      "totalTradedQuantity": 20455,
+      "totalTradedValue": 5766008.1,
+      "highPrice": 284.8,
+      "lowPrice": 280.5,
+      "closePrice": 283.45
+    },
+    {
+      "businessDate": "2025-04-23",
+      "totalTrades": 194,
+      "totalTradedQuantity": 21640,
+      "totalTradedValue": 6142098.4,
+      "highPrice": 287.0,
+      "lowPrice": 282.1,
+      "closePrice": 282.91
+    },
+    {
+      "businessDate": "2025-04-22",
+      "totalTrades": 155,
+      "totalTradedQuantity": 20167,
+      "totalTradedValue": 5767480.3,
+      "highPrice": 291.0,
+      "lowPrice": 285.1,
+      "closePrice": 285.99
+    },
+    {
+      "businessDate": "2025-04-21",
+      "totalTrades": 196,
+      "totalTradedQuantity": 23794,
+      "totalTradedValue": 6867513.3,
+      "highPrice": 293.0,
+      "lowPrice": 287.0,
+      "closePrice": 287.56
+    },
+    {
+      "businessDate": "2025-04-20",
+      "totalTrades": 190,
+      "totalTradedQuantity": 37196,
+      "totalTradedValue": 10809294.5,
+      "highPrice": 297.0,
+      "lowPrice": 288.2,
+      "closePrice": 290.92
+    },
+    {
+      "businessDate": "2025-04-17",
+      "totalTrades": 162,
+      "totalTradedQuantity": 26221,
+      "totalTradedValue": 7651074.8,
+      "highPrice": 295.0,
+      "lowPrice": 289.5,
+      "closePrice": 291.96
+    },
+    {
+      "businessDate": "2025-04-16",
+      "totalTrades": 178,
+      "totalTradedQuantity": 23865,
+      "totalTradedValue": 6952798.4,
+      "highPrice": 294.0,
+      "lowPrice": 289.0,
+      "closePrice": 289.97
+    },
+    {
+      "businessDate": "2025-04-15",
+      "totalTrades": 161,
+      "totalTradedQuantity": 21484,
+      "totalTradedValue": 6236362.3,
+      "highPrice": 292.9,
+      "lowPrice": 286.2,
+      "closePrice": 288.45
+    },
+    {
+      "businessDate": "2025-04-13",
+      "totalTrades": 186,
+      "totalTradedQuantity": 24409,
+      "totalTradedValue": 7024076.9,
+      "highPrice": 290.0,
+      "lowPrice": 285.0,
+      "closePrice": 288.18
+    },
+    {
+      "businessDate": "2025-04-10",
+      "totalTrades": 148,
+      "totalTradedQuantity": 19731,
+      "totalTradedValue": 5687713.3,
+      "highPrice": 293.0,
+      "lowPrice": 287.1,
+      "closePrice": 287.85
+    },
+    {
+      "businessDate": "2025-04-09",
+      "totalTrades": 181,
+      "totalTradedQuantity": 23950,
+      "totalTradedValue": 6979137.6,
+      "highPrice": 300.0,
+      "lowPrice": 289.9,
+      "closePrice": 290.37
+    },
+    {
+      "businessDate": "2025-04-08",
+      "totalTrades": 204,
+      "totalTradedQuantity": 33174,
+      "totalTradedValue": 9530833.2,
+      "highPrice": 293.0,
+      "lowPrice": 285.0,
+      "closePrice": 291.09
+    },
+    {
+      "businessDate": "2025-04-07",
+      "totalTrades": 184,
+      "totalTradedQuantity": 20209,
+      "totalTradedValue": 5920361.0,
+      "highPrice": 305.0,
+      "lowPrice": 291.1,
+      "closePrice": 291.72
+    },
+    {
+      "businessDate": "2025-04-03",
+      "totalTrades": 373,
+      "totalTradedQuantity": 79398,
+      "totalTradedValue": 23849007.6,
+      "highPrice": 303.9,
+      "lowPrice": 295.0,
+      "closePrice": 299.13
+    },
+    {
+      "businessDate": "2025-04-02",
+      "totalTrades": 264,
+      "totalTradedQuantity": 41118,
+      "totalTradedValue": 11995502.9,
+      "highPrice": 313.0,
+      "lowPrice": 285.2,
+      "closePrice": 295.23
+    },
+    {
+      "businessDate": "2025-04-01",
+      "totalTrades": 160,
+      "totalTradedQuantity": 16186,
+      "totalTradedValue": 4653391.8,
+      "highPrice": 290.0,
+      "lowPrice": 285.0,
+      "closePrice": 288.99
+    },
+    {
+      "businessDate": "2025-03-30",
+      "totalTrades": 238,
+      "totalTradedQuantity": 28128,
+      "totalTradedValue": 8102372.4,
+      "highPrice": 290.0,
+      "lowPrice": 285.0,
+      "closePrice": 287.3
+    },
+    {
+      "businessDate": "2025-03-27",
+      "totalTrades": 188,
+      "totalTradedQuantity": 21529,
+      "totalTradedValue": 6129493.5,
+      "highPrice": 287.8,
+      "lowPrice": 283.7,
+      "closePrice": 285.38
+    },
+    {
+      "businessDate": "2025-03-26",
+      "totalTrades": 165,
+      "totalTradedQuantity": 18208,
+      "totalTradedValue": 5119018.8,
+      "highPrice": 283.0,
+      "lowPrice": 278.5,
+      "closePrice": 282.17
+    },
+    {
+      "businessDate": "2025-03-25",
+      "totalTrades": 223,
+      "totalTradedQuantity": 33659,
+      "totalTradedValue": 9487318.2,
+      "highPrice": 290.0,
+      "lowPrice": 280.0,
+      "closePrice": 280.58
+    },
+    {
+      "businessDate": "2025-03-24",
+      "totalTrades": 171,
+      "totalTradedQuantity": 15084,
+      "totalTradedValue": 4279533.9,
+      "highPrice": 287.9,
+      "lowPrice": 280.0,
+      "closePrice": 285.87
+    },
+    {
+      "businessDate": "2025-03-23",
+      "totalTrades": 283,
+      "totalTradedQuantity": 55957,
+      "totalTradedValue": 15852138.4,
+      "highPrice": 290.0,
+      "lowPrice": 282.0,
+      "closePrice": 282.36
+    },
+    {
+      "businessDate": "2025-03-20",
+      "totalTrades": 157,
+      "totalTradedQuantity": 16174,
+      "totalTradedValue": 4618907.0,
+      "highPrice": 288.0,
+      "lowPrice": 283.0,
+      "closePrice": 285.66
+    },
+    {
+      "businessDate": "2025-03-19",
+      "totalTrades": 196,
+      "totalTradedQuantity": 21954,
+      "totalTradedValue": 6317880.1,
+      "highPrice": 291.0,
+      "lowPrice": 286.0,
+      "closePrice": 286.1
+    },
+    {
+      "businessDate": "2025-03-18",
+      "totalTrades": 184,
+      "totalTradedQuantity": 19349,
+      "totalTradedValue": 5621101.9,
+      "highPrice": 295.8,
+      "lowPrice": 289.0,
+      "closePrice": 289.6
+    },
+    {
+      "businessDate": "2025-03-17",
+      "totalTrades": 153,
+      "totalTradedQuantity": 20075,
+      "totalTradedValue": 5822417.9,
+      "highPrice": 291.8,
+      "lowPrice": 289.0,
+      "closePrice": 290.0
+    },
+    {
+      "businessDate": "2025-03-16",
+      "totalTrades": 259,
+      "totalTradedQuantity": 35376,
+      "totalTradedValue": 10276644.4,
+      "highPrice": 293.0,
+      "lowPrice": 289.0,
+      "closePrice": 290.0
+    },
+    {
+      "businessDate": "2025-03-12",
+      "totalTrades": 186,
+      "totalTradedQuantity": 24116,
+      "totalTradedValue": 7025526.5,
+      "highPrice": 294.9,
+      "lowPrice": 289.1,
+      "closePrice": 293.0
+    },
+    {
+      "businessDate": "2025-03-11",
+      "totalTrades": 198,
+      "totalTradedQuantity": 26267,
+      "totalTradedValue": 7709102.5,
+      "highPrice": 299.8,
+      "lowPrice": 291.0,
+      "closePrice": 292.0
+    },
+    {
+      "businessDate": "2025-03-10",
+      "totalTrades": 227,
+      "totalTradedQuantity": 30724,
+      "totalTradedValue": 9095409.5,
+      "highPrice": 300.0,
+      "lowPrice": 294.2,
+      "closePrice": 294.2
+    },
+    {
+      "businessDate": "2025-03-09",
+      "totalTrades": 218,
+      "totalTradedQuantity": 24088,
+      "totalTradedValue": 7173557.2,
+      "highPrice": 305.0,
+      "lowPrice": 296.0,
+      "closePrice": 297.0
+    },
+    {
+      "businessDate": "2025-03-06",
+      "totalTrades": 227,
+      "totalTradedQuantity": 29555,
+      "totalTradedValue": 8910185.3,
+      "highPrice": 305.0,
+      "lowPrice": 300.2,
+      "closePrice": 301.0
+    },
+    {
+      "businessDate": "2025-03-05",
+      "totalTrades": 217,
+      "totalTradedQuantity": 55112,
+      "totalTradedValue": 16722408.4,
+      "highPrice": 306.0,
+      "lowPrice": 300.2,
+      "closePrice": 301.5
+    },
+    {
+      "businessDate": "2025-03-04",
+      "totalTrades": 297,
+      "totalTradedQuantity": 74386,
+      "totalTradedValue": 22817879.8,
+      "highPrice": 310.9,
+      "lowPrice": 302.9,
+      "closePrice": 304.3
+    },
+    {
+      "businessDate": "2025-03-03",
+      "totalTrades": 498,
+      "totalTradedQuantity": 77760,
+      "totalTradedValue": 24204318.0,
+      "highPrice": 315.0,
+      "lowPrice": 306.5,
+      "closePrice": 309.0
+    },
+    {
+      "businessDate": "2025-03-02",
+      "totalTrades": 640,
+      "totalTradedQuantity": 140917,
+      "totalTradedValue": 43384695.3,
+      "highPrice": 311.0,
+      "lowPrice": 300.0,
+      "closePrice": 309.0
+    },
+    {
+      "businessDate": "2025-02-27",
+      "totalTrades": 489,
+      "totalTradedQuantity": 72598,
+      "totalTradedValue": 21975153.2,
+      "highPrice": 310.0,
+      "lowPrice": 297.0,
+      "closePrice": 303.0
+    },
+    {
+      "businessDate": "2025-02-25",
+      "totalTrades": 259,
+      "totalTradedQuantity": 36537,
+      "totalTradedValue": 10756621.5,
+      "highPrice": 297.8,
+      "lowPrice": 292.0,
+      "closePrice": 293.1
+    },
+    {
+      "businessDate": "2025-02-24",
+      "totalTrades": 226,
+      "totalTradedQuantity": 31364,
+      "totalTradedValue": 9243592.2,
+      "highPrice": 299.0,
+      "lowPrice": 292.0,
+      "closePrice": 293.9
+    },
+    {
+      "businessDate": "2025-02-23",
+      "totalTrades": 352,
+      "totalTradedQuantity": 54840,
+      "totalTradedValue": 16102961.8,
+      "highPrice": 299.0,
+      "lowPrice": 285.0,
+      "closePrice": 294.0
+    },
+    {
+      "businessDate": "2025-02-20",
+      "totalTrades": 194,
+      "totalTradedQuantity": 41190,
+      "totalTradedValue": 12208324.3,
+      "highPrice": 300.0,
+      "lowPrice": 295.0,
+      "closePrice": 296.0
+    },
+    {
+      "businessDate": "2025-02-18",
+      "totalTrades": 271,
+      "totalTradedQuantity": 61491,
+      "totalTradedValue": 18437745.5,
+      "highPrice": 301.9,
+      "lowPrice": 296.0,
+      "closePrice": 300.0
+    },
+    {
+      "businessDate": "2025-02-17",
+      "totalTrades": 351,
+      "totalTradedQuantity": 70893,
+      "totalTradedValue": 20876768.9,
+      "highPrice": 300.9,
+      "lowPrice": 289.5,
+      "closePrice": 295.0
+    },
+    {
+      "businessDate": "2025-02-16",
+      "totalTrades": 258,
+      "totalTradedQuantity": 30069,
+      "totalTradedValue": 8740886.8,
+      "highPrice": 295.0,
+      "lowPrice": 289.3,
+      "closePrice": 291.4
+    },
+    {
+      "businessDate": "2025-02-13",
+      "totalTrades": 144,
+      "totalTradedQuantity": 21247,
+      "totalTradedValue": 6206659.8,
+      "highPrice": 295.3,
+      "lowPrice": 290.1,
+      "closePrice": 293.1
+    },
+    {
+      "businessDate": "2025-02-12",
+      "totalTrades": 160,
+      "totalTradedQuantity": 24571,
+      "totalTradedValue": 7168466.7,
+      "highPrice": 295.0,
+      "lowPrice": 290.6,
+      "closePrice": 291.5
+    },
+    {
+      "businessDate": "2025-02-11",
+      "totalTrades": 131,
+      "totalTradedQuantity": 13397,
+      "totalTradedValue": 3910760.5,
+      "highPrice": 295.0,
+      "lowPrice": 290.1,
+      "closePrice": 291.8
+    },
+    {
+      "businessDate": "2025-02-10",
+      "totalTrades": 113,
+      "totalTradedQuantity": 16601,
+      "totalTradedValue": 4874477.0,
+      "highPrice": 296.0,
+      "lowPrice": 293.1,
+      "closePrice": 295.0
+    },
+    {
+      "businessDate": "2025-02-09",
+      "totalTrades": 189,
+      "totalTradedQuantity": 22682,
+      "totalTradedValue": 6712938.7,
+      "highPrice": 301.0,
+      "lowPrice": 293.2,
+      "closePrice": 295.0
+    },
+    {
+      "businessDate": "2025-02-06",
+      "totalTrades": 187,
+      "totalTradedQuantity": 39334,
+      "totalTradedValue": 11756797.0,
+      "highPrice": 302.0,
+      "lowPrice": 296.7,
+      "closePrice": 298.0
+    },
+    {
+      "businessDate": "2025-02-05",
+      "totalTrades": 145,
+      "totalTradedQuantity": 27079,
+      "totalTradedValue": 8045263.8,
+      "highPrice": 299.0,
+      "lowPrice": 295.0,
+      "closePrice": 297.2
+    },
+    {
+      "businessDate": "2025-02-04",
+      "totalTrades": 256,
+      "totalTradedQuantity": 51668,
+      "totalTradedValue": 15563801.0,
+      "highPrice": 304.9,
+      "lowPrice": 297.0,
+      "closePrice": 297.0
+    },
+    {
+      "businessDate": "2025-02-03",
+      "totalTrades": 309,
+      "totalTradedQuantity": 49607,
+      "totalTradedValue": 14874076.6,
+      "highPrice": 303.9,
+      "lowPrice": 296.0,
+      "closePrice": 299.0
+    },
+    {
+      "businessDate": "2025-02-02",
+      "totalTrades": 329,
+      "totalTradedQuantity": 53452,
+      "totalTradedValue": 15597732.3,
+      "highPrice": 295.0,
+      "lowPrice": 286.0,
+      "closePrice": 294.9
+    },
+    {
+      "businessDate": "2025-01-28",
+      "totalTrades": 134,
+      "totalTradedQuantity": 27911,
+      "totalTradedValue": 7954617.2,
+      "highPrice": 287.0,
+      "lowPrice": 281.1,
+      "closePrice": 286.0
+    },
+    {
+      "businessDate": "2025-01-27",
+      "totalTrades": 165,
+      "totalTradedQuantity": 23094,
+      "totalTradedValue": 6572040.2,
+      "highPrice": 287.0,
+      "lowPrice": 283.0,
+      "closePrice": 283.5
+    },
+    {
+      "businessDate": "2025-01-26",
+      "totalTrades": 277,
+      "totalTradedQuantity": 43687,
+      "totalTradedValue": 12571731.8,
+      "highPrice": 292.7,
+      "lowPrice": 283.3,
+      "closePrice": 287.6
+    },
+    {
+      "businessDate": "2025-01-23",
+      "totalTrades": 228,
+      "totalTradedQuantity": 40746,
+      "totalTradedValue": 11768404.1,
+      "highPrice": 290.0,
+      "lowPrice": 285.0,
+      "closePrice": 289.0
+    },
+    {
+      "businessDate": "2025-01-22",
+      "totalTrades": 251,
+      "totalTradedQuantity": 36936,
+      "totalTradedValue": 10429877.6,
+      "highPrice": 284.9,
+      "lowPrice": 280.5,
+      "closePrice": 284.0
+    },
+    {
+      "businessDate": "2025-01-21",
+      "totalTrades": 213,
+      "totalTradedQuantity": 29055,
+      "totalTradedValue": 8184569.9,
+      "highPrice": 285.0,
+      "lowPrice": 280.0,
+      "closePrice": 281.0
+    },
+    {
+      "businessDate": "2025-01-20",
+      "totalTrades": 194,
+      "totalTradedQuantity": 19577,
+      "totalTradedValue": 5593474.5,
+      "highPrice": 289.8,
+      "lowPrice": 284.0,
+      "closePrice": 285.0
+    },
+    {
+      "businessDate": "2025-01-19",
+      "totalTrades": 283,
+      "totalTradedQuantity": 41611,
+      "totalTradedValue": 11706566.7,
+      "highPrice": 287.0,
+      "lowPrice": 275.1,
+      "closePrice": 286.5
+    },
+    {
+      "businessDate": "2025-01-16",
+      "totalTrades": 256,
+      "totalTradedQuantity": 46231,
+      "totalTradedValue": 13046285.4,
+      "highPrice": 286.0,
+      "lowPrice": 280.0,
+      "closePrice": 283.8
+    },
+    {
+      "businessDate": "2025-01-15",
+      "totalTrades": 382,
+      "totalTradedQuantity": 47411,
+      "totalTradedValue": 13598084.0,
+      "highPrice": 293.0,
+      "lowPrice": 285.0,
+      "closePrice": 285.5
+    },
+    {
+      "businessDate": "2025-01-13",
+      "totalTrades": 301,
+      "totalTradedQuantity": 38612,
+      "totalTradedValue": 11284248.1,
+      "highPrice": 297.0,
+      "lowPrice": 290.5,
+      "closePrice": 293.9
+    },
+    {
+      "businessDate": "2025-01-12",
+      "totalTrades": 164,
+      "totalTradedQuantity": 23901,
+      "totalTradedValue": 7116068.1,
+      "highPrice": 305.5,
+      "lowPrice": 296.3,
+      "closePrice": 296.3
+    },
+    {
+      "businessDate": "2025-01-09",
+      "totalTrades": 252,
+      "totalTradedQuantity": 47238,
+      "totalTradedValue": 14199169.1,
+      "highPrice": 303.9,
+      "lowPrice": 299.5,
+      "closePrice": 302.1
+    },
+    {
+      "businessDate": "2025-01-08",
+      "totalTrades": 170,
+      "totalTradedQuantity": 27123,
+      "totalTradedValue": 8216170.6,
+      "highPrice": 309.0,
+      "lowPrice": 300.0,
+      "closePrice": 302.1
+    },
+    {
+      "businessDate": "2025-01-07",
+      "totalTrades": 187,
+      "totalTradedQuantity": 23953,
+      "totalTradedValue": 7254800.9,
+      "highPrice": 304.9,
+      "lowPrice": 299.0,
+      "closePrice": 303.0
+    },
+    {
+      "businessDate": "2025-01-06",
+      "totalTrades": 245,
+      "totalTradedQuantity": 33107,
+      "totalTradedValue": 10004250.9,
+      "highPrice": 305.0,
+      "lowPrice": 300.0,
+      "closePrice": 305.0
+    },
+    {
+      "businessDate": "2025-01-05",
+      "totalTrades": 221,
+      "totalTradedQuantity": 31591,
+      "totalTradedValue": 9548285.4,
+      "highPrice": 310.0,
+      "lowPrice": 300.1,
+      "closePrice": 302.0
+    },
+    {
+      "businessDate": "2025-01-02",
+      "totalTrades": 188,
+      "totalTradedQuantity": 28790,
+      "totalTradedValue": 8795851.9,
+      "highPrice": 308.0,
+      "lowPrice": 304.0,
+      "closePrice": 306.0
+    },
+    {
+      "businessDate": "2025-01-01",
+      "totalTrades": 255,
+      "totalTradedQuantity": 33089,
+      "totalTradedValue": 10242782.0,
+      "highPrice": 315.0,
+      "lowPrice": 307.0,
+      "closePrice": 307.1
+    },
+    {
+      "businessDate": "2024-12-31",
+      "totalTrades": 405,
+      "totalTradedQuantity": 52420,
+      "totalTradedValue": 16402482.9,
+      "highPrice": 321.9,
+      "lowPrice": 309.8,
+      "closePrice": 314.0
+    },
+    {
+      "businessDate": "2024-12-29",
+      "totalTrades": 538,
+      "totalTradedQuantity": 105485,
+      "totalTradedValue": 35314898.3,
+      "highPrice": 337.0,
+      "lowPrice": 332.0,
+      "closePrice": 333.9
+    },
+    {
+      "businessDate": "2024-12-26",
+      "totalTrades": 335,
+      "totalTradedQuantity": 53904,
+      "totalTradedValue": 17759346.6,
+      "highPrice": 335.0,
+      "lowPrice": 322.0,
+      "closePrice": 333.8
+    },
+    {
+      "businessDate": "2024-12-24",
+      "totalTrades": 180,
+      "totalTradedQuantity": 24396,
+      "totalTradedValue": 7956093.7,
+      "highPrice": 329.0,
+      "lowPrice": 322.1,
+      "closePrice": 326.9
+    },
+    {
+      "businessDate": "2024-12-23",
+      "totalTrades": 218,
+      "totalTradedQuantity": 34848,
+      "totalTradedValue": 11232673.4,
+      "highPrice": 326.0,
+      "lowPrice": 318.0,
+      "closePrice": 325.0
+    },
+    {
+      "businessDate": "2024-12-22",
+      "totalTrades": 247,
+      "totalTradedQuantity": 30552,
+      "totalTradedValue": 9872536.0,
+      "highPrice": 326.4,
+      "lowPrice": 317.6,
+      "closePrice": 323.2
+    },
+    {
+      "businessDate": "2024-12-19",
+      "totalTrades": 458,
+      "totalTradedQuantity": 99471,
+      "totalTradedValue": 32378691.1,
+      "highPrice": 328.9,
+      "lowPrice": 323.8,
+      "closePrice": 324.0
+    },
+    {
+      "businessDate": "2024-12-18",
+      "totalTrades": 150,
+      "totalTradedQuantity": 27913,
+      "totalTradedValue": 9012849.1,
+      "highPrice": 324.9,
+      "lowPrice": 321.0,
+      "closePrice": 322.5
+    },
+    {
+      "businessDate": "2024-12-17",
+      "totalTrades": 224,
+      "totalTradedQuantity": 38502,
+      "totalTradedValue": 12430122.2,
+      "highPrice": 324.9,
+      "lowPrice": 319.1,
+      "closePrice": 322.0
+    },
+    {
+      "businessDate": "2024-12-16",
+      "totalTrades": 407,
+      "totalTradedQuantity": 72485,
+      "totalTradedValue": 23480331.9,
+      "highPrice": 333.0,
+      "lowPrice": 320.0,
+      "closePrice": 321.0
+    },
+    {
+      "businessDate": "2024-12-12",
+      "totalTrades": 243,
+      "totalTradedQuantity": 27811,
+      "totalTradedValue": 9272861.5,
+      "highPrice": 342.7,
+      "lowPrice": 329.0,
+      "closePrice": 333.0
+    },
+    {
+      "businessDate": "2024-12-11",
+      "totalTrades": 384,
+      "totalTradedQuantity": 69547,
+      "totalTradedValue": 22915794.5,
+      "highPrice": 336.0,
+      "lowPrice": 323.0,
+      "closePrice": 336.0
+    },
+    {
+      "businessDate": "2024-12-10",
+      "totalTrades": 311,
+      "totalTradedQuantity": 46578,
+      "totalTradedValue": 15550207.2,
+      "highPrice": 340.0,
+      "lowPrice": 330.0,
+      "closePrice": 331.0
+    },
+    {
+      "businessDate": "2024-12-09",
+      "totalTrades": 239,
+      "totalTradedQuantity": 32050,
+      "totalTradedValue": 10878210.8,
+      "highPrice": 345.0,
+      "lowPrice": 336.7,
+      "closePrice": 339.0
+    },
+    {
+      "businessDate": "2024-12-08",
+      "totalTrades": 305,
+      "totalTradedQuantity": 53335,
+      "totalTradedValue": 18317019.6,
+      "highPrice": 349.0,
+      "lowPrice": 340.0,
+      "closePrice": 341.2
+    },
+    {
+      "businessDate": "2024-12-05",
+      "totalTrades": 218,
+      "totalTradedQuantity": 35035,
+      "totalTradedValue": 12267815.4,
+      "highPrice": 352.1,
+      "lowPrice": 348.0,
+      "closePrice": 349.0
+    },
+    {
+      "businessDate": "2024-12-04",
+      "totalTrades": 221,
+      "totalTradedQuantity": 38930,
+      "totalTradedValue": 13710860.5,
+      "highPrice": 358.6,
+      "lowPrice": 350.5,
+      "closePrice": 352.0
+    },
+    {
+      "businessDate": "2024-12-03",
+      "totalTrades": 226,
+      "totalTradedQuantity": 33741,
+      "totalTradedValue": 11881557.6,
+      "highPrice": 354.0,
+      "lowPrice": 350.2,
+      "closePrice": 351.6
+    },
+    {
+      "businessDate": "2024-12-02",
+      "totalTrades": 223,
+      "totalTradedQuantity": 47343,
+      "totalTradedValue": 16725839.3,
+      "highPrice": 359.9,
+      "lowPrice": 351.2,
+      "closePrice": 352.4
+    },
+    {
+      "businessDate": "2024-12-01",
+      "totalTrades": 224,
+      "totalTradedQuantity": 43405,
+      "totalTradedValue": 15422350.8,
+      "highPrice": 367.2,
+      "lowPrice": 350.0,
+      "closePrice": 355.6
+    },
+    {
+      "businessDate": "2024-11-28",
+      "totalTrades": 226,
+      "totalTradedQuantity": 42328,
+      "totalTradedValue": 15176775.5,
+      "highPrice": 361.0,
+      "lowPrice": 356.0,
+      "closePrice": 360.0
+    },
+    {
+      "businessDate": "2024-11-27",
+      "totalTrades": 203,
+      "totalTradedQuantity": 38927,
+      "totalTradedValue": 13908128.5,
+      "highPrice": 358.4,
+      "lowPrice": 356.0,
+      "closePrice": 358.0
+    },
+    {
+      "businessDate": "2024-11-26",
+      "totalTrades": 219,
+      "totalTradedQuantity": 28610,
+      "totalTradedValue": 10128807.8,
+      "highPrice": 358.9,
+      "lowPrice": 351.0,
+      "closePrice": 356.8
+    },
+    {
+      "businessDate": "2024-11-25",
+      "totalTrades": 219,
+      "totalTradedQuantity": 32139,
+      "totalTradedValue": 11298876.7,
+      "highPrice": 357.0,
+      "lowPrice": 350.0,
+      "closePrice": 351.9
+    },
+    {
+      "businessDate": "2024-11-24",
+      "totalTrades": 292,
+      "totalTradedQuantity": 41256,
+      "totalTradedValue": 14533107.2,
+      "highPrice": 359.0,
+      "lowPrice": 350.0,
+      "closePrice": 350.0
+    },
+    {
+      "businessDate": "2024-11-21",
+      "totalTrades": 360,
+      "totalTradedQuantity": 55719,
+      "totalTradedValue": 19742115.6,
+      "highPrice": 359.0,
+      "lowPrice": 352.7,
+      "closePrice": 353.0
+    },
+    {
+      "businessDate": "2024-11-20",
+      "totalTrades": 230,
+      "totalTradedQuantity": 26760,
+      "totalTradedValue": 9557312.8,
+      "highPrice": 365.0,
+      "lowPrice": 353.0,
+      "closePrice": 358.9
+    },
+    {
+      "businessDate": "2024-11-19",
+      "totalTrades": 295,
+      "totalTradedQuantity": 65017,
+      "totalTradedValue": 23467311.9,
+      "highPrice": 365.0,
+      "lowPrice": 359.0,
+      "closePrice": 359.1
+    },
+    {
+      "businessDate": "2024-11-17",
+      "totalTrades": 419,
+      "totalTradedQuantity": 72913,
+      "totalTradedValue": 26511770.1,
+      "highPrice": 370.9,
+      "lowPrice": 361.0,
+      "closePrice": 363.0
+    },
+    {
+      "businessDate": "2024-11-14",
+      "totalTrades": 281,
+      "totalTradedQuantity": 46503,
+      "totalTradedValue": 17077353.2,
+      "highPrice": 371.4,
+      "lowPrice": 365.0,
+      "closePrice": 365.1
+    },
+    {
+      "businessDate": "2024-11-13",
+      "totalTrades": 225,
+      "totalTradedQuantity": 34318,
+      "totalTradedValue": 12612880.7,
+      "highPrice": 375.0,
+      "lowPrice": 364.0,
+      "closePrice": 367.2
+    },
+    {
+      "businessDate": "2024-11-12",
+      "totalTrades": 311,
+      "totalTradedQuantity": 62383,
+      "totalTradedValue": 23141590.5,
+      "highPrice": 377.0,
+      "lowPrice": 369.0,
+      "closePrice": 369.0
+    },
+    {
+      "businessDate": "2024-11-11",
+      "totalTrades": 385,
+      "totalTradedQuantity": 71670,
+      "totalTradedValue": 26728029.5,
+      "highPrice": 375.9,
+      "lowPrice": 369.0,
+      "closePrice": 370.0
+    },
+    {
+      "businessDate": "2024-11-10",
+      "totalTrades": 370,
+      "totalTradedQuantity": 58328,
+      "totalTradedValue": 21462792.6,
+      "highPrice": 373.4,
+      "lowPrice": 363.0,
+      "closePrice": 369.9
+    },
+    {
+      "businessDate": "2024-11-06",
+      "totalTrades": 189,
+      "totalTradedQuantity": 32031,
+      "totalTradedValue": 11716757.3,
+      "highPrice": 369.5,
+      "lowPrice": 363.1,
+      "closePrice": 366.1
+    },
+    {
+      "businessDate": "2024-11-05",
+      "totalTrades": 198,
+      "totalTradedQuantity": 31483,
+      "totalTradedValue": 11626714.3,
+      "highPrice": 376.0,
+      "lowPrice": 366.2,
+      "closePrice": 366.5
+    },
+    {
+      "businessDate": "2024-10-30",
+      "totalTrades": 267,
+      "totalTradedQuantity": 33749,
+      "totalTradedValue": 12577446.7,
+      "highPrice": 377.0,
+      "lowPrice": 370.0,
+      "closePrice": 371.5
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "sorted": false,
+      "unsorted": true,
+      "empty": true
+    },
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 500,
+    "paged": true,
+    "unpaged": false
+  },
+  "last": true,
+  "totalPages": 1,
+  "totalElements": 220,
+  "size": 500,
+  "number": 0,
+  "sort": {
+    "sorted": false,
+    "unsorted": true,
+    "empty": true
+  },
+  "numberOfElements": 220,
+  "first": true,
+  "empty": false
+}
