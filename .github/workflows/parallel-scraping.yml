@@ -87,65 +87,65 @@ jobs:
           fi
 
   # Job 2: Floorsheet from MeroLagani
-  scrape-floorsheet:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    permissions:
-      contents: write
-      actions: read
+  # scrape-floorsheet:
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 30
+  #   permissions:
+  #     contents: write
+  #     actions: read
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v4
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #         fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+  #     - name: Set up Python
+  #       uses: actions/setup-python@v5
+  #       with:
+  #         python-version: "3.11"
 
-      - name: Cache Python dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-scraper-
+  #     - name: Cache Python dependencies
+  #       uses: actions/cache@v4
+  #       with:
+  #         path: ~/.cache/pip
+  #         key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-pip-scraper-
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r data-scraper/requirements.txt
+  #     - name: Install dependencies
+  #       run: |
+  #         python -m pip install --upgrade pip
+  #         pip install -r data-scraper/requirements.txt
 
-      - name: Create data directories
-        run: |
-          mkdir -p data/daily data/historical data-scraper/logs
+  #     - name: Create data directories
+  #       run: |
+  *         mkdir -p data/daily data/historical data-scraper/logs
 
-      - name: Scrape floorsheet
-        id: scrape-floorsheet
-        run: |
-          cd data-scraper
-          python production_main.py --scraper floorsheet
-        continue-on-error: true
+  #     - name: Scrape floorsheet
+  #       id: scrape-floorsheet
+  #       run: |
+  #         cd data-scraper
+  #         python production_main.py --scraper floorsheet
+  #       continue-on-error: true
 
-      - name: Configure Git
-        if: always()
-        run: |
+  #     - name: Configure Git
+  #       if: always()
+  #       run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action - Floorsheet Scraper"
 
-      - name: Commit floorsheet data
-        if: always()
-        run: |
-          git add data/daily/*_floorsheet.json data/historical/historical_floorsheet.json || true
-          if git diff --staged --quiet; then
-            echo "No floorsheet data to commit"
-          else
-            git commit -m "Floorsheet data: $(date +'%Y-%m-%d')" || true
-            git push || true
-          fi
+  #     - name: Commit floorsheet data
+  #       if: always()
+  #       run: |
+  #         git add data/daily/*_floorsheet.json data/historical/historical_floorsheet.json || true
+  #         if git diff --staged --quiet; then
+  #           echo "No floorsheet data to commit"
+  #         else
+  #           git commit -m "Floorsheet data: $(date +'%Y-%m-%d')" || true
+  #           git push || true
+  #         fi
 
   # Job 3: Indices from NEPSE
   scrape-indices:
@@ -200,6 +200,7 @@ jobs:
       - name: Commit indices data
         if: always()
         run: |
+          git pull --rebase
           git add data/daily/*_indices.json data/historical/historical_indices.json || true
           if git diff --staged --quiet; then
             echo "No indices data to commit"
@@ -261,6 +262,7 @@ jobs:
       - name: Commit macro data
         if: always()
         run: |
+          git pull --rebase
           git add data/daily/*_macro.json data/historical/historical_macro.json || true
           if git diff --staged --quiet; then
             echo "No macro data to commit"
@@ -277,7 +279,7 @@ jobs:
       contents: write
       actions: read
     needs:
-      [scrape-official-api, scrape-floorsheet, scrape-indices, scrape-macro]
+      [scrape-official-api, scrape-indices, scrape-macro]
     if: always()
 
     steps:

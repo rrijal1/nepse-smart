@@ -52,7 +52,8 @@ def calculate_technical_indicators(historical_prices_path: Path, output_path: Pa
         roll_up = gain.rolling(window=14).mean()
         roll_down = loss.rolling(window=14).mean()
         rs = roll_up / roll_down
-        group['rsi_14'] = 100 - (100 / (1 + rs))
+        rsi_values = 100 - (100 / (1 + rs))
+        group['rsi_14'] = rsi_values
 
         # MACD
         exp1 = group['close'].ewm(span=12, adjust=False).mean()
@@ -65,6 +66,15 @@ def calculate_technical_indicators(historical_prices_path: Path, output_path: Pa
 
         latest = group.iloc[-1]
         previous = group.iloc[-2] if len(group) > 1 else latest
+
+        # Handle RSI calculation for insufficient data
+        latest_rsi = latest['rsi_14'] if len(group) >= 14 and pd.notna(latest['rsi_14']) else None
+        
+        # Log warning if RSI cannot be calculated due to insufficient data
+        if latest_rsi is None and len(group) < 14:
+            logger.debug(f"RSI calculation skipped for {symbol}: only {len(group)} data points (need 14)")
+        elif latest_rsi is None:
+            logger.debug(f"RSI calculation resulted in NaN for {symbol}")
 
         # Determine MACD signal with guards for NaN/short series
         macd_signal_state = "neutral"
@@ -100,9 +110,9 @@ def calculate_technical_indicators(historical_prices_path: Path, output_path: Pa
 
         all_technicals[symbol] = {
             "price": price_val,
-            "ema_21": latest['ema_21'],
-            "ema_50": latest['ema_50'],
-            "rsi_14": latest['rsi_14'],
+            "ema_21": latest['ema_21'] if pd.notna(latest['ema_21']) else None,
+            "ema_50": latest['ema_50'] if pd.notna(latest['ema_50']) else None,
+            "rsi_14": latest_rsi,  # Use the properly handled RSI value
             "macd_signal": macd_signal_state,
             "volume": latest.get('vol') if isinstance(latest, pd.Series) else None,
             "52_week_high": latest.get('52_weeks_high') if isinstance(latest, pd.Series) else None,
@@ -112,7 +122,13 @@ def calculate_technical_indicators(historical_prices_path: Path, output_path: Pa
     try:
         with open(output_path, 'w') as f:
             json.dump(all_technicals, f, indent=2)
+        
+        # Count stocks with missing RSI
+        missing_rsi_count = sum(1 for data in all_technicals.values() if data.get('rsi_14') is None)
+        
         logger.info(f"Successfully generated technical indicators for {len(all_technicals)} stocks at {output_path}")
+        if missing_rsi_count > 0:
+            logger.warning(f"RSI_14 unavailable for {missing_rsi_count}/{len(all_technicals)} stocks (insufficient historical data)")
     except IOError as e:
         logger.error(f"Error writing technical indicators to {output_path}: {e}")
 

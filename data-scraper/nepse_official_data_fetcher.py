@@ -34,6 +34,7 @@ class NEPSEOfficialDataFetcher(ScraperBase):
         self.core_methods = {
             "company_list": self.nepse.getCompanyList,
             "market_status": self.nepse.getMarketStatus,
+            "floorsheet": self.nepse.getTodaysFloorSheet,
         }
         
         # Remove comprehensive methods - keeping only core official data

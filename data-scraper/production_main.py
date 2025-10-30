@@ -16,7 +16,7 @@ from typing import Dict, List, Optional
 import argparse
 
 from production_prices import ProductionPricesScraper
-from production_floorsheet import ProductionFloorsheetScraper
+
 from production_indices import ProductionIndicesScraper
 from production_macro import ProductionMacroScraper
 from production_companies import ProductionCompaniesScraper
@@ -37,7 +37,6 @@ class ProductionOrchestrator:
         
         scrapers = {
             'prices': ProductionPricesScraper,
-            'floorsheet': ProductionFloorsheetScraper, 
             'indices': ProductionIndicesScraper,
             'macro': ProductionMacroScraper,
             'companies': ProductionCompaniesScraper,
@@ -124,7 +123,7 @@ class ProductionOrchestrator:
         # Official API for authenticated data (company_list, market_status only)
         official_scrapers = ['official_api']
         # Traditional scrapers for other data types (including floorsheet from MeroLagani)
-        traditional_scrapers = ['floorsheet', 'indices', 'macro']
+        traditional_scrapers = ['indices', 'macro']
         
         results = {}
         
@@ -224,7 +223,7 @@ def main():
     """Main entry point for the production orchestrator"""
     parser = argparse.ArgumentParser(description='NEPSE Production Data Scraper')
     parser.add_argument('--scraper', 
-                       choices=['floorsheet', 'indices', 'macro', 'official_api', 'all'],
+                       choices=['indices', 'macro', 'official_api', 'all'],
                        default='all',
                        help='Specific scraper to run (official_api=company/status, floorsheet=transaction data, indices=market indices, macro=economic data)')
     parser.add_argument('--verbose', '-v', action='store_true',
