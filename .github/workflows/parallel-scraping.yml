@@ -2,7 +2,7 @@ name: Parallel NEPSE Data Collection
 
 on:
   schedule:
-    - cron: "0 23 * * 1-5" # 11:00 PM NPT on weekdays (Mon-Fri)
+    - cron: "0 23 * * 0-4" # 11:00 PM NPT on weekdays (Sun-Thu)
 
   # Allow manual triggering
   workflow_dispatch:
@@ -76,7 +76,9 @@ jobs:
       - name: Commit official API data
         if: always()
         run: |
+          git stash || true
           git pull --rebase
+          git stash pop || true
           git add data/daily/*_company_list.json data/daily/*_market_status.json || true
           if git diff --staged --quiet; then
             echo "No official API data to commit"
