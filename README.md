@@ -7,8 +7,10 @@ A comprehensive system for scraping, storing, and analyzing Nepal Stock Exchange
 ### Automated Data Collection
 
 - **Daily Scraping**: Runs automatically at midnight via GitHub Actions
-- **Comprehensive Data**: Share prices, floorsheet, market indices
-- **Historical Database**: Builds growing database over time
+- **Comprehensive Data**: Share prices, floorsheet, market indices, historical OHLCV data
+- **Historical Database**: Builds growing database over time with complete market history
+- **Bulk Historical Collection**: Automated collection of price/volume data for all stocks
+- **Data Aggregation**: Consolidated historical data for analysis and backtesting
 - **Error Handling**: Robust error handling and retry mechanisms
 
 ### Data Processing & Analysis
@@ -50,6 +52,12 @@ python test_scraper.py
 
 # Run manual scrape
 python scraper.py
+
+# Run historical price/volume collection (last 30 days)
+python production_main.py --scraper historical_prices --days-back 30
+
+# Aggregate historical data for analysis
+python production_main.py --scraper aggregate_historical --days-back 30
 ```
 
 ### 2. Start the Data API Server
@@ -294,6 +302,8 @@ Market Data (base `/api`):
 - `/historical/{prices|indices|macro|floorsheet}?days=N`
 - `/company-history/{symbol}?days=N`
 - `/historical-prices?symbol=SYM`
+- `/historical-price-volume?days=N` - Bulk historical OHLCV data for all stocks
+- `/historical-price-volume/aggregated?days=N` - Aggregated historical data with statistics
 - `/system-status`, `/data-freshness`, `/data-quality`, `/market-status`
 
 Portfolio & Watchlist (base `/api`):

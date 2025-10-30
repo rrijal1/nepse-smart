@@ -60,17 +60,17 @@ class ProductionOrchestrator:
                 result = scraper.run_core_collection()
                 # Convert official API result format to standard format
                 date_str = datetime.now().strftime('%Y-%m-%d')
-                # Official API saves security list, market status, floorsheet, indices, market summary, supply/demand, and lookup
+                # Official API saves security list, market status, floorsheet, indices, supply/demand, and lookup
                 expected_files = [
-                    f"data/daily/{date_str}_security_list.json",
+                    f"data/lookup/{date_str}_security_list.json",
                     f"data/daily/{date_str}_market_status.json",
                     f"data/daily/{date_str}_floorsheet.json",
                     f"data/daily/{date_str}_nepse_index.json",
                     f"data/daily/{date_str}_nepse_subindices.json",
-                    f"data/daily/{date_str}_top_gainers.json",
-                    f"data/daily/{date_str}_top_losers.json",
                     f"data/daily/{date_str}_supply_demand.json",
-                    f"data/lookup/{date_str}_security_id_key_map.json"
+                    f"data/lookup/{date_str}_security_id_key_map.json",
+                    f"data/lookup/{date_str}_sector_scrips.json",
+                    f"data/daily/{date_str}_price_volume_history_today.json"
                 ]
                 result = {
                     'scraper': 'official_api',
@@ -230,9 +230,11 @@ def main():
     """Main entry point for the production orchestrator"""
     parser = argparse.ArgumentParser(description='NEPSE Production Data Scraper')
     parser.add_argument('--scraper', 
-                       choices=['prices', 'macro', 'official_api', 'all'],
+                       choices=['prices', 'macro', 'official_api', 'historical_prices', 'aggregate_historical', 'all'],
                        default='all',
-                       help='Specific scraper to run (official_api=security/status/floorsheet/indices/gainers, prices=price data, macro=economic data)')
+                       help='Specific scraper to run (official_api=security/status/floorsheet/indices/gainers + price/volume history for all stocks, historical_prices=bulk historical OHLCV for all stocks, aggregate_historical=aggregate existing historical data, prices=price data, macro=economic data)')
+    parser.add_argument('--days-back', type=int, default=30,
+                       help='Number of days back for historical data collection/aggregation (default: 30)')
     parser.add_argument('--verbose', '-v', action='store_true',
                        help='Enable verbose logging')
     
@@ -258,6 +260,77 @@ def main():
         else:
             print("Status: ✅ SUCCESS")
             sys.exit(0)
+    
+    elif args.scraper == 'historical_prices':
+        # Run historical price/volume collection
+        from nepse_official_data_fetcher import NEPSEOfficialDataFetcher
+        fetcher = NEPSEOfficialDataFetcher()
+        
+        print(f"📊 Starting historical price/volume collection for last {args.days_back} days...")
+        result = fetcher.run_historical_price_volume_collection(args.days_back)
+        
+        print(f"\n{'='*60}")
+        print(f"HISTORICAL PRICE/VOLUME COLLECTION RESULTS")
+        print(f"{'='*60}")
+        print(f"Days Back: {result['days_back']}")
+        print(f"Business Days Processed: {result['total_methods']}")
+        print(f"Successful: {result['success_count']}")
+        print(f"Failed: {result['failure_count']}")
+        print(f"Empty: {result['empty_count']}")
+        print(f"Total Records: {result['total_records']:,}")
+        print(f"Total Time: {result['total_collection_time']}s")
+        
+        if result['successful_methods']:
+            print(f"\n✅ SUCCESSFUL DATES:")
+            for method_result in result['successful_methods'][:5]:  # Show first 5
+                print(f"  {method_result['business_date']}: {method_result['record_count']} stocks")
+            if len(result['successful_methods']) > 5:
+                print(f"  ... and {len(result['successful_methods']) - 5} more dates")
+        
+        if result['failed_methods']:
+            print(f"\n❌ FAILED DATES:")
+            for method_result in result['failed_methods'][:3]:  # Show first 3
+                print(f"  {method_result['business_date']}: {method_result.get('error', 'Unknown error')}")
+        
+        fetcher.close_session()
+        
+        if result['failure_count'] > 0:
+            print(f"\nStatus: ⚠️ PARTIAL SUCCESS ({result['success_count']}/{result['total_methods']} dates)")
+            sys.exit(1)
+        else:
+            print(f"\nStatus: ✅ SUCCESS - Collected historical data for {result['success_count']} trading days")
+            sys.exit(0)
+    
+    elif args.scraper == 'aggregate_historical':
+        # Run historical data aggregation
+        from nepse_official_data_fetcher import NEPSEOfficialDataFetcher
+        fetcher = NEPSEOfficialDataFetcher()
+        
+        print(f"📊 Aggregating historical price/volume data for last {args.days_back} days...")
+        result = fetcher.aggregate_historical_price_volume_data(args.days_back)
+        
+        print(f"\n{'='*60}")
+        print(f"HISTORICAL DATA AGGREGATION RESULTS")
+        print(f"{'='*60}")
+        print(f"Date Range: {result['date_range']['start_date']} to {result['date_range']['end_date']}")
+        print(f"Business Days: {result['date_range']['business_days']}")
+        print(f"Total Stocks: {result['total_stocks']:,}")
+        print(f"Total Records: {result['total_records']:,}")
+        
+        if result.get('summary_stats'):
+            stats = result['summary_stats']
+            print(f"Total Volume: {stats['total_volume']:,.0f} shares")
+            print(f"Total Value: Rs. {stats['total_value']:,.0f}")
+            print(f"Avg Daily Volume: {stats['avg_daily_volume']:,.0f} shares")
+            print(f"Avg Daily Value: Rs. {stats['avg_daily_value']:,.0f}")
+            
+            print(f"\n🏆 Most Active Stocks (by volume):")
+            for i, (symbol, volume) in enumerate(stats['most_active_stocks'][:5], 1):
+                print(f"  {i}. {symbol}: {volume:,.0f} shares")
+        
+        fetcher.close_session()
+        print(f"\nStatus: ✅ SUCCESS - Historical data aggregated")
+        sys.exit(0)
     
     else:
         # Run single scraper
