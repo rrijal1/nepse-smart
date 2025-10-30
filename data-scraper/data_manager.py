@@ -9,9 +9,15 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import List, Dict, Any, Optional, Union
 from sqlalchemy import text
-from backend.database import SessionLocal, engine
-from backend.models import HistoricalPriceVolume, Base
-import pandas as pd
+
+# Conditional imports for database functionality
+try:
+    from backend.database import SessionLocal, engine
+    from backend.models import HistoricalPriceVolume, Base
+    DATABASE_AVAILABLE = True
+except ImportError:
+    DATABASE_AVAILABLE = False
+    logging.warning("Database modules not available - operating in JSON-only mode")
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -35,6 +41,10 @@ class DataManager:
         Returns:
             Number of records saved (0 if database unavailable)
         """
+        if not DATABASE_AVAILABLE:
+            logger.warning("⚠️ Database not available - skipping PostgreSQL save")
+            return 0
+
         saved_count = 0
 
         try:
@@ -176,17 +186,19 @@ class DataManager:
 
         # Count records in database
         db_count = 0
-        try:
-            with SessionLocal() as session:
-                db_count = session.query(HistoricalPriceVolume).count()
-        except Exception as e:
-            logger.warning(f"⚠️ Could not query database: {e}")
+        if DATABASE_AVAILABLE:
+            try:
+                with SessionLocal() as session:
+                    db_count = session.query(HistoricalPriceVolume).count()
+            except Exception as e:
+                logger.warning(f"⚠️ Could not query database: {e}")
 
         return {
             'json_files_count': len(json_files),
             'database_records_count': db_count,
             'total_storage': sum(f.stat().st_size for f in json_files) if json_files else 0,
-            'date_range': self._get_date_range(json_files)
+            'date_range': self._get_date_range(json_files),
+            'database_available': DATABASE_AVAILABLE
         }
 
     def _get_date_range(self, files: List[Path]) -> Dict[str, Optional[str]]:
@@ -209,6 +221,10 @@ class DataManager:
 
 def init_database():
     """Initialize database tables"""
+    if not DATABASE_AVAILABLE:
+        logger.warning("⚠️ Database modules not available - skipping initialization")
+        return
+
     try:
         # Create schema if it doesn't exist
         with engine.connect() as conn:
