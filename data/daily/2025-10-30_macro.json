@@ -3,8 +3,8 @@
     "data_type": "exchange_rates",
     "currency": "USD",
     "rates": [
-      "140.82",
-      "141.42"
+      "141.62",
+      "142.22"
     ],
     "headers": [
       "Currency",
@@ -18,8 +18,8 @@
     "data_type": "exchange_rates",
     "currency": "EUR",
     "rates": [
-      "163.83",
-      "164.53"
+      "164.39",
+      "165.08"
     ],
     "headers": [
       "Currency",
@@ -33,8 +33,8 @@
     "data_type": "exchange_rates",
     "currency": "GBP",
     "rates": [
-      "186.14",
-      "186.93"
+      "186.73",
+      "187.52"
     ],
     "headers": [
       "Currency",
@@ -48,8 +48,8 @@
     "data_type": "exchange_rates",
     "currency": "JPY",
     "rates": [
-      "9.24",
-      "9.28"
+      "9.20",
+      "9.24"
     ],
     "headers": [
       "Currency",
