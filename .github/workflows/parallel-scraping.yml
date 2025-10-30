@@ -15,6 +15,7 @@ on:
         options:
           - all
           - official_api
+          - prices
           - macro
 
 jobs:
@@ -86,13 +87,23 @@ jobs:
             git push || true
           fi
 
-  # Job 2: Floorsheet from MeroLagani (moved to separate scraper)
-
   # Job 3: NRB Banking Data
   scrape-macro:
     uses: ./.github/workflows/reusable-scraper.yml
     with:
       scraper_name: macro
+    permissions:
+      contents: write
+      actions: read
+
+  # Job 4: ShareSansar Stock Prices
+  scrape-prices:
+    uses: ./.github/workflows/reusable-scraper.yml
+    with:
+      scraper_name: prices
+    permissions:
+      contents: write
+      actions: read
 
   # Job 5: Generate Technical Indicators
   generate-technicals:
@@ -101,7 +112,7 @@ jobs:
     permissions:
       contents: write
       actions: read
-    needs: [scrape-official-api, scrape-macro]
+    needs: [scrape-official-api, scrape-macro, scrape-prices]
     if: always()
 
     steps:
