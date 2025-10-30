@@ -147,3 +147,28 @@ class PaperAccountFunding(Base):
     funded_amount: Mapped[float] = mapped_column(Float, nullable=False)
     funded_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+class HistoricalPriceVolume(Base):
+    """
+    Historical price/volume data for NEPSE stocks
+    """
+    __tablename__ = "historical_price_volume"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    symbol: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
+    business_date: Mapped[date] = mapped_column(Date, nullable=False, index=True)
+    open_price: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
+    high_price: Mapped[float] = mapped_column(Float, nullable=False)
+    low_price: Mapped[float] = mapped_column(Float, nullable=False)
+    close_price: Mapped[float] = mapped_column(Float, nullable=False)
+    total_trades: Mapped[int] = mapped_column(Integer, nullable=False)
+    total_traded_quantity: Mapped[int] = mapped_column(Integer, nullable=False)
+    total_traded_value: Mapped[float] = mapped_column(Float, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+    __table_args__ = (
+        {"schema": "nepse_data"}
+    )
+
+    def __repr__(self):
+        return f"<HistoricalPriceVolume(symbol={self.symbol}, date={self.business_date}, close={self.close_price})>"

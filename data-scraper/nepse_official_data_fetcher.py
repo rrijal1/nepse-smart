@@ -596,6 +596,181 @@ class NEPSEOfficialDataFetcher(ScraperBase):
         self.log_success(f"   Date range: {results['date_range']['start_date']} to {results['date_range']['end_date']}")
         
         return results
+    
+    def run_daily_company_data_update(self) -> Dict[str, Any]:
+        """Update existing company historical files with latest trading day's data"""
+        from datetime import datetime, timedelta
+        from pathlib import Path
+        import json
+        
+        results = {
+            "scraper": "nepse_official_api",
+            "collection_type": "daily_company_update",
+            "timestamp": time.time(),
+            "date": datetime.now().strftime("%Y-%m-%d"),
+            "successful_updates": [],
+            "failed_updates": [],
+            "skipped_companies": [],
+            "total_companies_processed": 0,
+            "total_records_added": 0,
+            "total_fetch_time": 0
+        }
+        
+        self.log_success("Starting daily company data update - appending latest trading day to existing files...")
+        collection_start = time.time()
+        
+        # Find the most recent trading day (yesterday, skipping weekends)
+        current_date = datetime.now()
+        yesterday = current_date - timedelta(days=1)
+        
+        # If yesterday was weekend, go back further
+        while yesterday.weekday() >= 5:  # Saturday=5, Sunday=6
+            yesterday -= timedelta(days=1)
+        
+        latest_trading_date = yesterday.strftime('%Y-%m-%d')
+        results["latest_trading_date"] = latest_trading_date
+        
+        self.log_success(f"Target trading date: {latest_trading_date}")
+        
+        # Get list of existing company files
+        companies_dir = Path(__file__).parent.parent / 'data' / 'historical' / 'companies'
+        
+        if not companies_dir.exists():
+            self.log_error("Companies directory not found - run complete_company_historical first")
+            return results
+        
+        company_files = list(companies_dir.glob("*_company_history_*.json"))
+        
+        if not company_files:
+            self.log_error("No existing company files found - run complete_company_historical first")
+            return results
+        
+        self.log_success(f"Found {len(company_files)} existing company files to update")
+        
+        # Process each company file
+        for company_file in company_files:
+            filename = company_file.name
+            # Extract symbol from filename: YYYY-MM-DD_company_history_SYMBOL.json
+            parts = filename.split('_company_history_')
+            if len(parts) != 2:
+                continue
+                
+            symbol = parts[1].replace('.json', '')
+            results["total_companies_processed"] += 1
+            
+            try:
+                # Read existing company data
+                with open(company_file, 'r', encoding='utf-8') as f:
+                    existing_data = json.load(f)
+                
+                if not isinstance(existing_data, dict) or 'content' not in existing_data:
+                    self.log_warning(f"Invalid data format in {filename}, skipping")
+                    results["skipped_companies"].append({
+                        "symbol": symbol,
+                        "reason": "invalid_data_format"
+                    })
+                    continue
+                
+                existing_records = existing_data['content']
+                if not isinstance(existing_records, list):
+                    self.log_warning(f"Invalid records format in {filename}, skipping")
+                    results["skipped_companies"].append({
+                        "symbol": symbol,
+                        "reason": "invalid_records_format"
+                    })
+                    continue
+                
+                # Check if we already have data for the latest trading date
+                existing_dates = {record.get('businessDate') for record in existing_records}
+                
+                if latest_trading_date in existing_dates:
+                    self.log_success(f"✅ {symbol}: Already has data for {latest_trading_date}, skipping")
+                    results["skipped_companies"].append({
+                        "symbol": symbol,
+                        "reason": "date_already_exists"
+                    })
+                    continue
+                
+                # Fetch latest day's data for this company
+                self.log_success(f"Fetching latest day data for {symbol}...")
+                start_time = time.time()
+                
+                latest_data = self.nepse.getCompanyPriceVolumeHistory(symbol)
+                fetch_time = time.time() - start_time
+                
+                if latest_data and 'content' in latest_data and latest_data['content']:
+                    latest_records = latest_data['content']
+                    
+                    # Find the record for the latest trading date
+                    new_record = None
+                    for record in latest_records:
+                        if record.get('businessDate') == latest_trading_date:
+                            new_record = record
+                            break
+                    
+                    if new_record:
+                        # Append the new record to existing data
+                        existing_records.append(new_record)
+                        
+                        # Sort records by business date (newest first)
+                        existing_records.sort(key=lambda x: x.get('businessDate', ''), reverse=True)
+                        
+                        # Update the file
+                        with open(company_file, 'w', encoding='utf-8') as f:
+                            json.dump(existing_data, f, ensure_ascii=False, indent=2, default=str)
+                        
+                        results["successful_updates"].append({
+                            "symbol": symbol,
+                            "date_added": latest_trading_date,
+                            "fetch_time_seconds": round(fetch_time, 2),
+                            "total_records_now": len(existing_records)
+                        })
+                        
+                        results["total_records_added"] += 1
+                        results["total_fetch_time"] += fetch_time
+                        
+                        self.log_success(f"✅ {symbol}: Added {latest_trading_date} data ({len(existing_records)} total records)")
+                        
+                    else:
+                        self.log_warning(f"⚪ {symbol}: No data found for {latest_trading_date}")
+                        results["skipped_companies"].append({
+                            "symbol": symbol,
+                            "reason": "no_data_for_date"
+                        })
+                        
+                else:
+                    results["failed_updates"].append({
+                        "symbol": symbol,
+                        "error": "failed_to_fetch_latest_data"
+                    })
+                    self.log_error(f"❌ {symbol}: Failed to fetch latest data")
+                
+            except Exception as e:
+                results["failed_updates"].append({
+                    "symbol": symbol,
+                    "error": str(e)
+                })
+                self.log_error(f"❌ {symbol}: Update failed - {e}")
+            
+            # Brief pause between requests
+            time.sleep(0.1)
+        
+        results["total_collection_time"] = round(time.time() - collection_start, 2)
+        
+        # Summary
+        successful = len(results["successful_updates"])
+        failed = len(results["failed_updates"])
+        skipped = len(results["skipped_companies"])
+        total_processed = results["total_companies_processed"]
+        
+        self.log_success(f"Daily company update complete:")
+        self.log_success(f"  ✅ Updated: {successful}")
+        self.log_success(f"  ❌ Failed: {failed}")
+        self.log_success(f"  ⏭️ Skipped: {skipped}")
+        self.log_success(f"  📊 Records added: {results['total_records_added']}")
+        self.log_success(f"  ⏱️ Total time: {results['total_collection_time']}s")
+        
+        return results
         """Internal method to run data collection"""
         total_methods = len(methods)
         

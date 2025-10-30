@@ -22,6 +22,7 @@ from production_macro import ProductionMacroScraper
 from production_companies import ProductionCompaniesScraper
 from nepse_official_data_fetcher import NEPSEOfficialDataFetcher
 from shared_utils import setup_logging, create_data_filepath
+from data_manager import DataManager, init_database
 
 class ProductionOrchestrator:
     """Main orchestrator for NEPSE data collection"""
@@ -230,9 +231,9 @@ def main():
     """Main entry point for the production orchestrator"""
     parser = argparse.ArgumentParser(description='NEPSE Production Data Scraper')
     parser.add_argument('--scraper', 
-                       choices=['prices', 'macro', 'official_api', 'historical_prices', 'aggregate_historical', 'complete_historical', 'complete_company_historical', 'all'],
+                       choices=['prices', 'macro', 'official_api', 'historical_prices', 'aggregate_historical', 'complete_historical', 'complete_company_historical', 'daily_company_update', 'all'],
                        default='all',
-                       help='Specific scraper to run (official_api=security/status/floorsheet/indices/gainers + price/volume history for all stocks, historical_prices=bulk historical OHLCV for all stocks, aggregate_historical=aggregate existing historical data, complete_historical=download ALL available historical data, complete_company_historical=download historical data for ALL individual companies, prices=price data, macro=economic data)')
+                       help='Specific scraper to run (official_api=security/status/floorsheet/indices/gainers + price/volume history for all stocks, historical_prices=bulk historical OHLCV for all stocks, aggregate_historical=aggregate existing historical data, complete_historical=download ALL available historical data, complete_company_historical=download historical data for ALL individual companies, daily_company_update=append latest trading day to existing company files, prices=price data, macro=economic data)')
     parser.add_argument('--days-back', type=int, default=30,
                        help='Number of days back for historical data collection/aggregation (default: 30)')
     parser.add_argument('--verbose', '-v', action='store_true',
@@ -262,13 +263,44 @@ def main():
             sys.exit(0)
     
     elif args.scraper == 'historical_prices':
+        # Initialize database and data manager
+        init_database()
+        data_manager = DataManager()
+
         # Run historical price/volume collection
         from nepse_official_data_fetcher import NEPSEOfficialDataFetcher
         fetcher = NEPSEOfficialDataFetcher()
-        
+
         print(f"📊 Starting historical price/volume collection for last {args.days_back} days...")
         result = fetcher.run_historical_price_volume_collection(args.days_back)
-        
+
+        # Process and save data using data manager
+        total_saved_to_db = 0
+        total_saved_to_json = 0
+
+        if result['successful_methods']:
+            print(f"\n💾 Processing and saving data...")
+
+            for method_result in result['successful_methods']:
+                business_date = method_result['business_date']
+                data = method_result.get('data', [])
+
+                if data:
+                    # Save to both PostgreSQL and JSON (for recent data)
+                    save_result = data_manager.save_historical_data(
+                        data=data,
+                        date_str=business_date,
+                        save_to_db=True,  # Always save to database
+                        save_to_json=True  # Save recent data to JSON for GitHub
+                    )
+
+                    total_saved_to_db += save_result['saved_to_db']
+                    if save_result['saved_to_json']:
+                        total_saved_to_json += len(data)
+
+                    if save_result.get('db_error'):
+                        print(f"⚠️ Database error for {business_date}: {save_result['db_error']}")
+
         print(f"\n{'='*60}")
         print(f"HISTORICAL PRICE/VOLUME COLLECTION RESULTS")
         print(f"{'='*60}")
@@ -278,22 +310,24 @@ def main():
         print(f"Failed: {result['failure_count']}")
         print(f"Empty: {result['empty_count']}")
         print(f"Total Records: {result['total_records']:,}")
+        print(f"Records Saved to Database: {total_saved_to_db:,}")
+        print(f"Records Saved to JSON: {total_saved_to_json:,}")
         print(f"Total Time: {result['total_collection_time']}s")
-        
+
         if result['successful_methods']:
             print(f"\n✅ SUCCESSFUL DATES:")
             for method_result in result['successful_methods'][:5]:  # Show first 5
                 print(f"  {method_result['business_date']}: {method_result['record_count']} stocks")
             if len(result['successful_methods']) > 5:
                 print(f"  ... and {len(result['successful_methods']) - 5} more dates")
-        
+
         if result['failed_methods']:
             print(f"\n❌ FAILED DATES:")
             for method_result in result['failed_methods'][:3]:  # Show first 3
                 print(f"  {method_result['business_date']}: {method_result.get('error', 'Unknown error')}")
-        
+
         fetcher.close_session()
-        
+
         if result['failure_count'] > 0:
             print(f"\nStatus: ⚠️ PARTIAL SUCCESS ({result['success_count']}/{result['total_methods']} dates)")
             sys.exit(1)
@@ -390,6 +424,42 @@ def main():
         
         fetcher.close_session()
         print(f"\nStatus: ✅ SUCCESS - Complete company historical data collection finished")
+        sys.exit(0)
+    
+    elif args.scraper == 'daily_company_update':
+        # Run daily company data update - append latest trading day to existing files
+        from nepse_official_data_fetcher import NEPSEOfficialDataFetcher
+        fetcher = NEPSEOfficialDataFetcher()
+        
+        print("📊 Starting daily company data update - appending latest trading day to existing company files...")
+        
+        result = fetcher.run_daily_company_data_update()
+        
+        print(f"\n{'='*80}")
+        print(f"DAILY COMPANY DATA UPDATE RESULTS")
+        print(f"{'='*80}")
+        print(f"Target Trading Date: {result.get('latest_trading_date', 'N/A')}")
+        print(f"Total Companies Processed: {result['total_companies_processed']}")
+        print(f"✅ Successfully Updated: {len(result['successful_updates'])}")
+        print(f"❌ Failed Updates: {len(result['failed_updates'])}")
+        print(f"⏭️ Skipped: {len(result['skipped_companies'])}")
+        print(f"📋 Records Added: {result['total_records_added']}")
+        print(f"⏱️ Total Time: {result['total_collection_time']}s")
+        
+        if result['successful_updates']:
+            print(f"\n✅ SUCCESSFULLY UPDATED COMPANIES:")
+            for update in result['successful_updates'][:10]:  # Show first 10
+                print(f"  ✅ {update['symbol']}: Added {update['date_added']} ({update['total_records_now']} total records)")
+            if len(result['successful_updates']) > 10:
+                print(f"  ... and {len(result['successful_updates']) - 10} more companies")
+        
+        if result['failed_updates']:
+            print(f"\n❌ FAILED UPDATES:")
+            for failure in result['failed_updates'][:5]:  # Show first 5
+                print(f"  ❌ {failure['symbol']}: {failure.get('error', 'Unknown error')}")
+        
+        fetcher.close_session()
+        print(f"\nStatus: ✅ SUCCESS - Daily company update completed")
         sys.exit(0)
     
     else:
