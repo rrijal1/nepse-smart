@@ -1,12 +1,12 @@
 {
   "aggregation_date": "2025-10-30",
-  "days_back": 7,
+  "days_back": 30,
   "total_stocks": 342,
   "total_records": 954,
   "date_range": {
-    "start_date": "2025-10-23",
+    "start_date": "2025-09-30",
     "end_date": "2025-10-30",
-    "business_days": 6
+    "business_days": 23
   },
   "stocks_data": {
     "ACLBSL": {
@@ -16716,9 +16716,9 @@
   },
   "summary_stats": {
     "total_volume": 46755725,
-    "total_value": 17547649560.85,
-    "avg_daily_volume": 7792620.833333333,
-    "avg_daily_value": 2924608260.1416664,
+    "total_value": 17547649560.849995,
+    "avg_daily_volume": 2032857.608695652,
+    "avg_daily_value": 762941285.2543476,
     "most_active_stocks": [
       [
         "HBLPO",
