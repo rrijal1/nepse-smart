@@ -64,7 +64,7 @@ jobs:
           git stash || true
           git pull --rebase
           git stash pop || true
-          git add data/daily/*_${{ inputs.scraper_name }}.json data/historical/historical_${{ inputs.scraper_name }}.json || true
+          git add data/daily/*_${{ inputs.scraper_name }}.json || true
           if git diff --staged --quiet; then
             echo "No data to commit for ${{ inputs.scraper_name }}"
           else
