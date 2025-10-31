@@ -116,7 +116,7 @@ jobs:
       contents: write
       actions: read
     needs: [scrape-official-api, scrape-macro, scrape-prices]
-    if: always() && (needs.scrape-official-api.result == 'success' || needs.scrape-macro.result == 'success' || needs.scrape-prices.result == 'success')
+    if: always()
 
     steps:
       - name: Checkout repository
