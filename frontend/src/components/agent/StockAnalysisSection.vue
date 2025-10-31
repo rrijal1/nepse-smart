@@ -68,10 +68,6 @@
           <h2 class="text-2xl font-bold text-gray-900">
             {{ analysisResult.stock_symbol }} Overview
           </h2>
-          <p class="text-sm text-gray-600">
-            Completed in {{ analysisResult.processing_time_ms }} ms • Updated
-            {{ formatTimestamp(analysisResult.timestamp) }}
-          </p>
         </div>
         <div class="flex gap-6">
           <div class="text-center">
@@ -99,12 +95,12 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="flex gap-4">
         <div
           v-for="card in detailCards"
           :key="card.title"
           :class="[
-            'rounded-xl border shadow-sm p-5',
+            'flex-1 rounded-xl border shadow-sm p-5',
             themeClasses[card.theme] || 'border-gray-200 bg-gray-50',
           ]"
         >
@@ -119,14 +115,9 @@
               {{ formatScore(card.detail.score) }}
             </span>
           </div>
-          <ul class="space-y-1 text-sm text-gray-700">
-            <li
-              v-for="line in extractHighlights(card.detail.summary)"
-              :key="line"
-            >
-              • {{ line }}
-            </li>
-          </ul>
+          <div class="text-sm text-gray-700 whitespace-pre-line">
+            {{ card.detail.summary }}
+          </div>
         </div>
       </div>
 
@@ -233,27 +224,12 @@ const recommendationBadge = (recommendation: string) => {
 
 const formatScore = (score: number) => (score > 0 ? `+${score}` : `${score}`);
 
-const formatTimestamp = (timestamp: string) => {
-  try {
-    return new Date(timestamp).toLocaleString();
-  } catch (error) {
-    return timestamp;
-  }
-};
-
 const getRecommendationFromScore = (score: number) => {
   if (score >= 5) return "BUY";
   if (score >= 2) return "HOLD";
   if (score >= -2) return "NEUTRAL";
   return "SELL";
 };
-
-const extractHighlights = (summary: string) =>
-  summary
-    .split(".")
-    .map((sentence) => sentence.trim())
-    .filter(Boolean)
-    .slice(0, 3);
 
 const themeClasses: Record<string, string> = {
   blue: "border-blue-200 bg-blue-50",

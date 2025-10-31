@@ -1,18 +1,17 @@
 version: "3.8"
 
 services:
-  # Redis for caching (production)
-  redis:
-    image: redis:7-alpine
-    container_name: nepse-redis
-    ports:
-      - "6379:6379"
+  # PostgreSQL Database (production)
+  postgres:
+    image: postgres:15-alpine
+    container_name: nepse-postgres-prod
+    env_file:
+      - ./.env
     volumes:
-      - redis_data:/data
-    command: redis-server --appendonly yes
+      - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -21,20 +20,18 @@ services:
   backend:
     build:
       context: .
-      dockerfile: backend/Dockerfile
+      dockerfile: Dockerfile.backend
     container_name: nepse-backend-prod
     ports:
       - "8000:8000"
-    environment:
-      - PYTHONPATH=/app
-      - PYTHONUNBUFFERED=1
-      - FASTAPI_ENV=production
-      - REDIS_URL=redis://redis:6379/0
+    env_file:
+      - ./.env
     depends_on:
-      - redis
+      postgres:
+        condition: service_healthy
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -70,7 +67,7 @@ services:
           memory: 64M
 
 volumes:
-  redis_data:
+  postgres_data:
     driver: local
 
 networks:

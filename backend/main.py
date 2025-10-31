@@ -10,25 +10,17 @@ Updated FastAPI Backend - Using Our Own Scraped Data
 import sys
 import os
 from pathlib import Path
-from fastapi import FastAPI, HTTPException, Query, BackgroundTasks
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from datetime import datetime, timedelta
-import asyncio
+from datetime import datetime
 import json
 from typing import List, Optional, Dict, Any
 import logging
 
 from dotenv import load_dotenv
 
-# Import our new data service
-from backend.nepse_data_service import NepseDataService
-
-# Import database initialization
-from backend.database import engine, Base
-from backend.portfolio_routes import router as portfolio_router
-from backend.agent_routes import router as agent_router
-from backend.papertrading_routes import router as papertrading_router
-
+# Add current directory to Python path for imports
+sys.path.append(os.getcwd())
 
 # Load environment variables from .env if present (useful in local/dev setups)
 load_dotenv()
@@ -36,6 +28,24 @@ load_dotenv()
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Import our new data service
+from backend.nepse_data_service import NepseDataService
+
+# Import technical indicators API
+try:
+    from technicals_api import TechnicalIndicatorsAPI
+    technicals_api = TechnicalIndicatorsAPI()
+except ImportError as e:
+    logger.warning(f"Technical indicators API not available: {e}")
+    technicals_api = None
+
+# Import database initialization
+from backend.database import engine, Base
+from backend.portfolio_routes import router as portfolio_router
+from backend.agent_routes import router as agent_router
+from backend.papertrading_routes import router as papertrading_router
+from backend.data_manager import DataManager
 
 app = FastAPI(
     title="NEPSE Analytics API - Enhanced", 
@@ -62,10 +72,19 @@ app.include_router(agent_router, prefix="/api")
 # Initialize our data service
 nepse_data = NepseDataService(data_path="data")
 
+# Initialize data manager for data management operations
+data_manager = DataManager(data_dir="data") if DataManager else None
+
 @app.on_event("startup")
 async def startup_event():
     """Run on application startup"""
     try:
+        # Create schema if it doesn't exist
+        from sqlalchemy import text
+        with engine.connect() as conn:
+            conn.execute(text("CREATE SCHEMA IF NOT EXISTS nepse_data"))
+            conn.commit()
+        
         Base.metadata.create_all(bind=engine)
         logger.info("✅ Database tables initialized")
 
@@ -76,9 +95,9 @@ async def startup_event():
 def read_root():
     """API root endpoint"""
     return {
-        "message": "NEPSE Analytics API - Enhanced with Own Data",
+        "message": "NEPSE Analytics API - Enhanced with Technical Indicators",
         "version": "2.0.0",
-        "data_source": "Own scraped data",
+        "data_source": "Own scraped data + Technical Analysis",
         "endpoints": {
             "market_data": [
                 "/api/market-status",
@@ -95,6 +114,13 @@ def read_root():
                 "/api/historical/{data_type}",
                 "/api/company-history/{symbol}"
             ],
+            "technical_indicators": [
+                "/api/technicals/{symbol}",
+                "/api/technicals/all",
+                "/api/signals/rsi",
+                "/api/signals/macd",
+                "/api/technicals/search"
+            ],
             "portfolio": [
                 "/api/watchlist",
                 "/api/portfolio",
@@ -103,7 +129,8 @@ def read_root():
             ],
             "system": [
                 "/api/system-status",
-                "/api/data-freshness"
+                "/api/data-freshness",
+                "/api/data-quality"
             ]
         }
     }
@@ -338,49 +365,6 @@ def get_company_history(
         logger.error(f"Company history error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/api/historical-prices", tags=["Historical Data"])
-def get_historical_prices(symbol: Optional[str] = Query(None, description="Filter by stock symbol")):
-    """Get historical prices data, optionally filtered by symbol"""
-    try:
-        # Load historical prices data
-        filepath = Path("data/historical/historical_prices.json")
-        if not filepath.exists():
-            raise HTTPException(status_code=404, detail="Historical prices data not found")
-        
-        with open(filepath, 'r', encoding='utf-8') as f:
-            all_data = json.load(f)
-        
-        if symbol:
-            # Filter by symbol
-            symbol_upper = symbol.upper()
-            filtered_data = [item for item in all_data if item.get('symbol') == symbol_upper]
-            
-            if not filtered_data:
-                raise HTTPException(
-                    status_code=404,
-                    detail=f"No historical data found for symbol {symbol}"
-                )
-            
-            return {
-                "symbol": symbol_upper,
-                "data": filtered_data,
-                "count": len(filtered_data),
-                "filtered": True
-            }
-        else:
-            # Return all data
-            return {
-                "data": all_data,
-                "count": len(all_data),
-                "filtered": False
-            }
-            
-    except HTTPException:
-        raise
-    except Exception as e:
-        logger.error(f"Historical prices error: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
-
 # Search and Filter Endpoints
 @app.get("/api/search-stocks", tags=["Search"])
 def search_stocks(
@@ -408,6 +392,118 @@ def search_stocks(
     except Exception as e:
         logger.error(f"Search error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+# Technical Indicators Endpoints
+@app.get("/api/technicals/{symbol}", tags=["Technical Indicators"])
+def get_symbol_technicals(symbol: str):
+    """Get technical indicators for a specific stock symbol"""
+    if not technicals_api:
+        raise HTTPException(status_code=503, detail="Technical indicators not available")
+
+    technicals = technicals_api.get_technicals_for_symbol(symbol)
+    if not technicals:
+        raise HTTPException(
+            status_code=404,
+            detail=f"No technical data found for symbol: {symbol}"
+        )
+
+    return {
+        "symbol": symbol.upper(),
+        "technicals": technicals,
+        "last_updated": technicals.get('last_updated')
+    }
+
+@app.get("/api/technicals/all", tags=["Technical Indicators"])
+def get_all_technicals_data():
+    """Get technical indicators for all stocks"""
+    if not technicals_api:
+        raise HTTPException(status_code=503, detail="Technical indicators not available")
+
+    data = technicals_api.get_all_technicals()
+    return {
+        "data": data,
+        "count": len(data),
+        "last_updated": datetime.now().isoformat()
+    }
+
+@app.get("/api/signals/rsi", tags=["Technical Indicators"])
+def get_rsi_signals(
+    oversold: float = Query(30.0, ge=0, le=50, description="Oversold threshold"),
+    overbought: float = Query(70.0, ge=50, le=100, description="Overbought threshold")
+):
+    """Get RSI signals (oversold/overbought stocks)"""
+    if not technicals_api:
+        raise HTTPException(status_code=503, detail="Technical indicators not available")
+
+    signals = technicals_api.get_rsi_signals(oversold, overbought)
+    return {
+        "signals": signals,
+        "oversold_count": len(signals["oversold"]),
+        "overbought_count": len(signals["overbought"]),
+        "last_updated": datetime.now().isoformat()
+    }
+
+@app.get("/api/signals/macd", tags=["Technical Indicators"])
+def get_macd_signals():
+    """Get MACD crossover signals"""
+    if not technicals_api:
+        raise HTTPException(status_code=503, detail="Technical indicators not available")
+
+    signals = technicals_api.get_macd_signals()
+    return {
+        "signals": signals,
+        "bullish_count": len(signals["bullish_crossovers"]),
+        "bearish_count": len(signals["bearish_crossovers"]),
+        "last_updated": datetime.now().isoformat()
+    }
+
+@app.get("/api/technicals/search", tags=["Technical Indicators"])
+def search_technicals(
+    rsi_min: Optional[float] = Query(None, ge=0, le=100, description="Minimum RSI value"),
+    rsi_max: Optional[float] = Query(None, ge=0, le=100, description="Maximum RSI value"),
+    macd_signal: Optional[str] = Query(None, description="MACD signal state (bullish_crossover, bearish_crossover, neutral)"),
+    limit: int = Query(50, ge=1, le=500, description="Maximum results to return")
+):
+    """Search technical indicators with filters"""
+    if not technicals_api:
+        raise HTTPException(status_code=503, detail="Technical indicators not available")
+
+    all_data = technicals_api.get_all_technicals()
+    results = []
+
+    for symbol, technicals in all_data.items():
+        # Apply RSI filter
+        if rsi_min is not None and (technicals.get('rsi_14') is None or technicals['rsi_14'] < rsi_min):
+            continue
+        if rsi_max is not None and (technicals.get('rsi_14') is None or technicals['rsi_14'] > rsi_max):
+            continue
+
+        # Apply MACD signal filter
+        if macd_signal:
+            macd_data = technicals.get('macd', {})
+            if macd_data.get('signal_state') != macd_signal:
+                continue
+
+        results.append({
+            "symbol": symbol,
+            "technicals": technicals
+        })
+
+        if len(results) >= limit:
+            break
+
+    return {
+        "results": results,
+        "count": len(results),
+        "filters_applied": {
+            "rsi_min": rsi_min,
+            "rsi_max": rsi_max,
+            "macd_signal": macd_signal
+        },
+        "last_updated": datetime.now().isoformat()
+    }
+
+# Data Management Endpoints
 
 # Data Quality Endpoints
 @app.get("/api/data-quality", tags=["System"])
@@ -455,6 +551,39 @@ def get_data_quality():
         
     except Exception as e:
         logger.error(f"Data quality error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+# Data Management Endpoints
+@app.get("/api/data/summary", tags=["Data Management"])
+def get_data_summary():
+    """Get storage statistics and data summary"""
+    if not data_manager:
+        raise HTTPException(status_code=503, detail="Data management not available")
+    
+    try:
+        summary = data_manager.get_data_summary()
+        return {
+            "storage_summary": summary,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Data summary error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/data/migrate", tags=["Data Management"])
+def migrate_json_to_postgres():
+    """Migrate existing JSON data to PostgreSQL database"""
+    if not data_manager:
+        raise HTTPException(status_code=503, detail="Data management not available")
+    
+    try:
+        result = data_manager.migrate_json_to_postgres()
+        return {
+            "migration_result": result,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Data migration error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 # Health check endpoint

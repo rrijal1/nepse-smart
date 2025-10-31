@@ -3,7 +3,8 @@ Database initialization script
 Creates all tables and optionally seeds sample data
 """
 from backend.database import engine, Base
-from backend.models import Watchlist, Portfolio, Transaction
+from backend.models import Watchlist, Portfolio, Transaction, PaperPortfolio, PaperTransaction, PaperAccount, PaperAccountFunding, HistoricalPriceVolume
+from sqlalchemy import text
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -14,7 +15,14 @@ def init_database():
     Initialize database by creating all tables
     """
     try:
-        logger.info("Creating database tables...")
+        logger.info("Creating database schema and tables...")
+        
+        # Create schema if it doesn't exist
+        with engine.connect() as conn:
+            conn.execute(text("CREATE SCHEMA IF NOT EXISTS nepse_data"))
+            conn.commit()
+        
+        # Create all tables
         Base.metadata.create_all(bind=engine)
         logger.info("✅ Database tables created successfully!")
         logger.info(f"Tables created: {', '.join(Base.metadata.tables.keys())}")

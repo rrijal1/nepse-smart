@@ -46,24 +46,6 @@
             {{ timeframe }}
           </button>
         </div>
-
-        <!-- Indicators Selector -->
-        <div class="flex items-center gap-2">
-          <label class="text-sm font-medium text-gray-700">Indicator:</label>
-          <select
-            v-model="selectedIndicator"
-            @change="handleIndicatorChange"
-            class="px-3 py-1 border border-gray-300 rounded-md text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-nepse-primary))] focus:border-transparent"
-          >
-            <option
-              v-for="indicator in indicators"
-              :key="indicator"
-              :value="indicator"
-            >
-              {{ indicator }}
-            </option>
-          </select>
-        </div>
       </div>
     </div>
 
@@ -116,7 +98,36 @@
           Fundamental Data
         </h4>
         <div class="space-y-2 text-sm">
-          <!-- Fundamental data will go here -->
+          <div v-if="fundamentalData">
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <span class="font-medium">Symbol:</span>
+                {{ fundamentalData.symbol }}
+              </div>
+              <div>
+                <span class="font-medium">LTP:</span> NPR
+                {{ fundamentalData.ltp?.toFixed(2) }}
+              </div>
+              <div>
+                <span class="font-medium">Change:</span>
+                <span
+                  :class="
+                    fundamentalData.change >= 0
+                      ? 'text-green-600'
+                      : 'text-red-600'
+                  "
+                >
+                  {{ fundamentalData.change >= 0 ? "+" : ""
+                  }}{{ fundamentalData.change?.toFixed(2) }}
+                </span>
+              </div>
+              <div>
+                <span class="font-medium">Volume:</span>
+                {{ fundamentalData.volume?.toLocaleString() }}
+              </div>
+            </div>
+          </div>
+          <div v-else class="text-gray-500">Loading fundamental data...</div>
         </div>
       </div>
 
@@ -126,7 +137,39 @@
           Macro Economic Data
         </h4>
         <div class="space-y-2 text-sm">
-          <!-- Macro data will go here -->
+          <div
+            v-if="
+              macroData &&
+              macroData.forex_rates &&
+              macroData.forex_rates.length > 0
+            "
+          >
+            <div class="font-medium mb-2">Exchange Rates (USD):</div>
+            <div class="grid grid-cols-2 gap-1 text-xs">
+              <div>
+                Buy: NPR {{ macroData.forex_rates[0]?.rates?.[0]?.toFixed(2) }}
+              </div>
+              <div>
+                Sell: NPR {{ macroData.forex_rates[0]?.rates?.[1]?.toFixed(2) }}
+              </div>
+            </div>
+          </div>
+          <div
+            v-if="
+              macroData &&
+              macroData.banking_indicators &&
+              macroData.banking_indicators.length > 0
+            "
+          >
+            <div class="font-medium mb-2 mt-3">Banking Indicators:</div>
+            <div class="text-xs">
+              <div>
+                {{ macroData.banking_indicators[0]?.indicator }}:
+                {{ macroData.banking_indicators[0]?.current_value }}
+              </div>
+            </div>
+          </div>
+          <div v-else class="text-gray-500">Loading macro data...</div>
         </div>
       </div>
 
@@ -136,7 +179,21 @@
           Key Levels
         </h4>
         <div class="space-y-2 text-sm">
-          <!-- Key levels data will go here -->
+          <div v-if="keyLevels">
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <span class="font-medium text-green-600">Support:</span>
+              </div>
+              <div>
+                <span class="font-medium text-red-600">Resistance:</span>
+              </div>
+              <div>NPR {{ keyLevels.support?.[0]?.toFixed(2) }}</div>
+              <div>NPR {{ keyLevels.resistance?.[0]?.toFixed(2) }}</div>
+              <div>NPR {{ keyLevels.support?.[1]?.toFixed(2) }}</div>
+              <div>NPR {{ keyLevels.resistance?.[1]?.toFixed(2) }}</div>
+            </div>
+          </div>
+          <div v-else class="text-gray-500">Calculating key levels...</div>
         </div>
       </div>
     </div>
@@ -146,8 +203,10 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, watch, computed } from "vue";
 import {
-  fetchHistoricalPrices,
+  fetchCompanyHistory,
   fetchCompanyList,
+  fetchMacroData,
+  fetchPriceVolume,
 } from "../services/marketData_enhanced";
 import BookIcon from "./icons/BookIcon.vue";
 import WaveIcon from "./icons/WaveIcon.vue";
@@ -170,11 +229,14 @@ const selectedStock = ref(props.symbol);
 const allStocks = ref<{ symbol: string }[]>([]);
 const selectedTimeframe = ref("1D");
 const timeframes = ["1D", "1W", "1M"];
-const selectedIndicator = ref("RSI");
-const indicators = ["none", "SMA 20", "EMA 20", "RSI", "MACD"];
 
 const showStockDropdown = ref(false);
 const stockInputRef = ref<HTMLInputElement | null>(null);
+
+// Fundamental and Macro data
+const fundamentalData = ref<any>(null);
+const macroData = ref<any>(null);
+const keyLevels = ref<any>(null);
 
 // Computed property for filtered stocks
 const filteredStocks = computed(() => {
@@ -191,10 +253,6 @@ const filteredStocks = computed(() => {
 const chartSeries = ref<any[]>([]);
 const chartOptions = ref<any>(null);
 
-const handleIndicatorChange = () => {
-  loadChartData();
-};
-
 const handleStockInput = () => {
   // Convert to uppercase as user types
   selectedStock.value = selectedStock.value.toUpperCase();
@@ -204,12 +262,77 @@ const handleStockInput = () => {
 const handleStockSelection = () => {
   showStockDropdown.value = false;
   loadChartData();
+  loadFundamentalData();
 };
 
 const selectStockFromDropdown = (symbol: string) => {
   selectedStock.value = symbol;
   showStockDropdown.value = false;
   loadChartData();
+  loadFundamentalData();
+};
+
+const loadFundamentalData = async () => {
+  try {
+    const priceData = await fetchPriceVolume(); // Get latest price data
+    const stockData = priceData.find(
+      (stock: any) => stock.symbol === selectedStock.value
+    );
+    if (stockData) {
+      fundamentalData.value = stockData;
+    }
+  } catch (error) {
+    console.error("Error loading fundamental data:", error);
+  }
+};
+
+const loadMacroData = async () => {
+  try {
+    const data = await fetchMacroData();
+    if (data && !data.error) {
+      macroData.value = data;
+    }
+  } catch (error) {
+    console.error("Error loading macro data:", error);
+  }
+};
+
+// Calculate support and resistance levels
+const calculateSupportResistance = (data: any[]) => {
+  if (data.length < 10) return { support: [], resistance: [] };
+
+  const highs = data.map((d) => d.y[1]); // High prices
+  const lows = data.map((d) => d.y[2]); // Low prices
+
+  // Simple pivot point calculation
+  const pivot =
+    (highs.reduce((a, b) => a + b, 0) +
+      lows.reduce((a, b) => a + b, 0) +
+      data[data.length - 1].y[3]) /
+    (highs.length + lows.length + 1);
+
+  const resistance1 = 2 * pivot - lows.reduce((a, b) => a + b, 0) / lows.length;
+  const support1 = 2 * pivot - highs.reduce((a, b) => a + b, 0) / highs.length;
+
+  const resistance2 =
+    pivot +
+    (highs.reduce((a, b) => a + b, 0) / highs.length -
+      lows.reduce((a, b) => a + b, 0) / lows.length);
+  const support2 =
+    pivot -
+    (highs.reduce((a, b) => a + b, 0) / highs.length -
+      lows.reduce((a, b) => a + b, 0) / lows.length);
+
+  return {
+    support: [support1, support2],
+    resistance: [resistance1, resistance2],
+  };
+};
+
+const calculateKeyLevels = (data: any[]) => {
+  if (data.length >= 10) {
+    keyLevels.value = calculateSupportResistance(data);
+  }
 };
 
 const handleClickOutside = (event: Event) => {
@@ -219,47 +342,6 @@ const handleClickOutside = (event: Event) => {
   }
 };
 
-// Calculate Simple Moving Average
-const calculateSMA = (data: any[], period: number) => {
-  const sma = [];
-  for (let i = period - 1; i < data.length; i++) {
-    const sum = data
-      .slice(i - period + 1, i + 1)
-      .reduce((acc, val) => acc + val.y[3], 0);
-    sma.push({
-      x: data[i].x,
-      y: sum / period,
-    });
-  }
-  return sma;
-};
-
-// Calculate Exponential Moving Average
-const calculateEMA = (data: any[], period: number) => {
-  const ema = [];
-  const multiplier = 2 / (period + 1);
-
-  // First EMA is SMA
-  let sum = data.slice(0, period).reduce((acc, val) => acc + val.y[3], 0);
-  ema.push({
-    x: data[period - 1].x,
-    y: sum / period,
-  });
-
-  // Calculate subsequent EMAs
-  for (let i = period; i < data.length; i++) {
-    const emaValue: number =
-      (data[i].y[3] - ema[ema.length - 1].y) * multiplier +
-      ema[ema.length - 1].y;
-    ema.push({
-      x: data[i].x,
-      y: emaValue,
-    });
-  }
-
-  return ema;
-};
-
 const loadChartData = async () => {
   if (!selectedStock.value) return;
 
@@ -267,70 +349,34 @@ const loadChartData = async () => {
   error.value = null;
 
   try {
-    const result = await fetchHistoricalPrices(selectedStock.value);
+    // Fetch all available historical data for the stock (365 days should cover most data)
+    const result = await fetchCompanyHistory(selectedStock.value, 365);
     if (result.error || !result.data || result.data.length === 0) {
       throw new Error(result.error || "No data found for this symbol");
     }
 
     const historicalData = result.data;
 
-    // Sort data by date (oldest first)
-    const sortedData = historicalData.sort(
-      (a: any, b: any) =>
-        new Date(a.date).getTime() - new Date(b.date).getTime()
-    );
-
-    // Take last 100 data points for better performance
-    const recentData = sortedData.slice(-100);
+    // Data comes pre-sorted from backend (oldest first)
+    const chartData = historicalData;
 
     // Convert to ApexCharts candlestick format
-    const candlestickData = recentData.map((d: any) => ({
+    const candlestickData = chartData.map((d: any) => ({
       x: new Date(d.date).getTime(),
-      y: [d.open, d.high, d.low, d.close || d.ltp], // OHLC format
+      y: [d.open, d.high, d.low, d.close], // OHLC format
     }));
 
-    const volumeData = recentData.map((d: any) => ({
-      x: new Date(d.date).getTime(),
-      y: d.vol,
-      fillColor: (d.close || d.ltp) > d.open ? "#00C853" : "#FF1744", // Green for up, red for down
-    }));
-
-    // Set up chart series - TradingView style with volume overlay
+    // Set up chart series - Only price candles, no volume
     const series: any[] = [
       {
         name: "Price",
         type: "candlestick",
         data: candlestickData,
-        group: "price",
-      },
-      {
-        name: "Volume",
-        type: "bar",
-        data: volumeData,
-        group: "volume",
-        color: function ({ dataPointIndex, seriesIndex, w }: any) {
-          const data = w.config.series[seriesIndex].data[dataPointIndex];
-          return data.fillColor || "#666";
-        },
       },
     ];
 
-    // Add indicators if selected
-    if (selectedIndicator.value === "SMA 20") {
-      const smaData = calculateSMA(candlestickData, 20);
-      series.push({
-        name: "SMA 20",
-        type: "line",
-        data: smaData,
-      });
-    } else if (selectedIndicator.value === "EMA 20") {
-      const emaData = calculateEMA(candlestickData, 20);
-      series.push({
-        name: "EMA 20",
-        type: "line",
-        data: emaData,
-      });
-    }
+    // Calculate key levels
+    calculateKeyLevels(candlestickData);
 
     chartSeries.value = series;
 
@@ -379,51 +425,30 @@ const loadChartData = async () => {
           color: "#ddd",
         },
       },
-      yaxis: [
-        {
-          // Primary y-axis for price (candlesticks) - takes top 70% of chart
-          seriesName: "Price",
-          labels: {
-            style: {
-              colors: "#666",
-            },
+      yaxis: {
+        labels: {
+          style: {
+            colors: "#666",
           },
-          title: {
-            text: "Price (NPR)",
-            style: {
-              color: "#666",
-            },
+          formatter: function (value: any) {
+            return Math.round(value);
           },
-          axisBorder: {
-            show: true,
-            color: "#ddd",
-          },
-          axisTicks: {
-            show: true,
-            color: "#ddd",
-          },
-          height: "70%", // Price takes 70% of height
         },
-        {
-          // Secondary y-axis for volume - takes bottom 30% of chart
-          seriesName: "Volume",
-          opposite: true,
-          labels: {
-            show: false, // Hide volume axis labels
+        title: {
+          text: "Price (NPR)",
+          style: {
+            color: "#666",
           },
-          title: {
-            text: "",
-          },
-          axisBorder: {
-            show: false,
-          },
-          axisTicks: {
-            show: false,
-          },
-          height: "30%", // Volume takes 30% of height
-          offsetY: 70, // Offset to position below price
         },
-      ],
+        axisBorder: {
+          show: true,
+          color: "#ddd",
+        },
+        axisTicks: {
+          show: true,
+          color: "#ddd",
+        },
+      },
       plotOptions: {
         candlestick: {
           colors: {
@@ -433,10 +458,6 @@ const loadChartData = async () => {
           wick: {
             useFillColor: true,
           },
-        },
-        bar: {
-          columnWidth: "80%",
-          distributed: true,
         },
       },
       stroke: {
@@ -469,7 +490,6 @@ const loadChartData = async () => {
           if (!w.config.series[0].data[dataPointIndex]) return "";
 
           const data = w.config.series[0].data[dataPointIndex];
-          const volume = w.config.series[1].data[dataPointIndex];
           const date = new Date(data.x);
 
           return `
@@ -502,7 +522,6 @@ const loadChartData = async () => {
                 <div>Close:</div><div style="text-align: right; font-weight: bold;">${
                   data.y[3]
                 }</div>
-                <div style="margin-top: 4px;">Volume:</div><div style="text-align: right; margin-top: 4px; font-weight: bold;">${volume.y.toLocaleString()}</div>
               </div>
             </div>
           `;
@@ -529,6 +548,8 @@ const loadChartData = async () => {
 onMounted(async () => {
   allStocks.value = await fetchCompanyList();
   await loadChartData();
+  await loadFundamentalData();
+  await loadMacroData();
 
   // Add click outside listener
   document.addEventListener("click", handleClickOutside);

@@ -30,7 +30,7 @@ def get_current_price(symbol: str) -> Optional[float]:
         prices = nepse_data.get_price_volume()
         for stock in prices:
             if stock.get('symbol') == symbol:
-                return stock.get('ltp') or stock.get('close_price')
+                return stock.get('close')  # Use 'close' field from API
         return None
     except Exception as e:
         logger.error(f"Error fetching price for {symbol}: {e}")

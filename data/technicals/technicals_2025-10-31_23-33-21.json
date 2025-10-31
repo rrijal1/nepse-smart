@@ -1,0 +1,5618 @@
+{
+  "ACLBSL": {
+    "symbol": "ACLBSL",
+    "current_price": 1008.0,
+    "volume": 828.0,
+    "rsi_14": 48.47263470513365,
+    "macd": {
+      "line": -24.46737025772711,
+      "signal": -26.0072588267228,
+      "histogram": 1.5398885689956892,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.448484",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "ADBL": {
+    "symbol": "ADBL",
+    "current_price": 313.5,
+    "volume": 28033.0,
+    "rsi_14": 47.35013032145959,
+    "macd": {
+      "line": -3.9322351638985538,
+      "signal": -4.104114427734475,
+      "histogram": 0.17187926383592167,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.454220",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "ADBLD83": {
+    "symbol": "ADBLD83",
+    "current_price": 1097.6,
+    "volume": 100.0,
+    "rsi_14": 54.561949196474835,
+    "macd": {
+      "line": -4.036821500895485,
+      "signal": -8.715211956493938,
+      "histogram": 4.6783904555984535,
+      "signal_state": "neutral"
+    },
+    "data_points": 22,
+    "last_updated": "2025-10-31T23:33:19.460492",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "AHL": {
+    "symbol": "AHL",
+    "current_price": 628.0,
+    "volume": 5197.0,
+    "rsi_14": 54.826498422712945,
+    "macd": {
+      "line": -3.8519917605235605,
+      "signal": -1.8386145596929147,
+      "histogram": -2.0133772008306456,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.465992",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "AHPC": {
+    "symbol": "AHPC",
+    "current_price": 286.9,
+    "volume": 216839.0,
+    "rsi_14": 52.608014327289,
+    "macd": {
+      "line": -3.4712649306702588,
+      "signal": -3.855145164583339,
+      "histogram": 0.38388023391308,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.471436",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "AKJCL": {
+    "symbol": "AKJCL",
+    "current_price": 194.0,
+    "volume": 76960.0,
+    "rsi_14": 51.5718827269516,
+    "macd": {
+      "line": -4.012197259510344,
+      "signal": -4.781393811697137,
+      "histogram": 0.7691965521867923,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.477043",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "AKPL": {
+    "symbol": "AKPL",
+    "current_price": 247.5,
+    "volume": 135863.0,
+    "rsi_14": 47.1718715876829,
+    "macd": {
+      "line": -5.891566864852308,
+      "signal": -5.607115078451981,
+      "histogram": -0.28445178640032687,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.482952",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "ALBSL": {
+    "symbol": "ALBSL",
+    "current_price": 1014.0,
+    "volume": 10063.0,
+    "rsi_14": 45.33941707794022,
+    "macd": {
+      "line": 0.5933235245609012,
+      "signal": 2.3654842351882683,
+      "histogram": -1.7721607106273671,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:19.488735",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "ALICL": {
+    "symbol": "ALICL",
+    "current_price": 477.0,
+    "volume": 39214.0,
+    "rsi_14": 52.10721213189913,
+    "macd": {
+      "line": -7.823345940910997,
+      "signal": -9.04221422700346,
+      "histogram": 1.2188682860924622,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.493238",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "ANLB": {
+    "symbol": "ANLB",
+    "current_price": 6445.0,
+    "volume": 1180.0,
+    "rsi_14": 61.09176313781133,
+    "macd": {
+      "line": 121.99471794398869,
+      "signal": 122.66720247694857,
+      "histogram": -0.672484532959885,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:19.498041",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "API": {
+    "symbol": "API",
+    "current_price": 284.9,
+    "volume": 99728.0,
+    "rsi_14": 48.914035407921155,
+    "macd": {
+      "line": -4.275362619419525,
+      "signal": -4.701691305727212,
+      "histogram": 0.42632868630768694,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.503010",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "AVYAN": {
+    "symbol": "AVYAN",
+    "current_price": 1010.0,
+    "volume": 6412.0,
+    "rsi_14": 53.29484371889309,
+    "macd": {
+      "line": -20.70126037483817,
+      "signal": -24.896440980322588,
+      "histogram": 4.195180605484417,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.507708",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "BARUN": {
+    "symbol": "BARUN",
+    "current_price": 322.0,
+    "volume": 40045.0,
+    "rsi_14": 52.45518316445831,
+    "macd": {
+      "line": -10.971130128760933,
+      "signal": -12.166546113646502,
+      "histogram": 1.1954159848855692,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.511979",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "BBC": {
+    "symbol": "BBC",
+    "current_price": 4950.0,
+    "volume": 621.0,
+    "rsi_14": 47.2211650463043,
+    "macd": {
+      "line": -139.50099154938744,
+      "signal": -156.81697938443358,
+      "histogram": 17.315987835046144,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.517459",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "BEDC": {
+    "symbol": "BEDC",
+    "current_price": 587.0,
+    "volume": 72524.0,
+    "rsi_14": 45.42498374105758,
+    "macd": {
+      "line": -40.63641717761857,
+      "signal": -37.31623025519303,
+      "histogram": -3.320186922425542,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.522445",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "BFC": {
+    "symbol": "BFC",
+    "current_price": 451.0,
+    "volume": 7662.0,
+    "rsi_14": 46.3438683896414,
+    "macd": {
+      "line": -15.330747530106976,
+      "signal": -16.61113390276609,
+      "histogram": 1.2803863726591125,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.527658",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "BGWT": {
+    "symbol": "BGWT",
+    "current_price": 781.0,
+    "volume": 5178.0,
+    "rsi_14": 29.209340434248247,
+    "macd": {
+      "line": -33.567992027331115,
+      "signal": -28.071596883658454,
+      "histogram": -5.496395143672661,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.532515",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "BHCL": {
+    "symbol": "BHCL",
+    "current_price": 437.3,
+    "volume": 40896.0,
+    "rsi_14": 44.57383796807549,
+    "macd": {
+      "line": 6.630773727488702,
+      "signal": 13.892191429647141,
+      "histogram": -7.26141770215844,
+      "signal_state": "neutral"
+    },
+    "data_points": 25,
+    "last_updated": "2025-10-31T23:33:19.536902",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "BHDC": {
+    "symbol": "BHDC",
+    "current_price": 539.9,
+    "volume": 58237.0,
+    "rsi_14": 46.18239296268297,
+    "macd": {
+      "line": -10.607075808755326,
+      "signal": -6.6624092346222685,
+      "histogram": -3.9446665741330573,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.542012",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "BHL": {
+    "symbol": "BHL",
+    "current_price": 182.4,
+    "volume": 78958.0,
+    "rsi_14": 49.058693244739764,
+    "macd": {
+      "line": -5.663391309882144,
+      "signal": -6.004406579085227,
+      "histogram": 0.34101526920308345,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.547283",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "BHPL": {
+    "symbol": "BHPL",
+    "current_price": 702.0,
+    "volume": 1480.0,
+    "rsi_14": 55.493415118167064,
+    "macd": {
+      "line": -22.770013948866904,
+      "signal": -23.316899100074014,
+      "histogram": 0.5468851512071105,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.552917",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "BNHC": {
+    "symbol": "BNHC",
+    "current_price": 437.9,
+    "volume": 10658.0,
+    "rsi_14": 38.78938282261545,
+    "macd": {
+      "line": -23.656655317383297,
+      "signal": -20.240808933523187,
+      "histogram": -3.41584638386011,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.558207",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "BNL": {
+    "symbol": "BNL",
+    "current_price": 15918.1,
+    "volume": 20.0,
+    "rsi_14": 33.258772227117646,
+    "macd": {
+      "line": -372.3751748411414,
+      "signal": -318.2007990855612,
+      "histogram": -54.17437575558023,
+      "signal_state": "neutral"
+    },
+    "data_points": 18,
+    "last_updated": "2025-10-31T23:33:19.562317",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "BNT": {
+    "symbol": "BNT",
+    "current_price": 11000.0,
+    "volume": 91.0,
+    "rsi_14": 40.300240880935995,
+    "macd": {
+      "line": -329.4265427590053,
+      "signal": -353.67360722740125,
+      "histogram": 24.247064468395934,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.567345",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "BPCL": {
+    "symbol": "BPCL",
+    "current_price": 779.0,
+    "volume": 262538.0,
+    "rsi_14": 47.41725725140644,
+    "macd": {
+      "line": -34.438218141996344,
+      "signal": -42.28263275864097,
+      "histogram": 7.844414616644627,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.572625",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "C30MF": {
+    "symbol": "C30MF",
+    "current_price": 9.26,
+    "volume": 11500.0,
+    "rsi_14": 57.692307692307644,
+    "macd": {
+      "line": -0.2144929815554839,
+      "signal": -0.24833127649222833,
+      "histogram": 0.03383829493674442,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:19.577146",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CBBL": {
+    "symbol": "CBBL",
+    "current_price": 983.2,
+    "volume": 10997.0,
+    "rsi_14": 44.92802142618012,
+    "macd": {
+      "line": -18.806887123615525,
+      "signal": -17.386539139388372,
+      "histogram": -1.4203479842271527,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.582061",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CFCL": {
+    "symbol": "CFCL",
+    "current_price": 479.0,
+    "volume": 8466.0,
+    "rsi_14": 48.52592341579125,
+    "macd": {
+      "line": -11.17014405022121,
+      "signal": -11.562671700446977,
+      "histogram": 0.39252765022576597,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.586681",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CGH": {
+    "symbol": "CGH",
+    "current_price": 868.0,
+    "volume": 29001.0,
+    "rsi_14": 31.055106022323855,
+    "macd": {
+      "line": -42.903106000330695,
+      "signal": -38.83976501367527,
+      "histogram": -4.063340986655426,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.591861",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CHCL": {
+    "symbol": "CHCL",
+    "current_price": 504.0,
+    "volume": 55378.0,
+    "rsi_14": 52.57844050947499,
+    "macd": {
+      "line": -6.896468423793465,
+      "signal": -8.77166023608127,
+      "histogram": 1.875191812287806,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.597169",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CHDC": {
+    "symbol": "CHDC",
+    "current_price": 2341.0,
+    "volume": 49374.0,
+    "rsi_14": 43.00343346780248,
+    "macd": {
+      "line": -94.53968774803661,
+      "signal": -107.47242326215985,
+      "histogram": 12.932735514123237,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.602071",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CHL": {
+    "symbol": "CHL",
+    "current_price": 251.9,
+    "volume": 48602.0,
+    "rsi_14": 53.367408298256166,
+    "macd": {
+      "line": -12.52056130772334,
+      "signal": -14.002398304524382,
+      "histogram": 1.4818369968010412,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.606977",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CIT": {
+    "symbol": "CIT",
+    "current_price": 1849.5,
+    "volume": 7668.0,
+    "rsi_14": 45.35247413585694,
+    "macd": {
+      "line": -25.67663585155219,
+      "signal": -25.70237909045831,
+      "histogram": 0.02574323890612007,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.612342",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CITY": {
+    "symbol": "CITY",
+    "current_price": 528.1,
+    "volume": 4652.0,
+    "rsi_14": 38.14558763725091,
+    "macd": {
+      "line": -52.03636015152108,
+      "signal": -58.30756940780562,
+      "histogram": 6.271209256284543,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.616736",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CKHL": {
+    "symbol": "CKHL",
+    "current_price": 600.0,
+    "volume": 2914.0,
+    "rsi_14": 40.8215793266756,
+    "macd": {
+      "line": -21.108514812083627,
+      "signal": -18.251540738751004,
+      "histogram": -2.8569740733326228,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.621322",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CLI": {
+    "symbol": "CLI",
+    "current_price": 456.0,
+    "volume": 28517.0,
+    "rsi_14": 50.27245561610125,
+    "macd": {
+      "line": -8.033182374976434,
+      "signal": -9.01306858304219,
+      "histogram": 0.9798862080657553,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.626535",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CMF2": {
+    "symbol": "CMF2",
+    "current_price": 9.05,
+    "volume": 4530.0,
+    "rsi_14": 34.06593406593406,
+    "macd": {
+      "line": -0.2304767598126638,
+      "signal": -0.21778015680443014,
+      "histogram": -0.012696603008233665,
+      "signal_state": "neutral"
+    },
+    "data_points": 33,
+    "last_updated": "2025-10-31T23:33:19.631325",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CORBL": {
+    "symbol": "CORBL",
+    "current_price": 1749.0,
+    "volume": 2101.0,
+    "rsi_14": 47.46418738278601,
+    "macd": {
+      "line": -63.26146570019432,
+      "signal": -55.45194833694767,
+      "histogram": -7.809517363246648,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.636084",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CREST": {
+    "symbol": "CREST",
+    "current_price": 1315.0,
+    "volume": 36448.0,
+    "rsi_14": 63.9911853201678,
+    "macd": {
+      "line": 12.957970005261132,
+      "signal": -20.929573913923445,
+      "histogram": 33.88754391918458,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.640403",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CYCL": {
+    "symbol": "CYCL",
+    "current_price": 1602.0,
+    "volume": 1870.0,
+    "rsi_14": 47.00397431977989,
+    "macd": {
+      "line": -52.505491462228974,
+      "signal": -59.842415435694356,
+      "histogram": 7.336923973465382,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.644594",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CZBIL": {
+    "symbol": "CZBIL",
+    "current_price": 209.5,
+    "volume": 40383.0,
+    "rsi_14": 55.49414105682069,
+    "macd": {
+      "line": -1.789229620726502,
+      "signal": -2.9471615967638876,
+      "histogram": 1.1579319760373856,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.649476",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "DDBL": {
+    "symbol": "DDBL",
+    "current_price": 839.9,
+    "volume": 3246.0,
+    "rsi_14": 44.97814541523711,
+    "macd": {
+      "line": -18.629919483229173,
+      "signal": -18.94409281303924,
+      "histogram": 0.3141733298100675,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.654292",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "DHPL": {
+    "symbol": "DHPL",
+    "current_price": 297.0,
+    "volume": 12178.0,
+    "rsi_14": 56.90972939475315,
+    "macd": {
+      "line": -5.342416104648521,
+      "signal": -6.281048818596574,
+      "histogram": 0.9386327139480528,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.658890",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "DLBS": {
+    "symbol": "DLBS",
+    "current_price": 1330.1,
+    "volume": 1571.0,
+    "rsi_14": 37.60425445351776,
+    "macd": {
+      "line": -53.6290179232858,
+      "signal": -49.94649449324376,
+      "histogram": -3.682523430042039,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:19.663691",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "DOLTI": {
+    "symbol": "DOLTI",
+    "current_price": 513.5,
+    "volume": 5074.0,
+    "rsi_14": 44.04936461388074,
+    "macd": {
+      "line": -18.751711862564548,
+      "signal": -16.499550165188044,
+      "histogram": -2.252161697376504,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.668916",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "DORDI": {
+    "symbol": "DORDI",
+    "current_price": 245.5,
+    "volume": 172256.0,
+    "rsi_14": 54.26205552849489,
+    "macd": {
+      "line": -13.411942656855132,
+      "signal": -15.89189965312207,
+      "histogram": 2.4799569962669388,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.673840",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "EBL": {
+    "symbol": "EBL",
+    "current_price": 625.0,
+    "volume": 28412.0,
+    "rsi_14": 29.12808641975309,
+    "macd": {
+      "line": -26.396971930194468,
+      "signal": -17.266225849714626,
+      "histogram": -9.130746080479842,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.678288",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "EDBL": {
+    "symbol": "EDBL",
+    "current_price": 602.0,
+    "volume": 17376.0,
+    "rsi_14": 47.83290259712748,
+    "macd": {
+      "line": -11.025126556168743,
+      "signal": -12.698229181598473,
+      "histogram": 1.6731026254297294,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.682995",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "EHPL": {
+    "symbol": "EHPL",
+    "current_price": 469.0,
+    "volume": 5031.0,
+    "rsi_14": 31.534299645982244,
+    "macd": {
+      "line": -33.237233087904656,
+      "signal": -30.230500171623962,
+      "histogram": -3.0067329162806935,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:19.688735",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "ENL": {
+    "symbol": "ENL",
+    "current_price": 930.0,
+    "volume": 943.0,
+    "rsi_14": 42.02141551318883,
+    "macd": {
+      "line": -34.6204065095468,
+      "signal": -31.43334433781094,
+      "histogram": -3.1870621717358567,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:19.693447",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "FMDBL": {
+    "symbol": "FMDBL",
+    "current_price": 885.0,
+    "volume": 120868.0,
+    "rsi_14": 57.50110202282412,
+    "macd": {
+      "line": -17.473920390516696,
+      "signal": -26.695778859942557,
+      "histogram": 9.221858469425861,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.698272",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "FOWAD": {
+    "symbol": "FOWAD",
+    "current_price": 1102.9,
+    "volume": 1339.0,
+    "rsi_14": 54.401776384535005,
+    "macd": {
+      "line": -17.93407314374963,
+      "signal": -22.37171746754747,
+      "histogram": 4.437644323797841,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.703455",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GBBD85": {
+    "symbol": "GBBD85",
+    "current_price": 1087.1,
+    "volume": 50.0,
+    "rsi_14": 65.3753026634382,
+    "macd": {
+      "line": 9.77174143149341,
+      "signal": 10.07080705182306,
+      "histogram": -0.29906562032964956,
+      "signal_state": "neutral"
+    },
+    "data_points": 31,
+    "last_updated": "2025-10-31T23:33:19.708754",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GBBL": {
+    "symbol": "GBBL",
+    "current_price": 416.0,
+    "volume": 46354.0,
+    "rsi_14": 45.566189548572865,
+    "macd": {
+      "line": -5.2493450023160335,
+      "signal": -5.062698279950521,
+      "histogram": -0.18664672236551283,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.714500",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GBIME": {
+    "symbol": "GBIME",
+    "current_price": 246.9,
+    "volume": 294319.0,
+    "rsi_14": 51.46609651802078,
+    "macd": {
+      "line": -2.7393530451286665,
+      "signal": -3.52105949301573,
+      "histogram": 0.7817064478870637,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.721265",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GBIMESY2": {
+    "symbol": "GBIMESY2",
+    "current_price": 9.18,
+    "volume": 3350.0,
+    "rsi_14": 57.377049180327866,
+    "macd": {
+      "line": -0.195841111576895,
+      "signal": -0.2206101390159072,
+      "histogram": 0.024769027439012214,
+      "signal_state": "neutral"
+    },
+    "data_points": 19,
+    "last_updated": "2025-10-31T23:33:19.726043",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GCIL": {
+    "symbol": "GCIL",
+    "current_price": 430.0,
+    "volume": 16661.0,
+    "rsi_14": 33.783783783783775,
+    "macd": {
+      "line": -19.046169050662854,
+      "signal": -16.80481908068707,
+      "histogram": -2.241349969975783,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.731179",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GFCL": {
+    "symbol": "GFCL",
+    "current_price": 573.5,
+    "volume": 6092.0,
+    "rsi_14": 45.654450261780106,
+    "macd": {
+      "line": -20.48462244138591,
+      "signal": -18.93303372308404,
+      "histogram": -1.5515887183018684,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.735767",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GHL": {
+    "symbol": "GHL",
+    "current_price": 216.0,
+    "volume": 87629.0,
+    "rsi_14": 49.3613336219961,
+    "macd": {
+      "line": -7.73569839967621,
+      "signal": -8.329068687503316,
+      "histogram": 0.5933702878271063,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.740752",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GIBF1": {
+    "symbol": "GIBF1",
+    "current_price": 10.01,
+    "volume": 11800.0,
+    "rsi_14": 29.57198443579766,
+    "macd": {
+      "line": -0.26557409975298363,
+      "signal": -0.2886067977870694,
+      "histogram": 0.023032698034085752,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.745120",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GILB": {
+    "symbol": "GILB",
+    "current_price": 1202.0,
+    "volume": 2422.0,
+    "rsi_14": 46.06972261795023,
+    "macd": {
+      "line": -36.20226683182409,
+      "signal": -38.03445821985701,
+      "histogram": 1.8321913880329177,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.749616",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GLBSL": {
+    "symbol": "GLBSL",
+    "current_price": 2310.0,
+    "volume": 19893.0,
+    "rsi_14": 64.1797421158925,
+    "macd": {
+      "line": -18.71403809078629,
+      "signal": -34.37254249197412,
+      "histogram": 15.658504401187834,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.754660",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GLH": {
+    "symbol": "GLH",
+    "current_price": 261.0,
+    "volume": 40868.0,
+    "rsi_14": 53.84556633315512,
+    "macd": {
+      "line": -3.1790031175636955,
+      "signal": -3.7286321768583335,
+      "histogram": 0.549629059294638,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.759386",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GMFBS": {
+    "symbol": "GMFBS",
+    "current_price": 1620.0,
+    "volume": 2596.0,
+    "rsi_14": 52.666421478484736,
+    "macd": {
+      "line": -23.900320335336346,
+      "signal": -21.962692186638407,
+      "histogram": -1.9376281486979394,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.764292",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GMFIL": {
+    "symbol": "GMFIL",
+    "current_price": 437.8,
+    "volume": 16173.0,
+    "rsi_14": 42.59576901086335,
+    "macd": {
+      "line": -16.543488112721548,
+      "signal": -14.946401818510418,
+      "histogram": -1.5970862942111292,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.768960",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GMLI": {
+    "symbol": "GMLI",
+    "current_price": 1939.0,
+    "volume": 1608.0,
+    "rsi_14": 43.12397420190018,
+    "macd": {
+      "line": -22.180885347793264,
+      "signal": -18.811621727824487,
+      "histogram": -3.369263619968777,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:19.773518",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GRDBL": {
+    "symbol": "GRDBL",
+    "current_price": 1056.0,
+    "volume": 7253.0,
+    "rsi_14": 54.17867435158501,
+    "macd": {
+      "line": -34.52464178946775,
+      "signal": -38.34794345059648,
+      "histogram": 3.823301661128731,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.778483",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GSY": {
+    "symbol": "GSY",
+    "current_price": 9.0,
+    "volume": 2590.0,
+    "rsi_14": 47.09302325581397,
+    "macd": {
+      "line": -0.10963192903996166,
+      "signal": -0.1330880223885263,
+      "histogram": 0.023456093348564633,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.782941",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GUFL": {
+    "symbol": "GUFL",
+    "current_price": 480.0,
+    "volume": 6660.0,
+    "rsi_14": 41.04387656702024,
+    "macd": {
+      "line": -16.836077153755753,
+      "signal": -16.840813409240702,
+      "histogram": 0.004736255484949936,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.787221",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "GVL": {
+    "symbol": "GVL",
+    "current_price": 535.0,
+    "volume": 87461.0,
+    "rsi_14": 52.224835597369555,
+    "macd": {
+      "line": -11.870723693781144,
+      "signal": -15.038988805355757,
+      "histogram": 3.1682651115746125,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.791848",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "H8020": {
+    "symbol": "H8020",
+    "current_price": 10.16,
+    "volume": 8000.0,
+    "rsi_14": 23.931623931623918,
+    "macd": {
+      "line": -0.3665060135492233,
+      "signal": -0.3109084094613237,
+      "histogram": -0.0555976040878996,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:19.796397",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "HATHY": {
+    "symbol": "HATHY",
+    "current_price": 951.0,
+    "volume": 7518.0,
+    "rsi_14": 43.79128627625621,
+    "macd": {
+      "line": -66.67301408211972,
+      "signal": -68.7471383955101,
+      "histogram": 2.074124313390385,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.801082",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "HBL": {
+    "symbol": "HBL",
+    "current_price": 199.5,
+    "volume": 43901.0,
+    "rsi_14": 49.028677150786294,
+    "macd": {
+      "line": -4.709452062261903,
+      "signal": -5.8041284249211715,
+      "histogram": 1.0946763626592686,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.806130",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "HDHPC": {
+    "symbol": "HDHPC",
+    "current_price": 178.0,
+    "volume": 49299.0,
+    "rsi_14": 47.90201309725927,
+    "macd": {
+      "line": -6.0418462767252095,
+      "signal": -6.4074203252194915,
+      "histogram": 0.365574048494282,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.813562",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "HDL": {
+    "symbol": "HDL",
+    "current_price": 1382.9,
+    "volume": 89423.0,
+    "rsi_14": 51.88154737519754,
+    "macd": {
+      "line": -5.207314822630224,
+      "signal": -8.944641677060728,
+      "histogram": 3.7373268544305045,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.818531",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "HEI": {
+    "symbol": "HEI",
+    "current_price": 499.9,
+    "volume": 14507.0,
+    "rsi_14": 27.27567217363135,
+    "macd": {
+      "line": -25.49756174400295,
+      "signal": -23.50024102895417,
+      "histogram": -1.9973207150487795,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.823410",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "HEIP": {
+    "symbol": "HEIP",
+    "current_price": 337.9,
+    "volume": 70.0,
+    "rsi_14": 35.97056117755291,
+    "macd": {
+      "line": -9.45769085404595,
+      "signal": -7.658450723877275,
+      "histogram": -1.7992401301686751,
+      "signal_state": "neutral"
+    },
+    "data_points": 33,
+    "last_updated": "2025-10-31T23:33:19.827877",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "HHL": {
+    "symbol": "HHL",
+    "current_price": 340.0,
+    "volume": 49245.0,
+    "rsi_14": 48.52024484753187,
+    "macd": {
+      "line": -12.578875022963189,
+      "signal": -13.01386067511104,
+      "histogram": 0.43498565214785145,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.832683",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "HIDCL": {
+    "symbol": "HIDCL",
+    "current_price": 275.0,
+    "volume": 178501.0,
+    "rsi_14": 52.26881102814475,
+    "macd": {
+      "line": -5.390735550752595,
+      "signal": -6.550908006823583,
+      "histogram": 1.1601724560709883,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.837227",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "HIDCLP": {
+    "symbol": "HIDCLP",
+    "current_price": 188.0,
+    "volume": 230579.0,
+    "rsi_14": 45.59033640732564,
+    "macd": {
+      "line": -5.910317568137856,
+      "signal": -6.27516742397125,
+      "histogram": 0.3648498558333939,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.841791",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "HIMSTAR": {
+    "symbol": "HIMSTAR",
+    "current_price": 615.0,
+    "volume": 10128.0,
+    "rsi_14": 73.14930991217064,
+    "macd": {
+      "line": 82.04165611123,
+      "signal": 85.02414720109692,
+      "histogram": -2.982491089866926,
+      "signal_state": "neutral"
+    },
+    "data_points": 19,
+    "last_updated": "2025-10-31T23:33:19.847107",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "HLBSL": {
+    "symbol": "HLBSL",
+    "current_price": 910.0,
+    "volume": 3465.0,
+    "rsi_14": 42.286736602423346,
+    "macd": {
+      "line": -27.946285839931647,
+      "signal": -25.506001666941064,
+      "histogram": -2.4402841729905838,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.853165",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "HLI": {
+    "symbol": "HLI",
+    "current_price": 376.4,
+    "volume": 47741.0,
+    "rsi_14": 44.14261460101868,
+    "macd": {
+      "line": -9.003750024280919,
+      "signal": -8.683974985067593,
+      "histogram": -0.31977503921332584,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.858536",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "HPPL": {
+    "symbol": "HPPL",
+    "current_price": 539.0,
+    "volume": 316678.0,
+    "rsi_14": 62.134697130712006,
+    "macd": {
+      "line": 4.053131380021739,
+      "signal": -8.552426865778868,
+      "histogram": 12.605558245800607,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.863128",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "HRL": {
+    "symbol": "HRL",
+    "current_price": 808.0,
+    "volume": 148727.0,
+    "rsi_14": 21.071539604131402,
+    "macd": {
+      "line": -54.83081672725564,
+      "signal": -52.458338959655755,
+      "histogram": -2.3724777675998823,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.868233",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "HURJA": {
+    "symbol": "HURJA",
+    "current_price": 223.8,
+    "volume": 62806.0,
+    "rsi_14": 50.95073011870995,
+    "macd": {
+      "line": -6.121186738749174,
+      "signal": -6.753740155509072,
+      "histogram": 0.6325534167598983,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.873367",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "ICFC": {
+    "symbol": "ICFC",
+    "current_price": 630.0,
+    "volume": 13382.0,
+    "rsi_14": 44.974759063790735,
+    "macd": {
+      "line": -12.738676146157445,
+      "signal": -10.662143715989385,
+      "histogram": -2.0765324301680597,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.878484",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "ICFCD88": {
+    "symbol": "ICFCD88",
+    "current_price": 1118.0,
+    "volume": 75.0,
+    "rsi_14": 63.610315186246424,
+    "macd": {
+      "line": 11.506462739936524,
+      "signal": 10.371253703421479,
+      "histogram": 1.135209036515045,
+      "signal_state": "neutral"
+    },
+    "data_points": 30,
+    "last_updated": "2025-10-31T23:33:19.885703",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "IGI": {
+    "symbol": "IGI",
+    "current_price": 425.8,
+    "volume": 19414.0,
+    "rsi_14": 21.2683179872909,
+    "macd": {
+      "line": -31.34987087874731,
+      "signal": -30.50663990906324,
+      "histogram": -0.8432309696840719,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.890494",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "IHL": {
+    "symbol": "IHL",
+    "current_price": 520.0,
+    "volume": 3850.0,
+    "rsi_14": 44.08583289481377,
+    "macd": {
+      "line": -13.796930446741612,
+      "signal": -10.845384768014632,
+      "histogram": -2.95154567872698,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.895355",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "ILBS": {
+    "symbol": "ILBS",
+    "current_price": 1191.9,
+    "volume": 4424.0,
+    "rsi_14": 39.51118711700159,
+    "macd": {
+      "line": -10.215816455069898,
+      "signal": -9.193573252430804,
+      "histogram": -1.0222432026390944,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:19.900023",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "ILI": {
+    "symbol": "ILI",
+    "current_price": 443.9,
+    "volume": 15980.0,
+    "rsi_14": 49.787969216271385,
+    "macd": {
+      "line": -4.626802595944412,
+      "signal": -5.7373223768624655,
+      "histogram": 1.1105197809180538,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.904733",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "JBBD87": {
+    "symbol": "JBBD87",
+    "current_price": 1115.0,
+    "volume": 25.0,
+    "rsi_14": 65.33018867924528,
+    "macd": {
+      "line": 16.36144064758787,
+      "signal": 12.373361837435322,
+      "histogram": 3.9880788101525475,
+      "signal_state": "neutral"
+    },
+    "data_points": 17,
+    "last_updated": "2025-10-31T23:33:19.908959",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "JBBL": {
+    "symbol": "JBBL",
+    "current_price": 327.0,
+    "volume": 32063.0,
+    "rsi_14": 50.821355236139645,
+    "macd": {
+      "line": -7.8172338150479845,
+      "signal": -9.456131696733449,
+      "histogram": 1.6388978816854642,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.913557",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "JBLB": {
+    "symbol": "JBLB",
+    "current_price": 1419.0,
+    "volume": 2911.0,
+    "rsi_14": 50.26907087658444,
+    "macd": {
+      "line": -11.215076755550626,
+      "signal": -11.869190336145303,
+      "histogram": 0.654113580594677,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.918248",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "JFL": {
+    "symbol": "JFL",
+    "current_price": 427.2,
+    "volume": 7013.0,
+    "rsi_14": 44.547059622436514,
+    "macd": {
+      "line": -13.169542644829278,
+      "signal": -13.723603579528126,
+      "histogram": 0.5540609346988479,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.922735",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "JOSHI": {
+    "symbol": "JOSHI",
+    "current_price": 308.0,
+    "volume": 20309.0,
+    "rsi_14": 59.52751979056286,
+    "macd": {
+      "line": -3.7503892607335274,
+      "signal": -5.288878418687204,
+      "histogram": 1.538489157953677,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.927550",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "JSLBB": {
+    "symbol": "JSLBB",
+    "current_price": 1179.0,
+    "volume": 1637.0,
+    "rsi_14": 48.521861682493885,
+    "macd": {
+      "line": -39.670334306316136,
+      "signal": -42.15608984268077,
+      "histogram": 2.4857555363646355,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.932513",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "KBL": {
+    "symbol": "KBL",
+    "current_price": 187.0,
+    "volume": 103557.0,
+    "rsi_14": 43.76478540047313,
+    "macd": {
+      "line": -5.517375372094989,
+      "signal": -6.108814509260762,
+      "histogram": 0.5914391371657732,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.936679",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "KBSH": {
+    "symbol": "KBSH",
+    "current_price": 1830.0,
+    "volume": 95.0,
+    "rsi_14": 52.62423227247347,
+    "macd": {
+      "line": -32.92297630395569,
+      "signal": -35.98592678663125,
+      "histogram": 3.0629504826755607,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.943533",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "KDBY": {
+    "symbol": "KDBY",
+    "current_price": 8.96,
+    "volume": 82820.0,
+    "rsi_14": 45.74468085106388,
+    "macd": {
+      "line": -0.20844855081197444,
+      "signal": -0.23089198920881,
+      "histogram": 0.022443438396835547,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:19.948307",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "KDL": {
+    "symbol": "KDL",
+    "current_price": 926.0,
+    "volume": 2439.0,
+    "rsi_14": 35.95317725752507,
+    "macd": {
+      "line": -43.36703526387976,
+      "signal": -41.652850729303694,
+      "histogram": -1.714184534576063,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.952961",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "KEF": {
+    "symbol": "KEF",
+    "current_price": 9.1,
+    "volume": 3200.0,
+    "rsi_14": 50.657894736842096,
+    "macd": {
+      "line": -0.16229920013205223,
+      "signal": -0.19621198608788903,
+      "histogram": 0.0339127859558368,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:19.958509",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "KKHC": {
+    "symbol": "KKHC",
+    "current_price": 273.0,
+    "volume": 100517.0,
+    "rsi_14": 71.06952355121598,
+    "macd": {
+      "line": -2.7151995563839932,
+      "signal": -6.818249248967511,
+      "histogram": 4.103049692583518,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.964031",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "KMCDB": {
+    "symbol": "KMCDB",
+    "current_price": 1010.0,
+    "volume": 3559.0,
+    "rsi_14": 43.514092632272956,
+    "macd": {
+      "line": -19.800467613939077,
+      "signal": -20.087516165124377,
+      "histogram": 0.2870485511853005,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.969287",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "KPCL": {
+    "symbol": "KPCL",
+    "current_price": 597.9,
+    "volume": 114234.0,
+    "rsi_14": 57.48742631550484,
+    "macd": {
+      "line": -6.389686024914454,
+      "signal": -10.563154664210993,
+      "histogram": 4.173468639296539,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.975013",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "KSBBL": {
+    "symbol": "KSBBL",
+    "current_price": 438.0,
+    "volume": 15209.0,
+    "rsi_14": 29.942653003666436,
+    "macd": {
+      "line": -26.547713989952626,
+      "signal": -24.25993209114251,
+      "histogram": -2.287781898810117,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.979770",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "KSY": {
+    "symbol": "KSY",
+    "current_price": 9.1,
+    "volume": 2097.0,
+    "rsi_14": 65.43209876543213,
+    "macd": {
+      "line": -0.1346206048879388,
+      "signal": -0.15981587567793928,
+      "histogram": 0.025195270790000474,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:19.984814",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "LBBL": {
+    "symbol": "LBBL",
+    "current_price": 504.0,
+    "volume": 178373.0,
+    "rsi_14": 46.02946929195463,
+    "macd": {
+      "line": -21.953515868120633,
+      "signal": -25.26640663043855,
+      "histogram": 3.3128907623179167,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.992293",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "LEC": {
+    "symbol": "LEC",
+    "current_price": 202.9,
+    "volume": 104740.0,
+    "rsi_14": 44.9905482041588,
+    "macd": {
+      "line": -9.734821632769751,
+      "signal": -10.11266890429433,
+      "histogram": 0.377847271524578,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:19.999300",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "LICN": {
+    "symbol": "LICN",
+    "current_price": 832.0,
+    "volume": 11313.0,
+    "rsi_14": 49.25781250000001,
+    "macd": {
+      "line": -13.714442612747689,
+      "signal": -16.13163756215381,
+      "histogram": 2.4171949494061202,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.005525",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "LLBS": {
+    "symbol": "LLBS",
+    "current_price": 994.0,
+    "volume": 1236.0,
+    "rsi_14": 51.864280387770314,
+    "macd": {
+      "line": -31.758194563975167,
+      "signal": -39.02991241379322,
+      "histogram": 7.271717849818053,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.011786",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "LSL": {
+    "symbol": "LSL",
+    "current_price": 223.9,
+    "volume": 65435.0,
+    "rsi_14": 43.52049737711289,
+    "macd": {
+      "line": -3.8824079990413907,
+      "signal": -3.918511586023652,
+      "histogram": 0.03610358698226124,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.020705",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "LUK": {
+    "symbol": "LUK",
+    "current_price": 9.45,
+    "volume": 45716.0,
+    "rsi_14": 46.79802955665023,
+    "macd": {
+      "line": -0.27018459296385977,
+      "signal": -0.34406268826038267,
+      "histogram": 0.0738780952965229,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.027223",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "LVF2": {
+    "symbol": "LVF2",
+    "current_price": 9.25,
+    "volume": 13000.0,
+    "rsi_14": 55.65217391304351,
+    "macd": {
+      "line": -0.15279229245254022,
+      "signal": -0.21555926285237065,
+      "histogram": 0.06276697039983042,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.032947",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MAKAR": {
+    "symbol": "MAKAR",
+    "current_price": 560.0,
+    "volume": 2370.0,
+    "rsi_14": 49.84768762115758,
+    "macd": {
+      "line": -13.749338868604355,
+      "signal": -11.7119940145562,
+      "histogram": -2.037344854048154,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.037928",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MANDU": {
+    "symbol": "MANDU",
+    "current_price": 806.2,
+    "volume": 2388.0,
+    "rsi_14": 45.058491327148054,
+    "macd": {
+      "line": -19.237701739788122,
+      "signal": -18.784839396538732,
+      "histogram": -0.45286234324938945,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.043098",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MATRI": {
+    "symbol": "MATRI",
+    "current_price": 999.0,
+    "volume": 1089.0,
+    "rsi_14": 50.57778544325629,
+    "macd": {
+      "line": -35.22837068211493,
+      "signal": -42.78135159344349,
+      "histogram": 7.552980911328561,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.047661",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MBJC": {
+    "symbol": "MBJC",
+    "current_price": 285.2,
+    "volume": 19393.0,
+    "rsi_14": 42.29131963723855,
+    "macd": {
+      "line": -9.228356499974325,
+      "signal": -8.358054185820711,
+      "histogram": -0.8703023141536139,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.052912",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MBL": {
+    "symbol": "MBL",
+    "current_price": 213.0,
+    "volume": 51282.0,
+    "rsi_14": 21.276595744680847,
+    "macd": {
+      "line": -10.387044149045806,
+      "signal": -9.741824154599442,
+      "histogram": -0.6452199944463644,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.058159",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MBLEF": {
+    "symbol": "MBLEF",
+    "current_price": 9.2,
+    "volume": 7310.0,
+    "rsi_14": 55.172413793103416,
+    "macd": {
+      "line": -0.01778376897666334,
+      "signal": -0.020599797479247794,
+      "histogram": 0.002816028502584455,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.062735",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MCHL": {
+    "symbol": "MCHL",
+    "current_price": 487.3,
+    "volume": 1640.0,
+    "rsi_14": 55.60619872379215,
+    "macd": {
+      "line": -9.4917249762604,
+      "signal": -8.223033964543086,
+      "histogram": -1.2686910117173138,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.067148",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MDB": {
+    "symbol": "MDB",
+    "current_price": 572.0,
+    "volume": 8254.0,
+    "rsi_14": 43.17798397300717,
+    "macd": {
+      "line": -19.182494158421264,
+      "signal": -17.686681590997143,
+      "histogram": -1.495812567424121,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.071659",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MEHL": {
+    "symbol": "MEHL",
+    "current_price": 400.0,
+    "volume": 6948.0,
+    "rsi_14": 46.816364195632104,
+    "macd": {
+      "line": -12.600534011727632,
+      "signal": -10.6045347845401,
+      "histogram": -1.9959992271875322,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.076381",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MEL": {
+    "symbol": "MEL",
+    "current_price": 276.9,
+    "volume": 8247.0,
+    "rsi_14": 42.67792820767603,
+    "macd": {
+      "line": -6.909053124644174,
+      "signal": -6.146848080674122,
+      "histogram": -0.7622050439700523,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.081722",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MEN": {
+    "symbol": "MEN",
+    "current_price": 628.3,
+    "volume": 69322.0,
+    "rsi_14": 54.43998215082551,
+    "macd": {
+      "line": -2.619789622878443,
+      "signal": -3.7713444321966048,
+      "histogram": 1.1515548093181618,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.086323",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MERO": {
+    "symbol": "MERO",
+    "current_price": 821.8,
+    "volume": 34510.0,
+    "rsi_14": 48.05066854327938,
+    "macd": {
+      "line": -21.16976721279741,
+      "signal": -21.80162149583979,
+      "histogram": 0.6318542830423794,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.091150",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MFIL": {
+    "symbol": "MFIL",
+    "current_price": 585.9,
+    "volume": 10794.0,
+    "rsi_14": 32.04371584699453,
+    "macd": {
+      "line": -28.843153447014856,
+      "signal": -24.526199465410773,
+      "histogram": -4.316953981604083,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.095824",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MHCL": {
+    "symbol": "MHCL",
+    "current_price": 401.0,
+    "volume": 7068.0,
+    "rsi_14": 40.6614147382242,
+    "macd": {
+      "line": -17.13770343819266,
+      "signal": -16.150379434884567,
+      "histogram": -0.9873240033080926,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.102964",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MHL": {
+    "symbol": "MHL",
+    "current_price": 483.0,
+    "volume": 16391.0,
+    "rsi_14": 50.86251960271824,
+    "macd": {
+      "line": -19.36042177535103,
+      "signal": -22.007347493669037,
+      "histogram": 2.646925718318009,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.107975",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MHNL": {
+    "symbol": "MHNL",
+    "current_price": 247.5,
+    "volume": 17774.0,
+    "rsi_14": 51.75218098477007,
+    "macd": {
+      "line": -5.316464091678057,
+      "signal": -5.87581588848779,
+      "histogram": 0.5593517968097332,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.112458",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MKCL": {
+    "symbol": "MKCL",
+    "current_price": 1575.0,
+    "volume": 14110.0,
+    "rsi_14": 58.22091062394604,
+    "macd": {
+      "line": -30.676205131129564,
+      "signal": -41.35816849716692,
+      "histogram": 10.681963366037358,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.117216",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MKHC": {
+    "symbol": "MKHC",
+    "current_price": 373.8,
+    "volume": 10342.0,
+    "rsi_14": 46.32861960830721,
+    "macd": {
+      "line": -20.408643437792477,
+      "signal": -19.237158827549774,
+      "histogram": -1.171484610242704,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.121645",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MKHL": {
+    "symbol": "MKHL",
+    "current_price": 771.2,
+    "volume": 1001.0,
+    "rsi_14": 49.117662190667296,
+    "macd": {
+      "line": -23.86168963082673,
+      "signal": -29.20946453252289,
+      "histogram": 5.347774901696159,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.126408",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MKJC": {
+    "symbol": "MKJC",
+    "current_price": 568.0,
+    "volume": 33775.0,
+    "rsi_14": 43.176763051157934,
+    "macd": {
+      "line": -5.566383041727477,
+      "signal": -3.3982794529123868,
+      "histogram": -2.16810358881509,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.130980",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MLBBL": {
+    "symbol": "MLBBL",
+    "current_price": 1435.0,
+    "volume": 1411.0,
+    "rsi_14": 44.44081098757358,
+    "macd": {
+      "line": -32.01070035860653,
+      "signal": -28.574933991298806,
+      "histogram": -3.4357663673077212,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.135547",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MLBL": {
+    "symbol": "MLBL",
+    "current_price": 380.0,
+    "volume": 41031.0,
+    "rsi_14": 48.470859780727054,
+    "macd": {
+      "line": -7.062808125259551,
+      "signal": -7.986635995120871,
+      "histogram": 0.92382786986132,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.140876",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MLBS": {
+    "symbol": "MLBS",
+    "current_price": 1605.0,
+    "volume": 2252.0,
+    "rsi_14": 59.79108916343878,
+    "macd": {
+      "line": -13.03977621596141,
+      "signal": -24.241200306389647,
+      "histogram": 11.201424090428237,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.145248",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MLBSL": {
+    "symbol": "MLBSL",
+    "current_price": 2091.9,
+    "volume": 466.0,
+    "rsi_14": 49.373122812818615,
+    "macd": {
+      "line": -45.941523251682156,
+      "signal": -47.809374209286794,
+      "histogram": 1.867850957604638,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.150019",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MMF1": {
+    "symbol": "MMF1",
+    "current_price": 8.84,
+    "volume": 17305.0,
+    "rsi_14": 29.777777777777786,
+    "macd": {
+      "line": -0.1522373222796407,
+      "signal": -0.1622064422941803,
+      "histogram": 0.00996912001453959,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.154571",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MMKJL": {
+    "symbol": "MMKJL",
+    "current_price": 621.9,
+    "volume": 8584.0,
+    "rsi_14": 60.48725847101652,
+    "macd": {
+      "line": 6.267550692071495,
+      "signal": 6.163860183173545,
+      "histogram": 0.10369050889794984,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.159446",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MNBBL": {
+    "symbol": "MNBBL",
+    "current_price": 372.0,
+    "volume": 41295.0,
+    "rsi_14": 25.369661487652934,
+    "macd": {
+      "line": -15.276593990952733,
+      "signal": -6.7932285058760975,
+      "histogram": -8.483365485076636,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.164104",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MNMF1": {
+    "symbol": "MNMF1",
+    "current_price": 9.06,
+    "volume": 2450.0,
+    "rsi_14": 51.87969924812033,
+    "macd": {
+      "line": -0.06645715120519036,
+      "signal": -0.07228549998901941,
+      "histogram": 0.005828348783829054,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.168931",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MPFL": {
+    "symbol": "MPFL",
+    "current_price": 518.2,
+    "volume": 12793.0,
+    "rsi_14": 36.94105971219056,
+    "macd": {
+      "line": -24.31117495823912,
+      "signal": -22.434961925894495,
+      "histogram": -1.8762130323446264,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.173909",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MSHL": {
+    "symbol": "MSHL",
+    "current_price": 905.1,
+    "volume": 2936.0,
+    "rsi_14": 50.87653460569345,
+    "macd": {
+      "line": -0.6171503210182436,
+      "signal": 0.6381070337550603,
+      "histogram": -1.255257354773304,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.178580",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "MSLB": {
+    "symbol": "MSLB",
+    "current_price": 1340.0,
+    "volume": 2411.0,
+    "rsi_14": 28.804523900686235,
+    "macd": {
+      "line": -53.01885999867727,
+      "signal": -42.95579195994431,
+      "histogram": -10.063068038732965,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.183268",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NABBC": {
+    "symbol": "NABBC",
+    "current_price": 755.0,
+    "volume": 14895.0,
+    "rsi_14": 59.447615752753265,
+    "macd": {
+      "line": -137.6504849562026,
+      "signal": -171.9869521740346,
+      "histogram": 34.336467217831995,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.187919",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NABIL": {
+    "symbol": "NABIL",
+    "current_price": 506.0,
+    "volume": 37178.0,
+    "rsi_14": 46.44455494778718,
+    "macd": {
+      "line": -4.185815810483689,
+      "signal": -3.452565743626508,
+      "histogram": -0.7332500668571811,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.193209",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NABILD87": {
+    "symbol": "NABILD87",
+    "current_price": 1105.1,
+    "volume": 25.0,
+    "rsi_14": null,
+    "macd": {
+      "line": 22.32800834016075,
+      "signal": 17.332120311817633,
+      "histogram": 4.995888028343117,
+      "signal_state": "neutral"
+    },
+    "data_points": 14,
+    "last_updated": "2025-10-31T23:33:20.197175",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NADEP": {
+    "symbol": "NADEP",
+    "current_price": 775.0,
+    "volume": 2147.0,
+    "rsi_14": 48.82102420276306,
+    "macd": {
+      "line": -28.96386020050909,
+      "signal": -31.968922694338932,
+      "histogram": 3.0050624938298434,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.202190",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NBF2": {
+    "symbol": "NBF2",
+    "current_price": 9.4,
+    "volume": 17950.0,
+    "rsi_14": 33.940774487471515,
+    "macd": {
+      "line": -0.2602558063202274,
+      "signal": -0.24403451624682193,
+      "histogram": -0.016221290073405448,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.209819",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NBF3": {
+    "symbol": "NBF3",
+    "current_price": 9.0,
+    "volume": 23600.0,
+    "rsi_14": 17.670682730923687,
+    "macd": {
+      "line": -0.295556473020838,
+      "signal": -0.27449774462481996,
+      "histogram": -0.021058728396018023,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.215099",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NBL": {
+    "symbol": "NBL",
+    "current_price": 251.0,
+    "volume": 27297.0,
+    "rsi_14": 54.044924843776386,
+    "macd": {
+      "line": -5.209937423552645,
+      "signal": -6.979689710385192,
+      "histogram": 1.7697522868325466,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.221058",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NBLD82": {
+    "symbol": "NBLD82",
+    "current_price": 1074.0,
+    "volume": 26.0,
+    "rsi_14": 46.20368495646892,
+    "macd": {
+      "line": 1.2798503271590107,
+      "signal": 1.691140004395366,
+      "histogram": -0.41128967723635523,
+      "signal_state": "neutral"
+    },
+    "data_points": 21,
+    "last_updated": "2025-10-31T23:33:20.226205",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NESDO": {
+    "symbol": "NESDO",
+    "current_price": 1495.2,
+    "volume": 1423.0,
+    "rsi_14": 50.83258626280352,
+    "macd": {
+      "line": -32.036569974804934,
+      "signal": -35.23281559518775,
+      "histogram": 3.1962456203828182,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.234702",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NFS": {
+    "symbol": "NFS",
+    "current_price": 638.1,
+    "volume": 16907.0,
+    "rsi_14": 51.25960509678048,
+    "macd": {
+      "line": -21.461039918506003,
+      "signal": -24.973427519471567,
+      "histogram": 3.512387600965564,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.241535",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NGPL": {
+    "symbol": "NGPL",
+    "current_price": 388.0,
+    "volume": 369374.0,
+    "rsi_14": 47.191984166254336,
+    "macd": {
+      "line": -9.68952633643164,
+      "signal": -11.204636922245122,
+      "histogram": 1.5151105858134812,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.247796",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NHDL": {
+    "symbol": "NHDL",
+    "current_price": 685.0,
+    "volume": 5556.0,
+    "rsi_14": 54.213470963264946,
+    "macd": {
+      "line": -10.729205898523105,
+      "signal": -11.985845395874193,
+      "histogram": 1.2566394973510882,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.253094",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NHPC": {
+    "symbol": "NHPC",
+    "current_price": 194.0,
+    "volume": 28110.0,
+    "rsi_14": 47.39898092191019,
+    "macd": {
+      "line": -4.911121221675302,
+      "signal": -5.058875365886076,
+      "histogram": 0.14775414421077393,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.257958",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NIBLGF": {
+    "symbol": "NIBLGF",
+    "current_price": 8.44,
+    "volume": 600.0,
+    "rsi_14": 29.8319327731092,
+    "macd": {
+      "line": -0.2259878669187998,
+      "signal": -0.19392369272896082,
+      "histogram": -0.03206417418983898,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.262660",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NIBLSTF": {
+    "symbol": "NIBLSTF",
+    "current_price": 8.44,
+    "volume": 105373.0,
+    "rsi_14": 41.53846153846153,
+    "macd": {
+      "line": -0.045241399489215794,
+      "signal": -0.06536670661521647,
+      "histogram": 0.020125307126000677,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.267700",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NIBSF2": {
+    "symbol": "NIBSF2",
+    "current_price": 8.31,
+    "volume": 21642.0,
+    "rsi_14": 39.90825688073396,
+    "macd": {
+      "line": -0.14557922986476335,
+      "signal": -0.1321853426499606,
+      "histogram": -0.013393887214802752,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.272262",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NICA": {
+    "symbol": "NICA",
+    "current_price": 321.0,
+    "volume": 30393.0,
+    "rsi_14": 40.86398131932283,
+    "macd": {
+      "line": -11.719115314077953,
+      "signal": -12.696719288798176,
+      "histogram": 0.977603974720223,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.277776",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NICBF": {
+    "symbol": "NICBF",
+    "current_price": 9.0,
+    "volume": 10000.0,
+    "rsi_14": 41.84782608695651,
+    "macd": {
+      "line": -0.1806365569565891,
+      "signal": -0.22788028265527238,
+      "histogram": 0.04724372569868329,
+      "signal_state": "neutral"
+    },
+    "data_points": 32,
+    "last_updated": "2025-10-31T23:33:20.285302",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NICGF2": {
+    "symbol": "NICGF2",
+    "current_price": 8.7,
+    "volume": 2600.0,
+    "rsi_14": 41.07142857142855,
+    "macd": {
+      "line": -0.07856002520889938,
+      "signal": -0.08368835753414218,
+      "histogram": 0.005128332325242804,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.291560",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NICL": {
+    "symbol": "NICL",
+    "current_price": 520.0,
+    "volume": 14076.0,
+    "rsi_14": 26.09090221583604,
+    "macd": {
+      "line": -26.381138655339555,
+      "signal": -25.87266777363819,
+      "histogram": -0.5084708817013635,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.295976",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NICLBSL": {
+    "symbol": "NICLBSL",
+    "current_price": 556.0,
+    "volume": 4725.0,
+    "rsi_14": 43.90400000000001,
+    "macd": {
+      "line": -23.243620989892634,
+      "signal": -25.425777825889153,
+      "histogram": 2.182156835996519,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.300404",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NICSF": {
+    "symbol": "NICSF",
+    "current_price": 8.67,
+    "volume": 30450.0,
+    "rsi_14": 37.58389261744966,
+    "macd": {
+      "line": -0.137228894669418,
+      "signal": -0.14849437457256695,
+      "histogram": 0.01126547990314894,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.304719",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NIFRA": {
+    "symbol": "NIFRA",
+    "current_price": 274.5,
+    "volume": 170483.0,
+    "rsi_14": 52.66279207685922,
+    "macd": {
+      "line": -3.369320314811432,
+      "signal": -4.51351507375633,
+      "histogram": 1.1441947589448977,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.309023",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NIFRAGED": {
+    "symbol": "NIFRAGED",
+    "current_price": 1005.1,
+    "volume": 50.0,
+    "rsi_14": 67.46203904555315,
+    "macd": {
+      "line": 5.123584678456723,
+      "signal": 5.591970630911145,
+      "histogram": -0.4683859524544225,
+      "signal_state": "neutral"
+    },
+    "data_points": 30,
+    "last_updated": "2025-10-31T23:33:20.313031",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NIL": {
+    "symbol": "NIL",
+    "current_price": 589.0,
+    "volume": 6841.0,
+    "rsi_14": 14.942719574962638,
+    "macd": {
+      "line": -30.45740213989086,
+      "signal": -29.61271483733531,
+      "histogram": -0.844687302555549,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.317570",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NIMB": {
+    "symbol": "NIMB",
+    "current_price": 202.8,
+    "volume": 65971.0,
+    "rsi_14": 47.42917103882478,
+    "macd": {
+      "line": -4.273852035824433,
+      "signal": -4.8039367157607185,
+      "histogram": 0.5300846799362855,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.321599",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NIMBD90": {
+    "symbol": "NIMBD90",
+    "current_price": 1264.0,
+    "volume": 25.0,
+    "rsi_14": 71.12271924661565,
+    "macd": {
+      "line": 20.059301159154984,
+      "signal": 9.141591820674407,
+      "histogram": 10.917709338480577,
+      "signal_state": "neutral"
+    },
+    "data_points": 15,
+    "last_updated": "2025-10-31T23:33:20.325608",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NIMBPO": {
+    "symbol": "NIMBPO",
+    "current_price": 160.4,
+    "volume": 12209.0,
+    "rsi_14": 44.57326097681302,
+    "macd": {
+      "line": -1.3750651082809213,
+      "signal": -1.1753533644760075,
+      "histogram": -0.19971174380491385,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.330077",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NLG": {
+    "symbol": "NLG",
+    "current_price": 733.0,
+    "volume": 14167.0,
+    "rsi_14": 40.00708717221829,
+    "macd": {
+      "line": -27.539099147229308,
+      "signal": -31.336685933467265,
+      "histogram": 3.7975867862379573,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.335087",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NLIC": {
+    "symbol": "NLIC",
+    "current_price": 787.0,
+    "volume": 42327.0,
+    "rsi_14": 53.810702398224805,
+    "macd": {
+      "line": -4.830578954546127,
+      "signal": -8.749195372277546,
+      "histogram": 3.9186164177314193,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.339537",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NLICL": {
+    "symbol": "NLICL",
+    "current_price": 611.9,
+    "volume": 14664.0,
+    "rsi_14": 59.35063423716978,
+    "macd": {
+      "line": -4.378202404704211,
+      "signal": -8.908015614506947,
+      "histogram": 4.529813209802736,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.344386",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NMB": {
+    "symbol": "NMB",
+    "current_price": 240.6,
+    "volume": 40871.0,
+    "rsi_14": 44.4113897152571,
+    "macd": {
+      "line": -4.089412661555258,
+      "signal": -4.241475258060549,
+      "histogram": 0.1520625965052913,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.349087",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NMB50": {
+    "symbol": "NMB50",
+    "current_price": 10.35,
+    "volume": 29500.0,
+    "rsi_14": 55.02958579881657,
+    "macd": {
+      "line": -0.2130416209472088,
+      "signal": -0.26745820245711593,
+      "histogram": 0.054416581509907136,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.353377",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NMBHF2": {
+    "symbol": "NMBHF2",
+    "current_price": 8.91,
+    "volume": 2000.0,
+    "rsi_14": 50.0,
+    "macd": {
+      "line": 0.0018956905881015729,
+      "signal": -0.006027691482785185,
+      "histogram": 0.007923382070886758,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.360919",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NMBMF": {
+    "symbol": "NMBMF",
+    "current_price": 691.0,
+    "volume": 2053.0,
+    "rsi_14": 52.951052563605856,
+    "macd": {
+      "line": -17.146345913219307,
+      "signal": -19.25000481612197,
+      "histogram": 2.103658902902662,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.365706",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NMFBS": {
+    "symbol": "NMFBS",
+    "current_price": 1236.2,
+    "volume": 1312.0,
+    "rsi_14": 40.27649769585259,
+    "macd": {
+      "line": -22.283403060080445,
+      "signal": -23.154695036978957,
+      "histogram": 0.8712919768985117,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.370773",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NMIC": {
+    "symbol": "NMIC",
+    "current_price": 1458.0,
+    "volume": 24969.0,
+    "rsi_14": 67.52040414465554,
+    "macd": {
+      "line": -11.001209389809446,
+      "signal": -48.85443988005991,
+      "histogram": 37.85323049025046,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.375489",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NMLBBL": {
+    "symbol": "NMLBBL",
+    "current_price": 640.0,
+    "volume": 24018.0,
+    "rsi_14": 50.28613819415007,
+    "macd": {
+      "line": -18.06057691270007,
+      "signal": -20.16949909623123,
+      "histogram": 2.10892218353116,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.380140",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NRIC": {
+    "symbol": "NRIC",
+    "current_price": 1380.0,
+    "volume": 245406.0,
+    "rsi_14": 32.79785809906292,
+    "macd": {
+      "line": -62.91088088103493,
+      "signal": -58.01053400820502,
+      "histogram": -4.900346872829907,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.384466",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NRM": {
+    "symbol": "NRM",
+    "current_price": 423.8,
+    "volume": 29518.0,
+    "rsi_14": 43.009419930589985,
+    "macd": {
+      "line": -20.16786409103986,
+      "signal": -19.11591375829662,
+      "histogram": -1.051950332743239,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.388662",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NRN": {
+    "symbol": "NRN",
+    "current_price": 2036.0,
+    "volume": 73833.0,
+    "rsi_14": 50.170724767285876,
+    "macd": {
+      "line": -56.934391011958496,
+      "signal": -76.04409184382536,
+      "histogram": 19.10970083186686,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.393142",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NSIF2": {
+    "symbol": "NSIF2",
+    "current_price": 10.01,
+    "volume": 80700.0,
+    "rsi_14": 46.15384615384615,
+    "macd": {
+      "line": -0.2755691794474764,
+      "signal": -0.30907173422333334,
+      "histogram": 0.03350255477585695,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.397499",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NTC": {
+    "symbol": "NTC",
+    "current_price": 864.1,
+    "volume": 15926.0,
+    "rsi_14": 65.55394291243351,
+    "macd": {
+      "line": -1.657183902322572,
+      "signal": -5.341159437351227,
+      "histogram": 3.6839755350286545,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.401688",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NUBL": {
+    "symbol": "NUBL",
+    "current_price": 745.0,
+    "volume": 4948.0,
+    "rsi_14": 45.76337806726935,
+    "macd": {
+      "line": -12.591343229860513,
+      "signal": -11.07574636577057,
+      "histogram": -1.515596864089943,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.405845",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NWCL": {
+    "symbol": "NWCL",
+    "current_price": 799.8,
+    "volume": 1646.0,
+    "rsi_14": 44.13057814904374,
+    "macd": {
+      "line": -28.28813831606601,
+      "signal": -27.74277407080223,
+      "histogram": -0.5453642452637801,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.410349",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NYADI": {
+    "symbol": "NYADI",
+    "current_price": 419.0,
+    "volume": 15839.0,
+    "rsi_14": 54.89344510655489,
+    "macd": {
+      "line": -6.951431788935736,
+      "signal": -9.714714499919443,
+      "histogram": 2.7632827109837077,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.415210",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "OHL": {
+    "symbol": "OHL",
+    "current_price": 709.8,
+    "volume": 5571.0,
+    "rsi_14": 38.22141560798546,
+    "macd": {
+      "line": -40.99121800079172,
+      "signal": -42.8315592616309,
+      "histogram": 1.8403412608391818,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.419532",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "OMPL": {
+    "symbol": "OMPL",
+    "current_price": 1245.0,
+    "volume": 9577.0,
+    "rsi_14": 55.825760484662304,
+    "macd": {
+      "line": -32.27456300196013,
+      "signal": -44.0010673962107,
+      "histogram": 11.726504394250568,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.424070",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PBD88": {
+    "symbol": "PBD88",
+    "current_price": 1179.0,
+    "volume": 25.0,
+    "rsi_14": 60.53283767038415,
+    "macd": {
+      "line": 21.420227381200448,
+      "signal": 16.003900515416017,
+      "histogram": 5.416326865784431,
+      "signal_state": "neutral"
+    },
+    "data_points": 29,
+    "last_updated": "2025-10-31T23:33:20.428484",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PBLD84": {
+    "symbol": "PBLD84",
+    "current_price": 1120.0,
+    "volume": 205.0,
+    "rsi_14": 65.19756838905771,
+    "macd": {
+      "line": 11.9634615913767,
+      "signal": 11.141716264361731,
+      "histogram": 0.8217453270149679,
+      "signal_state": "neutral"
+    },
+    "data_points": 19,
+    "last_updated": "2025-10-31T23:33:20.432261",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PBLD87": {
+    "symbol": "PBLD87",
+    "current_price": 1110.0,
+    "volume": 51.0,
+    "rsi_14": 64.89235760950586,
+    "macd": {
+      "line": 14.481693046635883,
+      "signal": 8.68929238204722,
+      "histogram": 5.792400664588662,
+      "signal_state": "neutral"
+    },
+    "data_points": 15,
+    "last_updated": "2025-10-31T23:33:20.435886",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PCBL": {
+    "symbol": "PCBL",
+    "current_price": 239.0,
+    "volume": 55606.0,
+    "rsi_14": 42.67922235722967,
+    "macd": {
+      "line": -5.007033521410733,
+      "signal": -4.8403272684208085,
+      "histogram": -0.16670625298992459,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.440635",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PFL": {
+    "symbol": "PFL",
+    "current_price": 387.0,
+    "volume": 7801.0,
+    "rsi_14": 47.409326424870464,
+    "macd": {
+      "line": -8.584044868410729,
+      "signal": -8.625107050186633,
+      "histogram": 0.041062181775904705,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.445413",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PHCL": {
+    "symbol": "PHCL",
+    "current_price": 377.4,
+    "volume": 44384.0,
+    "rsi_14": 47.1212523215707,
+    "macd": {
+      "line": -29.16181902004689,
+      "signal": -29.656202487893356,
+      "histogram": 0.4943834678464647,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.450093",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PMHPL": {
+    "symbol": "PMHPL",
+    "current_price": 322.0,
+    "volume": 66828.0,
+    "rsi_14": 43.18705460001071,
+    "macd": {
+      "line": -19.17781485849764,
+      "signal": -19.033332536744904,
+      "histogram": -0.14448232175273645,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.454995",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PMLI": {
+    "symbol": "PMLI",
+    "current_price": 480.0,
+    "volume": 14231.0,
+    "rsi_14": 46.37336504161711,
+    "macd": {
+      "line": -9.461831296513708,
+      "signal": -10.220636178913262,
+      "histogram": 0.7588048823995539,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.459769",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PPCL": {
+    "symbol": "PPCL",
+    "current_price": 309.5,
+    "volume": 14978.0,
+    "rsi_14": 47.53199268738574,
+    "macd": {
+      "line": -9.896299118082254,
+      "signal": -9.794740851862006,
+      "histogram": -0.10155826622024833,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.464887",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PPL": {
+    "symbol": "PPL",
+    "current_price": 311.0,
+    "volume": 40216.0,
+    "rsi_14": 54.78119935170179,
+    "macd": {
+      "line": -16.169467981016737,
+      "signal": -19.240717893834084,
+      "histogram": 3.071249912817347,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.470158",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PRIN": {
+    "symbol": "PRIN",
+    "current_price": 656.3,
+    "volume": 18507.0,
+    "rsi_14": 23.691520069712965,
+    "macd": {
+      "line": -33.9847899316818,
+      "signal": -32.414665467745884,
+      "histogram": -1.5701244639359189,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.475362",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PROFL": {
+    "symbol": "PROFL",
+    "current_price": 462.0,
+    "volume": 5143.0,
+    "rsi_14": 45.626656569481256,
+    "macd": {
+      "line": -14.110276718183343,
+      "signal": -14.020247811150874,
+      "histogram": -0.09002890703246891,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.480495",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PRSF": {
+    "symbol": "PRSF",
+    "current_price": 10.2,
+    "volume": 192200.0,
+    "rsi_14": 44.751381215469564,
+    "macd": {
+      "line": -0.23638460160826114,
+      "signal": -0.26840634167778554,
+      "histogram": 0.03202174006952441,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.485317",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PRVU": {
+    "symbol": "PRVU",
+    "current_price": 203.0,
+    "volume": 84446.0,
+    "rsi_14": 48.076923076923066,
+    "macd": {
+      "line": -4.445910193539419,
+      "signal": -5.340040174924836,
+      "histogram": 0.8941299813854169,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.490405",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PSF": {
+    "symbol": "PSF",
+    "current_price": 10.16,
+    "volume": 85375.0,
+    "rsi_14": 40.0,
+    "macd": {
+      "line": -0.28350146990753267,
+      "signal": -0.2807061430574006,
+      "histogram": -0.0027953268501320627,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.495134",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PURE": {
+    "symbol": "PURE",
+    "current_price": 795.0,
+    "volume": 7034.0,
+    "rsi_14": 52.92803134661891,
+    "macd": {
+      "line": -23.773607698235196,
+      "signal": -26.712381337495128,
+      "histogram": 2.9387736392599315,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.499896",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RADHI": {
+    "symbol": "RADHI",
+    "current_price": 767.0,
+    "volume": 497142.0,
+    "rsi_14": 52.023592726482015,
+    "macd": {
+      "line": -16.991372961752745,
+      "signal": -22.960258699734354,
+      "histogram": 5.9688857379816085,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.504319",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RAWA": {
+    "symbol": "RAWA",
+    "current_price": 731.4,
+    "volume": 1364.0,
+    "rsi_14": 49.26543824701195,
+    "macd": {
+      "line": -11.378191442535694,
+      "signal": -11.498378195817274,
+      "histogram": 0.12018675328157968,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.508631",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RBBD2088": {
+    "symbol": "RBBD2088",
+    "current_price": 1052.0,
+    "volume": 400.0,
+    "rsi_14": 74.25373134328362,
+    "macd": {
+      "line": 17.33321259781087,
+      "signal": 17.271444146997563,
+      "histogram": 0.061768450813307396,
+      "signal_state": "neutral"
+    },
+    "data_points": 31,
+    "last_updated": "2025-10-31T23:33:20.513091",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RBCL": {
+    "symbol": "RBCL",
+    "current_price": 14799.9,
+    "volume": 410.0,
+    "rsi_14": 25.618356645483658,
+    "macd": {
+      "line": -274.2022119247631,
+      "signal": -242.10201080352732,
+      "histogram": -32.100201121235784,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.517807",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RBCLPO": {
+    "symbol": "RBCLPO",
+    "current_price": 12484.2,
+    "volume": 10.0,
+    "rsi_14": 43.96026384610204,
+    "macd": {
+      "line": -133.77937801579355,
+      "signal": -112.59535123192876,
+      "histogram": -21.184026783864795,
+      "signal_state": "neutral"
+    },
+    "data_points": 33,
+    "last_updated": "2025-10-31T23:33:20.522264",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RFPL": {
+    "symbol": "RFPL",
+    "current_price": 339.0,
+    "volume": 13307.0,
+    "rsi_14": 48.08475957620212,
+    "macd": {
+      "line": -35.44772849536412,
+      "signal": -43.961867331172975,
+      "histogram": 8.514138835808858,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.526973",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RHGCL": {
+    "symbol": "RHGCL",
+    "current_price": 250.0,
+    "volume": 63533.0,
+    "rsi_14": 47.92696842906049,
+    "macd": {
+      "line": -15.925578448763304,
+      "signal": -16.957738046804582,
+      "histogram": 1.0321595980412788,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.535374",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RHPL": {
+    "symbol": "RHPL",
+    "current_price": 272.0,
+    "volume": 16624.0,
+    "rsi_14": 43.44067430300411,
+    "macd": {
+      "line": -11.45085945456043,
+      "signal": -11.383585881401201,
+      "histogram": -0.06727357315922866,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.540832",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RIDI": {
+    "symbol": "RIDI",
+    "current_price": 231.8,
+    "volume": 56320.0,
+    "rsi_14": 52.42718446601941,
+    "macd": {
+      "line": -5.691267262703661,
+      "signal": -6.694216234374442,
+      "histogram": 1.0029489716707802,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.546425",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RLFL": {
+    "symbol": "RLFL",
+    "current_price": 422.9,
+    "volume": 19693.0,
+    "rsi_14": 40.15611448395487,
+    "macd": {
+      "line": -17.114052873320475,
+      "signal": -16.989223753003028,
+      "histogram": -0.12482912031744675,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.551850",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RMF1": {
+    "symbol": "RMF1",
+    "current_price": 9.11,
+    "volume": 4600.0,
+    "rsi_14": 45.673076923076934,
+    "macd": {
+      "line": -0.17625438968881468,
+      "signal": -0.21151405023652595,
+      "histogram": 0.03525966054771126,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.557248",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RMF2": {
+    "symbol": "RMF2",
+    "current_price": 9.04,
+    "volume": 14287.0,
+    "rsi_14": 48.19277108433734,
+    "macd": {
+      "line": -0.20661150882283508,
+      "signal": -0.24910470668809306,
+      "histogram": 0.04249319786525799,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.561932",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RNLI": {
+    "symbol": "RNLI",
+    "current_price": 479.0,
+    "volume": 129704.0,
+    "rsi_14": 60.00130864359092,
+    "macd": {
+      "line": -3.3766451194549063,
+      "signal": -6.850031427840012,
+      "histogram": 3.4733863083851055,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.567152",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RSDC": {
+    "symbol": "RSDC",
+    "current_price": 650.0,
+    "volume": 28510.0,
+    "rsi_14": 46.18572632762012,
+    "macd": {
+      "line": -21.31896569739763,
+      "signal": -24.146640340306583,
+      "histogram": 2.8276746429089528,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.572939",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RSY": {
+    "symbol": "RSY",
+    "current_price": 8.89,
+    "volume": 1200.0,
+    "rsi_14": 47.560975609756085,
+    "macd": {
+      "line": -0.12032835427163846,
+      "signal": -0.12511999223532114,
+      "histogram": 0.004791637963682677,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.577941",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "RURU": {
+    "symbol": "RURU",
+    "current_price": 720.9,
+    "volume": 8856.0,
+    "rsi_14": 51.882845188284506,
+    "macd": {
+      "line": -7.799490297346097,
+      "signal": -7.693936466193438,
+      "histogram": -0.10555383115265826,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.583397",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SADBL": {
+    "symbol": "SADBL",
+    "current_price": 408.0,
+    "volume": 51353.0,
+    "rsi_14": 46.670461013090495,
+    "macd": {
+      "line": -11.263049154292275,
+      "signal": -12.596431645138697,
+      "histogram": 1.3333824908464216,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.587883",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SAGF": {
+    "symbol": "SAGF",
+    "current_price": 9.05,
+    "volume": 24900.0,
+    "rsi_14": 46.125461254612574,
+    "macd": {
+      "line": -0.1731607027722024,
+      "signal": -0.19972200684867591,
+      "histogram": 0.026561304076473502,
+      "signal_state": "neutral"
+    },
+    "data_points": 33,
+    "last_updated": "2025-10-31T23:33:20.592762",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SAHAS": {
+    "symbol": "SAHAS",
+    "current_price": 674.6,
+    "volume": 306719.0,
+    "rsi_14": 63.28676506886509,
+    "macd": {
+      "line": -2.0435173853576316,
+      "signal": -7.759140919749261,
+      "histogram": 5.7156235343916295,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.597218",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SALICO": {
+    "symbol": "SALICO",
+    "current_price": 594.0,
+    "volume": 1742.0,
+    "rsi_14": 24.340196702752422,
+    "macd": {
+      "line": -23.98609213747011,
+      "signal": -22.783356003287842,
+      "histogram": -1.2027361341822669,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.601980",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SANIMA": {
+    "symbol": "SANIMA",
+    "current_price": 318.9,
+    "volume": 55106.0,
+    "rsi_14": 23.123402277480807,
+    "macd": {
+      "line": -14.131547087426952,
+      "signal": -12.840601819805428,
+      "histogram": -1.2909452676215238,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.609226",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SANVI": {
+    "symbol": "SANVI",
+    "current_price": 603.0,
+    "volume": 17537.0,
+    "rsi_14": 50.790489231918336,
+    "macd": {
+      "line": -32.34085482491764,
+      "signal": -36.831849105889404,
+      "histogram": 4.490994280971762,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.613855",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SAPDBL": {
+    "symbol": "SAPDBL",
+    "current_price": 819.0,
+    "volume": 54274.0,
+    "rsi_14": 55.031786014153774,
+    "macd": {
+      "line": -12.30858456413705,
+      "signal": -16.60169097835036,
+      "histogram": 4.293106414213309,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.618606",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SARBTM": {
+    "symbol": "SARBTM",
+    "current_price": 890.0,
+    "volume": 19124.0,
+    "rsi_14": 49.78776087725503,
+    "macd": {
+      "line": -16.907572566249087,
+      "signal": -19.842687462079944,
+      "histogram": 2.935114895830857,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.623796",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SBCF": {
+    "symbol": "SBCF",
+    "current_price": 9.05,
+    "volume": 33500.0,
+    "rsi_14": 47.008547008547076,
+    "macd": {
+      "line": -0.2098046735459267,
+      "signal": -0.2719499716998488,
+      "histogram": 0.06214529815392211,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.629014",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SBD87": {
+    "symbol": "SBD87",
+    "current_price": 1115.0,
+    "volume": 25.0,
+    "rsi_14": 69.97791305284707,
+    "macd": {
+      "line": 15.241608665816102,
+      "signal": 10.117630520544424,
+      "histogram": 5.123978145271678,
+      "signal_state": "neutral"
+    },
+    "data_points": 15,
+    "last_updated": "2025-10-31T23:33:20.633312",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SBI": {
+    "symbol": "SBI",
+    "current_price": 400.0,
+    "volume": 73722.0,
+    "rsi_14": 57.3653718301833,
+    "macd": {
+      "line": -1.7562103227223815,
+      "signal": -4.615268218229312,
+      "histogram": 2.859057895506931,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.637617",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SBL": {
+    "symbol": "SBL",
+    "current_price": 363.7,
+    "volume": 185452.0,
+    "rsi_14": 42.84518828451883,
+    "macd": {
+      "line": -4.003994446931586,
+      "signal": -4.76023363157723,
+      "histogram": 0.7562391846456444,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.642038",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SCB": {
+    "symbol": "SCB",
+    "current_price": 636.0,
+    "volume": 26451.0,
+    "rsi_14": 51.959890610756595,
+    "macd": {
+      "line": -3.8783729800665014,
+      "signal": -5.571577018191091,
+      "histogram": 1.6932040381245894,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.656440",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SDBD87": {
+    "symbol": "SDBD87",
+    "current_price": 1142.1,
+    "volume": 1.0,
+    "rsi_14": 61.4669421487603,
+    "macd": {
+      "line": 20.767190396511978,
+      "signal": 11.163798769638564,
+      "histogram": 9.603391626873414,
+      "signal_state": "neutral"
+    },
+    "data_points": 19,
+    "last_updated": "2025-10-31T23:33:20.660317",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SEF": {
+    "symbol": "SEF",
+    "current_price": 9.2,
+    "volume": 28400.0,
+    "rsi_14": 49.33333333333329,
+    "macd": {
+      "line": -0.24544594383194251,
+      "signal": -0.30610771939694104,
+      "histogram": 0.06066177556499852,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.664313",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SFCL": {
+    "symbol": "SFCL",
+    "current_price": 394.6,
+    "volume": 30933.0,
+    "rsi_14": 39.34667706437918,
+    "macd": {
+      "line": -19.88060257082941,
+      "signal": -18.500775056092618,
+      "histogram": -1.3798275147367924,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.668304",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SFEF": {
+    "symbol": "SFEF",
+    "current_price": 9.0,
+    "volume": 345.0,
+    "rsi_14": 39.473684210526294,
+    "macd": {
+      "line": -0.1888813601885193,
+      "signal": -0.21311526743973955,
+      "histogram": 0.024233907251220238,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.672441",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SFMF": {
+    "symbol": "SFMF",
+    "current_price": 9.85,
+    "volume": 3400.0,
+    "rsi_14": 53.41614906832296,
+    "macd": {
+      "line": -0.11377363974178145,
+      "signal": -0.15313132557175416,
+      "histogram": 0.039357685829972705,
+      "signal_state": "neutral"
+    },
+    "data_points": 33,
+    "last_updated": "2025-10-31T23:33:20.676553",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SGHC": {
+    "symbol": "SGHC",
+    "current_price": 340.8,
+    "volume": 12425.0,
+    "rsi_14": 51.96946035051189,
+    "macd": {
+      "line": -19.110904765904195,
+      "signal": -22.803567160989576,
+      "histogram": 3.6926623950853816,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.680679",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SGIC": {
+    "symbol": "SGIC",
+    "current_price": 473.3,
+    "volume": 17945.0,
+    "rsi_14": 19.61762261014134,
+    "macd": {
+      "line": -26.2131731004647,
+      "signal": -24.256684285319047,
+      "histogram": -1.9564888151456543,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.685074",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SHEL": {
+    "symbol": "SHEL",
+    "current_price": 294.0,
+    "volume": 197929.0,
+    "rsi_14": 46.853146853146846,
+    "macd": {
+      "line": -6.574787942725436,
+      "signal": -7.583407949467195,
+      "histogram": 1.0086200067417588,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.689459",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SHINE": {
+    "symbol": "SHINE",
+    "current_price": 410.0,
+    "volume": 15974.0,
+    "rsi_14": 48.062140949915026,
+    "macd": {
+      "line": -7.273909793154871,
+      "signal": -7.397944897729162,
+      "histogram": 0.12403510457429068,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.693695",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SHIVM": {
+    "symbol": "SHIVM",
+    "current_price": 570.0,
+    "volume": 158500.0,
+    "rsi_14": 47.826503255457666,
+    "macd": {
+      "line": -13.246690472180148,
+      "signal": -12.797073697839425,
+      "histogram": -0.4496167743407238,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.697740",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SHL": {
+    "symbol": "SHL",
+    "current_price": 549.0,
+    "volume": 102925.0,
+    "rsi_14": 51.02711225964698,
+    "macd": {
+      "line": -9.269655743114072,
+      "signal": -12.940747365797469,
+      "histogram": 3.671091622683397,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.701688",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SHLB": {
+    "symbol": "SHLB",
+    "current_price": 1890.0,
+    "volume": 1264.0,
+    "rsi_14": 55.0444900752909,
+    "macd": {
+      "line": -24.46309688708152,
+      "signal": -30.89530318661933,
+      "histogram": 6.43220629953781,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.705970",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SHPC": {
+    "symbol": "SHPC",
+    "current_price": 523.0,
+    "volume": 131443.0,
+    "rsi_14": 46.25328216521914,
+    "macd": {
+      "line": -16.90963683015923,
+      "signal": -18.721586665244693,
+      "histogram": 1.8119498350854641,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.710153",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SICL": {
+    "symbol": "SICL",
+    "current_price": 632.0,
+    "volume": 8051.0,
+    "rsi_14": 24.026330224903987,
+    "macd": {
+      "line": -32.06073132832955,
+      "signal": -31.53631906031388,
+      "histogram": -0.5244122680156735,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.714310",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SIFC": {
+    "symbol": "SIFC",
+    "current_price": 482.1,
+    "volume": 7605.0,
+    "rsi_14": 42.63149939540507,
+    "macd": {
+      "line": -11.96954478917695,
+      "signal": -10.595837357142845,
+      "histogram": -1.3737074320341058,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.720102",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SIGS3": {
+    "symbol": "SIGS3",
+    "current_price": 9.33,
+    "volume": 11900.0,
+    "rsi_14": 53.54838709677417,
+    "macd": {
+      "line": -0.23963231719924138,
+      "signal": -0.293295781343887,
+      "histogram": 0.05366346414464562,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.725332",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SIKLES": {
+    "symbol": "SIKLES",
+    "current_price": 659.0,
+    "volume": 87566.0,
+    "rsi_14": 44.052863436123346,
+    "macd": {
+      "line": -72.1317379207552,
+      "signal": -75.8833644536923,
+      "histogram": 3.7516265329370952,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.730271",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SINDU": {
+    "symbol": "SINDU",
+    "current_price": 725.0,
+    "volume": 13866.0,
+    "rsi_14": 55.48088197443305,
+    "macd": {
+      "line": -13.468311914796914,
+      "signal": -17.187354442429356,
+      "histogram": 3.7190425276324426,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.735116",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SJCL": {
+    "symbol": "SJCL",
+    "current_price": 280.0,
+    "volume": 14230.0,
+    "rsi_14": 44.19819131320849,
+    "macd": {
+      "line": -8.422706194827185,
+      "signal": -7.921460711779716,
+      "histogram": -0.5012454830474695,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.739734",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SJLIC": {
+    "symbol": "SJLIC",
+    "current_price": 429.0,
+    "volume": 35663.0,
+    "rsi_14": 51.06382978723405,
+    "macd": {
+      "line": -5.2707037921520055,
+      "signal": -6.588728133545691,
+      "histogram": 1.3180243413936852,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.744814",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SKBBL": {
+    "symbol": "SKBBL",
+    "current_price": 860.0,
+    "volume": 12943.0,
+    "rsi_14": 45.99634369287021,
+    "macd": {
+      "line": -11.556544251175524,
+      "signal": -9.939273065352195,
+      "histogram": -1.6172711858233288,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.749216",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SLBBL": {
+    "symbol": "SLBBL",
+    "current_price": 884.7,
+    "volume": 11282.0,
+    "rsi_14": 46.44793626203386,
+    "macd": {
+      "line": -33.74498224463298,
+      "signal": -37.12902860943862,
+      "histogram": 3.3840463648056414,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.754127",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SLBSL": {
+    "symbol": "SLBSL",
+    "current_price": 1371.0,
+    "volume": 7384.0,
+    "rsi_14": 40.78494940563906,
+    "macd": {
+      "line": -39.083332040460846,
+      "signal": -32.46268469437136,
+      "histogram": -6.620647346089484,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.758284",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SLCF": {
+    "symbol": "SLCF",
+    "current_price": 9.21,
+    "volume": 15050.0,
+    "rsi_14": 46.3087248322148,
+    "macd": {
+      "line": -0.2464128124273124,
+      "signal": -0.29243006761621204,
+      "histogram": 0.04601725518889965,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.762394",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SMATA": {
+    "symbol": "SMATA",
+    "current_price": 831.0,
+    "volume": 21423.0,
+    "rsi_14": 32.09194716023583,
+    "macd": {
+      "line": -44.892849031351034,
+      "signal": -37.151006243261655,
+      "histogram": -7.741842788089379,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.766766",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SMB": {
+    "symbol": "SMB",
+    "current_price": 2246.0,
+    "volume": 3089.0,
+    "rsi_14": 57.4717901799329,
+    "macd": {
+      "line": -38.504805376873264,
+      "signal": -42.51470833939623,
+      "histogram": 4.009902962522965,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.770817",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SMFBS": {
+    "symbol": "SMFBS",
+    "current_price": 1698.0,
+    "volume": 3236.0,
+    "rsi_14": 51.80499291572708,
+    "macd": {
+      "line": -41.59281333740728,
+      "signal": -44.6472727735373,
+      "histogram": 3.054459436130024,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.774876",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SMH": {
+    "symbol": "SMH",
+    "current_price": 776.0,
+    "volume": 806.0,
+    "rsi_14": 36.998932637571144,
+    "macd": {
+      "line": -23.407895199812856,
+      "signal": -14.20197335714298,
+      "histogram": -9.205921842669875,
+      "signal_state": "neutral"
+    },
+    "data_points": 33,
+    "last_updated": "2025-10-31T23:33:20.779064",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SMHL": {
+    "symbol": "SMHL",
+    "current_price": 897.0,
+    "volume": 23327.0,
+    "rsi_14": 51.30723003531381,
+    "macd": {
+      "line": -43.08320623333566,
+      "signal": -51.651537191222275,
+      "histogram": 8.568330957886616,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.783341",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SMJC": {
+    "symbol": "SMJC",
+    "current_price": 521.0,
+    "volume": 10713.0,
+    "rsi_14": 44.8416232031548,
+    "macd": {
+      "line": -21.96225281696536,
+      "signal": -21.998935439742333,
+      "histogram": 0.036682622776972096,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.787310",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SMPDA": {
+    "symbol": "SMPDA",
+    "current_price": 917.0,
+    "volume": 5184.0,
+    "rsi_14": 51.65446782555656,
+    "macd": {
+      "line": -21.026094395032374,
+      "signal": -24.786033623165704,
+      "histogram": 3.75993922813333,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.792289",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SNLI": {
+    "symbol": "SNLI",
+    "current_price": 475.0,
+    "volume": 48756.0,
+    "rsi_14": 56.78152019615433,
+    "macd": {
+      "line": -5.544966039786345,
+      "signal": -9.168816158426157,
+      "histogram": 3.6238501186398118,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.796608",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SONA": {
+    "symbol": "SONA",
+    "current_price": 418.0,
+    "volume": 43262.0,
+    "rsi_14": 39.456025767200494,
+    "macd": {
+      "line": -11.721874535351446,
+      "signal": -10.900810322517422,
+      "histogram": -0.821064212834024,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.800683",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SPC": {
+    "symbol": "SPC",
+    "current_price": 470.6,
+    "volume": 2579.0,
+    "rsi_14": 41.36536340237776,
+    "macd": {
+      "line": -17.11949844179145,
+      "signal": -16.591088938075952,
+      "histogram": -0.5284095037154977,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.804767",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SPDL": {
+    "symbol": "SPDL",
+    "current_price": 412.0,
+    "volume": 248573.0,
+    "rsi_14": 51.95893567986592,
+    "macd": {
+      "line": -1.8840064653666104,
+      "signal": -2.7759923684798298,
+      "histogram": 0.8919859031132193,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.809521",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SPHL": {
+    "symbol": "SPHL",
+    "current_price": 521.0,
+    "volume": 9724.0,
+    "rsi_14": 50.898798291786676,
+    "macd": {
+      "line": -26.54158563895942,
+      "signal": -29.00672307310997,
+      "histogram": 2.4651374341505523,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.814099",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SPIL": {
+    "symbol": "SPIL",
+    "current_price": 692.9,
+    "volume": 12619.0,
+    "rsi_14": 28.97915982335121,
+    "macd": {
+      "line": -39.57784223940871,
+      "signal": -35.060809629556076,
+      "histogram": -4.5170326098526346,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.818077",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SPL": {
+    "symbol": "SPL",
+    "current_price": 974.8,
+    "volume": 1434.0,
+    "rsi_14": 57.347747437333105,
+    "macd": {
+      "line": 1.6756105593037773,
+      "signal": -1.2177091018180102,
+      "histogram": 2.8933196611217875,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.822290",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SRLI": {
+    "symbol": "SRLI",
+    "current_price": 387.2,
+    "volume": 17368.0,
+    "rsi_14": 47.96016423517079,
+    "macd": {
+      "line": -6.437988204617568,
+      "signal": -7.184182707873379,
+      "histogram": 0.7461945032558113,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.826605",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SSHL": {
+    "symbol": "SSHL",
+    "current_price": 173.0,
+    "volume": 66726.0,
+    "rsi_14": 49.47292764734069,
+    "macd": {
+      "line": -5.773432753072257,
+      "signal": -6.098236182905491,
+      "histogram": 0.32480342983323407,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.830836",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "STC": {
+    "symbol": "STC",
+    "current_price": 5273.0,
+    "volume": 1082.0,
+    "rsi_14": 51.36478956870132,
+    "macd": {
+      "line": -30.70047434740991,
+      "signal": -37.395148398526516,
+      "histogram": 6.694674051116607,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.835044",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SWBBL": {
+    "symbol": "SWBBL",
+    "current_price": 820.0,
+    "volume": 9408.0,
+    "rsi_14": 49.47627227105857,
+    "macd": {
+      "line": -22.92571792142553,
+      "signal": -26.506189792690122,
+      "histogram": 3.580471871264592,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.839187",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SWMF": {
+    "symbol": "SWMF",
+    "current_price": 669.0,
+    "volume": 7186.0,
+    "rsi_14": 38.771554604999324,
+    "macd": {
+      "line": -21.781156933881334,
+      "signal": -20.761711890153425,
+      "histogram": -1.0194450437279095,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.843600",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "TAMOR": {
+    "symbol": "TAMOR",
+    "current_price": 483.0,
+    "volume": 15739.0,
+    "rsi_14": 46.35648306534383,
+    "macd": {
+      "line": -11.36019781301519,
+      "signal": -11.112458060725617,
+      "histogram": -0.2477397522895739,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.848209",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "TPC": {
+    "symbol": "TPC",
+    "current_price": 304.0,
+    "volume": 38000.0,
+    "rsi_14": 41.99918842147978,
+    "macd": {
+      "line": -19.080660489171464,
+      "signal": -18.003493095227544,
+      "histogram": -1.0771673939439204,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.852531",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "TRH": {
+    "symbol": "TRH",
+    "current_price": 720.0,
+    "volume": 11132.0,
+    "rsi_14": 8.102199168345692,
+    "macd": {
+      "line": -51.06041414968274,
+      "signal": -39.02905118779334,
+      "histogram": -12.0313629618894,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.857367",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "TSHL": {
+    "symbol": "TSHL",
+    "current_price": 702.9,
+    "volume": 3062.0,
+    "rsi_14": 42.23773952582007,
+    "macd": {
+      "line": -47.17485593533581,
+      "signal": -40.27355883257338,
+      "histogram": -6.901297102762435,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.861670",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "TTL": {
+    "symbol": "TTL",
+    "current_price": 727.9,
+    "volume": 19207.0,
+    "rsi_14": 43.41045797396646,
+    "macd": {
+      "line": -52.31502044874162,
+      "signal": -58.111525373701355,
+      "histogram": 5.796504924959734,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.866432",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "TVCL": {
+    "symbol": "TVCL",
+    "current_price": 423.4,
+    "volume": 6668.0,
+    "rsi_14": 40.869683937470136,
+    "macd": {
+      "line": -16.915515256974118,
+      "signal": -14.059736724063375,
+      "histogram": -2.855778532910742,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.871305",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "UAIL": {
+    "symbol": "UAIL",
+    "current_price": 462.0,
+    "volume": 31391.0,
+    "rsi_14": 33.697632058287795,
+    "macd": {
+      "line": -22.841777984855696,
+      "signal": -24.456368681805298,
+      "histogram": 1.6145906969496018,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.875937",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "UHEWA": {
+    "symbol": "UHEWA",
+    "current_price": 574.0,
+    "volume": 14445.0,
+    "rsi_14": 51.76193836744296,
+    "macd": {
+      "line": -10.542051972792478,
+      "signal": -10.864380559309263,
+      "histogram": 0.3223285865167842,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.881020",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "ULBSL": {
+    "symbol": "ULBSL",
+    "current_price": 3770.6,
+    "volume": 21.0,
+    "rsi_14": 50.46136365718892,
+    "macd": {
+      "line": 27.056526863214003,
+      "signal": 2.619389599691372,
+      "histogram": 24.43713726352263,
+      "signal_state": "neutral"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.885504",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "ULHC": {
+    "symbol": "ULHC",
+    "current_price": 437.0,
+    "volume": 7220.0,
+    "rsi_14": 46.10094416598671,
+    "macd": {
+      "line": -12.791389425852344,
+      "signal": -10.65857760068026,
+      "histogram": -2.132811825172084,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.890247",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "UMHL": {
+    "symbol": "UMHL",
+    "current_price": 535.0,
+    "volume": 92034.0,
+    "rsi_14": 33.73764961041047,
+    "macd": {
+      "line": -11.99816592512093,
+      "signal": -11.284642362145929,
+      "histogram": -0.7135235629750003,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.894813",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "UMRH": {
+    "symbol": "UMRH",
+    "current_price": 569.0,
+    "volume": 8010.0,
+    "rsi_14": 47.619047619047606,
+    "macd": {
+      "line": -14.365227534205019,
+      "signal": -14.750388555326078,
+      "histogram": 0.38516102112105877,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.899116",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "UNHPL": {
+    "symbol": "UNHPL",
+    "current_price": 513.0,
+    "volume": 362817.0,
+    "rsi_14": 59.559052664381426,
+    "macd": {
+      "line": 26.77724297193612,
+      "signal": 24.188492193550072,
+      "histogram": 2.5887507783860464,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.903379",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "UNLB": {
+    "symbol": "UNLB",
+    "current_price": 2010.0,
+    "volume": 942.0,
+    "rsi_14": 51.04275286757039,
+    "macd": {
+      "line": -64.71903629506915,
+      "signal": -61.87182929282388,
+      "histogram": -2.8472070022452627,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.907933",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "UPCL": {
+    "symbol": "UPCL",
+    "current_price": 384.0,
+    "volume": 369523.0,
+    "rsi_14": 41.690693114980974,
+    "macd": {
+      "line": -9.15807317970581,
+      "signal": -9.804553525765904,
+      "histogram": 0.6464803460600947,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.912667",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "UPPER": {
+    "symbol": "UPPER",
+    "current_price": 180.1,
+    "volume": 55787.0,
+    "rsi_14": 47.65461607409619,
+    "macd": {
+      "line": -4.120452647861924,
+      "signal": -4.100273921020593,
+      "histogram": -0.020178726841331596,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.917070",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "USHEC": {
+    "symbol": "USHEC",
+    "current_price": 467.0,
+    "volume": 13538.0,
+    "rsi_14": 48.90231153444071,
+    "macd": {
+      "line": -7.372961721081765,
+      "signal": -7.139776936687047,
+      "histogram": -0.23318478439471768,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.921392",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "USHL": {
+    "symbol": "USHL",
+    "current_price": 709.0,
+    "volume": 4315.0,
+    "rsi_14": 45.20236995998768,
+    "macd": {
+      "line": -2.4030602533650836,
+      "signal": 2.2627571716940427,
+      "histogram": -4.665817425059126,
+      "signal_state": "neutral"
+    },
+    "data_points": 33,
+    "last_updated": "2025-10-31T23:33:20.926553",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "USLB": {
+    "symbol": "USLB",
+    "current_price": 2002.1,
+    "volume": 41895.0,
+    "rsi_14": 53.5436550017674,
+    "macd": {
+      "line": -83.46778161079646,
+      "signal": -97.9644968981424,
+      "histogram": 14.496715287345936,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.931508",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "VLBS": {
+    "symbol": "VLBS",
+    "current_price": 788.4,
+    "volume": 1090.0,
+    "rsi_14": 44.87895716945996,
+    "macd": {
+      "line": -22.105417474392425,
+      "signal": -23.218975841071707,
+      "histogram": 1.1135583666792819,
+      "signal_state": "bullish_crossover"
+    },
+    "data_points": 34,
+    "last_updated": "2025-10-31T23:33:20.936433",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "VLUCL": {
+    "symbol": "VLUCL",
+    "current_price": 578.0,
+    "volume": 11406.0,
+    "rsi_14": 60.08234636303563,
+    "macd": {
+      "line": -6.1068684155919755,
+      "signal": -7.538161825045809,
+      "histogram": 1.4312934094538337,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.942461",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "WNLB": {
+    "symbol": "WNLB",
+    "current_price": 2030.0,
+    "volume": 1482.0,
+    "rsi_14": 52.81557777610706,
+    "macd": {
+      "line": -33.83520103585556,
+      "signal": -28.960717258960205,
+      "histogram": -4.874483776895357,
+      "signal_state": "neutral"
+    },
+    "data_points": 35,
+    "last_updated": "2025-10-31T23:33:20.947982",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "CBLD88": {
+    "symbol": "CBLD88",
+    "current_price": 1211.1,
+    "volume": 77.0,
+    "rsi_14": 62.34060640408046,
+    "macd": {
+      "line": 24.499999942635213,
+      "signal": 20.988516324208092,
+      "histogram": 3.511483618427121,
+      "signal_state": "neutral"
+    },
+    "data_points": 26,
+    "last_updated": "2025-10-31T23:33:20.953217",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "EBLD85": {
+    "symbol": "EBLD85",
+    "current_price": 1165.0,
+    "volume": 80.0,
+    "rsi_14": 75.66735112936342,
+    "macd": {
+      "line": 12.09912564061051,
+      "signal": 12.325757562662927,
+      "histogram": -0.22663192205241778,
+      "signal_state": "bearish_crossover"
+    },
+    "data_points": 20,
+    "last_updated": "2025-10-31T23:33:20.962667",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "EBLD91": {
+    "symbol": "EBLD91",
+    "current_price": 1100.0,
+    "volume": 50.0,
+    "rsi_14": 69.85218288071502,
+    "macd": {
+      "line": 25.927780006477406,
+      "signal": 19.18764477365501,
+      "histogram": 6.7401352328223965,
+      "signal_state": "neutral"
+    },
+    "data_points": 32,
+    "last_updated": "2025-10-31T23:33:20.967459",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "NICFC": {
+    "symbol": "NICFC",
+    "current_price": 9.21,
+    "volume": 5500.0,
+    "rsi_14": 58.82352941176473,
+    "macd": {
+      "line": -0.14139208239965306,
+      "signal": -0.19315120564769356,
+      "histogram": 0.051759123248040495,
+      "signal_state": "neutral"
+    },
+    "data_points": 33,
+    "last_updated": "2025-10-31T23:33:20.983972",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "PBD85": {
+    "symbol": "PBD85",
+    "current_price": 1085.5,
+    "volume": 50.0,
+    "rsi_14": 61.31277971158625,
+    "macd": {
+      "line": 11.644274106231478,
+      "signal": 11.022555329421692,
+      "histogram": 0.6217187768097858,
+      "signal_state": "neutral"
+    },
+    "data_points": 16,
+    "last_updated": "2025-10-31T23:33:20.991672",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "SIGS2": {
+    "symbol": "SIGS2",
+    "current_price": 9.19,
+    "volume": 1600.0,
+    "rsi_14": 40.9266409266409,
+    "macd": {
+      "line": -0.36042073884224557,
+      "signal": -0.35655346082822564,
+      "histogram": -0.003867278014019926,
+      "signal_state": "neutral"
+    },
+    "data_points": 30,
+    "last_updated": "2025-10-31T23:33:21.003890",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "UNL": {
+    "symbol": "UNL",
+    "current_price": 47500.0,
+    "volume": 20.0,
+    "rsi_14": 48.423918734946064,
+    "macd": {
+      "line": 25.10323992548365,
+      "signal": 135.4783181288879,
+      "histogram": -110.37507820340426,
+      "signal_state": "neutral"
+    },
+    "data_points": 33,
+    "last_updated": "2025-10-31T23:33:21.008772",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  },
+  "EBLEB89": {
+    "symbol": "EBLEB89",
+    "current_price": 1054.0,
+    "volume": 25.0,
+    "rsi_14": null,
+    "macd": {
+      "line": 11.364059121210062,
+      "signal": 4.687297042917802,
+      "histogram": 6.67676207829226,
+      "signal_state": "neutral"
+    },
+    "data_points": 14,
+    "last_updated": "2025-10-31T23:33:21.015271",
+    "indicators_calculated": [
+      "rsi_14",
+      "macd"
+    ]
+  }
+}

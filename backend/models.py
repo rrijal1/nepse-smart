@@ -1,7 +1,7 @@
 """
 Database models for Portfolio and Watchlist management
 """
-from sqlalchemy import Integer, String, Float, Date, Boolean, DateTime, Text, func
+from sqlalchemy import Integer, String, Float, Date, Boolean, DateTime, Text, func, BigInteger
 from sqlalchemy.orm import Mapped, mapped_column
 from backend.database import Base
 from datetime import date, datetime
@@ -15,7 +15,7 @@ class Watchlist(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     symbol: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
-    added_date: Mapped[date] = mapped_column(Date, default=date.today, nullable=False)
+    added_date: Mapped[date] = mapped_column(Date, nullable=False, index=True)
     favorite: Mapped[bool] = mapped_column(Boolean, default=False)
     notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
@@ -172,3 +172,117 @@ class HistoricalPriceVolume(Base):
 
     def __repr__(self):
         return f"<HistoricalPriceVolume(symbol={self.symbol}, date={self.business_date}, close={self.close_price})>"
+
+class Floorsheet(Base):
+    """
+    Floorsheet data for NEPSE trading transactions
+    """
+    __tablename__ = "floorsheet"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    transaction_no: Mapped[int] = mapped_column(BigInteger, nullable=False, index=True)
+    stock_symbol: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
+    buyer_broker: Mapped[int] = mapped_column(Integer, nullable=False)
+    seller_broker: Mapped[int] = mapped_column(Integer, nullable=False)
+    quantity: Mapped[float] = mapped_column(Float, nullable=False)
+    rate: Mapped[float] = mapped_column(Float, nullable=False)
+    amount: Mapped[float] = mapped_column(Float, nullable=False)
+    data_date: Mapped[date] = mapped_column("date", Date, nullable=False, index=True)
+    source: Mapped[str] = mapped_column(String(50), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+    __table_args__ = (
+        {"schema": "nepse_data"}
+    )
+
+    def __repr__(self):
+        return f"<Floorsheet(symbol={self.stock_symbol}, transaction={self.transaction_no}, amount={self.amount})>"
+
+class MarketIndex(Base):
+    """
+    Market index data (NEPSE, Sensitive, Float indices)
+    """
+    __tablename__ = "market_indices"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    index_name: Mapped[str] = mapped_column(String(50), nullable=False, index=True)
+    open: Mapped[float] = mapped_column(Float, nullable=False)
+    high: Mapped[float] = mapped_column(Float, nullable=False)
+    low: Mapped[float] = mapped_column(Float, nullable=False)
+    current_value: Mapped[float] = mapped_column(Float, nullable=False)
+    change: Mapped[float] = mapped_column(Float, nullable=False)
+    change_percent: Mapped[float] = mapped_column(Float, nullable=False)
+    turnover: Mapped[float] = mapped_column(Float, nullable=False)
+    data_date: Mapped[date] = mapped_column("date", Date, nullable=False, index=True)
+    source: Mapped[str] = mapped_column(String(50), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+    __table_args__ = (
+        {"schema": "nepse_data"}
+    )
+
+    def __repr__(self):
+        return f"<MarketIndex(name={self.index_name}, date={self.data_date}, value={self.current_value})>"
+
+class ExchangeRate(Base):
+    """
+    Foreign exchange rates from NRB
+    """
+    __tablename__ = "exchange_rates"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    currency: Mapped[str] = mapped_column(String(10), nullable=False, index=True)
+    buy_rate: Mapped[float] = mapped_column(Float, nullable=False)
+    sell_rate: Mapped[float] = mapped_column(Float, nullable=False)
+    data_date: Mapped[date] = mapped_column("date", Date, nullable=False, index=True)
+    source: Mapped[str] = mapped_column(String(50), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+    __table_args__ = (
+        {"schema": "nepse_data"}
+    )
+
+    def __repr__(self):
+        return f"<ExchangeRate(currency={self.currency}, date={self.data_date}, buy={self.buy_rate}, sell={self.sell_rate})>"
+
+class BankingIndicator(Base):
+    """
+    Banking indicators from NRB (deposits, lending, CD ratio, etc.)
+    """
+    __tablename__ = "banking_indicators"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    indicator: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+    current_value: Mapped[str] = mapped_column(String(50), nullable=False)  # Keep as string due to formatting
+    previous_value: Mapped[str] = mapped_column(String(50), nullable=False)
+    data_date: Mapped[date] = mapped_column("date", Date, nullable=False, index=True)
+    source: Mapped[str] = mapped_column(String(50), nullable=False)
+    unit: Mapped[str] = mapped_column(String(50), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+    __table_args__ = (
+        {"schema": "nepse_data"}
+    )
+
+    def __repr__(self):
+        return f"<BankingIndicator(indicator={self.indicator}, date={self.data_date}, current={self.current_value})>"
+
+class ShortTermRate(Base):
+    """
+    Short-term interest rates from NRB
+    """
+    __tablename__ = "short_term_rates"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    maturity: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
+    rate: Mapped[float] = mapped_column(Float, nullable=False)
+    data_date: Mapped[date] = mapped_column("date", Date, nullable=False, index=True)
+    source: Mapped[str] = mapped_column(String(50), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+    __table_args__ = (
+        {"schema": "nepse_data"}
+    )
+
+    def __repr__(self):
+        return f"<ShortTermRate(maturity={self.maturity}, date={self.data_date}, rate={self.rate})>"

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-Generate Technical Indicators
-- Calculates technical indicators for all stocks using historical data
-- Saves the indicators to a daily file for the AI agent to use
+Generate Technical Indicators from API
+- Fetches historical price data from API
+- Calculates technical indicators (RSI, MACD) for all stocks
+- Saves the indicators to data/technicals directory
 """
 
 import json
@@ -10,138 +11,226 @@ import pandas as pd
 from datetime import datetime
 from pathlib import Path
 import logging
+import requests
+import sys
+import os
 
-from shared_utils import setup_logging, create_data_filepath, create_historical_filepath
+# Add parent directory to path for imports
+sys.path.append(str(Path(__file__).parent.parent))
 
-def calculate_technical_indicators(historical_prices_path: Path, output_path: Path, logger: logging.Logger):
-    """
-    Calculates technical indicators for all stocks from historical data.
-    """
-    try:
-        with open(historical_prices_path, 'r') as f:
-            historical_data = json.load(f)
-    except FileNotFoundError:
-        logger.error(f"Historical prices file not found at {historical_prices_path}")
-        return
-    except json.JSONDecodeError:
-        logger.error(f"Error decoding JSON from {historical_prices_path}")
-        return
+from shared_utils import setup_logging
 
-    if not historical_data:
-        logger.warning("Historical data is empty. No indicators will be generated.")
-        return
+class TechnicalIndicatorsGenerator:
+    """Generate technical indicators from API data"""
 
-    df = pd.DataFrame(historical_data)
-    df['date'] = pd.to_datetime(df['date'])
-    df = df.sort_values(by=['symbol', 'date'])
+    def __init__(self, api_base_url: str = "http://localhost:8000"):
+        self.api_base_url = api_base_url
+        self.logger = setup_logging("technical_indicators")
 
-    all_technicals = {}
+    def fetch_company_list(self) -> list:
+        """Fetch list of all companies from API"""
+        try:
+            response = requests.get(f"{self.api_base_url}/api/company-list")
+            response.raise_for_status()
+            data = response.json()
+            return data.get("companies", [])
+        except Exception as e:
+            self.logger.error(f"Failed to fetch company list: {e}")
+            return []
 
-    for symbol, group in df.groupby('symbol'):
-        group = group.copy()
-        group.set_index('date', inplace=True)
+    def fetch_company_history(self, symbol: str, days: int = 90) -> list:
+        """Fetch historical price data for a specific company"""
+        try:
+            response = requests.get(f"{self.api_base_url}/api/company-history/{symbol}", params={"days": days})
+            response.raise_for_status()
+            data = response.json()
+            return data.get("data", [])
+        except Exception as e:
+            self.logger.debug(f"Failed to fetch history for {symbol}: {e}")
+            return []
 
-        # EMA
-        group['ema_21'] = group['close'].ewm(span=21, adjust=False).mean()
-        group['ema_50'] = group['close'].ewm(span=50, adjust=False).mean()
-
-        # RSI (14) using clipped deltas to avoid dtype issues
-        delta = group['close'].diff()
+    def calculate_rsi(self, prices: pd.Series, period: int = 14) -> pd.Series:
+        """Calculate RSI (Relative Strength Index)"""
+        delta = prices.diff()
         gain = delta.clip(lower=0)
         loss = (-delta).clip(lower=0)
-        roll_up = gain.rolling(window=14).mean()
-        roll_down = loss.rolling(window=14).mean()
-        rs = roll_up / roll_down
-        rsi_values = 100 - (100 / (1 + rs))
-        group['rsi_14'] = rsi_values
 
-        # MACD
-        exp1 = group['close'].ewm(span=12, adjust=False).mean()
-        exp2 = group['close'].ewm(span=26, adjust=False).mean()
-        macd = exp1 - exp2
-        signal = macd.ewm(span=9, adjust=False).mean()
-        # Store as columns for convenience
-        group['macd'] = macd
-        group['signal'] = signal
+        avg_gain = gain.rolling(window=period).mean()
+        avg_loss = loss.rolling(window=period).mean()
 
-        latest = group.iloc[-1]
-        previous = group.iloc[-2] if len(group) > 1 else latest
+        rs = avg_gain / avg_loss
+        rsi = 100 - (100 / (1 + rs))
 
-        # Handle RSI calculation for insufficient data
-        latest_rsi = latest['rsi_14'] if len(group) >= 14 and pd.notna(latest['rsi_14']) else None
-        
-        # Log warning if RSI cannot be calculated due to insufficient data
-        if latest_rsi is None and len(group) < 14:
-            logger.debug(f"RSI calculation skipped for {symbol}: only {len(group)} data points (need 14)")
-        elif latest_rsi is None:
-            logger.debug(f"RSI calculation resulted in NaN for {symbol}")
+        return rsi
 
-        # Determine MACD signal with guards for NaN/short series
-        macd_signal_state = "neutral"
-        try:
-            latest_macd_opt = float(latest['macd']) if pd.notna(latest['macd']) else None
-            latest_signal_opt = float(latest['signal']) if pd.notna(latest['signal']) else None
-            prev_macd_opt = float(previous['macd']) if pd.notna(previous['macd']) else None
-            prev_signal_opt = float(previous['signal']) if pd.notna(previous['signal']) else None
+    def calculate_macd(self, prices: pd.Series, fast_period: int = 12, slow_period: int = 26, signal_period: int = 9) -> tuple:
+        """Calculate MACD (Moving Average Convergence Divergence)"""
+        fast_ema = prices.ewm(span=fast_period, adjust=False).mean()
+        slow_ema = prices.ewm(span=slow_period, adjust=False).mean()
 
-            if (
-                latest_macd_opt is not None and latest_signal_opt is not None and
-                prev_macd_opt is not None and prev_signal_opt is not None
-            ):
-                latest_macd_val: float = latest_macd_opt
-                latest_signal_val: float = latest_signal_opt
-                prev_macd_val: float = prev_macd_opt
-                prev_signal_val: float = prev_signal_opt
+        macd_line = fast_ema - slow_ema
+        signal_line = macd_line.ewm(span=signal_period, adjust=False).mean()
+        histogram = macd_line - signal_line
 
-                if latest_macd_val > latest_signal_val and prev_macd_val < prev_signal_val:
-                    macd_signal_state = "bullish_crossover"
-                elif latest_macd_val < latest_signal_val and prev_macd_val > prev_signal_val:
-                    macd_signal_state = "bearish_crossover"
-        except Exception:
-            macd_signal_state = "neutral"
+        return macd_line, signal_line, histogram
 
-        # Resolve price preference
-        price_val = None
-        if isinstance(latest, pd.Series):
-            if 'ltp' in latest and pd.notna(latest['ltp']):
-                price_val = float(latest['ltp'])
-            elif 'close' in latest and pd.notna(latest['close']):
-                price_val = float(latest['close'])
+    def calculate_technical_indicators(self, price_data: list) -> dict:
+        """Calculate technical indicators for a single stock's price data"""
+        if not price_data or len(price_data) < 14:
+            return {}
 
-        all_technicals[symbol] = {
-            "price": price_val,
-            "ema_21": latest['ema_21'] if pd.notna(latest['ema_21']) else None,
-            "ema_50": latest['ema_50'] if pd.notna(latest['ema_50']) else None,
-            "rsi_14": latest_rsi,  # Use the properly handled RSI value
-            "macd_signal": macd_signal_state,
-            "volume": latest.get('vol') if isinstance(latest, pd.Series) else None,
-            "52_week_high": latest.get('52_weeks_high') if isinstance(latest, pd.Series) else None,
-            "52_week_low": latest.get('52_weeks_low') if isinstance(latest, pd.Series) else None,
+        # Convert to DataFrame
+        df = pd.DataFrame(price_data)
+        df['date'] = pd.to_datetime(df['date'])
+        df = df.sort_values('date')
+        df.set_index('date', inplace=True)
+
+        # Ensure we have close prices
+        if 'close' not in df.columns:
+            return {}
+
+        close_prices = df['close']
+
+        # Calculate RSI (14)
+        rsi_14 = self.calculate_rsi(close_prices, 14)
+
+        # Calculate MACD (12, 26, 9)
+        macd_line, signal_line, histogram = self.calculate_macd(close_prices, 12, 26, 9)
+
+        # Get latest values
+        latest_rsi = rsi_14.iloc[-1] if len(rsi_14) > 0 and pd.notna(rsi_14.iloc[-1]) else None
+        latest_macd = macd_line.iloc[-1] if len(macd_line) > 0 and pd.notna(macd_line.iloc[-1]) else None
+        latest_signal = signal_line.iloc[-1] if len(signal_line) > 0 and pd.notna(signal_line.iloc[-1]) else None
+        latest_histogram = histogram.iloc[-1] if len(histogram) > 0 and pd.notna(histogram.iloc[-1]) else None
+
+        # Determine MACD signal
+        macd_signal = "neutral"
+        if len(macd_line) >= 2 and len(signal_line) >= 2:
+            prev_macd = macd_line.iloc[-2]
+            prev_signal = signal_line.iloc[-2]
+
+            if (pd.notna(latest_macd) and pd.notna(latest_signal) and
+                pd.notna(prev_macd) and pd.notna(prev_signal)):
+                if latest_macd > latest_signal and prev_macd <= prev_signal:
+                    macd_signal = "bullish_crossover"
+                elif latest_macd < latest_signal and prev_macd >= prev_signal:
+                    macd_signal = "bearish_crossover"
+
+        # Get additional data
+        latest_data = df.iloc[-1]
+        current_price = latest_data.get('close')
+        volume = latest_data.get('volume')
+
+        return {
+            "symbol": price_data[0].get('symbol', 'UNKNOWN'),
+            "current_price": float(current_price) if pd.notna(current_price) else None,
+            "volume": float(volume) if pd.notna(volume) else None,
+            "rsi_14": float(latest_rsi) if latest_rsi is not None else None,
+            "macd": {
+                "line": float(latest_macd) if latest_macd is not None else None,
+                "signal": float(latest_signal) if latest_signal is not None else None,
+                "histogram": float(latest_histogram) if latest_histogram is not None else None,
+                "signal_state": macd_signal
+            },
+            "data_points": len(price_data),
+            "last_updated": datetime.now().isoformat(),
+            "indicators_calculated": ["rsi_14", "macd"]
         }
 
-    try:
-        with open(output_path, 'w') as f:
-            json.dump(all_technicals, f, indent=2)
-        
-        # Count stocks with missing RSI
-        missing_rsi_count = sum(1 for data in all_technicals.values() if data.get('rsi_14') is None)
-        
-        logger.info(f"Successfully generated technical indicators for {len(all_technicals)} stocks at {output_path}")
-        if missing_rsi_count > 0:
-            logger.warning(f"RSI_14 unavailable for {missing_rsi_count}/{len(all_technicals)} stocks (insufficient historical data)")
-    except IOError as e:
-        logger.error(f"Error writing technical indicators to {output_path}: {e}")
+    def generate_all_technicals(self) -> dict:
+        """Generate technical indicators for all stocks"""
+        self.logger.info("🚀 Starting technical indicators generation from API...")
 
+        # Fetch company list
+        companies = self.fetch_company_list()
+        if not companies:
+            self.logger.error("No companies found, cannot generate technicals")
+            return {}
+
+        self.logger.info(f"📊 Found {len(companies)} companies to process")
+
+        all_technicals = {}
+        processed_count = 0
+        error_count = 0
+
+        for company in companies:
+            symbol = company.get('symbol')
+            if not symbol:
+                continue
+
+            try:
+                # Fetch historical data (90 days for better indicator calculation)
+                price_history = self.fetch_company_history(symbol, days=90)
+
+                if not price_history or len(price_history) < 14:
+                    self.logger.debug(f"⚠️ Insufficient data for {symbol} ({len(price_history)} points)")
+                    error_count += 1
+                    continue
+
+                # Calculate technical indicators
+                technicals = self.calculate_technical_indicators(price_history)
+
+                if technicals:
+                    all_technicals[symbol] = technicals
+                    processed_count += 1
+
+                    if processed_count % 50 == 0:
+                        self.logger.info(f"📈 Processed {processed_count}/{len(companies)} companies...")
+
+            except Exception as e:
+                self.logger.error(f"❌ Error processing {symbol}: {e}")
+                error_count += 1
+                continue
+
+        self.logger.info(f"✅ Generated technical indicators for {processed_count} companies")
+        if error_count > 0:
+            self.logger.warning(f"⚠️ Failed to process {error_count} companies")
+
+        return all_technicals
+
+    def save_technicals(self, technicals_data: dict, output_dir: str = "data/technicals") -> str:
+        """Save technical indicators to JSON file"""
+        # Create output directory
+        output_path = Path(output_dir)
+        output_path.mkdir(parents=True, exist_ok=True)
+
+        # Generate filename with timestamp
+        timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+        filename = f"technicals_{timestamp}.json"
+        filepath = output_path / filename
+
+        try:
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(technicals_data, f, indent=2, ensure_ascii=False)
+
+            self.logger.info(f"💾 Saved technical indicators to {filepath}")
+            self.logger.info(f"   📊 Total stocks: {len(technicals_data)}")
+            self.logger.info(f"   📁 File: {filepath}")
+
+            return str(filepath)
+
+        except Exception as e:
+            self.logger.error(f"❌ Failed to save technical indicators: {e}")
+            return ""
 
 def main():
-    """Main function to generate technical indicators."""
-    logger = setup_logging("generate_technicals")
-    
-    today_str = datetime.now().strftime('%Y-%m-%d')
-    historical_prices_path = Path(create_historical_filepath("prices"))
-    output_path = Path(create_data_filepath("technicals", today_str))
-    
-    calculate_technical_indicators(historical_prices_path, output_path, logger)
+    """Main function to generate technical indicators from API"""
+    generator = TechnicalIndicatorsGenerator()
+
+    # Generate technical indicators
+    technicals = generator.generate_all_technicals()
+
+    if technicals:
+        # Save to file
+        filepath = generator.save_technicals(technicals)
+        if filepath:
+            print(f"✅ Technical indicators generated successfully: {filepath}")
+        else:
+            print("❌ Failed to save technical indicators")
+            sys.exit(1)
+    else:
+        print("❌ No technical indicators generated")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()

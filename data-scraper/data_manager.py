@@ -201,6 +201,58 @@ class DataManager:
             'database_available': DATABASE_AVAILABLE
         }
 
+    def migrate_json_to_postgres(self) -> Dict[str, Any]:
+        """
+        Migrate existing JSON data to PostgreSQL database
+
+        Returns:
+            Migration summary
+        """
+        if not DATABASE_AVAILABLE:
+            return {'error': 'Database not available', 'migrated_files': 0, 'total_records': 0}
+
+        daily_dir = self.data_dir / "daily"
+        if not daily_dir.exists():
+            return {'error': 'Daily directory not found', 'migrated_files': 0, 'total_records': 0}
+
+        migrated_files = 0
+        total_records = 0
+        errors = []
+
+        # Find all JSON files with historical data
+        json_files = list(daily_dir.glob("*_price_volume_history_*.json"))
+
+        for json_file in json_files:
+            try:
+                # Load JSON data
+                with open(json_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+
+                if not data:
+                    continue
+
+                # Save to PostgreSQL
+                records_saved = self.save_to_postgres(data)
+                
+                if records_saved > 0:
+                    migrated_files += 1
+                    total_records += records_saved
+                    logger.info(f"✅ Migrated {records_saved} records from {json_file.name}")
+                else:
+                    errors.append(f"No records saved from {json_file.name}")
+
+            except Exception as e:
+                error_msg = f"Failed to migrate {json_file.name}: {str(e)}"
+                logger.error(f"❌ {error_msg}")
+                errors.append(error_msg)
+
+        return {
+            'migrated_files': migrated_files,
+            'total_records': total_records,
+            'errors': errors,
+            'total_files_found': len(json_files)
+        }
+
     def _get_date_range(self, files: List[Path]) -> Dict[str, Optional[str]]:
         """Get date range from JSON files"""
         dates = []

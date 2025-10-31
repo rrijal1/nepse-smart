@@ -24,13 +24,17 @@
               <span class="font-semibold text-gray-800">{{
                 stock.symbol
               }}</span>
-              <div class="text-sm text-gray-600">{{ stock.ltp }}</div>
+              <div class="text-sm text-gray-600">
+                {{ formatNumber(stock.close) }}
+              </div>
             </div>
             <div class="text-right">
               <div class="text-green-600 font-semibold">
-                +{{ stock.diff_percent }}%
+                {{ formatPercentage(stock.change_percent) }}
               </div>
-              <div class="text-sm text-gray-600">+{{ stock.diff }}</div>
+              <div class="text-sm text-gray-600">
+                +{{ formatNumber(stock.change) }}
+              </div>
             </div>
           </div>
         </div>
@@ -56,14 +60,16 @@
               <span class="font-semibold text-gray-800">{{
                 stock.symbol
               }}</span>
-              <div class="text-sm text-gray-600">{{ stock.ltp }}</div>
+              <div class="text-sm text-gray-600">
+                {{ formatNumber(stock.close) }}
+              </div>
             </div>
             <div class="text-right">
               <div class="text-red-600 font-semibold">
-                {{ stock.diff_percent }}%
+                {{ formatPercentage(stock.change_percent) }}
               </div>
               <div class="text-sm text-gray-600">
-                {{ stock.diff }}
+                {{ formatNumber(stock.change) }}
               </div>
             </div>
           </div>
@@ -101,14 +107,14 @@ const fetchMarketData = async () => {
       0,
       topGainers.length,
       ...[
-        { symbol: "NABIL", ltp: 1235, diff: 45, diff_percent: 3.78 },
-        { symbol: "SCBL", ltp: 567, diff: 23, diff_percent: 4.23 },
-        { symbol: "HBL", ltp: 689, diff: 28, diff_percent: 4.24 },
-        { symbol: "EBL", ltp: 890, diff: 35, diff_percent: 4.09 },
-        { symbol: "BOKL", ltp: 345, diff: 15, diff_percent: 4.55 },
-        { symbol: "MBL", ltp: 456, diff: 18, diff_percent: 4.11 },
-        { symbol: "CBL", ltp: 278, diff: 11, diff_percent: 4.12 },
-        { symbol: "PRVU", ltp: 567, diff: 22, diff_percent: 4.04 },
+        { symbol: "NABIL", close: 1235, change: 45, change_percent: 3.78 },
+        { symbol: "SCBL", close: 567, change: 23, change_percent: 4.23 },
+        { symbol: "HBL", close: 689, change: 28, change_percent: 4.24 },
+        { symbol: "EBL", close: 890, change: 35, change_percent: 4.09 },
+        { symbol: "BOKL", close: 345, change: 15, change_percent: 4.55 },
+        { symbol: "MBL", close: 456, change: 18, change_percent: 4.11 },
+        { symbol: "CBL", close: 278, change: 11, change_percent: 4.12 },
+        { symbol: "PRVU", close: 567, change: 22, change_percent: 4.04 },
       ]
     );
   }
@@ -121,14 +127,14 @@ const fetchMarketData = async () => {
       0,
       topLosers.length,
       ...[
-        { symbol: "UPPER", ltp: 456, diff: -23, diff_percent: -4.79 },
-        { symbol: "CHCL", ltp: 567, diff: -28, diff_percent: -4.7 },
-        { symbol: "AKPL", ltp: 234, diff: -12, diff_percent: -4.88 },
-        { symbol: "UMHL", ltp: 345, diff: -17, diff_percent: -4.69 },
-        { symbol: "NYADI", ltp: 789, diff: -38, diff_percent: -4.59 },
-        { symbol: "KKHC", ltp: 123, diff: -6, diff_percent: -4.65 },
-        { symbol: "RHPL", ltp: 456, diff: -22, diff_percent: -4.61 },
-        { symbol: "SHEL", ltp: 234, diff: -11, diff_percent: -4.49 },
+        { symbol: "UPPER", close: 456, change: -23, change_percent: -4.79 },
+        { symbol: "CHCL", close: 567, change: -28, change_percent: -4.7 },
+        { symbol: "AKPL", close: 234, change: -12, change_percent: -4.88 },
+        { symbol: "UMHL", close: 345, change: -17, change_percent: -4.69 },
+        { symbol: "NYADI", close: 789, change: -38, change_percent: -4.59 },
+        { symbol: "KKHC", close: 123, change: -6, change_percent: -4.65 },
+        { symbol: "RHPL", close: 456, change: -22, change_percent: -4.61 },
+        { symbol: "SHEL", close: 234, change: -11, change_percent: -4.49 },
       ]
     );
   }
@@ -139,4 +145,17 @@ const fetchMarketData = async () => {
 onMounted(() => {
   fetchMarketData();
 });
+
+// Format percentage to 2 decimal places
+const formatPercentage = (value: number) => {
+  if (value === null || value === undefined) return "0.00%";
+  const sign = value >= 0 ? "+" : "";
+  return `${sign}${value.toFixed(2)}%`;
+};
+
+// Format number to 2 decimal places
+const formatNumber = (value: number) => {
+  if (value === null || value === undefined) return "0.00";
+  return value.toFixed(2);
+};
 </script>

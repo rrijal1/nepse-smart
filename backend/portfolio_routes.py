@@ -30,7 +30,7 @@ def get_current_price(symbol: str) -> Optional[float]:
         prices = nepse_data.get_price_volume()
         for stock in prices:
             if stock.get('symbol') == symbol:
-                return stock.get('ltp') or stock.get('close_price')
+                return stock.get('close')  # Use 'close' field from API
         return None
     except Exception as e:
         logger.error(f"Error fetching price for {symbol}: {e}")
@@ -43,10 +43,10 @@ def get_stock_data(symbol: str) -> dict:
         for stock in prices:
             if stock.get('symbol') == symbol:
                 return {
-                    'ltp': stock.get('ltp') or stock.get('close_price'),
-                    'change': stock.get('change'),
-                    'change_percent': stock.get('percent_change'),
-                    'volume': stock.get('volume', 'N/A')
+                    'ltp': stock.get('close'),  # Use 'close' as LTP
+                    'change': None,  # API doesn't provide change data
+                    'change_percent': None,  # API doesn't provide percent change
+                    'volume': str(stock.get('volume', 'N/A'))
                 }
         return {}
     except Exception as e:
@@ -61,7 +61,7 @@ def get_watchlist(db: Session = Depends(get_db)):
     try:
         watchlist_items = db.query(Watchlist).order_by(
             Watchlist.favorite.desc(),
-            Watchlist.added_date.desc()
+            Watchlist.created_at.desc()
         ).all()
         
         result = []
@@ -116,6 +116,7 @@ def add_to_watchlist(
         # Create new watchlist item
         db_item = Watchlist(
             symbol=watchlist_item.symbol.upper(),
+            added_date=date.today(),
             favorite=watchlist_item.favorite,
             notes=watchlist_item.notes
         )

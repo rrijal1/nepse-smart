@@ -185,12 +185,14 @@ export const checkMarketStatus = async () => {
 
 export const fetchHistoricalPrices = async (symbol?: string) => {
   try {
-    // Use the API endpoint - axios instance already has /api baseURL
-    const url = symbol
-      ? `/historical-prices?symbol=${encodeURIComponent(symbol)}`
-      : "/historical-prices";
+    // Use the company history endpoint instead of the removed historical-prices endpoint
+    if (!symbol) {
+      return { data: [], error: "Symbol is required for historical prices" };
+    }
 
-    const response = await api.get(url);
+    const response = await api.get(
+      `/company-history/${encodeURIComponent(symbol)}?days=365`
+    );
 
     if (response.data.error) {
       return { data: [], error: response.data.error };

@@ -1,5 +1,5 @@
 # Simple Dockerfile - install packages directly in container
-FROM python:3.13-slim
+FROM python:3.11-slim
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -11,13 +11,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-# Copy and install requirements
+# Set Python path to include current directory
+ENV PYTHONPATH=/app
+
+# Install uv for faster package installation
+RUN pip install --no-cache-dir uv
+
+# Copy and install requirements using uv (much faster than pip)
 COPY requirements.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir -r /tmp/requirements.txt
+RUN uv pip install --system -r /tmp/requirements.txt
 
 # Copy application files
 COPY backend/ /app/backend/
-COPY data/ /app/data/ 
+COPY data/ /app/data/
+COPY data-scraper/ /app/data-scraper/
 # Create non-root user
 RUN useradd --create-home --shell /bin/bash nepse \
     && chown -R nepse:nepse /app

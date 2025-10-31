@@ -347,6 +347,7 @@ import {
   updateWatchlistItem,
   removeFromWatchlist,
   addToWatchlist,
+  addToPortfolio,
   type WatchlistItem,
 } from "../services/portfolio";
 import axios from "axios";
@@ -434,7 +435,6 @@ const closeAddPortfolioModal = () => {
 
 const submitAddToPortfolio = async () => {
   try {
-    const { addToPortfolio } = await import("../services/portfolio");
     await addToPortfolio(
       addPortfolioForm.value.symbol,
       addPortfolioForm.value.quantity,

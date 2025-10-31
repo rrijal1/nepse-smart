@@ -55,6 +55,8 @@ coverage/
 htmlcov/
 .pytest_cache/
 .cache/
+csv_exports/
+
 
 # Temporary & Backup Files
 *.tmp

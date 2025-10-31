@@ -109,493 +109,67 @@ class NEPSEOfficialDataFetcher(ScraperBase):
         return self._run_collection(all_methods, include_floorsheet=False, collection_type="comprehensive")
     
     def run_historical_price_volume_collection(self, days_back: int = 30) -> Dict[str, Any]:
-        """Run historical price/volume data collection for all stocks"""
-        from datetime import datetime, timedelta
+        """Run historical price/volume data collection for all stocks
         
-        results = {
+        ⚠️ DEPRECATED: Historical data scraping is disabled. 
+        Data is now sourced from PostgreSQL database.
+        """
+        self.logger.warning("⚠️ Historical data scraping is disabled. Data is now sourced from PostgreSQL database.")
+        return {
             "scraper": "nepse_official_api",
             "collection_type": "historical_price_volume",
+            "status": "disabled",
+            "message": "Historical data scraping is disabled. Data is now sourced from PostgreSQL database.",
             "timestamp": time.time(),
-            "date": datetime.now().strftime("%Y-%m-%d"),
-            "successful_methods": [],
-            "failed_methods": [],
-            "empty_methods": [],
-            "total_methods": 0,
-            "success_count": 0,
-            "failure_count": 0,
-            "empty_count": 0,
-            "total_records": 0,
-            "total_fetch_time": 0,
-            "days_back": days_back
+            "date": datetime.now().strftime("%Y-%m-%d")
         }
-        
-        self.log_success(f"Starting historical price/volume collection for last {days_back} days...")
-        collection_start = time.time()
-        
-        # Generate business dates (skip weekends)
-        business_dates = []
-        current_date = datetime.now()
-        
-        for i in range(days_back + 1):
-            check_date = current_date - timedelta(days=i)
-            # Skip weekends (Saturday=5, Sunday=6)
-            if check_date.weekday() < 5:
-                business_dates.append(check_date.strftime('%Y-%m-%d'))
-        
-        results["total_methods"] = len(business_dates)
-        
-        # Fetch data for each business date
-        for business_date in business_dates:
-            method_name = f"price_volume_history_{business_date.replace('-', '_')}"
-            
-            try:
-                self.log_success(f"Fetching price/volume data for {business_date}...")
-                start_time = time.time()
-                
-                data = self.nepse.getPriceVolumeHistory(business_date)
-                fetch_time = time.time() - start_time
-                
-                if data and isinstance(data, dict) and 'content' in data:
-                    content = data['content']
-                    if content:
-                        result = {
-                            "method_name": method_name,
-                            "business_date": business_date,
-                            "data": data,
-                            "timestamp": time.time(),
-                            "date": datetime.now().strftime("%Y-%m-%d"),
-                            "fetch_time_seconds": round(fetch_time, 2),
-                            "record_count": len(content),
-                            "status": "success"
-                        }
-                        
-                        results["successful_methods"].append(result)
-                        results["success_count"] += 1
-                        results["total_records"] += len(content)
-                        results["total_fetch_time"] += fetch_time
-                        
-                        # Save individual date data
-                        from pathlib import Path
-                        import json
-                        
-                        date_str = datetime.now().strftime('%Y-%m-%d')
-                        data_dir = Path(__file__).parent.parent / 'data' / 'daily'
-                        data_dir.mkdir(parents=True, exist_ok=True)
-                        
-                        filename = data_dir / f"{date_str}_price_volume_history_{business_date.replace('-', '_')}.json"
-                        with open(filename, 'w', encoding='utf-8') as f:
-                            json.dump(data, f, ensure_ascii=False, indent=2, default=str)
-                        
-                        self.logger.info(f"✅ {method_name}: {len(content)} stocks → {filename}")
-                    else:
-                        results["empty_methods"].append({
-                            "method_name": method_name,
-                            "business_date": business_date,
-                            "status": "empty"
-                        })
-                        results["empty_count"] += 1
-                else:
-                    results["failed_methods"].append({
-                        "method_name": method_name,
-                        "business_date": business_date,
-                        "error": "Invalid response format",
-                        "status": "error"
-                    })
-                    results["failure_count"] += 1
-                    
-            except Exception as e:
-                results["failed_methods"].append({
-                    "method_name": method_name,
-                    "business_date": business_date,
-                    "error": str(e),
-                    "status": "error"
-                })
-                results["failure_count"] += 1
-            
-            time.sleep(0.5)  # Brief pause between requests
-        
-        results["total_collection_time"] = round(time.time() - collection_start, 2)
-        return results
     
     def run_complete_historical_price_volume_collection(self) -> Dict[str, Any]:
-        """Run complete historical price/volume data collection - go back as far as possible"""
-        from datetime import datetime, timedelta
+        """Run complete historical price/volume data collection - go back as far as possible
         
-        results = {
+        ⚠️ DEPRECATED: Historical data scraping is disabled. 
+        Data is now sourced from PostgreSQL database.
+        """
+        self.logger.warning("⚠️ Historical data scraping is disabled. Data is now sourced from PostgreSQL database.")
+        return {
             "scraper": "nepse_official_api",
             "collection_type": "complete_historical_price_volume",
+            "status": "disabled",
+            "message": "Historical data scraping is disabled. Data is now sourced from PostgreSQL database.",
             "timestamp": time.time(),
-            "date": datetime.now().strftime("%Y-%m-%d"),
-            "successful_methods": [],
-            "failed_methods": [],
-            "empty_methods": [],
-            "total_methods": 0,
-            "success_count": 0,
-            "failure_count": 0,
-            "empty_count": 0,
-            "total_records": 0,
-            "total_fetch_time": 0,
-            "date_range": {}
+            "date": datetime.now().strftime("%Y-%m-%d")
         }
-        
-        self.log_success("Starting complete historical price/volume collection - downloading all available data...")
-        collection_start = time.time()
-        
-        # Start from today and go back until we can't get data anymore
-        business_dates = []
-        current_date = datetime.now()
-        consecutive_failures = 0
-        max_consecutive_failures = 5  # Stop after 5 consecutive failures
-        
-        # Try up to 5 years back (roughly 1250 business days)
-        max_days_back = 1250
-        
-        for i in range(max_days_back):
-            check_date = current_date - timedelta(days=i)
-            # Skip weekends (Saturday=5, Sunday=6)
-            if check_date.weekday() < 5:
-                business_date = check_date.strftime('%Y-%m-%d')
-                business_dates.append(business_date)
-                
-                method_name = f"price_volume_history_{business_date.replace('-', '_')}"
-                
-                try:
-                    self.log_success(f"Fetching price/volume data for {business_date}...")
-                    start_time = time.time()
-                    
-                    data = self.nepse.getPriceVolumeHistory(business_date)
-                    fetch_time = time.time() - start_time
-                    
-                    if data and isinstance(data, dict) and 'content' in data:
-                        content = data['content']
-                        if content:
-                            result = {
-                                "method_name": method_name,
-                                "business_date": business_date,
-                                "data": data,
-                                "timestamp": time.time(),
-                                "date": datetime.now().strftime("%Y-%m-%d"),
-                                "fetch_time_seconds": round(fetch_time, 2),
-                                "record_count": len(content),
-                                "status": "success"
-                            }
-                            
-                            results["successful_methods"].append(result)
-                            results["success_count"] += 1
-                            results["total_records"] += len(content)
-                            results["total_fetch_time"] += fetch_time
-                            consecutive_failures = 0  # Reset consecutive failures
-                            
-                            # Save individual date data
-                            from pathlib import Path
-                            import json
-                            
-                            date_str = datetime.now().strftime('%Y-%m-%d')
-                            data_dir = Path(__file__).parent.parent / 'data' / 'historical'
-                            data_dir.mkdir(parents=True, exist_ok=True)
-                            
-                            filename = data_dir / f"{date_str}_price_volume_history_{business_date.replace('-', '_')}.json"
-                            with open(filename, 'w', encoding='utf-8') as f:
-                                json.dump(data, f, ensure_ascii=False, indent=2, default=str)
-                            
-                            self.logger.info(f"✅ {method_name}: {len(content)} stocks → {filename}")
-                        else:
-                            results["empty_methods"].append({
-                                "method_name": method_name,
-                                "business_date": business_date,
-                                "status": "empty"
-                            })
-                            results["empty_count"] += 1
-                            consecutive_failures += 1
-                    else:
-                        results["failed_methods"].append({
-                            "method_name": method_name,
-                            "business_date": business_date,
-                            "error": "Invalid response format",
-                            "status": "error"
-                        })
-                        results["failure_count"] += 1
-                        consecutive_failures += 1
-                        
-                except Exception as e:
-                    results["failed_methods"].append({
-                        "method_name": method_name,
-                        "business_date": business_date,
-                        "error": str(e),
-                        "status": "error"
-                    })
-                    results["failure_count"] += 1
-                    consecutive_failures += 1
-                
-                # Stop if we've had too many consecutive failures (likely reached the limit of available data)
-                if consecutive_failures >= max_consecutive_failures:
-                    self.log_success(f"Stopping collection after {consecutive_failures} consecutive failures - likely reached end of available data")
-                    break
-                
-                time.sleep(0.5)  # Brief pause between requests
-        
-        results["total_methods"] = len(business_dates)
-        
-        # Set date range
-        if results["successful_methods"]:
-            successful_dates = [m["business_date"] for m in results["successful_methods"]]
-            results["date_range"] = {
-                "start_date": min(successful_dates),
-                "end_date": max(successful_dates),
-                "business_days": len(successful_dates)
-            }
-        
-        results["total_collection_time"] = round(time.time() - collection_start, 2)
-        return results
     
     def run_complete_historical_company_data_collection(self) -> Dict[str, Any]:
-        """Run complete historical data collection for all companies using individual company history"""
-        from datetime import datetime
+        """Run complete historical data collection for all companies using individual company history
         
-        results = {
+        ⚠️ DEPRECATED: Historical data scraping is disabled. 
+        Data is now sourced from PostgreSQL database.
+        """
+        self.logger.warning("⚠️ Historical data scraping is disabled. Data is now sourced from PostgreSQL database.")
+        return {
             "scraper": "nepse_official_api",
             "collection_type": "complete_historical_company_data",
+            "status": "disabled",
+            "message": "Historical data scraping is disabled. Data is now sourced from PostgreSQL database.",
             "timestamp": time.time(),
-            "date": datetime.now().strftime("%Y-%m-%d"),
-            "successful_methods": [],
-            "failed_methods": [],
-            "empty_methods": [],
-            "total_methods": 0,
-            "success_count": 0,
-            "failure_count": 0,
-            "empty_count": 0,
-            "total_records": 0,
-            "total_fetch_time": 0,
-            "companies_processed": []
+            "date": datetime.now().strftime("%Y-%m-%d")
         }
-        
-        self.log_success("Starting complete historical company data collection - downloading historical data for ALL companies...")
-        collection_start = time.time()
-        
-        # First get the list of all companies
-        try:
-            self.log_success("Fetching company list...")
-            companies_data = self.nepse.getSecurityList()
-            
-            if not companies_data:
-                self.log_error("Failed to get company list")
-                return results
-            
-            # getSecurityList returns a list directly
-            if isinstance(companies_data, list):
-                companies = companies_data
-            elif isinstance(companies_data, dict) and 'content' in companies_data:
-                companies = companies_data['content']
-            else:
-                self.log_error("Unexpected company list format")
-                return results
-                
-            results["total_methods"] = len(companies)
-            
-            self.log_success(f"Found {len(companies)} companies to process")
-            
-        except Exception as e:
-            self.log_error(f"Failed to get company list: {e}")
-            return results
-        
-        # Process each company
-        for i, company in enumerate(companies, 1):
-            symbol = company.get('symbol', '')
-            security_id = company.get('id', '')
-            
-            if not symbol:
-                continue
-                
-            try:
-                self.log_success(f"[{i}/{len(companies)}] Fetching historical data for {symbol}...")
-                start_time = time.time()
-                
-                # Get historical data for this company
-                data = self.nepse.getCompanyPriceVolumeHistory(symbol)
-                fetch_time = time.time() - start_time
-                
-                if data and 'content' in data and data['content']:
-                    content = data['content']
-                    
-                    result = {
-                        "method_name": f"company_history_{symbol}",
-                        "symbol": symbol,
-                        "security_id": security_id,
-                        "data": data,
-                        "timestamp": time.time(),
-                        "date": datetime.now().strftime("%Y-%m-%d"),
-                        "fetch_time_seconds": round(fetch_time, 2),
-                        "record_count": len(content),
-                        "status": "success"
-                    }
-                    
-                    results["successful_methods"].append(result)
-                    results["success_count"] += 1
-                    results["total_records"] += len(content)
-                    results["total_fetch_time"] += fetch_time
-                    results["companies_processed"].append(symbol)
-                    
-                    # Save individual company data
-                    from pathlib import Path
-                    import json
-                    
-                    date_str = datetime.now().strftime('%Y-%m-%d')
-                    data_dir = Path(__file__).parent.parent / 'data' / 'historical' / 'companies'
-                    data_dir.mkdir(parents=True, exist_ok=True)
-                    
-                    filename = data_dir / f"{date_str}_company_history_{symbol}.json"
-                    with open(filename, 'w', encoding='utf-8') as f:
-                        json.dump(data, f, ensure_ascii=False, indent=2, default=str)
-                    
-                    self.logger.info(f"✅ {symbol}: {len(content)} historical records → {filename}")
-                    
-                else:
-                    results["empty_methods"].append({
-                        "method_name": f"company_history_{symbol}",
-                        "symbol": symbol,
-                        "status": "empty"
-                    })
-                    results["empty_count"] += 1
-                    
-            except Exception as e:
-                results["failed_methods"].append({
-                    "method_name": f"company_history_{symbol}",
-                    "symbol": symbol,
-                    "error": str(e),
-                    "status": "error"
-                })
-                results["failure_count"] += 1
-                self.log_error(f"Failed to get historical data for {symbol}: {e}")
-            
-            # Brief pause between requests
-            time.sleep(0.2)
-        
-        results["total_collection_time"] = round(time.time() - collection_start, 2)
-        return results
     
     def aggregate_historical_price_volume_data(self, days_back: int = 30) -> Dict[str, Any]:
-        """Aggregate historical price/volume data into a consolidated format for analysis"""
-        from pathlib import Path
-        from datetime import datetime, timedelta
-        import json
+        """Aggregate historical price/volume data into a consolidated format for analysis
         
-        results = {
+        ⚠️ DEPRECATED: Historical data scraping is disabled. 
+        Data is now sourced from PostgreSQL database.
+        """
+        self.logger.warning("⚠️ Historical data scraping is disabled. Data is now sourced from PostgreSQL database.")
+        return {
             "aggregation_date": datetime.now().strftime("%Y-%m-%d"),
             "days_back": days_back,
-            "total_stocks": 0,
-            "total_records": 0,
-            "date_range": {},
-            "stocks_data": {},
-            "summary_stats": {}
+            "status": "disabled",
+            "message": "Historical data scraping is disabled. Data is now sourced from PostgreSQL database.",
+            "timestamp": time.time()
         }
-        
-        self.log_success(f"Aggregating historical price/volume data for last {days_back} days...")
-        
-        # Generate business dates
-        business_dates = []
-        current_date = datetime.now()
-        
-        for i in range(days_back + 1):
-            check_date = current_date - timedelta(days=i)
-            if check_date.weekday() < 5:  # Skip weekends
-                business_dates.append(check_date.strftime('%Y-%m-%d'))
-        
-        results["date_range"] = {
-            "start_date": min(business_dates),
-            "end_date": max(business_dates),
-            "business_days": len(business_dates)
-        }
-        
-        data_dir = Path(__file__).parent.parent / 'data' / 'daily'
-        stocks_data = {}
-        
-        # Process each business date
-        for business_date in business_dates:
-            file_pattern = f"*_price_volume_history_{business_date.replace('-', '_')}.json"
-            matching_files = list(data_dir.glob(file_pattern))
-            
-            if matching_files:
-                file_path = matching_files[0]  # Should only be one
-                
-                try:
-                    with open(file_path, 'r', encoding='utf-8') as f:
-                        data = json.load(f)
-                    
-                    if isinstance(data, dict) and 'content' in data:
-                        day_data = data['content']
-                        
-                        for stock_record in day_data:
-                            symbol = stock_record['symbol']
-                            
-                            if symbol not in stocks_data:
-                                stocks_data[symbol] = {
-                                    "symbol": symbol,
-                                    "security_name": stock_record.get('securityName', ''),
-                                    "security_id": stock_record.get('securityId', ''),
-                                    "historical_data": []
-                                }
-                            
-                            # Add this day's data
-                            stocks_data[symbol]["historical_data"].append({
-                                "date": business_date,
-                                "open": stock_record.get('openPrice'),
-                                "high": stock_record.get('highPrice'),
-                                "low": stock_record.get('lowPrice'),
-                                "close": stock_record.get('closePrice'),
-                                "volume": stock_record.get('totalTradedQuantity'),
-                                "value": stock_record.get('totalTradedValue'),
-                                "trades": stock_record.get('totalTrades'),
-                                "prev_close": stock_record.get('previousDayClosePrice'),
-                                "avg_price": stock_record.get('averageTradedPrice'),
-                                "market_cap": stock_record.get('marketCapitalization'),
-                                "52w_high": stock_record.get('fiftyTwoWeekHigh'),
-                                "52w_low": stock_record.get('fiftyTwoWeekLow')
-                            })
-                        
-                        results["total_records"] += len(day_data)
-                        self.log_success(f"Processed {business_date}: {len(day_data)} stocks")
-                        
-                except Exception as e:
-                    self.log_error(f"Failed to process {file_path}: {e}")
-        
-        results["stocks_data"] = stocks_data
-        results["total_stocks"] = len(stocks_data)
-        
-        # Calculate summary statistics
-        if stocks_data:
-            total_volume = sum(
-                sum(day_data.get('volume', 0) for day_data in stock['historical_data'])
-                for stock in stocks_data.values()
-            )
-            total_value = sum(
-                sum(day_data.get('value', 0) for day_data in stock['historical_data'])
-                for stock in stocks_data.values()
-            )
-            
-            results["summary_stats"] = {
-                "total_volume": total_volume,
-                "total_value": total_value,
-                "avg_daily_volume": total_volume / len(business_dates) if business_dates else 0,
-                "avg_daily_value": total_value / len(business_dates) if business_dates else 0,
-                "most_active_stocks": sorted(
-                    [(symbol, sum(d.get('volume', 0) for d in data['historical_data'])) 
-                     for symbol, data in stocks_data.items()],
-                    key=lambda x: x[1], 
-                    reverse=True
-                )[:10]
-            }
-        
-        # Save aggregated data
-        output_file = data_dir / f"{datetime.now().strftime('%Y-%m-%d')}_historical_price_volume_aggregated.json"
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(results, f, indent=2, default=str, ensure_ascii=False)
-        
-        self.log_success(f"✅ Aggregated data saved: {output_file}")
-        self.log_success(f"   Total stocks: {results['total_stocks']:,}")
-        self.log_success(f"   Total records: {results['total_records']:,}")
-        self.log_success(f"   Date range: {results['date_range']['start_date']} to {results['date_range']['end_date']}")
-        
-        return results
     
     def run_daily_company_data_update(self) -> Dict[str, Any]:
         """Update existing company historical files with latest trading day's data"""
