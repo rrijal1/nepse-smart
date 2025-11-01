@@ -50,7 +50,7 @@ from backend.data_manager import DataManager
 app = FastAPI(
     title="NEPSE Analytics API - Enhanced", 
     version="2.0.0",
-    description="Comprehensive NEPSE market data API using our own scraped data"
+    description="Comprehensive NEPSE market data API."
 )
 
 # CORS middleware for frontend
