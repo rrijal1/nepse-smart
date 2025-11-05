@@ -1,0 +1,27 @@
+{
+  "supplyList": [
+    {
+      "totalQuantity": 1000,
+      "totalOrder": 1,
+      "securityId": 9290,
+      "symbol": "HLICF",
+      "securityName": "HLI Large Cap Fund"
+    }
+  ],
+  "demandList": [
+    {
+      "totalQuantity": 195756,
+      "totalOrder": 848,
+      "securityId": 9287,
+      "symbol": "MABEL",
+      "securityName": "Mabilung Energy Limited"
+    },
+    {
+      "totalQuantity": 19077,
+      "totalOrder": 8,
+      "securityId": 9290,
+      "symbol": "HLICF",
+      "securityName": "HLI Large Cap Fund"
+    }
+  ]
+}
