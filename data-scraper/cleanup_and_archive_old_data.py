@@ -44,11 +44,13 @@ def archive_old_files(data_dir: Path, keep_days: int = 7, dry_run: bool = False)
     keep_dates = set(get_business_days(keep_days))
     print(f"📅 Keeping active files from: {', '.join(sorted(keep_dates, reverse=True))}")
     
-    # Pattern to match data files: YYYY-MM-DD_<name>.json
-    pattern = re.compile(r'^(\d{4}-\d{2}-\d{2})_(.+)\.json$')
+    # Pattern to match data files: YYYY-MM-DD_<name>.json or YYYY_MM_DD_<name>.json
+    # Support both hyphen and underscore formats
+    pattern_hyphen = re.compile(r'^(\d{4}-\d{2}-\d{2})_(.+)\.json$')
+    pattern_underscore = re.compile(r'^(\d{4})_(\d{2})_(\d{2})_(.+)\.json$')
     
-    # Create archive base directory
-    archive_base = data_dir.parent / 'archive'
+    # Create archive base directory inside data/
+    archive_base = data_dir / 'archive'
     
     stats = {
         'kept': 0,
@@ -68,14 +70,22 @@ def archive_old_files(data_dir: Path, keep_days: int = 7, dry_run: bool = False)
         print(f"\n📂 Processing {subdir_name}/ directory...")
         
         for file_path in subdir.glob('*.json'):
-            match = pattern.match(file_path.name)
+            # Try hyphen format first (YYYY-MM-DD)
+            match = pattern_hyphen.match(file_path.name)
             
-            if not match:
-                print(f"  ⚠️  Skipping non-matching file: {file_path.name}")
-                continue
-            
-            file_date = match.group(1)
-            file_type = match.group(2)
+            if match:
+                file_date = match.group(1)
+                file_type = match.group(2)
+            else:
+                # Try underscore format (YYYY_MM_DD)
+                match = pattern_underscore.match(file_path.name)
+                if match:
+                    # Convert underscore format to hyphen format
+                    file_date = f"{match.group(1)}-{match.group(2)}-{match.group(3)}"
+                    file_type = match.group(4)
+                else:
+                    print(f"  ⚠️  Skipping non-matching file: {file_path.name}")
+                    continue
             
             if file_date in keep_dates:
                 # Keep this file active
@@ -103,6 +113,8 @@ def archive_old_files(data_dir: Path, keep_days: int = 7, dry_run: bool = False)
                 
                 if dry_run:
                     print(f"  [DRY RUN] Would archive: {file_path.name} → {archive_path.relative_to(data_dir.parent)} ({file_size_kb:.1f} KB)")
+                    stats['archived'] += 1
+                    stats['total_size_archived'] += file_size
                 else:
                     try:
                         shutil.move(str(file_path), str(archive_path))
