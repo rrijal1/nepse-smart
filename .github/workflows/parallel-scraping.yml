@@ -69,6 +69,12 @@ jobs:
           python production_main.py --scraper official_api
         continue-on-error: true
 
+      - name: Cleanup old lookup files
+        run: |
+          cd data-scraper
+          python cleanup_old_lookup_files.py --days 7
+        continue-on-error: true
+
       - name: Configure Git
         if: always()
         run: |
