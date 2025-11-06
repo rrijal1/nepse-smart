@@ -34,7 +34,7 @@ def get_year_month_from_date(date_str: str) -> tuple:
         return None, None
 
 def archive_old_files(data_dir: Path, keep_days: int = 7, dry_run: bool = False):
-    """Archive old data files to archive directory"""
+    """Archive old data files to archive directory with flat YYYY/MM structure"""
     
     if not data_dir.exists():
         print(f"❌ Data directory not found: {data_dir}")
@@ -91,8 +91,8 @@ def archive_old_files(data_dir: Path, keep_days: int = 7, dry_run: bool = False)
                     stats['failed'] += 1
                     continue
                 
-                # Create archive directory structure: archive/YYYY/MM/daily or lookup
-                archive_dir = archive_base / str(year) / f"{month:02d}" / subdir_name
+                # Flatter structure: archive/YYYY/MM/ (no subdirectories)
+                archive_dir = archive_base / str(year) / f"{month:02d}"
                 
                 if not dry_run:
                     archive_dir.mkdir(parents=True, exist_ok=True)
@@ -150,16 +150,14 @@ def list_archive_structure(archive_dir: Path):
         
         for month_dir in months:
             month_name = datetime.strptime(month_dir.name, '%m').strftime('%B')
-            print(f"   │   ├── {month_dir.name}/ ({month_name})")
             
-            # Count files in daily and lookup
-            for subdir in ['daily', 'lookup']:
-                subdir_path = month_dir / subdir
-                if subdir_path.exists():
-                    file_count = len(list(subdir_path.glob('*.json')))
-                    total_size = sum(f.stat().st_size for f in subdir_path.glob('*.json'))
-                    size_mb = total_size / (1024 * 1024)
-                    print(f"   │   │   ├── {subdir}/ ({file_count} files, {size_mb:.2f} MB)")
+            # Count all JSON files directly in the month directory
+            json_files = list(month_dir.glob('*.json'))
+            file_count = len(json_files)
+            total_size = sum(f.stat().st_size for f in json_files)
+            size_mb = total_size / (1024 * 1024)
+            
+            print(f"   │   ├── {month_dir.name}/ ({month_name}) - {file_count} files, {size_mb:.2f} MB")
 
 def main():
     import argparse
