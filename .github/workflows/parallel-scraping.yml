@@ -1,8 +1,9 @@
-name: Parallel NEPSE Data Collection
+name: NEPSE Data Collection
 
 on:
   schedule:
-    - cron: "0 23 * * 0-4" # 11:00 PM NPT on weekdays (Sun-Thu)
+    # Run daily at 4:30 AM Nepal time (10:45 PM UTC previous day)
+    - cron: "45 22 * * *"
 
   # Allow manual triggering
   workflow_dispatch:
@@ -77,14 +78,12 @@ jobs:
       - name: Commit official API data
         if: always()
         run: |
-          git stash || true
-          git pull --rebase
-          git stash pop || true
-          git add data/daily/*_security_list.json data/daily/*_market_status.json data/daily/*_floorsheet.json data/daily/*_nepse_index.json data/daily/*_nepse_subindices.json data/daily/*_supply_demand.json data/lookup/*_security_id_key_map.json data/lookup/*_sector_scrips.json || true
+          git pull --rebase origin main
+          git add data/ || true
           if git diff --staged --quiet; then
             echo "No official API data to commit"
           else
-            git commit -m "Official NEPSE API data (security list + market status + floorsheet + indices + supply/demand + lookup + sectors): $(date +'%Y-%m-%d')" || true
+            git commit -m "Update official API data - $(date +'%Y-%m-%d')" || true
             git push || true
           fi
 
