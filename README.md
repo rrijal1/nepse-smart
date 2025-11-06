@@ -163,6 +163,42 @@ print(f'Cleanup completed: {result}')
 | **Technical Indicators** | Generated      | Daily     | JSON              | ✅ Active                                         |
 | **Historical OHLCV**     | NEPSE Official | On-demand | PostgreSQL        | ✅ Migrated                                       |
 
+### Data Architecture
+
+The system uses a **three-tier data storage strategy**:
+
+#### 1️⃣ **Primary: PostgreSQL Database** (Source of Truth)
+- All historical market data (prices, floorsheet, indices, macro)
+- Queried by backend for all historical data requests
+- Complete trading history since 2024 (55,442+ records)
+- Never automatically deleted - permanent storage
+
+#### 2️⃣ **Secondary: Active JSON Files** (Recent + Fallback)
+- `data/daily/` - Last 7 business days of market data
+- `data/lookup/` - Last 7 business days of reference data
+- Used as fallback when database unavailable
+- **Tracked in Git** for immediate deployment readiness
+- Automatically archived after 7 days
+
+#### 3️⃣ **Tertiary: Archive** (Backup Only)
+- `data/archive/` - Historical JSON files organized by year/month
+- **NOT queried by the application**
+- **NOT tracked in Git** (excluded via `.gitignore`)
+- Kept for disaster recovery and auditing
+- Can be used to restore PostgreSQL if needed
+- See `data/archive/README.md` for details
+
+**Data Flow:**
+```
+GitHub Actions Scraper
+    ↓
+Saves to data/daily/ (JSON) ← Backend fallback
+    ↓
+Saves to PostgreSQL ← Backend primary
+    ↓
+After 7 days: Archived to data/archive/ (backup only)
+```
+
 ## 🔌 API Reference
 
 ### Market Data Endpoints
