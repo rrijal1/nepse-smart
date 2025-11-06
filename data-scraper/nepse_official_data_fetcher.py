@@ -29,22 +29,110 @@ class NEPSEOfficialDataFetcher(ScraperBase):
         self.nepse = Nepse()
         self.nepse.setTLSVerification(False)
         
+        # Configure HTTP client with longer timeout and HTTP/1.1 for stability
+        # HTTP/2 connections can be unstable for long-running requests
+        import httpx
+        self.nepse.client = httpx.Client(
+            verify=False,
+            http2=False,  # Disable HTTP/2 to avoid connection state issues
+            timeout=300.0,  # 5 minute timeout for long-running requests
+            follow_redirects=True
+        )
+        
         # Define core data methods for official API (high-value, authenticated data)
         self.core_methods = {
             "security_list": self.nepse.getSecurityList,
             "market_status": self.nepse.getMarketStatus,
-            "floorsheet": self.nepse.getFloorSheet,
+            "floorsheet": lambda: self.fetch_floorsheet_with_retry(),
             "nepse_index": self.nepse.getNepseIndex,
             "nepse_subindices": self.nepse.getNepseSubIndices,
             "supply_demand": self.nepse.getSupplyDemand,
             "security_id_key_map": self.nepse.getSecurityIDKeyMap,
             "sector_scrips": self.nepse.getSectorScrips,
             # Historical price/volume data for ALL stocks
-            "price_volume_history_today": lambda: self.nepse.getPriceVolumeHistory(datetime.now().strftime('%Y-%m-%d')),
+            "price_volume_history_today": lambda: self.fetch_price_volume_with_retry(),
         }
         
         # Remove comprehensive methods - keeping only core official data
         self.comprehensive_methods = {}
+    
+    def fetch_floorsheet_with_retry(self, max_retries: int = 3) -> List:
+        """Fetch floorsheet with retry logic and error handling
+        
+        The getFloorSheet() method can fail due to API response format changes.
+        This wrapper provides proper error handling and retry logic.
+        """
+        for attempt in range(max_retries):
+            try:
+                self.log_success(f"Fetching floorsheet (attempt {attempt + 1}/{max_retries})...")
+                # getFloorSheet() returns a list directly, not a dict
+                floorsheet = self.nepse.getFloorSheet(show_progress=False)
+                
+                # Validate that we got a list
+                if not isinstance(floorsheet, list):
+                    raise ValueError(f"Expected list, got {type(floorsheet)}")
+                
+                self.log_success(f"✅ Floorsheet fetched: {len(floorsheet)} records")
+                return floorsheet
+                
+            except Exception as e:
+                self.log_error(f"❌ Floorsheet fetch attempt {attempt + 1} failed: {e}")
+                if attempt < max_retries - 1:
+                    wait_time = (attempt + 1) * 2  # Exponential backoff: 2s, 4s, 6s
+                    self.log_warning(f"Retrying in {wait_time}s...")
+                    time.sleep(wait_time)
+                else:
+                    self.log_error(f"❌ All {max_retries} floorsheet fetch attempts failed")
+                    raise
+    
+    def fetch_price_volume_with_retry(self, max_retries: int = 3) -> Dict:
+        """Fetch price/volume history with retry logic and timeout handling
+        
+        The getPriceVolumeHistory() method can timeout for long requests.
+        This wrapper provides retry logic and better error handling.
+        """
+        for attempt in range(max_retries):
+            try:
+                today = datetime.now().strftime('%Y-%m-%d')
+                self.log_success(f"Fetching price/volume history for {today} (attempt {attempt + 1}/{max_retries})...")
+                
+                # getPriceVolumeHistory returns a dict with pagination info
+                price_volume = self.nepse.getPriceVolumeHistory(today)
+                
+                # Validate response
+                if not isinstance(price_volume, dict):
+                    raise ValueError(f"Expected dict, got {type(price_volume)}")
+                
+                # Extract content if available
+                if 'content' in price_volume:
+                    records = price_volume['content']
+                    self.log_success(f"✅ Price/volume history fetched: {len(records)} records")
+                else:
+                    self.log_warning(f"⚠️ Price/volume response has no 'content' key, returning full response")
+                
+                return price_volume
+                
+            except Exception as e:
+                error_msg = str(e)
+                self.log_error(f"❌ Price/volume fetch attempt {attempt + 1} failed: {error_msg}")
+                
+                # Check if it's a timeout/connection error
+                if "timeout" in error_msg.lower() or "connection" in error_msg.lower():
+                    if attempt < max_retries - 1:
+                        wait_time = (attempt + 1) * 5  # Longer backoff for timeouts: 5s, 10s, 15s
+                        self.log_warning(f"Connection issue detected, retrying in {wait_time}s...")
+                        time.sleep(wait_time)
+                        
+                        # Reinitialize the Nepse client to reset connection
+                        self.log_success("Reinitializing Nepse client...")
+                        self.nepse = Nepse()
+                        self.nepse.setTLSVerification(False)
+                    else:
+                        self.log_error(f"❌ All {max_retries} price/volume fetch attempts failed")
+                        raise
+                else:
+                    # Non-connection errors, fail fast
+                    raise
     
     def fetch_method_data(self, method_name: str, method_func, timeout: int = 30) -> Optional[Dict]:
         """Fetch data from a specific API method with error handling"""
