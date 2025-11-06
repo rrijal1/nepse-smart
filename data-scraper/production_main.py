@@ -15,8 +15,6 @@ from pathlib import Path
 from typing import Dict, List, Optional
 import argparse
 
-from production_prices import ProductionPricesScraper
-
 from production_indices import ProductionIndicesScraper
 from production_macro import ProductionMacroScraper
 from production_companies import ProductionCompaniesScraper
@@ -37,7 +35,6 @@ class ProductionOrchestrator:
         self.logger.info(f"🚀 Running {scraper_type} scraper...")
         
         scrapers = {
-            'prices': ProductionPricesScraper,
             'indices': ProductionIndicesScraper,
             'macro': ProductionMacroScraper,
             'companies': ProductionCompaniesScraper,
@@ -134,10 +131,10 @@ class ProductionOrchestrator:
         """Run all scrapers sequentially"""
         self.logger.info("🔄 Starting complete NEPSE data collection...")
         
-        # Official API for authenticated data (company_list, market_status only)
+        # Official API for authenticated data (security list, floorsheet, market status, indices, price/volume)
         official_scrapers = ['official_api']
-                # Traditional scrapers for remaining data (prices and macro economic data)
-        traditional_scrapers = ['prices', 'macro']
+        # Traditional scrapers for macro economic data
+        traditional_scrapers = ['macro']
         
         results = {}
         
@@ -237,9 +234,9 @@ def main():
     """Main entry point for the production orchestrator"""
     parser = argparse.ArgumentParser(description='NEPSE Production Data Scraper')
     parser.add_argument('--scraper', 
-                       choices=['prices', 'macro', 'official_api', 'all'],
+                       choices=['macro', 'official_api', 'all'],
                        default='all',
-                       help='Specific scraper to run (official_api=security/status/floorsheet/indices/gainers + price/volume history for all stocks, prices=price data, macro=economic data)')
+                       help='Specific scraper to run (official_api=security list, floorsheet, market status, indices, price/volume data | macro=NRB economic indicators)')
     parser.add_argument('--verbose', '-v', action='store_true',
                        help='Enable verbose logging')
     

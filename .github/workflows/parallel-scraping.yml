@@ -16,11 +16,10 @@ on:
         options:
           - all
           - official_api
-          - prices
           - macro
 
 jobs:
-  # Job 1: Official NEPSE API (Company List, Floorsheet, Market Status)
+  # Job 1: Official NEPSE API (security list, floorsheet, market status, indices, price/volume data)
   scrape-official-api:
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -87,7 +86,7 @@ jobs:
             git push || true
           fi
 
-  # Job 2: NRB Banking Data
+  # Job 2: NRB Banking Data (macroeconomic indicators)
   scrape-macro:
     uses: rrijal1/nepse-smart/.github/workflows/reusable-scraper.yml@main
     with:
@@ -96,13 +95,3 @@ jobs:
       contents: write
       actions: read
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.scraper_type == 'all' || inputs.scraper_type == 'macro' }}
-
-  # Job 3: ShareSansar Stock Prices
-  scrape-prices:
-    uses: rrijal1/nepse-smart/.github/workflows/reusable-scraper.yml@main
-    with:
-      scraper_name: prices
-    permissions:
-      contents: write
-      actions: read
-    if: ${{ github.event_name != 'workflow_dispatch' || inputs.scraper_type == 'all' || inputs.scraper_type == 'prices' }}
