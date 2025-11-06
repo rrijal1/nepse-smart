@@ -10,7 +10,7 @@ import json
 import os
 import time
 from datetime import datetime
-from typing import Dict, List, Optional, Any, Callable
+from typing import Dict, List, Optional, Any, Callable, NoReturn
 
 # Import the NepseUnofficialApi library
 from nepse import Nepse
@@ -56,11 +56,17 @@ class NEPSEOfficialDataFetcher(ScraperBase):
         # Remove comprehensive methods - keeping only core official data
         self.comprehensive_methods = {}
     
-    def fetch_floorsheet_with_retry(self, max_retries: int = 3) -> List:
+    def fetch_floorsheet_with_retry(self, max_retries: int = 3) -> List[Dict[str, Any]]:
         """Fetch floorsheet with retry logic and error handling
         
         The getFloorSheet() method can fail due to API response format changes.
         This wrapper provides proper error handling and retry logic.
+        
+        Returns:
+            List of floorsheet records (dicts)
+            
+        Raises:
+            Exception: If all retry attempts fail
         """
         for attempt in range(max_retries):
             try:
@@ -84,12 +90,21 @@ class NEPSEOfficialDataFetcher(ScraperBase):
                 else:
                     self.log_error(f"❌ All {max_retries} floorsheet fetch attempts failed")
                     raise
+        
+        # This line should never be reached due to raise above, but satisfies type checker
+        raise RuntimeError("Unexpected code path in fetch_floorsheet_with_retry")
     
-    def fetch_price_volume_with_retry(self, max_retries: int = 3) -> Dict:
+    def fetch_price_volume_with_retry(self, max_retries: int = 3) -> Dict[str, Any]:
         """Fetch price/volume history with retry logic and timeout handling
         
         The getPriceVolumeHistory() method can timeout for long requests.
         This wrapper provides retry logic and better error handling.
+        
+        Returns:
+            Dict containing price/volume history data with 'content' key
+            
+        Raises:
+            Exception: If all retry attempts fail
         """
         for attempt in range(max_retries):
             try:
@@ -133,6 +148,9 @@ class NEPSEOfficialDataFetcher(ScraperBase):
                 else:
                     # Non-connection errors, fail fast
                     raise
+        
+        # This line should never be reached due to raise above, but satisfies type checker
+        raise RuntimeError("Unexpected code path in fetch_price_volume_with_retry")
     
     def fetch_method_data(self, method_name: str, method_func, timeout: int = 30) -> Optional[Dict]:
         """Fetch data from a specific API method with error handling"""
