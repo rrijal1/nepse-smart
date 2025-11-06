@@ -75,6 +75,12 @@ jobs:
           python cleanup_old_lookup_files.py --days 7
         continue-on-error: true
 
+      - name: Archive old data files
+        run: |
+          cd data-scraper
+          python cleanup_and_archive_old_data.py --days 7
+        continue-on-error: true
+
       - name: Configure Git
         if: always()
         run: |
