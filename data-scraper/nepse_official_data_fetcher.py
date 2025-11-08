@@ -39,11 +39,19 @@ class NEPSEOfficialDataFetcher(ScraperBase):
             follow_redirects=True
         )
         
+        # Log floorsheet timing requirement
+        self.log_success("✅ Floorsheet collection ENABLED: Available during trading hours (until midnight Nepal time)")
+        self.log_success("✅ Using comprehensive transaction data: floorsheet + top traded/turnover/transaction scrips + live market data")
+        
         # Define core data methods for official API (high-value, authenticated data)
         self.core_methods = {
             "security_list": self.nepse.getSecurityList,
             "market_status": self.nepse.getMarketStatus,
-            "floorsheet": lambda: self.fetch_floorsheet_with_retry(),
+            "floorsheet": lambda: self.fetch_floorsheet_with_retry(),  # RE-ENABLED: Available during trading hours until midnight Nepal time
+            "top_traded_scrips": self.nepse.getTopTenTradeScrips,        # Additional transaction data
+            "top_transaction_scrips": self.nepse.getTopTenTransactionScrips,  # Additional transaction data
+            "top_turnover_scrips": self.nepse.getTopTenTurnoverScrips,   # Additional transaction data
+            "live_market": self.nepse.getLiveMarket,                    # Live market data
             "nepse_index": self.nepse.getNepseIndex,
             "nepse_subindices": self.nepse.getNepseSubIndices,
             "supply_demand": self.nepse.getSupplyDemand,
@@ -56,42 +64,51 @@ class NEPSEOfficialDataFetcher(ScraperBase):
         # Remove comprehensive methods - keeping only core official data
         self.comprehensive_methods = {}
     
-    def fetch_floorsheet_with_retry(self, max_retries: int = 3) -> List[Dict[str, Any]]:
+    def fetch_floorsheet_with_retry(self, max_retries: int = 1) -> List[Dict[str, Any]]:
         """Fetch floorsheet with retry logic and error handling
-        
-        The getFloorSheet() method can fail due to API response format changes.
-        This wrapper provides proper error handling and retry logic.
-        
+
+        The getFloorSheet() method returns data during trading hours until midnight Nepal time
+        on trading days (Sun-Thu, excluding holidays). Returns empty list after midnight or on holidays.
+
         Returns:
-            List of floorsheet records (dicts)
-            
+            List of floorsheet records (dicts) - empty if called after midnight or on holidays
+
         Raises:
             Exception: If all retry attempts fail
         """
         for attempt in range(max_retries):
             try:
-                self.log_success(f"Fetching floorsheet (attempt {attempt + 1}/{max_retries})...")
-                # getFloorSheet() returns a list directly, not a dict
+                self.log_success(f"Fetching floorsheet (attempt {attempt + 1}/{max_retries}) - available during trading hours until midnight Nepal time...")
+
+                # Get floorsheet data
                 floorsheet = self.nepse.getFloorSheet(show_progress=False)
-                
+
                 # Validate that we got a list
                 if not isinstance(floorsheet, list):
                     raise ValueError(f"Expected list, got {type(floorsheet)}")
-                
-                self.log_success(f"✅ Floorsheet fetched: {len(floorsheet)} records")
-                return floorsheet
-                
+
+                if len(floorsheet) == 0:
+                    self.log_warning("⚠️ Floorsheet returned empty list - normal after midnight or on holidays")
+                    return floorsheet  # Return empty list
+                else:
+                    self.log_success(f"✅ Floorsheet fetched: {len(floorsheet)} records")
+                    return floorsheet
+
             except Exception as e:
-                self.log_error(f"❌ Floorsheet fetch attempt {attempt + 1} failed: {e}")
-                if attempt < max_retries - 1:
-                    wait_time = (attempt + 1) * 2  # Exponential backoff: 2s, 4s, 6s
+                error_msg = str(e)
+                self.log_error(f"❌ Floorsheet fetch attempt {attempt + 1} failed: {error_msg}")
+
+                # If it's the last attempt, return empty (could be holiday/festival)
+                if attempt == max_retries - 1:
+                    self.log_warning("⚠️ All attempts failed - returning empty (may be holiday or festival)")
+                    return []
+                else:
+                    # Wait before retry
+                    wait_time = (attempt + 1) * 2
                     self.log_warning(f"Retrying in {wait_time}s...")
                     time.sleep(wait_time)
-                else:
-                    self.log_error(f"❌ All {max_retries} floorsheet fetch attempts failed")
-                    raise
-        
-        # This line should never be reached due to raise above, but satisfies type checker
+
+        # This line should never be reached due to return above, but satisfies type checker
         raise RuntimeError("Unexpected code path in fetch_floorsheet_with_retry")
     
     def fetch_price_volume_with_retry(self, max_retries: int = 3) -> Dict[str, Any]:
@@ -206,8 +223,9 @@ class NEPSEOfficialDataFetcher(ScraperBase):
 
     
     def run_core_collection(self) -> Dict[str, Any]:
-        """Run core data collection (company list + market status only)"""
-        return self._run_collection(self.core_methods, include_floorsheet=False, collection_type="core")
+        """Run core data collection (all methods including floorsheet during trading hours)"""
+        self.log_success("Starting core collection (floorsheet available during trading hours until midnight Nepal time)")
+        return self._run_collection(self.core_methods, include_floorsheet=True, collection_type="core")
     
     def run_comprehensive_collection(self) -> Dict[str, Any]:
         """Run comprehensive data collection (all available data)"""

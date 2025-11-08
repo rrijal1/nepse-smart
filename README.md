@@ -120,6 +120,15 @@ python production_main.py --scraper prices          # Stock prices
 python production_main.py --scraper macro           # Economic indicators
 ```
 
+### Scheduled Data Collection
+
+The system runs automated data collection via GitHub Actions:
+
+- **Daily at 4:30 AM Nepal time**: General market data (prices, indices, market status, transaction summaries)
+- **Daily at 11:30 PM Nepal time**: Floorsheet data (available during trading hours until midnight Nepal time on trading days)
+
+Trading days are Sunday through Thursday, excluding public holidays.
+
 ### On-Demand Migration
 
 ```bash

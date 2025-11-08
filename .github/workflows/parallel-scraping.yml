@@ -2,8 +2,8 @@ name: NEPSE Data Collection
 
 on:
   schedule:
-    # Run daily at 4:30 AM Nepal time (10:45 PM UTC previous day)
-    - cron: "45 22 * * *"
+    # Run all data collection at 9:00 PM Nepal time (3:15 PM UTC)
+    - cron: "15 15 * * 0-4"
 
   # Allow manual triggering
   workflow_dispatch:
@@ -17,6 +17,7 @@ on:
           - all
           - official_api
           - macro
+          - floorsheet
 
 jobs:
   # Job 1: Official NEPSE API (security list, floorsheet, market status, indices, price/volume data)
@@ -107,3 +108,86 @@ jobs:
       contents: write
       actions: read
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.scraper_type == 'all' || inputs.scraper_type == 'macro' }}
+
+  # Job 3: Floorsheet Collection (runs at 9:00 PM Nepal time)
+  scrape-floorsheet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.scraper_type == 'all' || inputs.scraper_type == 'floorsheet' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-scraper-${{ hashFiles('data-scraper/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-scraper-
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wkhtmltopdf xvfb
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r data-scraper/requirements.txt
+
+      - name: Create data directories
+        run: |
+          mkdir -p data/daily data/historical data-scraper/logs
+
+      - name: Scrape floorsheet data
+        id: scrape-floorsheet
+        run: |
+          cd data-scraper
+          echo "Starting floorsheet collection at $(date) UTC"
+          echo "This corresponds to $(date -d '+5 hours 45 minutes') Nepal time"
+          python -c "
+          from nepse_official_data_fetcher import NEPSEOfficialDataFetcher
+          fetcher = NEPSEOfficialDataFetcher()
+          try:
+              result = fetcher.fetch_method_data('floorsheet', fetcher.core_methods['floorsheet'])
+              record_count = result.get('record_count', 0) if result else 0
+              print(f'Floorsheet collection result: {record_count} records')
+              if record_count > 0:
+                  print('SUCCESS: Floorsheet data collected!')
+              else:
+                  print('INFO: No floorsheet data available (may be holiday or after midnight Nepal time)')
+          finally:
+              fetcher.close_session()
+          "
+        continue-on-error: true
+
+      - name: Configure Git
+        if: always()
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action - Floorsheet Collector"
+
+      - name: Commit floorsheet data
+        if: always()
+        run: |
+          git pull --rebase origin main
+          git add data/ || true
+          if git diff --staged --quiet; then
+            echo "No floorsheet data to commit"
+          else
+            git commit -m "Update floorsheet data - $(date +'%Y-%m-%d')" || true
+            git push || true
+          fi
