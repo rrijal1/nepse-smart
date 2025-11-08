@@ -1,21 +1,25 @@
 # Data Archive - Backup Storage
 
 ## Purpose
+
 This directory contains **archived JSON data files** that are kept as **backup only**. These files are **NOT** actively used by the application.
 
 ## Data Sources
 
 ### Primary: PostgreSQL Database
+
 - All historical market data is stored in PostgreSQL Cloud SQL
 - Backend queries the database for historical data
 - Database contains complete trading history since 2024
 
 ### Secondary: Active JSON Files
+
 - Last 7 business days of data in `../daily/` and `../lookup/`
 - Used as fallback when database is unavailable
 - Automatically archived here after 7 business days
 
 ### Backup: Archive (This Directory)
+
 - Historical JSON files organized by year/month
 - **Not queried by the application**
 - Kept for disaster recovery and auditing purposes
@@ -46,6 +50,7 @@ archive/
 ## File Formats
 
 Both date formats are supported:
+
 - `YYYY-MM-DD_<data_type>.json` (current format with hyphens)
 - `YYYY_MM_DD_<data_type>.json` (legacy format with underscores)
 

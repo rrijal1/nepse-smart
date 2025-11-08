@@ -168,12 +168,14 @@ print(f'Cleanup completed: {result}')
 The system uses a **three-tier data storage strategy**:
 
 #### 1️⃣ **Primary: PostgreSQL Database** (Source of Truth)
+
 - All historical market data (prices, floorsheet, indices, macro)
 - Queried by backend for all historical data requests
 - Complete trading history since 2024 (55,442+ records)
 - Never automatically deleted - permanent storage
 
 #### 2️⃣ **Secondary: Active JSON Files** (Recent + Fallback)
+
 - `data/daily/` - Last 7 business days of market data
 - `data/lookup/` - Last 7 business days of reference data
 - Used as fallback when database unavailable
@@ -181,6 +183,7 @@ The system uses a **three-tier data storage strategy**:
 - Automatically archived after 7 days
 
 #### 3️⃣ **Tertiary: Archive** (Backup Only)
+
 - `data/archive/` - Historical JSON files organized by year/month
 - **NOT queried by the application**
 - **NOT tracked in Git** (excluded via `.gitignore`)
@@ -189,6 +192,7 @@ The system uses a **three-tier data storage strategy**:
 - See `data/archive/README.md` for details
 
 **Data Flow:**
+
 ```
 GitHub Actions Scraper
     ↓
