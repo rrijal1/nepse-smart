@@ -61,6 +61,9 @@ jobs:
       - name: Commit data
         if: always()
         run: |
+          # Clean workspace to avoid conflicts with concurrent jobs
+          git reset --hard HEAD
+          git clean -fd
           git pull --rebase origin main
           git add data/ || true
           if git diff --staged --quiet; then

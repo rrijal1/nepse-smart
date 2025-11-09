@@ -90,6 +90,9 @@ jobs:
       - name: Commit official API data
         if: always()
         run: |
+          # Clean workspace to avoid conflicts with concurrent jobs
+          git reset --hard HEAD
+          git clean -fd
           git pull --rebase origin main
           git add data/ || true
           if git diff --staged --quiet; then
@@ -107,6 +110,7 @@ jobs:
     permissions:
       contents: write
       actions: read
+    needs: scrape-official-api
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.scraper_type == 'all' || inputs.scraper_type == 'macro' }}
 
   # Job 3: Floorsheet Collection (runs at 9:00 PM Nepal time)
@@ -116,6 +120,7 @@ jobs:
     permissions:
       contents: write
       actions: read
+    needs: scrape-macro
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.scraper_type == 'all' || inputs.scraper_type == 'floorsheet' }}
 
     steps:
@@ -183,6 +188,9 @@ jobs:
       - name: Commit floorsheet data
         if: always()
         run: |
+          # Clean workspace to avoid conflicts with concurrent jobs
+          git reset --hard HEAD
+          git clean -fd
           git pull --rebase origin main
           git add data/ || true
           if git diff --staged --quiet; then
