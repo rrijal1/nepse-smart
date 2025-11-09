@@ -94,6 +94,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action - Official API Scraper"
+
       - name: Commit official API data
         if: always()
         run: |
