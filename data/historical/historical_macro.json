@@ -62,8 +62,8 @@
   {
     "data_type": "banking_indicators",
     "indicator": "Total Deposits",
-    "current_value": "7,479",
-    "previous_value": "7,484",
+    "current_value": "7,505",
+    "previous_value": "7,497",
     "date": "2025-11-09",
     "source": "nrb_homepage",
     "unit": "in NPR Billion"
@@ -71,8 +71,8 @@
   {
     "data_type": "banking_indicators",
     "indicator": "Commercial Banks Total Deposits",
-    "current_value": "6,722",
-    "previous_value": "6,728",
+    "current_value": "6,748",
+    "previous_value": "6,740",
     "date": "2025-11-09",
     "source": "nrb_homepage",
     "unit": "in NPR Billion"
@@ -89,7 +89,7 @@
   {
     "data_type": "banking_indicators",
     "indicator": "Total Lending",
-    "current_value": "5,636",
+    "current_value": "5,639",
     "previous_value": "5,638",
     "date": "2025-11-09",
     "source": "nrb_homepage",
@@ -98,7 +98,7 @@
   {
     "data_type": "banking_indicators",
     "indicator": "Commercial Banks Total Lending",
-    "current_value": "5,013",
+    "current_value": "5,016",
     "previous_value": "5,016",
     "date": "2025-11-09",
     "source": "nrb_homepage",
@@ -108,7 +108,7 @@
     "data_type": "banking_indicators",
     "indicator": "Other BFIs Total Lending",
     "current_value": "623",
-    "previous_value": "622",
+    "previous_value": "623",
     "date": "2025-11-09",
     "source": "nrb_homepage",
     "unit": "in NPR Billion"
@@ -116,8 +116,8 @@
   {
     "data_type": "banking_indicators",
     "indicator": "CD Ratio",
-    "current_value": "74.49",
-    "previous_value": "74.48",
+    "current_value": "74.29",
+    "previous_value": "74.35",
     "date": "2025-11-09",
     "source": "nrb_homepage",
     "unit": "in %"
