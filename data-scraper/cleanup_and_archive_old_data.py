@@ -12,13 +12,15 @@ import re
 import shutil
 
 def get_business_days(num_days: int = 7) -> list:
-    """Get list of last N business days (excluding weekends)"""
+    """Get list of last N business days (NEPSE trading days: Sunday-Thursday)"""
     business_days = []
     current_date = datetime.now()
     days_checked = 0
     
     while len(business_days) < num_days and days_checked < num_days * 2:
-        if current_date.weekday() < 5:  # Skip Saturday (5) and Sunday (6)
+        # NEPSE trading days: Sunday(6), Monday(0), Tuesday(1), Wednesday(2), Thursday(3)
+        # Skip Friday(4) and Saturday(5)
+        if current_date.weekday() not in [4, 5]:  # Skip Friday and Saturday
             business_days.append(current_date.strftime('%Y-%m-%d'))
         current_date -= timedelta(days=1)
         days_checked += 1
