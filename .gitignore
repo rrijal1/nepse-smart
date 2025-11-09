@@ -78,8 +78,12 @@ Desktop.ini
 *.wasm.backup
 
 # JSON Files and Data Directory
-*.json
-!data/**/*.json
+# Ignore JSON in specific directories, but allow data/**/*.json
+/*.json
+data-scraper/*.json
+backend/*.json
+frontend/*.json
+scripts/*.json
 data/archive/
 
 # Working Examples & Development

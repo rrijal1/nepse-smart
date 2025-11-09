@@ -175,14 +175,28 @@ jobs:
           echo "Starting floorsheet collection at $(date) UTC"
           echo "This corresponds to $(date -d '+5 hours 45 minutes') Nepal time"
           python -c "
+          import json
+          from pathlib import Path
+          from datetime import datetime
           from nepse_official_data_fetcher import NEPSEOfficialDataFetcher
+
           fetcher = NEPSEOfficialDataFetcher()
           try:
               result = fetcher.fetch_method_data('floorsheet', fetcher.core_methods['floorsheet'])
               record_count = result.get('record_count', 0) if result else 0
               print(f'Floorsheet collection result: {record_count} records')
-              if record_count > 0:
-                  print('SUCCESS: Floorsheet data collected!')
+              
+              if result and result['status'] == 'success' and result.get('data'):
+                  # Save the floorsheet data to file
+                  date_str = datetime.now().strftime('%Y-%m-%d')
+                  data_dir = Path(__file__).parent.parent / 'data' / 'daily'
+                  data_dir.mkdir(parents=True, exist_ok=True)
+                  
+                  filename = data_dir / f'{date_str}_floorsheet.json'
+                  with open(filename, 'w', encoding='utf-8') as f:
+                      json.dump(result['data'], f, ensure_ascii=False, indent=2, default=str)
+                  
+                  print(f'SUCCESS: Floorsheet data saved to {filename}')
               else:
                   print('INFO: No floorsheet data available (may be holiday or after midnight Nepal time)')
           finally:
