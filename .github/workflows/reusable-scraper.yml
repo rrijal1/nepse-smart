@@ -18,6 +18,13 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
+      - name: Clean and update workspace
+        run: |
+          # Clean any unstaged changes and pull latest
+          git reset --hard HEAD
+          git clean -fd
+          git pull --rebase origin main
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -61,10 +68,6 @@ jobs:
       - name: Commit data
         if: always()
         run: |
-          # Clean workspace to avoid conflicts with concurrent jobs
-          git reset --hard HEAD
-          git clean -fd
-          git pull --rebase origin main
           git add data/ || true
           if git diff --staged --quiet; then
             echo "No data to commit for ${{ inputs.scraper_name }}"

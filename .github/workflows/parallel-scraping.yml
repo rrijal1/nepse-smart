@@ -23,7 +23,7 @@ jobs:
   # Job 1: Official NEPSE API (security list, floorsheet, market status, indices, price/volume data)
   scrape-official-api:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     permissions:
       contents: write
       actions: read
@@ -35,6 +35,13 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
+
+      - name: Clean and update workspace
+        run: |
+          # Clean any unstaged changes and pull latest
+          git reset --hard HEAD
+          git clean -fd
+          git pull --rebase origin main
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -90,10 +97,6 @@ jobs:
       - name: Commit official API data
         if: always()
         run: |
-          # Clean workspace to avoid conflicts with concurrent jobs
-          git reset --hard HEAD
-          git clean -fd
-          git pull --rebase origin main
           git add data/ || true
           if git diff --staged --quiet; then
             echo "No official API data to commit"
@@ -129,6 +132,13 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
+
+      - name: Clean and update workspace
+        run: |
+          # Clean any unstaged changes and pull latest
+          git reset --hard HEAD
+          git clean -fd
+          git pull --rebase origin main
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -188,10 +198,6 @@ jobs:
       - name: Commit floorsheet data
         if: always()
         run: |
-          # Clean workspace to avoid conflicts with concurrent jobs
-          git reset --hard HEAD
-          git clean -fd
-          git pull --rebase origin main
           git add data/ || true
           if git diff --staged --quiet; then
             echo "No floorsheet data to commit"
