@@ -176,7 +176,7 @@ jobs:
           echo "This corresponds to $(date -d '+5 hours 45 minutes') Nepal time"
           python -c "
           import json
-          from pathlib import Path
+          import os
           from datetime import datetime
           from nepse_official_data_fetcher import NEPSEOfficialDataFetcher
 
@@ -189,10 +189,11 @@ jobs:
               if result and result['status'] == 'success' and result.get('data'):
                   # Save the floorsheet data to file
                   date_str = datetime.now().strftime('%Y-%m-%d')
-                  data_dir = Path(__file__).parent.parent / 'data' / 'daily'
-                  data_dir.mkdir(parents=True, exist_ok=True)
+                  # We're in data-scraper directory, so parent is project root
+                  data_dir = os.path.join('..', 'data', 'daily')
+                  os.makedirs(data_dir, exist_ok=True)
                   
-                  filename = data_dir / f'{date_str}_floorsheet.json'
+                  filename = os.path.join(data_dir, f'{date_str}_floorsheet.json')
                   with open(filename, 'w', encoding='utf-8') as f:
                       json.dump(result['data'], f, ensure_ascii=False, indent=2, default=str)
                   
