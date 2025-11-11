@@ -1,0 +1,33 @@
+{
+  "supplyList": [],
+  "demandList": [
+    {
+      "totalQuantity": 268217,
+      "totalOrder": 1284,
+      "securityId": 9297,
+      "symbol": "BANDIPUR",
+      "securityName": "Bandipur Cablecar and Tourism Limited"
+    },
+    {
+      "totalQuantity": 104541,
+      "totalOrder": 454,
+      "securityId": 9296,
+      "symbol": "BUNGAL",
+      "securityName": "Bungal Hydro Limited"
+    },
+    {
+      "totalQuantity": 82425,
+      "totalOrder": 573,
+      "securityId": 9295,
+      "symbol": "SWASTIK",
+      "securityName": "Swastik Laghubitta Bittiya Sanstha Limited"
+    },
+    {
+      "totalQuantity": 1877,
+      "totalOrder": 9,
+      "securityId": 9286,
+      "symbol": "SHINED",
+      "securityName": "Shine Resunga Debenture"
+    }
+  ]
+}
