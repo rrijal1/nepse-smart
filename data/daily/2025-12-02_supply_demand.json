@@ -1,0 +1,384 @@
+{
+  "supplyList": [
+    {
+      "totalQuantity": 3059,
+      "totalOrder": 2,
+      "securityId": 697,
+      "symbol": "API",
+      "securityName": "Api Power Company Ltd."
+    },
+    {
+      "totalQuantity": 3050,
+      "totalOrder": 2,
+      "securityId": 131,
+      "symbol": "NABIL",
+      "securityName": "Nabil Bank Limited"
+    },
+    {
+      "totalQuantity": 1000,
+      "totalOrder": 1,
+      "securityId": 245,
+      "symbol": "CFCL",
+      "securityName": "Central Finance Co. Ltd."
+    },
+    {
+      "totalQuantity": 520,
+      "totalOrder": 3,
+      "securityId": 134,
+      "symbol": "HBL",
+      "securityName": "Himalayan Bank Limited"
+    },
+    {
+      "totalQuantity": 500,
+      "totalOrder": 2,
+      "securityId": 183,
+      "symbol": "NIL",
+      "securityName": "Neco Insurance Limited"
+    },
+    {
+      "totalQuantity": 400,
+      "totalOrder": 5,
+      "securityId": 172,
+      "symbol": "NABBC",
+      "securityName": "Narayani Development Bank Limited"
+    },
+    {
+      "totalQuantity": 395,
+      "totalOrder": 2,
+      "securityId": 360,
+      "symbol": "AHPC",
+      "securityName": "Arun Valley Hydropower Development Co. Ltd."
+    },
+    {
+      "totalQuantity": 359,
+      "totalOrder": 1,
+      "securityId": 227,
+      "symbol": "BFC",
+      "securityName": "Best Finance Company Ltd."
+    },
+    {
+      "totalQuantity": 250,
+      "totalOrder": 1,
+      "securityId": 135,
+      "symbol": "SBI",
+      "securityName": "Nepal SBI Bank Limited"
+    },
+    {
+      "totalQuantity": 241,
+      "totalOrder": 1,
+      "securityId": 180,
+      "symbol": "UAIL",
+      "securityName": "United Ajod Insurance Limited"
+    },
+    {
+      "totalQuantity": 240,
+      "totalOrder": 1,
+      "securityId": 459,
+      "symbol": "KSBBL",
+      "securityName": "Kamana Sewa Bikas Bank Limited"
+    },
+    {
+      "totalQuantity": 200,
+      "totalOrder": 1,
+      "securityId": 559,
+      "symbol": "NLG",
+      "securityName": "NLG Insurance Company Ltd."
+    },
+    {
+      "totalQuantity": 145,
+      "totalOrder": 1,
+      "securityId": 471,
+      "symbol": "MPFL",
+      "securityName": "Multipurpose Finance Company  Limited"
+    },
+    {
+      "totalQuantity": 120,
+      "totalOrder": 2,
+      "securityId": 2743,
+      "symbol": "NGPL",
+      "securityName": "Ngadi Group Power Ltd."
+    },
+    {
+      "totalQuantity": 100,
+      "totalOrder": 1,
+      "securityId": 2761,
+      "symbol": "SMATA",
+      "securityName": "Samata Gharelu Laghubitta Bittiya Sanstha Limited"
+    },
+    {
+      "totalQuantity": 100,
+      "totalOrder": 1,
+      "securityId": 147,
+      "symbol": "SHL",
+      "securityName": "Soaltee Hotel Limited"
+    },
+    {
+      "totalQuantity": 30,
+      "totalOrder": 1,
+      "securityId": 338,
+      "symbol": "PROFL",
+      "securityName": "Progressive Finance Limited"
+    },
+    {
+      "totalQuantity": 20,
+      "totalOrder": 1,
+      "securityId": 156,
+      "symbol": "BBC",
+      "securityName": "Bishal Bazar Company Limited"
+    },
+    {
+      "totalQuantity": 15,
+      "totalOrder": 1,
+      "securityId": 263,
+      "symbol": "GMFIL",
+      "securityName": "Guheshowori Merchant Bank & Finance Co. Ltd."
+    },
+    {
+      "totalQuantity": 10,
+      "totalOrder": 1,
+      "securityId": 187,
+      "symbol": "NLIC",
+      "securityName": "Nepal Life Insurance Co. Ltd."
+    }
+  ],
+  "demandList": [
+    {
+      "totalQuantity": 26314,
+      "totalOrder": 74,
+      "securityId": 198,
+      "symbol": "NLO",
+      "securityName": "Nepal Lube Oil Limited"
+    },
+    {
+      "totalQuantity": 3100,
+      "totalOrder": 3,
+      "securityId": 697,
+      "symbol": "API",
+      "securityName": "Api Power Company Ltd."
+    },
+    {
+      "totalQuantity": 3070,
+      "totalOrder": 3,
+      "securityId": 2809,
+      "symbol": "SHIVM",
+      "securityName": "SHIVAM CEMENTS LTD"
+    },
+    {
+      "totalQuantity": 1500,
+      "totalOrder": 1,
+      "securityId": 2743,
+      "symbol": "NGPL",
+      "securityName": "Ngadi Group Power Ltd."
+    },
+    {
+      "totalQuantity": 1300,
+      "totalOrder": 2,
+      "securityId": 139,
+      "symbol": "NICA",
+      "securityName": "NIC Asia Bank Ltd."
+    },
+    {
+      "totalQuantity": 1200,
+      "totalOrder": 2,
+      "securityId": 417,
+      "symbol": "GBBL",
+      "securityName": "Garima Bikas Bank Limited"
+    },
+    {
+      "totalQuantity": 1000,
+      "totalOrder": 3,
+      "securityId": 131,
+      "symbol": "NABIL",
+      "securityName": "Nabil Bank Limited"
+    },
+    {
+      "totalQuantity": 1000,
+      "totalOrder": 2,
+      "securityId": 141,
+      "symbol": "LSL",
+      "securityName": "Laxmi Sunrise Bank Limited"
+    },
+    {
+      "totalQuantity": 673,
+      "totalOrder": 2,
+      "securityId": 2919,
+      "symbol": "NIFRA",
+      "securityName": "Nepal Infrastructure Bank Limited"
+    },
+    {
+      "totalQuantity": 650,
+      "totalOrder": 2,
+      "securityId": 2898,
+      "symbol": "NRN",
+      "securityName": "NRN Infrastructure and Development Limited"
+    },
+    {
+      "totalQuantity": 600,
+      "totalOrder": 2,
+      "securityId": 255,
+      "symbol": "PRVU",
+      "securityName": "Prabhu  Bank Limited"
+    },
+    {
+      "totalQuantity": 500,
+      "totalOrder": 1,
+      "securityId": 473,
+      "symbol": "SHINE",
+      "securityName": "Shine Resunga Development Bank Ltd."
+    },
+    {
+      "totalQuantity": 500,
+      "totalOrder": 1,
+      "securityId": 403,
+      "symbol": "SJLIC",
+      "securityName": "SuryaJyoti Life Insurance Company Limited"
+    },
+    {
+      "totalQuantity": 450,
+      "totalOrder": 1,
+      "securityId": 472,
+      "symbol": "SADBL",
+      "securityName": "Shangrila Development Bank Ltd."
+    },
+    {
+      "totalQuantity": 250,
+      "totalOrder": 1,
+      "securityId": 686,
+      "symbol": "BARUN",
+      "securityName": "Barun Hydropower Co. Ltd."
+    },
+    {
+      "totalQuantity": 200,
+      "totalOrder": 1,
+      "securityId": 148,
+      "symbol": "TRH",
+      "securityName": "Taragaon Regency Hotel Limited"
+    },
+    {
+      "totalQuantity": 180,
+      "totalOrder": 2,
+      "securityId": 235,
+      "symbol": "HDL",
+      "securityName": "Himalayan Distillery Limited"
+    },
+    {
+      "totalQuantity": 175,
+      "totalOrder": 1,
+      "securityId": 140,
+      "symbol": "MBL",
+      "securityName": "Machhapuchhre Bank Limited"
+    },
+    {
+      "totalQuantity": 155,
+      "totalOrder": 1,
+      "securityId": 2881,
+      "symbol": "NRIC",
+      "securityName": "Nepal Reinsurance Company Limited"
+    },
+    {
+      "totalQuantity": 150,
+      "totalOrder": 3,
+      "securityId": 474,
+      "symbol": "MNBBL",
+      "securityName": "Muktinath Bikas Bank Ltd."
+    },
+    {
+      "totalQuantity": 145,
+      "totalOrder": 4,
+      "securityId": 307,
+      "symbol": "NTC",
+      "securityName": "Nepal Doorsanchar Company Limited"
+    },
+    {
+      "totalQuantity": 100,
+      "totalOrder": 1,
+      "securityId": 232,
+      "symbol": "GFCL",
+      "securityName": "Goodwill Finance Limited"
+    },
+    {
+      "totalQuantity": 100,
+      "totalOrder": 1,
+      "securityId": 172,
+      "symbol": "NABBC",
+      "securityName": "Narayani Development Bank Limited"
+    },
+    {
+      "totalQuantity": 65,
+      "totalOrder": 2,
+      "securityId": 134,
+      "symbol": "HBL",
+      "securityName": "Himalayan Bank Limited"
+    },
+    {
+      "totalQuantity": 65,
+      "totalOrder": 2,
+      "securityId": 210,
+      "symbol": "CIT",
+      "securityName": "Citizen Investment Trust"
+    },
+    {
+      "totalQuantity": 63,
+      "totalOrder": 2,
+      "securityId": 154,
+      "symbol": "CHCL",
+      "securityName": "Chilime Hydropower Company Limited"
+    },
+    {
+      "totalQuantity": 50,
+      "totalOrder": 1,
+      "securityId": 153,
+      "symbol": "BPCL",
+      "securityName": "Butwal Power Company Limited"
+    },
+    {
+      "totalQuantity": 50,
+      "totalOrder": 1,
+      "securityId": 176,
+      "symbol": "NICL",
+      "securityName": "Nepal Insurance Co. Ltd."
+    },
+    {
+      "totalQuantity": 30,
+      "totalOrder": 1,
+      "securityId": 184,
+      "symbol": "PRIN",
+      "securityName": "Prabhu Insurance Ltd."
+    },
+    {
+      "totalQuantity": 30,
+      "totalOrder": 1,
+      "securityId": 393,
+      "symbol": "HLI",
+      "securityName": "Himalayan Life Insurance Limited"
+    },
+    {
+      "totalQuantity": 20,
+      "totalOrder": 1,
+      "securityId": 133,
+      "symbol": "SCB",
+      "securityName": "Standard Chartered Bank Limited"
+    },
+    {
+      "totalQuantity": 15,
+      "totalOrder": 1,
+      "securityId": 179,
+      "symbol": "HEI",
+      "securityName": "Himalayan Everest Insurance Limited"
+    },
+    {
+      "totalQuantity": 10,
+      "totalOrder": 1,
+      "securityId": 213,
+      "symbol": "BNT",
+      "securityName": "Bottlers Nepal (Terai) Limited"
+    },
+    {
+      "totalQuantity": 10,
+      "totalOrder": 1,
+      "securityId": 156,
+      "symbol": "BBC",
+      "securityName": "Bishal Bazar Company Limited"
+    }
+  ]
+}
