@@ -3,6 +3,166 @@
     "data_type": "exchange_rates",
     "currency": "USD",
     "rates": [
+      "143.37",
+      "143.97"
+    ],
+    "headers": [
+      "Currency",
+      "Buy",
+      "Sell"
+    ],
+    "date": "2025-12-31",
+    "source": "nrb"
+  },
+  {
+    "data_type": "exchange_rates",
+    "currency": "EUR",
+    "rates": [
+      "168.77",
+      "169.47"
+    ],
+    "headers": [
+      "Currency",
+      "Buy",
+      "Sell"
+    ],
+    "date": "2025-12-31",
+    "source": "nrb"
+  },
+  {
+    "data_type": "exchange_rates",
+    "currency": "GBP",
+    "rates": [
+      "193.76",
+      "194.57"
+    ],
+    "headers": [
+      "Currency",
+      "Buy",
+      "Sell"
+    ],
+    "date": "2025-12-31",
+    "source": "nrb"
+  },
+  {
+    "data_type": "exchange_rates",
+    "currency": "JPY",
+    "rates": [
+      "9.20",
+      "9.24"
+    ],
+    "headers": [
+      "Currency",
+      "Buy",
+      "Sell"
+    ],
+    "date": "2025-12-31",
+    "source": "nrb"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "Total Deposits",
+    "current_value": "7,600",
+    "previous_value": "7,592",
+    "date": "2025-12-31",
+    "source": "nrb_homepage",
+    "unit": "in NPR Billion"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "Commercial Banks Total Deposits",
+    "current_value": "6,844",
+    "previous_value": "6,835",
+    "date": "2025-12-31",
+    "source": "nrb_homepage",
+    "unit": "in NPR Billion"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "Other BFIs Total Deposits",
+    "current_value": "756",
+    "previous_value": "756",
+    "date": "2025-12-31",
+    "source": "nrb_homepage",
+    "unit": "in NPR Billion"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "Total Lending",
+    "current_value": "5,693",
+    "previous_value": "5,690",
+    "date": "2025-12-31",
+    "source": "nrb_homepage",
+    "unit": "in NPR Billion"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "Commercial Banks Total Lending",
+    "current_value": "5,064",
+    "previous_value": "5,061",
+    "date": "2025-12-31",
+    "source": "nrb_homepage",
+    "unit": "in NPR Billion"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "Other BFIs Total Lending",
+    "current_value": "629",
+    "previous_value": "629",
+    "date": "2025-12-31",
+    "source": "nrb_homepage",
+    "unit": "in NPR Billion"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "CD Ratio",
+    "current_value": "74.08",
+    "previous_value": "74.11",
+    "date": "2025-12-31",
+    "source": "nrb_homepage",
+    "unit": "in %"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "Interbank Interest Rate LCY - Weighted Avg.",
+    "current_value": "2.75",
+    "previous_value": "2.75",
+    "date": "2025-12-31",
+    "source": "nrb_homepage",
+    "unit": "in %"
+  },
+  {
+    "data_type": "short_term_rates",
+    "maturity": "28 Days",
+    "rate": "2.20",
+    "date": "2025-12-31",
+    "source": "nrb_homepage"
+  },
+  {
+    "data_type": "short_term_rates",
+    "maturity": "91 Days",
+    "rate": "2.36",
+    "date": "2025-12-31",
+    "source": "nrb_homepage"
+  },
+  {
+    "data_type": "short_term_rates",
+    "maturity": "182 Days",
+    "rate": "2.42",
+    "date": "2025-12-31",
+    "source": "nrb_homepage"
+  },
+  {
+    "data_type": "short_term_rates",
+    "maturity": "364 Days",
+    "rate": "2.58",
+    "date": "2025-12-31",
+    "source": "nrb_homepage"
+  },
+  {
+    "data_type": "exchange_rates",
+    "currency": "USD",
+    "rates": [
       "143.67",
       "144.27"
     ],
