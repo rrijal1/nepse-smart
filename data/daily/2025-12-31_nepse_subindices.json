@@ -1,0 +1,93 @@
+[
+  {
+    "id": 64,
+    "index": "Microfinance Index",
+    "change": 15.9,
+    "perChange": 0.32,
+    "currentValue": 4924.62
+  },
+  {
+    "id": 65,
+    "index": "Life Insurance",
+    "change": 69.23,
+    "perChange": 0.53,
+    "currentValue": 13028.85
+  },
+  {
+    "id": 66,
+    "index": "Mutual Fund",
+    "change": 0.09,
+    "perChange": 0.47,
+    "currentValue": 20.68
+  },
+  {
+    "id": 67,
+    "index": "Investment Index",
+    "change": 0.21,
+    "perChange": 0.2,
+    "currentValue": 102.49
+  },
+  {
+    "id": 51,
+    "index": "Banking SubIndex",
+    "change": 3.46,
+    "perChange": 0.25,
+    "currentValue": 1370.63
+  },
+  {
+    "id": 52,
+    "index": "Hotels And Tourism Index",
+    "change": 63.76,
+    "perChange": 0.92,
+    "currentValue": 6950.92
+  },
+  {
+    "id": 53,
+    "index": "Others Index",
+    "change": 8.17,
+    "perChange": 0.34,
+    "currentValue": 2368.44
+  },
+  {
+    "id": 54,
+    "index": "HydroPower Index",
+    "change": 7.78,
+    "perChange": 0.23,
+    "currentValue": 3339.43
+  },
+  {
+    "id": 55,
+    "index": "Development Bank Index",
+    "change": 24.71,
+    "perChange": 0.45,
+    "currentValue": 5491.68
+  },
+  {
+    "id": 56,
+    "index": "Manufacturing And Processing",
+    "change": 136.36,
+    "perChange": 1.61,
+    "currentValue": 8578.68
+  },
+  {
+    "id": 59,
+    "index": "Non Life Insurance",
+    "change": 41.29,
+    "perChange": 0.37,
+    "currentValue": 10994.86
+  },
+  {
+    "id": 60,
+    "index": "Finance Index",
+    "change": 1.55,
+    "perChange": 0.06,
+    "currentValue": 2322.58
+  },
+  {
+    "id": 61,
+    "index": "Trading Index",
+    "change": 12.77,
+    "perChange": 0.33,
+    "currentValue": 3799.52
+  }
+]
