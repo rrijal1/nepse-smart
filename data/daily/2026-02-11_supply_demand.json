@@ -1,0 +1,34 @@
+{
+  "supplyList": [
+    {
+      "totalQuantity": 50,
+      "totalOrder": 3,
+      "securityId": 9136,
+      "symbol": "BOKD86KA",
+      "securityName": "BOK Debenture 2086 \"KA\""
+    },
+    {
+      "totalQuantity": 25,
+      "totalOrder": 1,
+      "securityId": 9180,
+      "symbol": "NMBD89/90",
+      "securityName": "NMB Debenture 10.75%-2089/90"
+    }
+  ],
+  "demandList": [
+    {
+      "totalQuantity": 2175,
+      "totalOrder": 3,
+      "securityId": 9180,
+      "symbol": "NMBD89/90",
+      "securityName": "NMB Debenture 10.75%-2089/90"
+    },
+    {
+      "totalQuantity": 200,
+      "totalOrder": 1,
+      "securityId": 9136,
+      "symbol": "BOKD86KA",
+      "securityName": "BOK Debenture 2086 \"KA\""
+    }
+  ]
+}
