@@ -1,0 +1,2417 @@
+[
+  {
+    "symbol": "KBL",
+    "shareTraded": 1676626,
+    "closingPrice": 241.8,
+    "securityName": "Kumari Bank Limited",
+    "securityId": 142
+  },
+  {
+    "symbol": "API",
+    "shareTraded": 1429057,
+    "closingPrice": 359.0,
+    "securityName": "Api Power Company Ltd.",
+    "securityId": 697
+  },
+  {
+    "symbol": "HIDCL",
+    "shareTraded": 1205668,
+    "closingPrice": 301.0,
+    "securityName": "Hydorelectricity Investment and Development Company Ltd",
+    "securityId": 2742
+  },
+  {
+    "symbol": "NGPL",
+    "shareTraded": 1082912,
+    "closingPrice": 484.0,
+    "securityName": "Ngadi Group Power Ltd.",
+    "securityId": 2743
+  },
+  {
+    "symbol": "HDHPC",
+    "shareTraded": 1057134,
+    "closingPrice": 246.6,
+    "securityName": "Himal Dolakha Hydropower Company Limited",
+    "securityId": 2880
+  },
+  {
+    "symbol": "HIDCLP",
+    "shareTraded": 1035673,
+    "closingPrice": 226.0,
+    "securityName": "Hydorelectricity Investment and Development Company Limited Promoter",
+    "securityId": 8111
+  },
+  {
+    "symbol": "SMHL",
+    "shareTraded": 866401,
+    "closingPrice": 556.2,
+    "securityName": "Super Madi Hydropower Limited",
+    "securityId": 9146
+  },
+  {
+    "symbol": "RIDI",
+    "shareTraded": 732605,
+    "closingPrice": 356.9,
+    "securityName": "Ridi Power Company Limited",
+    "securityId": 610
+  },
+  {
+    "symbol": "AKJCL",
+    "shareTraded": 709740,
+    "closingPrice": 402.1,
+    "securityName": "Ankhu Khola Jalvidhyut Company Ltd",
+    "securityId": 2788
+  },
+  {
+    "symbol": "PRSF",
+    "shareTraded": 700582,
+    "closingPrice": 12.06,
+    "securityName": "Prabhu Smart Fund",
+    "securityId": 9174
+  },
+  {
+    "symbol": "NHPC",
+    "shareTraded": 691946,
+    "closingPrice": 301.2,
+    "securityName": "National Hydro Power Company Limited",
+    "securityId": 152
+  },
+  {
+    "symbol": "SHIVM",
+    "shareTraded": 681616,
+    "closingPrice": 698.0,
+    "securityName": "SHIVAM CEMENTS LTD",
+    "securityId": 2809
+  },
+  {
+    "symbol": "BHL",
+    "shareTraded": 672166,
+    "closingPrice": 248.0,
+    "securityName": "Balephi Hydropower Limited",
+    "securityId": 8055
+  },
+  {
+    "symbol": "UPPER",
+    "shareTraded": 664956,
+    "closingPrice": 230.0,
+    "securityName": "Upper Tamakoshi Hydropower Ltd",
+    "securityId": 2792
+  },
+  {
+    "symbol": "SSHL",
+    "shareTraded": 652839,
+    "closingPrice": 237.1,
+    "securityName": "Shiva Shree Hydropower Ltd",
+    "securityId": 2907
+  },
+  {
+    "symbol": "SHEL",
+    "shareTraded": 591764,
+    "closingPrice": 347.0,
+    "securityName": "Singati Hydro Energy Limited",
+    "securityId": 2934
+  },
+  {
+    "symbol": "NIFRA",
+    "shareTraded": 520333,
+    "closingPrice": 289.0,
+    "securityName": "Nepal Infrastructure Bank Limited",
+    "securityId": 2919
+  },
+  {
+    "symbol": "UNHPL",
+    "shareTraded": 515499,
+    "closingPrice": 556.9,
+    "securityName": "Union Hydropower Limited",
+    "securityId": 2831
+  },
+  {
+    "symbol": "NICA",
+    "shareTraded": 498555,
+    "closingPrice": 398.0,
+    "securityName": "NIC Asia Bank Ltd.",
+    "securityId": 139
+  },
+  {
+    "symbol": "HPPL",
+    "shareTraded": 479027,
+    "closingPrice": 418.2,
+    "securityName": "Himalayan Power Partner Ltd.",
+    "securityId": 2767
+  },
+  {
+    "symbol": "NIMB",
+    "shareTraded": 474499,
+    "closingPrice": 223.8,
+    "securityName": "Nepal Investment Mega Bank Limited",
+    "securityId": 132
+  },
+  {
+    "symbol": "AKPL",
+    "shareTraded": 468970,
+    "closingPrice": 302.0,
+    "securityName": "Arun Kabeli Power Ltd.",
+    "securityId": 2757
+  },
+  {
+    "symbol": "LEC",
+    "shareTraded": 432207,
+    "closingPrice": 257.6,
+    "securityName": "Liberty Energy Company Limited",
+    "securityId": 2903
+  },
+  {
+    "symbol": "UPCL",
+    "shareTraded": 393992,
+    "closingPrice": 410.0,
+    "securityName": "UNIVERSAL POWER COMPANY LTD",
+    "securityId": 2810
+  },
+  {
+    "symbol": "PRVU",
+    "shareTraded": 392802,
+    "closingPrice": 223.1,
+    "securityName": "Prabhu  Bank Limited",
+    "securityId": 255
+  },
+  {
+    "symbol": "AHPC",
+    "shareTraded": 378520,
+    "closingPrice": 310.0,
+    "securityName": "Arun Valley Hydropower Development Co. Ltd.",
+    "securityId": 360
+  },
+  {
+    "symbol": "RADHI",
+    "shareTraded": 369645,
+    "closingPrice": 899.9,
+    "securityName": "Radhi Bidyut Company Ltd",
+    "securityId": 2776
+  },
+  {
+    "symbol": "LSL",
+    "shareTraded": 352849,
+    "closingPrice": 233.9,
+    "securityName": "Laxmi Sunrise Bank Limited",
+    "securityId": 141
+  },
+  {
+    "symbol": "GBIME",
+    "shareTraded": 343362,
+    "closingPrice": 252.6,
+    "securityName": "Global IME Bank Limited",
+    "securityId": 341
+  },
+  {
+    "symbol": "NSIF2",
+    "shareTraded": 324691,
+    "closingPrice": 10.98,
+    "securityName": "NMB Sulav Investment Fund - 2",
+    "securityId": 8125
+  },
+  {
+    "symbol": "SAHAS",
+    "shareTraded": 316085,
+    "closingPrice": 635.1,
+    "securityName": "Sahas Urja Limited",
+    "securityId": 8021
+  },
+  {
+    "symbol": "SPDL",
+    "shareTraded": 313809,
+    "closingPrice": 450.0,
+    "securityName": "Synergy Power Development Ltd.",
+    "securityId": 2759
+  },
+  {
+    "symbol": "TAMOR",
+    "shareTraded": 310103,
+    "closingPrice": 465.0,
+    "securityName": "Sanima Middle Tamor Hydropower Limited",
+    "securityId": 9156
+  },
+  {
+    "symbol": "MBL",
+    "shareTraded": 301037,
+    "closingPrice": 267.0,
+    "securityName": "Machhapuchhre Bank Limited",
+    "securityId": 140
+  },
+  {
+    "symbol": "HURJA",
+    "shareTraded": 289733,
+    "closingPrice": 293.0,
+    "securityName": "Himalaya Urja Bikas Company Limited",
+    "securityId": 2824
+  },
+  {
+    "symbol": "MNMF1",
+    "shareTraded": 276804,
+    "closingPrice": 10.0,
+    "securityName": "Muktinath Mutual Fund 1",
+    "securityId": 9245
+  },
+  {
+    "symbol": "GHL",
+    "shareTraded": 275333,
+    "closingPrice": 270.0,
+    "securityName": "Ghalemdi Hydro Limited",
+    "securityId": 2806
+  },
+  {
+    "symbol": "GLH",
+    "shareTraded": 261252,
+    "closingPrice": 304.0,
+    "securityName": "GreenLife Hydropower Limited",
+    "securityId": 2924
+  },
+  {
+    "symbol": "H8020",
+    "shareTraded": 253900,
+    "closingPrice": 12.0,
+    "securityName": "Himalayan 80-20",
+    "securityId": 9221
+  },
+  {
+    "symbol": "NRN",
+    "shareTraded": 236336,
+    "closingPrice": 1609.0,
+    "securityName": "NRN Infrastructure and Development Limited",
+    "securityId": 2898
+  },
+  {
+    "symbol": "RFPL",
+    "shareTraded": 235073,
+    "closingPrice": 424.0,
+    "securityName": "River Falls Power Limited",
+    "securityId": 8066
+  },
+  {
+    "symbol": "SYPNL",
+    "shareTraded": 231213,
+    "closingPrice": 1940.0,
+    "securityName": "SY Panel Nepal Limited",
+    "securityId": 9303
+  },
+  {
+    "symbol": "PHCL",
+    "shareTraded": 228003,
+    "closingPrice": 343.0,
+    "securityName": "Peoples Hydropower Company Limited",
+    "securityId": 8133
+  },
+  {
+    "symbol": "JBBL",
+    "shareTraded": 222192,
+    "closingPrice": 378.0,
+    "securityName": "Jyoti Bikas Bank Limited",
+    "securityId": 418
+  },
+  {
+    "symbol": "NBL",
+    "shareTraded": 215500,
+    "closingPrice": 278.9,
+    "securityName": "Nepal Bank Limited",
+    "securityId": 517
+  },
+  {
+    "symbol": "HRL",
+    "shareTraded": 209679,
+    "closingPrice": 876.2,
+    "securityName": "Himalayan Reinsurance Limited",
+    "securityId": 9234
+  },
+  {
+    "symbol": "SBL",
+    "shareTraded": 200810,
+    "closingPrice": 412.0,
+    "securityName": "Siddhartha Bank Limited",
+    "securityId": 145
+  },
+  {
+    "symbol": "MEN",
+    "shareTraded": 193506,
+    "closingPrice": 624.0,
+    "securityName": "Mountain Energy Nepal Limited",
+    "securityId": 2913
+  },
+  {
+    "symbol": "HLI",
+    "shareTraded": 187578,
+    "closingPrice": 393.9,
+    "securityName": "Himalayan Life Insurance Limited",
+    "securityId": 393
+  },
+  {
+    "symbol": "MFIL",
+    "shareTraded": 186554,
+    "closingPrice": 865.0,
+    "securityName": "Manjushree Finance Ltd.",
+    "securityId": 516
+  },
+  {
+    "symbol": "CZBIL",
+    "shareTraded": 184044,
+    "closingPrice": 226.7,
+    "securityName": "Citizens Bank International Limited",
+    "securityId": 348
+  },
+  {
+    "symbol": "SGHC",
+    "shareTraded": 174284,
+    "closingPrice": 445.0,
+    "securityName": "Swet-Ganga Hydropower & Construction Limited ",
+    "securityId": 8100
+  },
+  {
+    "symbol": "DORDI",
+    "shareTraded": 170951,
+    "closingPrice": 311.0,
+    "securityName": "Dordi Khola Jal Bidyut Company Limited",
+    "securityId": 8070
+  },
+  {
+    "symbol": "SANIMA",
+    "shareTraded": 170618,
+    "closingPrice": 367.0,
+    "securityName": "Sanima Bank Limited",
+    "securityId": 171
+  },
+  {
+    "symbol": "LBBL",
+    "shareTraded": 167124,
+    "closingPrice": 519.0,
+    "securityName": "Lumbini Bikas Bank Ltd.",
+    "securityId": 358
+  },
+  {
+    "symbol": "NICGF2",
+    "shareTraded": 166673,
+    "closingPrice": 9.8,
+    "securityName": "NIC ASIA Growth Fund-2",
+    "securityId": 9236
+  },
+  {
+    "symbol": "HBL",
+    "shareTraded": 159094,
+    "closingPrice": 226.1,
+    "securityName": "Himalayan Bank Limited",
+    "securityId": 134
+  },
+  {
+    "symbol": "SABBL",
+    "shareTraded": 152335,
+    "closingPrice": 1719.0,
+    "securityName": "Salapa Bikas Bank Limited",
+    "securityId": 9305
+  },
+  {
+    "symbol": "SONA",
+    "shareTraded": 145267,
+    "closingPrice": 482.0,
+    "securityName": "Sonapur Minerals And Oil Limited",
+    "securityId": 9216
+  },
+  {
+    "symbol": "NMB",
+    "shareTraded": 142378,
+    "closingPrice": 265.7,
+    "securityName": "NMB Bank Limited",
+    "securityId": 238
+  },
+  {
+    "symbol": "BARUN",
+    "shareTraded": 142096,
+    "closingPrice": 380.0,
+    "securityName": "Barun Hydropower Co. Ltd.",
+    "securityId": 686
+  },
+  {
+    "symbol": "RHGCL",
+    "shareTraded": 137547,
+    "closingPrice": 323.0,
+    "securityName": "Rapti Hydro And General Construction Limited",
+    "securityId": 8108
+  },
+  {
+    "symbol": "TPC",
+    "shareTraded": 137148,
+    "closingPrice": 410.0,
+    "securityName": "Terhathum Power Company Limited",
+    "securityId": 8022
+  },
+  {
+    "symbol": "KSBBL",
+    "shareTraded": 134747,
+    "closingPrice": 506.0,
+    "securityName": "Kamana Sewa Bikas Bank Limited",
+    "securityId": 459
+  },
+  {
+    "symbol": "PCBL",
+    "shareTraded": 134630,
+    "closingPrice": 264.0,
+    "securityName": "Prime Commercial Bank Ltd.",
+    "securityId": 357
+  },
+  {
+    "symbol": "NABIL",
+    "shareTraded": 133329,
+    "closingPrice": 539.0,
+    "securityName": "Nabil Bank Limited",
+    "securityId": 131
+  },
+  {
+    "symbol": "SBI",
+    "shareTraded": 131450,
+    "closingPrice": 427.9,
+    "securityName": "Nepal SBI Bank Limited",
+    "securityId": 135
+  },
+  {
+    "symbol": "SINDU",
+    "shareTraded": 129671,
+    "closingPrice": 863.9,
+    "securityName": "Sindhu Bikash Bank Ltd",
+    "securityId": 561
+  },
+  {
+    "symbol": "SADBL",
+    "shareTraded": 128575,
+    "closingPrice": 445.0,
+    "securityName": "Shangrila Development Bank Ltd.",
+    "securityId": 472
+  },
+  {
+    "symbol": "NIMBPO",
+    "shareTraded": 121958,
+    "closingPrice": 170.0,
+    "securityName": "Nepal Investment Mega Bank Ltd. Promoter Share",
+    "securityId": 469
+  },
+  {
+    "symbol": "SHPC",
+    "shareTraded": 114294,
+    "closingPrice": 566.0,
+    "securityName": "Sanima Mai Hydropower Ltd.",
+    "securityId": 591
+  },
+  {
+    "symbol": "RHPL",
+    "shareTraded": 113416,
+    "closingPrice": 312.2,
+    "securityName": "RASUWAGADHI HYDROPOWER COMPANY LIMITED",
+    "securityId": 2841
+  },
+  {
+    "symbol": "HDL",
+    "shareTraded": 113050,
+    "closingPrice": 1235.0,
+    "securityName": "Himalayan Distillery Limited",
+    "securityId": 235
+  },
+  {
+    "symbol": "KPCL",
+    "shareTraded": 112410,
+    "closingPrice": 536.0,
+    "securityName": "Kalika power Company Ltd",
+    "securityId": 2787
+  },
+  {
+    "symbol": "BANDIPUR",
+    "shareTraded": 112278,
+    "closingPrice": 973.0,
+    "securityName": "Bandipur Cablecar and Tourism Limited",
+    "securityId": 9297
+  },
+  {
+    "symbol": "RSY",
+    "shareTraded": 111520,
+    "closingPrice": 10.33,
+    "securityName": "Reliable Samriddhi Yojana",
+    "securityId": 9259
+  },
+  {
+    "symbol": "KDBY",
+    "shareTraded": 110115,
+    "closingPrice": 10.52,
+    "securityName": "Kumari Dhanabriddhi Yojana",
+    "securityId": 8074
+  },
+  {
+    "symbol": "PPCL",
+    "shareTraded": 107238,
+    "closingPrice": 435.6,
+    "securityName": "Panchthar Power Compant Limited",
+    "securityId": 2813
+  },
+  {
+    "symbol": "ADBL",
+    "shareTraded": 106584,
+    "closingPrice": 330.0,
+    "securityName": "Agricultural Development Bank Limited",
+    "securityId": 397
+  },
+  {
+    "symbol": "KKHC",
+    "shareTraded": 103429,
+    "closingPrice": 290.0,
+    "securityName": "Khanikhola Hydropower Co. Ltd.",
+    "securityId": 2751
+  },
+  {
+    "symbol": "NLICL",
+    "shareTraded": 102641,
+    "closingPrice": 618.0,
+    "securityName": "National Life Insurance Co. Ltd.",
+    "securityId": 178
+  },
+  {
+    "symbol": "GSY",
+    "shareTraded": 101795,
+    "closingPrice": 9.98,
+    "securityName": "Garima Samriddhi Yojana",
+    "securityId": 9248
+  },
+  {
+    "symbol": "SHINE",
+    "shareTraded": 96275,
+    "closingPrice": 438.4,
+    "securityName": "Shine Resunga Development Bank Ltd.",
+    "securityId": 473
+  },
+  {
+    "symbol": "ALICL",
+    "shareTraded": 95142,
+    "closingPrice": 489.0,
+    "securityName": "Asian Life Insurance Co. Limited",
+    "securityId": 385
+  },
+  {
+    "symbol": "NBF3",
+    "shareTraded": 94757,
+    "closingPrice": 10.05,
+    "securityName": "Nabil Balanced Fund-3",
+    "securityId": 8024
+  },
+  {
+    "symbol": "SAIL",
+    "shareTraded": 94038,
+    "closingPrice": 1360.0,
+    "securityName": "Shreenagar Agritech Industries Limited",
+    "securityId": 9301
+  },
+  {
+    "symbol": "CHL",
+    "shareTraded": 92283,
+    "closingPrice": 320.0,
+    "securityName": "Chhyangdi Hydropower Ltd.",
+    "securityId": 2766
+  },
+  {
+    "symbol": "GCIL",
+    "shareTraded": 91877,
+    "closingPrice": 461.7,
+    "securityName": "Ghorahi Cement Industry Limited",
+    "securityId": 9193
+  },
+  {
+    "symbol": "MLBL",
+    "shareTraded": 87148,
+    "closingPrice": 400.0,
+    "securityName": "Mahalaxmi Bikas Bank Ltd.",
+    "securityId": 401
+  },
+  {
+    "symbol": "MBJC",
+    "shareTraded": 87125,
+    "closingPrice": 318.0,
+    "securityName": "Madhya Bhotekoshi Jalavidyut Company Limited",
+    "securityId": 8031
+  },
+  {
+    "symbol": "HHL",
+    "shareTraded": 84671,
+    "closingPrice": 376.1,
+    "securityName": "Himalayan Hydropower Limited",
+    "securityId": 8076
+  },
+  {
+    "symbol": "JOSHI",
+    "shareTraded": 82312,
+    "closingPrice": 314.9,
+    "securityName": "Joshi Hydropower Development Company Ltd",
+    "securityId": 2789
+  },
+  {
+    "symbol": "PPL",
+    "shareTraded": 81929,
+    "closingPrice": 392.0,
+    "securityName": "People's Power Limited",
+    "securityId": 8122
+  },
+  {
+    "symbol": "BHCL",
+    "shareTraded": 80689,
+    "closingPrice": 609.9,
+    "securityName": "Bikash Hydropower Company Limited",
+    "securityId": 9267
+  },
+  {
+    "symbol": "FMDBL",
+    "shareTraded": 80449,
+    "closingPrice": 897.0,
+    "securityName": "First Micro Finance Laghubitta Bittiya Sanstha Limited",
+    "securityId": 490
+  },
+  {
+    "symbol": "GVL",
+    "shareTraded": 80275,
+    "closingPrice": 516.0,
+    "securityName": "Green Ventures Limited",
+    "securityId": 8045
+  },
+  {
+    "symbol": "SJCL",
+    "shareTraded": 78662,
+    "closingPrice": 345.9,
+    "securityName": "SANJEN JALAVIDHYUT COMPANY LIMITED",
+    "securityId": 2842
+  },
+  {
+    "symbol": "RSDC",
+    "shareTraded": 75711,
+    "closingPrice": 726.0,
+    "securityName": "RSDC Laghubitta Bittiya Sanstha Ltd.",
+    "securityId": 2748
+  },
+  {
+    "symbol": "SAPDBL",
+    "shareTraded": 74673,
+    "closingPrice": 933.3,
+    "securityName": "Saptakoshi Development Bank Ltd",
+    "securityId": 2860
+  },
+  {
+    "symbol": "UMHL",
+    "shareTraded": 74561,
+    "closingPrice": 631.0,
+    "securityName": "United Modi Hydropower Ltd.",
+    "securityId": 2760
+  },
+  {
+    "symbol": "MNBBL",
+    "shareTraded": 74481,
+    "closingPrice": 401.0,
+    "securityName": "Muktinath Bikas Bank Ltd.",
+    "securityId": 474
+  },
+  {
+    "symbol": "PMHPL",
+    "shareTraded": 74136,
+    "closingPrice": 428.0,
+    "securityName": "Panchakanya Mai Hydropower Ltd",
+    "securityId": 2786
+  },
+  {
+    "symbol": "SHL",
+    "shareTraded": 73932,
+    "closingPrice": 518.0,
+    "securityName": "Soaltee Hotel Limited",
+    "securityId": 147
+  },
+  {
+    "symbol": "TTL",
+    "shareTraded": 71281,
+    "closingPrice": 954.0,
+    "securityName": "Trade Tower Limited",
+    "securityId": 9262
+  },
+  {
+    "symbol": "BPCL",
+    "shareTraded": 70784,
+    "closingPrice": 750.0,
+    "securityName": "Butwal Power Company Limited",
+    "securityId": 153
+  },
+  {
+    "symbol": "SIKLES",
+    "shareTraded": 68555,
+    "closingPrice": 631.0,
+    "securityName": "Sikles Hydropower Limited",
+    "securityId": 8126
+  },
+  {
+    "symbol": "NLIC",
+    "shareTraded": 65754,
+    "closingPrice": 825.0,
+    "securityName": "Nepal Life Insurance Co. Ltd.",
+    "securityId": 187
+  },
+  {
+    "symbol": "MHNL",
+    "shareTraded": 63426,
+    "closingPrice": 311.9,
+    "securityName": "Mountain Hydro Nepal Limited",
+    "securityId": 2811
+  },
+  {
+    "symbol": "RNLI",
+    "shareTraded": 63246,
+    "closingPrice": 495.0,
+    "securityName": "Reliable Nepal Life Insurance Limited",
+    "securityId": 9199
+  },
+  {
+    "symbol": "GMFIL",
+    "shareTraded": 62939,
+    "closingPrice": 523.1,
+    "securityName": "Guheshowori Merchant Bank & Finance Co. Ltd.",
+    "securityId": 263
+  },
+  {
+    "symbol": "MEHL",
+    "shareTraded": 62249,
+    "closingPrice": 470.0,
+    "securityName": "Manakamana Engineering Hydropower Limited",
+    "securityId": 9203
+  },
+  {
+    "symbol": "SMH",
+    "shareTraded": 60014,
+    "closingPrice": 640.3,
+    "securityName": "Super Mai Hydropower Limited",
+    "securityId": 9148
+  },
+  {
+    "symbol": "RLFL",
+    "shareTraded": 59939,
+    "closingPrice": 493.0,
+    "securityName": "Reliance Finance Ltd.",
+    "securityId": 587
+  },
+  {
+    "symbol": "MPFL",
+    "shareTraded": 59551,
+    "closingPrice": 705.3,
+    "securityName": "Multipurpose Finance Company  Limited",
+    "securityId": 471
+  },
+  {
+    "symbol": "SANVI",
+    "shareTraded": 57436,
+    "closingPrice": 839.9,
+    "securityName": "Sanvi Energy Limited",
+    "securityId": 9263
+  },
+  {
+    "symbol": "NRIC",
+    "shareTraded": 55588,
+    "closingPrice": 1267.8,
+    "securityName": "Nepal Reinsurance Company Limited",
+    "securityId": 2881
+  },
+  {
+    "symbol": "BHDC",
+    "shareTraded": 54970,
+    "closingPrice": 498.0,
+    "securityName": "Bindhyabasini Hydropower Development Company Limited",
+    "securityId": 8075
+  },
+  {
+    "symbol": "AVYAN",
+    "shareTraded": 54272,
+    "closingPrice": 1260.0,
+    "securityName": "Aviyan Laghubitta Bittiya Sanstha Limited",
+    "securityId": 8117
+  },
+  {
+    "symbol": "EHPL",
+    "shareTraded": 54070,
+    "closingPrice": 445.0,
+    "securityName": "Eastern Hydropower Limited",
+    "securityId": 8131
+  },
+  {
+    "symbol": "HLICF",
+    "shareTraded": 53700,
+    "closingPrice": 9.79,
+    "securityName": "HLI Large Cap Fund",
+    "securityId": 9290
+  },
+  {
+    "symbol": "USHEC",
+    "shareTraded": 53297,
+    "closingPrice": 513.0,
+    "securityName": "Upper Solu Hydro Electric Company Limited",
+    "securityId": 8104
+  },
+  {
+    "symbol": "RMF1",
+    "shareTraded": 52835,
+    "closingPrice": 10.0,
+    "securityName": "RBB Mutual Fund 1",
+    "securityId": 4968
+  },
+  {
+    "symbol": "GBBL",
+    "shareTraded": 52224,
+    "closingPrice": 428.0,
+    "securityName": "Garima Bikas Bank Limited",
+    "securityId": 417
+  },
+  {
+    "symbol": "CHCL",
+    "shareTraded": 51533,
+    "closingPrice": 511.9,
+    "securityName": "Chilime Hydropower Company Limited",
+    "securityId": 154
+  },
+  {
+    "symbol": "SRLI",
+    "shareTraded": 51414,
+    "closingPrice": 418.0,
+    "securityName": "Sanima Reliance Life Insurance Limited",
+    "securityId": 5982
+  },
+  {
+    "symbol": "KEF",
+    "shareTraded": 51320,
+    "closingPrice": 9.95,
+    "securityName": "Kumari Equity Fund",
+    "securityId": 2933
+  },
+  {
+    "symbol": "NLG",
+    "shareTraded": 50734,
+    "closingPrice": 688.5,
+    "securityName": "NLG Insurance Company Ltd.",
+    "securityId": 559
+  },
+  {
+    "symbol": "SAGAR",
+    "shareTraded": 48300,
+    "closingPrice": 2043.0,
+    "securityName": "Sagar Distillery Limited",
+    "securityId": 9294
+  },
+  {
+    "symbol": "CBBL",
+    "shareTraded": 47742,
+    "closingPrice": 955.0,
+    "securityName": "Chhimek Laghubitta Bittiya Sanstha Limited",
+    "securityId": 164
+  },
+  {
+    "symbol": "DHEL",
+    "shareTraded": 46970,
+    "closingPrice": 715.0,
+    "securityName": "Daramkhola Hydro Energy Limited",
+    "securityId": 9293
+  },
+  {
+    "symbol": "BHPL",
+    "shareTraded": 45773,
+    "closingPrice": 585.0,
+    "securityName": "Barahi Hydropower Public Limited",
+    "securityId": 9135
+  },
+  {
+    "symbol": "MKHC",
+    "shareTraded": 45221,
+    "closingPrice": 349.1,
+    "securityName": "Maya Khola Hydropower Company Limited",
+    "securityId": 9149
+  },
+  {
+    "symbol": "NIBLSTF",
+    "shareTraded": 43890,
+    "closingPrice": 9.87,
+    "securityName": "NIBL Stable Fund",
+    "securityId": 9244
+  },
+  {
+    "symbol": "NICL",
+    "shareTraded": 43009,
+    "closingPrice": 540.0,
+    "securityName": "Nepal Insurance Co. Ltd.",
+    "securityId": 176
+  },
+  {
+    "symbol": "IGI",
+    "shareTraded": 42668,
+    "closingPrice": 478.0,
+    "securityName": "IGI Prudential insurance Limited",
+    "securityId": 186
+  },
+  {
+    "symbol": "CLI",
+    "shareTraded": 41452,
+    "closingPrice": 490.3,
+    "securityName": "Citizen Life Insurance Company Limited",
+    "securityId": 9209
+  },
+  {
+    "symbol": "MKJC",
+    "shareTraded": 41412,
+    "closingPrice": 537.9,
+    "securityName": "Mailung Khola Jal Vidhyut Company Limited",
+    "securityId": 8005
+  },
+  {
+    "symbol": "NUBL",
+    "shareTraded": 41076,
+    "closingPrice": 728.0,
+    "securityName": "Nirdhan Utthan Laghubitta Bittiya Sanstha Limited",
+    "securityId": 163
+  },
+  {
+    "symbol": "ULHC",
+    "shareTraded": 40535,
+    "closingPrice": 547.0,
+    "securityName": "Upper Lohore Khola Hydropower Company Limited",
+    "securityId": 9208
+  },
+  {
+    "symbol": "SMJC",
+    "shareTraded": 39697,
+    "closingPrice": 505.0,
+    "securityName": "Sagarmatha Jalabidhyut Company Limited",
+    "securityId": 9159
+  },
+  {
+    "symbol": "TVCL",
+    "shareTraded": 39353,
+    "closingPrice": 621.9,
+    "securityName": "Trishuli Jal Vidhyut Company Limited ",
+    "securityId": 9218
+  },
+  {
+    "symbol": "LICN",
+    "shareTraded": 39283,
+    "closingPrice": 875.0,
+    "securityName": "Life Insurance Corporation (Nepal) Limited",
+    "securityId": 188
+  },
+  {
+    "symbol": "NABBC",
+    "shareTraded": 38792,
+    "closingPrice": 1460.0,
+    "securityName": "Narayani Development Bank Limited",
+    "securityId": 172
+  },
+  {
+    "symbol": "MMF1",
+    "shareTraded": 37750,
+    "closingPrice": 9.83,
+    "securityName": "Mega Mutual Fund -1",
+    "securityId": 8023
+  },
+  {
+    "symbol": "NICLBSL",
+    "shareTraded": 37207,
+    "closingPrice": 646.0,
+    "securityName": "NIC ASIA Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2887
+  },
+  {
+    "symbol": "PROFL",
+    "shareTraded": 35963,
+    "closingPrice": 496.0,
+    "securityName": "Progressive Finance Limited",
+    "securityId": 338
+  },
+  {
+    "symbol": "CHDC",
+    "shareTraded": 35849,
+    "closingPrice": 2574.0,
+    "securityName": "CEDB Holdings Limited",
+    "securityId": 3946
+  },
+  {
+    "symbol": "MEL",
+    "shareTraded": 35732,
+    "closingPrice": 298.6,
+    "securityName": "Modi Energy Limited",
+    "securityId": 9179
+  },
+  {
+    "symbol": "MABEL",
+    "shareTraded": 35225,
+    "closingPrice": 769.0,
+    "securityName": "Mabilung Energy Limited",
+    "securityId": 9287
+  },
+  {
+    "symbol": "NMB50",
+    "shareTraded": 34889,
+    "closingPrice": 10.65,
+    "securityName": "NMB 50",
+    "securityId": 2867
+  },
+  {
+    "symbol": "SICL",
+    "shareTraded": 34759,
+    "closingPrice": 676.5,
+    "securityName": "Shikhar Insurance Co. Ltd.",
+    "securityId": 192
+  },
+  {
+    "symbol": "SNLI",
+    "shareTraded": 34540,
+    "closingPrice": 495.0,
+    "securityName": "Sun Nepal Life Insurance Company Limited",
+    "securityId": 9201
+  },
+  {
+    "symbol": "EBL",
+    "shareTraded": 34018,
+    "closingPrice": 714.0,
+    "securityName": "Everest Bank Limited",
+    "securityId": 137
+  },
+  {
+    "symbol": "BUNGAL",
+    "shareTraded": 33893,
+    "closingPrice": 665.5,
+    "securityName": "Bungal Hydro Limited",
+    "securityId": 9296
+  },
+  {
+    "symbol": "PURE",
+    "shareTraded": 33475,
+    "closingPrice": 1014.0,
+    "securityName": "Pure Energy Limited",
+    "securityId": 9258
+  },
+  {
+    "symbol": "SGIC",
+    "shareTraded": 33439,
+    "closingPrice": 527.0,
+    "securityName": "Sanima GIC Insurance Limited",
+    "securityId": 2908
+  },
+  {
+    "symbol": "ALBSL",
+    "shareTraded": 32287,
+    "closingPrice": 1286.0,
+    "securityName": "Asha Laghubitta Bittiya Sanstha Ltd",
+    "securityId": 2807
+  },
+  {
+    "symbol": "BFC",
+    "shareTraded": 31140,
+    "closingPrice": 505.1,
+    "securityName": "Best Finance Company Ltd.",
+    "securityId": 227
+  },
+  {
+    "symbol": "SJLIC",
+    "shareTraded": 30610,
+    "closingPrice": 460.6,
+    "securityName": "SuryaJyoti Life Insurance Company Limited",
+    "securityId": 403
+  },
+  {
+    "symbol": "CGH",
+    "shareTraded": 30007,
+    "closingPrice": 875.1,
+    "securityName": "Chandragiri Hills Limited",
+    "securityId": 2917
+  },
+  {
+    "symbol": "PFL",
+    "shareTraded": 29825,
+    "closingPrice": 429.0,
+    "securityName": "Pokhara Finance Ltd.",
+    "securityId": 236
+  },
+  {
+    "symbol": "ILI",
+    "shareTraded": 28857,
+    "closingPrice": 467.0,
+    "securityName": "IME Life Insurance Company Limited",
+    "securityId": 9184
+  },
+  {
+    "symbol": "GIBF1",
+    "shareTraded": 28770,
+    "closingPrice": 11.28,
+    "securityName": "Global IME Balanced Fund-1",
+    "securityId": 8106
+  },
+  {
+    "symbol": "MHL",
+    "shareTraded": 28541,
+    "closingPrice": 548.0,
+    "securityName": "Mandakini Hydropower Limited",
+    "securityId": 8102
+  },
+  {
+    "symbol": "SPIL",
+    "shareTraded": 28231,
+    "closingPrice": 750.0,
+    "securityName": "Siddhartha Premier Insurance Limited",
+    "securityId": 182
+  },
+  {
+    "symbol": "SKBBL",
+    "shareTraded": 27880,
+    "closingPrice": 802.0,
+    "securityName": "Sana Kisan Bikas Laghubitta Bittiya Sanstha Limited",
+    "securityId": 574
+  },
+  {
+    "symbol": "GFCL",
+    "shareTraded": 27531,
+    "closingPrice": 683.0,
+    "securityName": "Goodwill Finance Limited",
+    "securityId": 232
+  },
+  {
+    "symbol": "NIBLGF",
+    "shareTraded": 26500,
+    "closingPrice": 10.0,
+    "securityName": "NIBL Growth Fund",
+    "securityId": 9138
+  },
+  {
+    "symbol": "SCB",
+    "shareTraded": 26166,
+    "closingPrice": 678.9,
+    "securityName": "Standard Chartered Bank Limited",
+    "securityId": 133
+  },
+  {
+    "symbol": "NBF2",
+    "shareTraded": 26020,
+    "closingPrice": 10.05,
+    "securityName": "NABIL BALANCED FUND-2",
+    "securityId": 2835
+  },
+  {
+    "symbol": "RURU",
+    "shareTraded": 25491,
+    "closingPrice": 687.0,
+    "securityName": "Ru Ru Jalbidhyut Pariyojana Limited",
+    "securityId": 2935
+  },
+  {
+    "symbol": "SFCL",
+    "shareTraded": 25031,
+    "closingPrice": 429.0,
+    "securityName": "Samriddhi Finance Company Limited",
+    "securityId": 256
+  },
+  {
+    "symbol": "UAIL",
+    "shareTraded": 24332,
+    "closingPrice": 498.9,
+    "securityName": "United Ajod Insurance Limited",
+    "securityId": 180
+  },
+  {
+    "symbol": "DHPL",
+    "shareTraded": 24078,
+    "closingPrice": 336.2,
+    "securityName": "Dibyashwori Hydropower Ltd.",
+    "securityId": 2754
+  },
+  {
+    "symbol": "HEI",
+    "shareTraded": 23512,
+    "closingPrice": 563.0,
+    "securityName": "Himalayan Everest Insurance Limited",
+    "securityId": 179
+  },
+  {
+    "symbol": "CREST",
+    "shareTraded": 23179,
+    "closingPrice": 1410.0,
+    "securityName": "Crest Micro Life Insurance Limited",
+    "securityId": 9252
+  },
+  {
+    "symbol": "SARBTM",
+    "shareTraded": 23105,
+    "closingPrice": 906.9,
+    "securityName": "Sarbottam Cement Limited",
+    "securityId": 9242
+  },
+  {
+    "symbol": "SPL",
+    "shareTraded": 22959,
+    "closingPrice": 760.9,
+    "securityName": "Shuvam Power Limited",
+    "securityId": 9147
+  },
+  {
+    "symbol": "MERO",
+    "shareTraded": 22893,
+    "closingPrice": 790.1,
+    "securityName": "Mero Microfinance Bittiya Sanstha Ltd.",
+    "securityId": 1741
+  },
+  {
+    "symbol": "SMATA",
+    "shareTraded": 22859,
+    "closingPrice": 866.5,
+    "securityName": "Samata Gharelu Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2761
+  },
+  {
+    "symbol": "SBCF",
+    "shareTraded": 22550,
+    "closingPrice": 10.15,
+    "securityName": "Sunrise Bluechip Fund",
+    "securityId": 2937
+  },
+  {
+    "symbol": "MHCL",
+    "shareTraded": 22546,
+    "closingPrice": 383.0,
+    "securityName": "Molung Hydropower Company Limited",
+    "securityId": 9158
+  },
+  {
+    "symbol": "UMRH",
+    "shareTraded": 22452,
+    "closingPrice": 577.3,
+    "securityName": "United IDI Mardi RB Hydropower Limited.",
+    "securityId": 2914
+  },
+  {
+    "symbol": "SOHL",
+    "shareTraded": 22360,
+    "closingPrice": 642.9,
+    "securityName": "Solu Hydropower Limited",
+    "securityId": 9311
+  },
+  {
+    "symbol": "SLCF",
+    "shareTraded": 22300,
+    "closingPrice": 9.9,
+    "securityName": "Sanima Large Cap Fund",
+    "securityId": 2923
+  },
+  {
+    "symbol": "CMF2",
+    "shareTraded": 22213,
+    "closingPrice": 10.35,
+    "securityName": "CITIZENS MUTUAL FUND 2",
+    "securityId": 2862
+  },
+  {
+    "symbol": "CFCL",
+    "shareTraded": 22024,
+    "closingPrice": 567.0,
+    "securityName": "Central Finance Co. Ltd.",
+    "securityId": 245
+  },
+  {
+    "symbol": "NIL",
+    "shareTraded": 21998,
+    "closingPrice": 672.8,
+    "securityName": "Neco Insurance Limited",
+    "securityId": 183
+  },
+  {
+    "symbol": "MAKAR",
+    "shareTraded": 21838,
+    "closingPrice": 544.8,
+    "securityName": "Makar Jitumaya Suri Hydropower Limited",
+    "securityId": 9166
+  },
+  {
+    "symbol": "NYADI",
+    "shareTraded": 21656,
+    "closingPrice": 441.0,
+    "securityName": "Nyadi Hydropower Limited",
+    "securityId": 8026
+  },
+  {
+    "symbol": "VLBS",
+    "shareTraded": 21397,
+    "closingPrice": 814.0,
+    "securityName": "Vijaya laghubitta Bittiya Sanstha Ltd.",
+    "securityId": 687
+  },
+  {
+    "symbol": "ICFC",
+    "shareTraded": 20944,
+    "closingPrice": 683.0,
+    "securityName": "ICFC Finance Limited",
+    "securityId": 273
+  },
+  {
+    "symbol": "CITY",
+    "shareTraded": 20229,
+    "closingPrice": 500.1,
+    "securityName": "City Hotel Limited",
+    "securityId": 9173
+  },
+  {
+    "symbol": "GUFL",
+    "shareTraded": 19997,
+    "closingPrice": 591.1,
+    "securityName": "Gurkhas Finance Ltd.",
+    "securityId": 204
+  },
+  {
+    "symbol": "HIMSTAR",
+    "shareTraded": 19591,
+    "closingPrice": 980.0,
+    "securityName": "Him Star Urja Company Limited",
+    "securityId": 9270
+  },
+  {
+    "symbol": "HATHY",
+    "shareTraded": 19361,
+    "closingPrice": 940.6,
+    "securityName": "Hathway Investment Nepal Limited",
+    "securityId": 9213
+  },
+  {
+    "symbol": "SALICO",
+    "shareTraded": 19246,
+    "closingPrice": 640.0,
+    "securityName": "Sagarmatha Lumbini Insurance Co. Limited",
+    "securityId": 185
+  },
+  {
+    "symbol": "NSY",
+    "shareTraded": 18980,
+    "closingPrice": 9.71,
+    "securityName": "Nepal Life Samriddhi Lagani Yojana",
+    "securityId": 9312
+  },
+  {
+    "symbol": "BNHC",
+    "shareTraded": 18927,
+    "closingPrice": 373.0,
+    "securityName": "Buddha Bhumi Nepal Hydropower Company Limited",
+    "securityId": 8032
+  },
+  {
+    "symbol": "NMLBBL",
+    "shareTraded": 18911,
+    "closingPrice": 665.0,
+    "securityName": "Nerude Mirmire Laghubitta Bittiya Sanstha Limited",
+    "securityId": 396
+  },
+  {
+    "symbol": "JFL",
+    "shareTraded": 18769,
+    "closingPrice": 453.0,
+    "securityName": "Janaki Finance Company Limited",
+    "securityId": 250
+  },
+  {
+    "symbol": "SIFC",
+    "shareTraded": 18745,
+    "closingPrice": 603.4,
+    "securityName": "Shree Investment Finance Co. Ltd.",
+    "securityId": 244
+  },
+  {
+    "symbol": "EDBL",
+    "shareTraded": 18517,
+    "closingPrice": 620.1,
+    "securityName": "Excel Development Bank Ltd.",
+    "securityId": 274
+  },
+  {
+    "symbol": "NFS",
+    "shareTraded": 18479,
+    "closingPrice": 661.0,
+    "securityName": "Nepal Finance Ltd.",
+    "securityId": 194
+  },
+  {
+    "symbol": "GBLBS",
+    "shareTraded": 18284,
+    "closingPrice": 813.0,
+    "securityName": "Grameen Bikas Laghubitta Bittiya Sanstha Ltd.",
+    "securityId": 583
+  },
+  {
+    "symbol": "NRM",
+    "shareTraded": 18221,
+    "closingPrice": 451.0,
+    "securityName": "Nepal Republic Media Limited",
+    "securityId": 9183
+  },
+  {
+    "symbol": "MDB",
+    "shareTraded": 18072,
+    "closingPrice": 655.9,
+    "securityName": "Miteri Development Bank Limited",
+    "securityId": 371
+  },
+  {
+    "symbol": "CSY",
+    "shareTraded": 17685,
+    "closingPrice": 9.8,
+    "securityName": "Citizens Santulit Yojana",
+    "securityId": 9304
+  },
+  {
+    "symbol": "PRIN",
+    "shareTraded": 17512,
+    "closingPrice": 762.6,
+    "securityName": "Prabhu Insurance Ltd.",
+    "securityId": 184
+  },
+  {
+    "symbol": "DDBL",
+    "shareTraded": 17128,
+    "closingPrice": 886.0,
+    "securityName": "Deprosc Laghubitta Bittiya Sanstha Limited",
+    "securityId": 166
+  },
+  {
+    "symbol": "JHAPA",
+    "shareTraded": 16859,
+    "closingPrice": 1430.0,
+    "securityName": "Jhapa Energy Limited",
+    "securityId": 9300
+  },
+  {
+    "symbol": "NICSF",
+    "shareTraded": 16494,
+    "closingPrice": 9.52,
+    "securityName": "NIC Asia Select Fund 30",
+    "securityId": 4967
+  },
+  {
+    "symbol": "SMPDA",
+    "shareTraded": 16471,
+    "closingPrice": 905.0,
+    "securityName": "Sampada Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2896
+  },
+  {
+    "symbol": "PSF",
+    "shareTraded": 16250,
+    "closingPrice": 11.86,
+    "securityName": "Prabhu Select Fund",
+    "securityId": 4947
+  },
+  {
+    "symbol": "UHEWA",
+    "shareTraded": 16123,
+    "closingPrice": 621.0,
+    "securityName": "Upper Hewakhola Hydropower Company Limited",
+    "securityId": 8099
+  },
+  {
+    "symbol": "NTC",
+    "shareTraded": 16089,
+    "closingPrice": 895.0,
+    "securityName": "Nepal Doorsanchar Company Limited",
+    "securityId": 307
+  },
+  {
+    "symbol": "GBIMESY2",
+    "shareTraded": 16040,
+    "closingPrice": 9.83,
+    "securityName": "Global IME Sammunat Yojana -2",
+    "securityId": 9269
+  },
+  {
+    "symbol": "PMLI",
+    "shareTraded": 15854,
+    "closingPrice": 510.0,
+    "securityName": "Prabhu Mahalaxmi Life Insurance Limited",
+    "securityId": 2915
+  },
+  {
+    "symbol": "HLBSL",
+    "shareTraded": 15125,
+    "closingPrice": 960.0,
+    "securityName": "Himalayan Laghubitta Bittiya Sanstha Limited",
+    "securityId": 693
+  },
+  {
+    "symbol": "SWMF",
+    "shareTraded": 15018,
+    "closingPrice": 719.0,
+    "securityName": "Suryodaya Womi Laghubitta Bittiya Sanstha Limited",
+    "securityId": 706
+  },
+  {
+    "symbol": "NMBHF2",
+    "shareTraded": 14795,
+    "closingPrice": 9.92,
+    "securityName": "NMB Hybrid Fund L- II",
+    "securityId": 9254
+  },
+  {
+    "symbol": "SIGS3",
+    "shareTraded": 14500,
+    "closingPrice": 10.7,
+    "securityName": "Siddhartha Investment Growth Scheme 3",
+    "securityId": 9182
+  },
+  {
+    "symbol": "IHL",
+    "shareTraded": 13943,
+    "closingPrice": 521.0,
+    "securityName": "Ingwa Hydropower Limited",
+    "securityId": 9176
+  },
+  {
+    "symbol": "BEDC",
+    "shareTraded": 13610,
+    "closingPrice": 535.0,
+    "securityName": "Bhugol Energy Development Company Limited",
+    "securityId": 9171
+  },
+  {
+    "symbol": "SEF",
+    "shareTraded": 13300,
+    "closingPrice": 10.12,
+    "securityName": "Siddhartha Equity Fund",
+    "securityId": 2770
+  },
+  {
+    "symbol": "CORBL",
+    "shareTraded": 12538,
+    "closingPrice": 2070.1,
+    "securityName": "Corporate Development Bank Limited",
+    "securityId": 450
+  },
+  {
+    "symbol": "GRDBL",
+    "shareTraded": 12388,
+    "closingPrice": 1178.9,
+    "securityName": "Green Development Bank Ltd.",
+    "securityId": 2744
+  },
+  {
+    "symbol": "NIBSF2",
+    "shareTraded": 11967,
+    "closingPrice": 9.8,
+    "securityName": "NIBL Samriddhi Fund -2",
+    "securityId": 4949
+  },
+  {
+    "symbol": "MKHL",
+    "shareTraded": 11819,
+    "closingPrice": 798.0,
+    "securityName": "Mai Khola Hydropower Limited",
+    "securityId": 9167
+  },
+  {
+    "symbol": "SLBBL",
+    "shareTraded": 11617,
+    "closingPrice": 872.0,
+    "securityName": "Swarojgar Laghubitta Bittiya Sanstha Ltd.",
+    "securityId": 545
+  },
+  {
+    "symbol": "ILBS",
+    "shareTraded": 11378,
+    "closingPrice": 1049.0,
+    "securityName": "Infinity Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2832
+  },
+  {
+    "symbol": "NADEP",
+    "shareTraded": 11307,
+    "closingPrice": 831.6,
+    "securityName": "Nadep Laghubittiya bittya Sanstha Ltd.",
+    "securityId": 2784
+  },
+  {
+    "symbol": "OMPL",
+    "shareTraded": 11222,
+    "closingPrice": 1366.6,
+    "securityName": "Om Megashree Pharmaceuticals Limited",
+    "securityId": 9256
+  },
+  {
+    "symbol": "CIT",
+    "shareTraded": 11117,
+    "closingPrice": 1870.0,
+    "securityName": "Citizen Investment Trust",
+    "securityId": 210
+  },
+  {
+    "symbol": "SWBBL",
+    "shareTraded": 10844,
+    "closingPrice": 790.0,
+    "securityName": "Swabalamban Laghubitta Bittiya Sanstha Limited",
+    "securityId": 268
+  },
+  {
+    "symbol": "JBLB",
+    "shareTraded": 10449,
+    "closingPrice": 1384.0,
+    "securityName": "Jeevan Bikas Laghubitta  Bittya Sanstha Ltd",
+    "securityId": 4951
+  },
+  {
+    "symbol": "PMLIP",
+    "shareTraded": 10320,
+    "closingPrice": 270.0,
+    "securityName": "Prabhu Mahalaxmi Life Insurance Limited promotor",
+    "securityId": 9237
+  },
+  {
+    "symbol": "DOLTI",
+    "shareTraded": 10277,
+    "closingPrice": 517.9,
+    "securityName": "Dolti Power Company Limited",
+    "securityId": 9170
+  },
+  {
+    "symbol": "AHL",
+    "shareTraded": 9530,
+    "closingPrice": 522.0,
+    "securityName": "Asian Hydropower Limited",
+    "securityId": 9150
+  },
+  {
+    "symbol": "MMKJL",
+    "shareTraded": 9399,
+    "closingPrice": 568.5,
+    "securityName": "Mathillo Mailun Khola Jalvidhyut Limited",
+    "securityId": 9217
+  },
+  {
+    "symbol": "KMCDB",
+    "shareTraded": 9397,
+    "closingPrice": 976.0,
+    "securityName": "Kalika Laghubitta Bittiya Sanstha Ltd",
+    "securityId": 593
+  },
+  {
+    "symbol": "NHDL",
+    "shareTraded": 9371,
+    "closingPrice": 680.0,
+    "securityName": "Nepal Hydro Developers Ltd.",
+    "securityId": 2769
+  },
+  {
+    "symbol": "SPC",
+    "shareTraded": 9333,
+    "closingPrice": 515.1,
+    "securityName": "Samling Power Company Limited",
+    "securityId": 8025
+  },
+  {
+    "symbol": "MLBBL",
+    "shareTraded": 8676,
+    "closingPrice": 1365.0,
+    "securityName": "Mithila LaghuBitta Bittiya Sanstha Limited",
+    "securityId": 601
+  },
+  {
+    "symbol": "SPHL",
+    "shareTraded": 8538,
+    "closingPrice": 566.4,
+    "securityName": "Sayapatri Hydropower Limited",
+    "securityId": 8121
+  },
+  {
+    "symbol": "TSHL",
+    "shareTraded": 8160,
+    "closingPrice": 738.0,
+    "securityName": "Three Star Hydropower Limited",
+    "securityId": 9194
+  },
+  {
+    "symbol": "TRH",
+    "shareTraded": 7413,
+    "closingPrice": 792.0,
+    "securityName": "Taragaon Regency Hotel Limited",
+    "securityId": 148
+  },
+  {
+    "symbol": "NMIC",
+    "shareTraded": 7275,
+    "closingPrice": 1348.0,
+    "securityName": "Nepal Micro Insurance Company Limited",
+    "securityId": 9250
+  },
+  {
+    "symbol": "BGWT",
+    "shareTraded": 6972,
+    "closingPrice": 787.0,
+    "securityName": "Bhagawati Hydropower Development Company Limited",
+    "securityId": 9214
+  },
+  {
+    "symbol": "BBC",
+    "shareTraded": 6884,
+    "closingPrice": 5499.0,
+    "securityName": "Bishal Bazar Company Limited",
+    "securityId": 156
+  },
+  {
+    "symbol": "OHL",
+    "shareTraded": 6657,
+    "closingPrice": 751.0,
+    "securityName": "Oriental Hotels Limited",
+    "securityId": 149
+  },
+  {
+    "symbol": "FOWAD",
+    "shareTraded": 6481,
+    "closingPrice": 1130.0,
+    "securityName": "Forward Microfinance Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2758
+  },
+  {
+    "symbol": "NMBMF",
+    "shareTraded": 6457,
+    "closingPrice": 706.3,
+    "securityName": "NMB  Microfinance Bittiya Sanstha Ltd.",
+    "securityId": 704
+  },
+  {
+    "symbol": "RMF2",
+    "shareTraded": 6300,
+    "closingPrice": 10.4,
+    "securityName": "RBB Mutual Fund 2",
+    "securityId": 9178
+  },
+  {
+    "symbol": "MCHL",
+    "shareTraded": 6294,
+    "closingPrice": 420.0,
+    "securityName": "Menchhiyam Hydropower Limited",
+    "securityId": 9175
+  },
+  {
+    "symbol": "LVF2",
+    "shareTraded": 6100,
+    "closingPrice": 9.95,
+    "securityName": "Laxmi Value Fund 2",
+    "securityId": 9198
+  },
+  {
+    "symbol": "SLBSL",
+    "shareTraded": 6062,
+    "closingPrice": 1400.0,
+    "securityName": "Samudayik Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2804
+  },
+  {
+    "symbol": "NWCL",
+    "shareTraded": 6003,
+    "closingPrice": 908.0,
+    "securityName": "Nepal Warehousing Company Limited ",
+    "securityId": 9233
+  },
+  {
+    "symbol": "CKHL",
+    "shareTraded": 5967,
+    "closingPrice": 702.4,
+    "securityName": "Chirkhwa Hydropower Limited ",
+    "securityId": 9232
+  },
+  {
+    "symbol": "MSLB",
+    "shareTraded": 5885,
+    "closingPrice": 1390.0,
+    "securityName": "Mahuli Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2768
+  },
+  {
+    "symbol": "USHL",
+    "shareTraded": 5628,
+    "closingPrice": 728.9,
+    "securityName": "Upper Syange Hydropower Limited",
+    "securityId": 9192
+  },
+  {
+    "symbol": "GILB",
+    "shareTraded": 5610,
+    "closingPrice": 1227.0,
+    "securityName": "Global IME Laghubitta Bittiya Sanstha Ltd.",
+    "securityId": 705
+  },
+  {
+    "symbol": "VLUCL",
+    "shareTraded": 5459,
+    "closingPrice": 581.0,
+    "securityName": "Vision Lumbini Urja Company Limited ",
+    "securityId": 9225
+  },
+  {
+    "symbol": "NMFBS",
+    "shareTraded": 5247,
+    "closingPrice": 1199.0,
+    "securityName": "National Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2746
+  },
+  {
+    "symbol": "SIGS2",
+    "shareTraded": 5003,
+    "closingPrice": 10.1,
+    "securityName": "Siddhartha Investment Growth Scheme - 2",
+    "securityId": 2859
+  },
+  {
+    "symbol": "MBLEF",
+    "shareTraded": 5000,
+    "closingPrice": 10.4,
+    "securityName": "MBL Equity Fund",
+    "securityId": 9257
+  },
+  {
+    "symbol": "HEIP",
+    "shareTraded": 4831,
+    "closingPrice": 326.6,
+    "securityName": "Himalayan Everest Insurance Limited Promoter",
+    "securityId": 700
+  },
+  {
+    "symbol": "NICFC",
+    "shareTraded": 4590,
+    "closingPrice": 9.7,
+    "securityName": "NIC Asia Flexi CAP Fund",
+    "securityId": 8073
+  },
+  {
+    "symbol": "LUK",
+    "shareTraded": 4400,
+    "closingPrice": 10.0,
+    "securityName": "Laxmi Unnati Kosh",
+    "securityId": 2902
+  },
+  {
+    "symbol": "GMLI",
+    "shareTraded": 3949,
+    "closingPrice": 1740.0,
+    "securityName": "Guardian Micro Life Insurance Limited ",
+    "securityId": 9246
+  },
+  {
+    "symbol": "RBBF40",
+    "shareTraded": 3920,
+    "closingPrice": 9.65,
+    "securityName": "RBB Focus 40",
+    "securityId": 9302
+  },
+  {
+    "symbol": "MKCL",
+    "shareTraded": 3809,
+    "closingPrice": 1423.0,
+    "securityName": "Muktinath Krishi Company Limited",
+    "securityId": 9230
+  },
+  {
+    "symbol": "STC",
+    "shareTraded": 3759,
+    "closingPrice": 6100.0,
+    "securityName": "Salt Trading Corporation",
+    "securityId": 155
+  },
+  {
+    "symbol": "KDL",
+    "shareTraded": 3373,
+    "closingPrice": 902.0,
+    "securityName": "Kalinchowk Darshan Limited",
+    "securityId": 9151
+  },
+  {
+    "symbol": "USLB",
+    "shareTraded": 3281,
+    "closingPrice": 1510.0,
+    "securityName": "Unnati Sahakarya Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2774
+  },
+  {
+    "symbol": "ENL",
+    "shareTraded": 3138,
+    "closingPrice": 974.0,
+    "securityName": "Emerging Nepal Limited",
+    "securityId": 8034
+  },
+  {
+    "symbol": "MANDU",
+    "shareTraded": 3127,
+    "closingPrice": 850.0,
+    "securityName": "Mandu Hydropower Limited",
+    "securityId": 9212
+  },
+  {
+    "symbol": "NICBF",
+    "shareTraded": 2900,
+    "closingPrice": 10.45,
+    "securityName": "NIC Asia Balanced Fund",
+    "securityId": 2863
+  },
+  {
+    "symbol": "DLBS",
+    "shareTraded": 2735,
+    "closingPrice": 1420.0,
+    "securityName": "Dhaulagiri Laghubitta Bittiya Sanstha Limited",
+    "securityId": 8123
+  },
+  {
+    "symbol": "CYCL",
+    "shareTraded": 2662,
+    "closingPrice": 1644.9,
+    "securityName": "CYC Nepal Laghubitta Bittiya Sanstha Limited",
+    "securityId": 8065
+  },
+  {
+    "symbol": "GMFBS",
+    "shareTraded": 2588,
+    "closingPrice": 1474.0,
+    "securityName": "Ganapati Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2815
+  },
+  {
+    "symbol": "NESDO",
+    "shareTraded": 2503,
+    "closingPrice": 1600.0,
+    "securityName": "NESDO Sambridha Laghubitta Bittiya Sanstha Limited",
+    "securityId": 8041
+  },
+  {
+    "symbol": "RAWA",
+    "shareTraded": 2392,
+    "closingPrice": 718.8,
+    "securityName": "Rawa Energy Development Limited",
+    "securityId": 9181
+  },
+  {
+    "symbol": "SFEF",
+    "shareTraded": 2350,
+    "closingPrice": 10.36,
+    "securityName": "Sunrise Focused Equity Fund",
+    "securityId": 9154
+  },
+  {
+    "symbol": "KSY",
+    "shareTraded": 2200,
+    "closingPrice": 9.9,
+    "securityName": "Kumari Sabal Yojana",
+    "securityId": 9241
+  },
+  {
+    "symbol": "LLBS",
+    "shareTraded": 2121,
+    "closingPrice": 1052.5,
+    "securityName": "Laxmi Laghubitta Bittiya Sanstha Ltd.",
+    "securityId": 618
+  },
+  {
+    "symbol": "MATRI",
+    "shareTraded": 2063,
+    "closingPrice": 1012.9,
+    "securityName": "Matribhumi Lagubitta Bittiya Sanstha Limited",
+    "securityId": 694
+  },
+  {
+    "symbol": "JSLBB",
+    "shareTraded": 1898,
+    "closingPrice": 1230.0,
+    "securityName": "Janautthan Samudayic Laghubitta Bittya Sanstha Limited",
+    "securityId": 695
+  },
+  {
+    "symbol": "ACLBSL",
+    "shareTraded": 1858,
+    "closingPrice": 1053.0,
+    "securityName": "Aarambha Chautari Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2790
+  },
+  {
+    "symbol": "SAGF",
+    "shareTraded": 1800,
+    "closingPrice": 10.16,
+    "securityName": "Sanima Growth Fund",
+    "securityId": 9139
+  },
+  {
+    "symbol": "C30MF",
+    "shareTraded": 1800,
+    "closingPrice": 10.12,
+    "securityName": "Citizens Super 30 Mutual Fund",
+    "securityId": 9191
+  },
+  {
+    "symbol": "WNLB",
+    "shareTraded": 1658,
+    "closingPrice": 1630.0,
+    "securityName": "Wean Nepal Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2781
+  },
+  {
+    "symbol": "SWASTIK",
+    "shareTraded": 1591,
+    "closingPrice": 2885.0,
+    "securityName": "Swastik Laghubitta Bittiya Sanstha Limited",
+    "securityId": 9295
+  },
+  {
+    "symbol": "GLBSL",
+    "shareTraded": 1555,
+    "closingPrice": 1973.0,
+    "securityName": "Gurans Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2826
+  },
+  {
+    "symbol": "SFMF",
+    "shareTraded": 1500,
+    "closingPrice": 10.4,
+    "securityName": "Sunrise First Mutual Fund",
+    "securityId": 2877
+  },
+  {
+    "symbol": "MLBS",
+    "shareTraded": 1450,
+    "closingPrice": 1536.0,
+    "securityName": "Manushi Laghubitta Bittiya Sanstha Limited",
+    "securityId": 8018
+  },
+  {
+    "symbol": "SMB",
+    "shareTraded": 1329,
+    "closingPrice": 1930.0,
+    "securityName": "Support Microfinance Bittiya Sanstha Ltd.",
+    "securityId": 2771
+  },
+  {
+    "symbol": "UNLB",
+    "shareTraded": 1294,
+    "closingPrice": 1925.0,
+    "securityName": "Unique Nepal Laghubitta Bittiya Sanstha Limited",
+    "securityId": 9140
+  },
+  {
+    "symbol": "ULBSL",
+    "shareTraded": 1271,
+    "closingPrice": 3239.9,
+    "securityName": "Upakar Laghubitta Bittiya Sanstha Limited",
+    "securityId": 8063
+  },
+  {
+    "symbol": "MLBSL",
+    "shareTraded": 1208,
+    "closingPrice": 1976.0,
+    "securityName": "Mahila Lagubitta Bittiya Sanstha Limited ",
+    "securityId": 2925
+  },
+  {
+    "symbol": "SHLB",
+    "shareTraded": 1170,
+    "closingPrice": 1709.0,
+    "securityName": "Shrijanshil Laghubitta Bittiya Sanstha Limited",
+    "securityId": 8132
+  },
+  {
+    "symbol": "RSML",
+    "shareTraded": 1020,
+    "closingPrice": 1830.1,
+    "securityName": "Reliance Spinning Mills Limited",
+    "securityId": 9306
+  },
+  {
+    "symbol": "MSHL",
+    "shareTraded": 831,
+    "closingPrice": 809.0,
+    "securityName": "Mid Solu Hydropower Limited",
+    "securityId": 9215
+  },
+  {
+    "symbol": "SMFBS",
+    "shareTraded": 667,
+    "closingPrice": 1711.2,
+    "securityName": "Swabhimaan Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2829
+  },
+  {
+    "symbol": "KBSH",
+    "shareTraded": 354,
+    "closingPrice": 1721.0,
+    "securityName": "Kutheli Bukhari Small Hydropower Limited",
+    "securityId": 9196
+  },
+  {
+    "symbol": "RBCL",
+    "shareTraded": 323,
+    "closingPrice": 15700.0,
+    "securityName": "Rastriya Beema Company Limited",
+    "securityId": 177
+  },
+  {
+    "symbol": "BNT",
+    "shareTraded": 314,
+    "closingPrice": 12099.0,
+    "securityName": "Bottlers Nepal (Terai) Limited",
+    "securityId": 213
+  },
+  {
+    "symbol": "SBID83",
+    "shareTraded": 275,
+    "closingPrice": 1075.0,
+    "securityName": "10.25% Nepal SBI Bank Debenture 2083",
+    "securityId": 8110
+  },
+  {
+    "symbol": "HFIN",
+    "shareTraded": 270,
+    "closingPrice": 239.0,
+    "securityName": "Hotel Forest Inn Limited",
+    "securityId": 9308
+  },
+  {
+    "symbol": "KSBBLD87",
+    "shareTraded": 155,
+    "closingPrice": 1162.8,
+    "securityName": "9% Kamana Sewa Bikas Bank Limited Debenture 2087",
+    "securityId": 4948
+  },
+  {
+    "symbol": "MND84/85",
+    "shareTraded": 150,
+    "closingPrice": 1100.0,
+    "securityName": "Muktinath Debenture 2084/85",
+    "securityId": 4969
+  },
+  {
+    "symbol": "LBBLD89",
+    "shareTraded": 150,
+    "closingPrice": 1342.0,
+    "securityName": "11% L.B.B.L. Debenture 2089",
+    "securityId": 9197
+  },
+  {
+    "symbol": "RBBD2088",
+    "shareTraded": 125,
+    "closingPrice": 1070.0,
+    "securityName": "7% RBBL Debenture 2088",
+    "securityId": 9264
+  },
+  {
+    "symbol": "NIFRAGED",
+    "shareTraded": 114,
+    "closingPrice": 1035.1,
+    "securityName": "Nifra Green Energy Debenture 6% - 2088/89",
+    "securityId": 9261
+  },
+  {
+    "symbol": "ANLB",
+    "shareTraded": 110,
+    "closingPrice": 6461.3,
+    "securityName": "Aatmanirbhar Laghubitta Bittiya Sanstha Limited",
+    "securityId": 9161
+  },
+  {
+    "symbol": "SBID2090",
+    "shareTraded": 105,
+    "closingPrice": 1068.0,
+    "securityName": "7% Nepal SBI Bank Debenture 2090",
+    "securityId": 9289
+  },
+  {
+    "symbol": "PBD84",
+    "shareTraded": 100,
+    "closingPrice": 1145.0,
+    "securityName": "10.15% Prime Debenture 2084",
+    "securityId": 8116
+  },
+  {
+    "symbol": "BJHL",
+    "shareTraded": 100,
+    "closingPrice": 395.3,
+    "securityName": "Bhujung Hydropower Limited",
+    "securityId": 9322
+  },
+  {
+    "symbol": "ADBLD83",
+    "shareTraded": 100,
+    "closingPrice": 1065.0,
+    "securityName": "10.35% Agricultural Bank Debenture 2083",
+    "securityId": 2886
+  },
+  {
+    "symbol": "SKHL",
+    "shareTraded": 90,
+    "closingPrice": 330.0,
+    "securityName": "Super Khudi Hydropower Limited",
+    "securityId": 9323
+  },
+  {
+    "symbol": "GBBD85",
+    "shareTraded": 75,
+    "closingPrice": 1090.3,
+    "securityName": "Garima Debenture, 2085",
+    "securityId": 8033
+  },
+  {
+    "symbol": "EBLD91",
+    "shareTraded": 75,
+    "closingPrice": 1105.0,
+    "securityName": "Everest Bank Limited Debenture 2091",
+    "securityId": 9255
+  },
+  {
+    "symbol": "ICFCD83",
+    "shareTraded": 70,
+    "closingPrice": 1088.5,
+    "securityName": "12% ICFC Finance Limited Debenture 2083",
+    "securityId": 2882
+  },
+  {
+    "symbol": "SHINED",
+    "shareTraded": 60,
+    "closingPrice": 1122.2,
+    "securityName": "Shine Resunga Debenture",
+    "securityId": 9286
+  },
+  {
+    "symbol": "ICFCD88",
+    "shareTraded": 51,
+    "closingPrice": 1171.0,
+    "securityName": "9% ICFC Finance Limited Debenture 2088",
+    "securityId": 9249
+  },
+  {
+    "symbol": "SBLD2091",
+    "shareTraded": 50,
+    "closingPrice": 1062.1,
+    "securityName": "7.25% SBL Debenture 2091",
+    "securityId": 9271
+  },
+  {
+    "symbol": "PBD88",
+    "shareTraded": 50,
+    "closingPrice": 1199.6,
+    "securityName": "10% Prime Debenture 2088",
+    "securityId": 8097
+  },
+  {
+    "symbol": "BNL",
+    "shareTraded": 40,
+    "closingPrice": 15600.0,
+    "securityName": "Bottlers Nepal (Balaju) Limited",
+    "securityId": 195
+  },
+  {
+    "symbol": "RBCLPO",
+    "shareTraded": 40,
+    "closingPrice": 12751.0,
+    "securityName": "Rastriya Beema Company Limited Promoter Share",
+    "securityId": 634
+  },
+  {
+    "symbol": "UNL",
+    "shareTraded": 32,
+    "closingPrice": 46490.0,
+    "securityName": "Unilever Nepal Limited",
+    "securityId": 219
+  },
+  {
+    "symbol": "EBLD85",
+    "shareTraded": 25,
+    "closingPrice": 1170.7,
+    "securityName": "10.50% Everest Bank Limited Debenture 2085",
+    "securityId": 8119
+  },
+  {
+    "symbol": "SAND2085",
+    "shareTraded": 25,
+    "closingPrice": 1130.0,
+    "securityName": "10% Sanima Bank Limited Debenture",
+    "securityId": 2828
+  },
+  {
+    "symbol": "EBLD86",
+    "shareTraded": 25,
+    "closingPrice": 1088.7,
+    "securityName": "Everest Bank Limited",
+    "securityId": 8044
+  },
+  {
+    "symbol": "SBD87",
+    "shareTraded": 25,
+    "closingPrice": 1095.0,
+    "securityName": "8.5% Sanima Debenture 2087",
+    "securityId": 2922
+  },
+  {
+    "symbol": "SDBD87",
+    "shareTraded": 25,
+    "closingPrice": 1140.0,
+    "securityName": "Shangri-la Development Bank Debenture 2087",
+    "securityId": 6985
+  },
+  {
+    "symbol": "RBBD83",
+    "shareTraded": 25,
+    "closingPrice": 1035.2,
+    "securityName": "8.5% RBBL Debenture 2083",
+    "securityId": 8003
+  },
+  {
+    "symbol": "NIBD84",
+    "shareTraded": 25,
+    "closingPrice": 1054.0,
+    "securityName": "8.5% Nepal Investment Bank Debenture 2084",
+    "securityId": 2931
+  },
+  {
+    "symbol": "MFLD85",
+    "shareTraded": 25,
+    "closingPrice": 1126.0,
+    "securityName": "9.5% Manjushree Finance Limited Debenture 2085",
+    "securityId": 2932
+  },
+  {
+    "symbol": "NABILD87",
+    "shareTraded": 25,
+    "closingPrice": 1142.0,
+    "securityName": "9% Nabil Debenture 2087",
+    "securityId": 9238
+  },
+  {
+    "symbol": "NABILD2089",
+    "shareTraded": 25,
+    "closingPrice": 1050.0,
+    "securityName": "7% Nabil Debenture 2089",
+    "securityId": 9299
+  },
+  {
+    "symbol": "NICAD2091",
+    "shareTraded": 25,
+    "closingPrice": 1051.1,
+    "securityName": "7% NIC ASIA Debenture 2091",
+    "securityId": 9266
+  },
+  {
+    "symbol": "LBLD86",
+    "shareTraded": 15,
+    "closingPrice": 1132.0,
+    "securityName": "10% Laxmi Bank Debenture 2086",
+    "securityId": 2879
+  },
+  {
+    "symbol": "EBLEB89",
+    "shareTraded": 10,
+    "closingPrice": 1079.0,
+    "securityName": "Everest Bank Limited Energy Bond, 2089",
+    "securityId": 9152
+  },
+  {
+    "symbol": "JBBD87",
+    "shareTraded": 10,
+    "closingPrice": 1162.8,
+    "securityName": "Jyoti Bikash Bank Bond 2087",
+    "securityId": 8020
+  },
+  {
+    "symbol": "SBLD84",
+    "shareTraded": 5,
+    "closingPrice": 1050.0,
+    "securityName": "8.5% SBL Debenture 2084",
+    "securityId": 2912
+  }
+]
