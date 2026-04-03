@@ -2,8 +2,8 @@ name: NEPSE Data Collection
 
 on:
   schedule:
-    # Run all data collection at 9:00 PM Nepal time (3:15 PM UTC)
-    - cron: "15 15 * * 0-4"
+    # Run all data collection once a month (1st day at the same UTC time)
+    - cron: "15 15 1 * *"
 
   # Allow manual triggering
   workflow_dispatch:
