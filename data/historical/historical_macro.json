@@ -3,6 +3,166 @@
     "data_type": "exchange_rates",
     "currency": "USD",
     "rates": [
+      "151.97",
+      "152.57"
+    ],
+    "headers": [
+      "Currency",
+      "Buy",
+      "Sell"
+    ],
+    "date": "2026-09-01",
+    "source": "nrb"
+  },
+  {
+    "data_type": "exchange_rates",
+    "currency": "EUR",
+    "rates": [
+      "176.29",
+      "176.99"
+    ],
+    "headers": [
+      "Currency",
+      "Buy",
+      "Sell"
+    ],
+    "date": "2026-09-01",
+    "source": "nrb"
+  },
+  {
+    "data_type": "exchange_rates",
+    "currency": "GBP",
+    "rates": [
+      "205.84",
+      "206.66"
+    ],
+    "headers": [
+      "Currency",
+      "Buy",
+      "Sell"
+    ],
+    "date": "2026-09-01",
+    "source": "nrb"
+  },
+  {
+    "data_type": "exchange_rates",
+    "currency": "JPY",
+    "rates": [
+      "9.52",
+      "9.55"
+    ],
+    "headers": [
+      "Currency",
+      "Buy",
+      "Sell"
+    ],
+    "date": "2026-09-01",
+    "source": "nrb"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "Total Deposits",
+    "current_value": "8,287",
+    "previous_value": "8,296",
+    "date": "2026-09-01",
+    "source": "nrb_homepage",
+    "unit": "in NPR Billion"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "Commercial Banks Total Deposits",
+    "current_value": "7,484",
+    "previous_value": "7,493",
+    "date": "2026-09-01",
+    "source": "nrb_homepage",
+    "unit": "in NPR Billion"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "Other BFIs Total Deposits",
+    "current_value": "803",
+    "previous_value": "803",
+    "date": "2026-09-01",
+    "source": "nrb_homepage",
+    "unit": "in NPR Billion"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "Total Lending",
+    "current_value": "5,973",
+    "previous_value": "5,972",
+    "date": "2026-09-01",
+    "source": "nrb_homepage",
+    "unit": "in NPR Billion"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "Commercial Banks Total Lending",
+    "current_value": "5,313",
+    "previous_value": "5,312",
+    "date": "2026-09-01",
+    "source": "nrb_homepage",
+    "unit": "in NPR Billion"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "Other BFIs Total Lending",
+    "current_value": "660",
+    "previous_value": "660",
+    "date": "2026-09-01",
+    "source": "nrb_homepage",
+    "unit": "in NPR Billion"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "CD Ratio",
+    "current_value": "71.47",
+    "previous_value": "71.38",
+    "date": "2026-09-01",
+    "source": "nrb_homepage",
+    "unit": "in %"
+  },
+  {
+    "data_type": "banking_indicators",
+    "indicator": "Interbank Interest Rate LCY - Weighted Avg.",
+    "current_value": "2.75",
+    "previous_value": "2.75",
+    "date": "2026-09-01",
+    "source": "nrb_homepage",
+    "unit": "in %"
+  },
+  {
+    "data_type": "short_term_rates",
+    "maturity": "28 Days",
+    "rate": "1.43",
+    "date": "2026-09-01",
+    "source": "nrb_homepage"
+  },
+  {
+    "data_type": "short_term_rates",
+    "maturity": "91 Days",
+    "rate": "2.25",
+    "date": "2026-09-01",
+    "source": "nrb_homepage"
+  },
+  {
+    "data_type": "short_term_rates",
+    "maturity": "182 Days",
+    "rate": "1.65",
+    "date": "2026-09-01",
+    "source": "nrb_homepage"
+  },
+  {
+    "data_type": "short_term_rates",
+    "maturity": "364 Days",
+    "rate": "1.95",
+    "date": "2026-09-01",
+    "source": "nrb_homepage"
+  },
+  {
+    "data_type": "exchange_rates",
+    "currency": "USD",
+    "rates": [
       "152.32",
       "152.92"
     ],
