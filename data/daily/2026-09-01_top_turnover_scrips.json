@@ -1,0 +1,2389 @@
+[
+  {
+    "symbol": "SOHL",
+    "turnover": 138279062.6,
+    "closingPrice": 659.0,
+    "securityName": "Solu Hydropower Limited",
+    "securityId": 9311
+  },
+  {
+    "symbol": "SHIVM",
+    "turnover": 136398370.8,
+    "closingPrice": 654.0,
+    "securityName": "SHIVAM CEMENTS LTD",
+    "securityId": 2809
+  },
+  {
+    "symbol": "AKJCL",
+    "turnover": 103623644.1,
+    "closingPrice": 342.6,
+    "securityName": "Ankhu Khola Jalvidhyut Company Ltd",
+    "securityId": 2788
+  },
+  {
+    "symbol": "RIDI",
+    "turnover": 91345861.7,
+    "closingPrice": 347.7,
+    "securityName": "Ridi Power Company Limited",
+    "securityId": 610
+  },
+  {
+    "symbol": "TAMOR",
+    "turnover": 90832498.5,
+    "closingPrice": 495.0,
+    "securityName": "Sanima Middle Tamor Hydropower Limited",
+    "securityId": 9156
+  },
+  {
+    "symbol": "CHCL",
+    "turnover": 73487087.8,
+    "closingPrice": 372.0,
+    "securityName": "Chilime Hydropower Company Limited",
+    "securityId": 154
+  },
+  {
+    "symbol": "SAPIL",
+    "turnover": 64852198.5,
+    "closingPrice": 1253.0,
+    "securityName": "Sarvottam Paints Industries Limited",
+    "securityId": 9353
+  },
+  {
+    "symbol": "RSML",
+    "turnover": 62455325.2,
+    "closingPrice": 2718.0,
+    "securityName": "Reliance Spinning Mills Limited",
+    "securityId": 9306
+  },
+  {
+    "symbol": "SAHAS",
+    "turnover": 55461193.6,
+    "closingPrice": 685.0,
+    "securityName": "Sahas Urja Limited",
+    "securityId": 8021
+  },
+  {
+    "symbol": "SBL",
+    "turnover": 48578160.9,
+    "closingPrice": 407.7,
+    "securityName": "Siddhartha Bank Limited",
+    "securityId": 145
+  },
+  {
+    "symbol": "SANIMA",
+    "turnover": 47190520.7,
+    "closingPrice": 358.0,
+    "securityName": "Sanima Bank Limited",
+    "securityId": 171
+  },
+  {
+    "symbol": "RHPL",
+    "turnover": 44939235.4,
+    "closingPrice": 168.7,
+    "securityName": "RASUWAGADHI HYDROPOWER COMPANY LIMITED",
+    "securityId": 2841
+  },
+  {
+    "symbol": "SHPC",
+    "turnover": 42176938.8,
+    "closingPrice": 497.9,
+    "securityName": "Sanima Mai Hydropower Ltd.",
+    "securityId": 591
+  },
+  {
+    "symbol": "NRN",
+    "turnover": 40673707.2,
+    "closingPrice": 1363.0,
+    "securityName": "NRN Infrastructure and Development Limited",
+    "securityId": 2898
+  },
+  {
+    "symbol": "SYPNL",
+    "turnover": 40095313.8,
+    "closingPrice": 1260.1,
+    "securityName": "SY Panel Nepal Limited",
+    "securityId": 9303
+  },
+  {
+    "symbol": "SMHL",
+    "turnover": 39653431.4,
+    "closingPrice": 527.0,
+    "securityName": "Super Madi Hydropower Limited",
+    "securityId": 9146
+  },
+  {
+    "symbol": "API",
+    "turnover": 38751793.3,
+    "closingPrice": 325.6,
+    "securityName": "Api Power Company Ltd.",
+    "securityId": 697
+  },
+  {
+    "symbol": "NHPC",
+    "turnover": 38241315.7,
+    "closingPrice": 251.8,
+    "securityName": "National Hydro Power Company Limited",
+    "securityId": 152
+  },
+  {
+    "symbol": "NRIC",
+    "turnover": 31928477.5,
+    "closingPrice": 795.0,
+    "securityName": "Nepal Reinsurance Company Limited",
+    "securityId": 2881
+  },
+  {
+    "symbol": "UHEWA",
+    "turnover": 29363089.1,
+    "closingPrice": 594.0,
+    "securityName": "Upper Hewakhola Hydropower Company Limited",
+    "securityId": 8099
+  },
+  {
+    "symbol": "HRL",
+    "turnover": 28492968.0,
+    "closingPrice": 516.0,
+    "securityName": "Himalayan Reinsurance Limited",
+    "securityId": 9234
+  },
+  {
+    "symbol": "RADHI",
+    "turnover": 27601190.2,
+    "closingPrice": 681.0,
+    "securityName": "Radhi Bidyut Company Ltd",
+    "securityId": 2776
+  },
+  {
+    "symbol": "KBL",
+    "turnover": 26699844.5,
+    "closingPrice": 211.0,
+    "securityName": "Kumari Bank Limited",
+    "securityId": 142
+  },
+  {
+    "symbol": "MEN",
+    "turnover": 26641241.7,
+    "closingPrice": 618.0,
+    "securityName": "Mountain Energy Nepal Limited",
+    "securityId": 2913
+  },
+  {
+    "symbol": "CITY",
+    "turnover": 26621868.6,
+    "closingPrice": 340.0,
+    "securityName": "City Hotel Limited",
+    "securityId": 9173
+  },
+  {
+    "symbol": "GCIL",
+    "turnover": 25879922.6,
+    "closingPrice": 376.0,
+    "securityName": "Ghorahi Cement Industry Limited",
+    "securityId": 9193
+  },
+  {
+    "symbol": "SONA",
+    "turnover": 25436144.5,
+    "closingPrice": 407.0,
+    "securityName": "Sonapur Minerals And Oil Limited",
+    "securityId": 9216
+  },
+  {
+    "symbol": "AHPC",
+    "turnover": 23363119.1,
+    "closingPrice": 247.5,
+    "securityName": "Arun Valley Hydropower Development Co. Ltd.",
+    "securityId": 360
+  },
+  {
+    "symbol": "HIDCL",
+    "turnover": 21889119.8,
+    "closingPrice": 236.2,
+    "securityName": "Hydorelectricity Investment and Development Company Ltd",
+    "securityId": 2742
+  },
+  {
+    "symbol": "SGHL",
+    "turnover": 21499166.1,
+    "closingPrice": 481.0,
+    "securityName": "Sanigad Hydro Limited",
+    "securityId": 9345
+  },
+  {
+    "symbol": "MAKAR",
+    "turnover": 20489370.4,
+    "closingPrice": 397.0,
+    "securityName": "Makar Jitumaya Suri Hydropower Limited",
+    "securityId": 9166
+  },
+  {
+    "symbol": "ECL",
+    "turnover": 20229370.6,
+    "closingPrice": 1317.6,
+    "securityName": "Everest Colour Limited",
+    "securityId": 9347
+  },
+  {
+    "symbol": "CFCL",
+    "turnover": 20141224.6,
+    "closingPrice": 582.0,
+    "securityName": "Central Finance Co. Ltd.",
+    "securityId": 245
+  },
+  {
+    "symbol": "MEPDL",
+    "turnover": 20076513.7,
+    "closingPrice": 611.9,
+    "securityName": "Mount Everest Power Development Limited",
+    "securityId": 9352
+  },
+  {
+    "symbol": "GBIME",
+    "turnover": 19248386.4,
+    "closingPrice": 240.0,
+    "securityName": "Global IME Bank Limited",
+    "securityId": 341
+  },
+  {
+    "symbol": "PCIL",
+    "turnover": 19158871.4,
+    "closingPrice": 623.2,
+    "securityName": "Palpa Cement Industries Limited",
+    "securityId": 9330
+  },
+  {
+    "symbol": "PRVU",
+    "turnover": 19095163.0,
+    "closingPrice": 176.8,
+    "securityName": "Prabhu  Bank Limited",
+    "securityId": 255
+  },
+  {
+    "symbol": "KSBBL",
+    "turnover": 19077929.0,
+    "closingPrice": 474.6,
+    "securityName": "Kamana Sewa Bikas Bank Limited",
+    "securityId": 459
+  },
+  {
+    "symbol": "KKHC",
+    "turnover": 18818746.1,
+    "closingPrice": 265.2,
+    "securityName": "Khanikhola Hydropower Co. Ltd.",
+    "securityId": 2751
+  },
+  {
+    "symbol": "CHDC",
+    "turnover": 18802095.0,
+    "closingPrice": 2150.0,
+    "securityName": "CEDB Holdings Limited",
+    "securityId": 3946
+  },
+  {
+    "symbol": "SJCL",
+    "turnover": 17700966.9,
+    "closingPrice": 239.9,
+    "securityName": "SANJEN JALAVIDHYUT COMPANY LIMITED",
+    "securityId": 2842
+  },
+  {
+    "symbol": "HDL",
+    "turnover": 17011333.1,
+    "closingPrice": 1157.9,
+    "securityName": "Himalayan Distillery Limited",
+    "securityId": 235
+  },
+  {
+    "symbol": "HDHPC",
+    "turnover": 16578832.6,
+    "closingPrice": 196.5,
+    "securityName": "Himal Dolakha Hydropower Company Limited",
+    "securityId": 2880
+  },
+  {
+    "symbol": "HPPL",
+    "turnover": 16481879.3,
+    "closingPrice": 359.0,
+    "securityName": "Himalayan Power Partner Ltd.",
+    "securityId": 2767
+  },
+  {
+    "symbol": "SAIL",
+    "turnover": 16466324.2,
+    "closingPrice": 983.0,
+    "securityName": "Shreenagar Agritech Industries Limited",
+    "securityId": 9301
+  },
+  {
+    "symbol": "NGPL",
+    "turnover": 15395310.9,
+    "closingPrice": 390.9,
+    "securityName": "Ngadi Group Power Ltd.",
+    "securityId": 2743
+  },
+  {
+    "symbol": "SHL",
+    "turnover": 15364099.3,
+    "closingPrice": 500.0,
+    "securityName": "Soaltee Hotel Limited",
+    "securityId": 147
+  },
+  {
+    "symbol": "ALBSL",
+    "turnover": 15017935.6,
+    "closingPrice": 1110.0,
+    "securityName": "Asha Laghubitta Bittiya Sanstha Ltd",
+    "securityId": 2807
+  },
+  {
+    "symbol": "MKJC",
+    "turnover": 14992790.5,
+    "closingPrice": 284.9,
+    "securityName": "Mailung Khola Jal Vidhyut Company Limited",
+    "securityId": 8005
+  },
+  {
+    "symbol": "NBL",
+    "turnover": 14937264.1,
+    "closingPrice": 271.0,
+    "securityName": "Nepal Bank Limited",
+    "securityId": 517
+  },
+  {
+    "symbol": "UMHL",
+    "turnover": 14454844.4,
+    "closingPrice": 560.0,
+    "securityName": "United Modi Hydropower Ltd.",
+    "securityId": 2760
+  },
+  {
+    "symbol": "GBBL",
+    "turnover": 14282704.4,
+    "closingPrice": 421.0,
+    "securityName": "Garima Bikas Bank Limited",
+    "securityId": 417
+  },
+  {
+    "symbol": "SNORL",
+    "turnover": 14147459.4,
+    "closingPrice": 862.9,
+    "securityName": "Snow Rivers Limited",
+    "securityId": 9344
+  },
+  {
+    "symbol": "MBL",
+    "turnover": 13758130.3,
+    "closingPrice": 245.0,
+    "securityName": "Machhapuchhre Bank Limited",
+    "securityId": 140
+  },
+  {
+    "symbol": "UPPER",
+    "turnover": 13684641.4,
+    "closingPrice": 181.8,
+    "securityName": "Upper Tamakoshi Hydropower Ltd",
+    "securityId": 2792
+  },
+  {
+    "symbol": "BHCL",
+    "turnover": 13604947.2,
+    "closingPrice": 544.0,
+    "securityName": "Bikash Hydropower Company Limited",
+    "securityId": 9267
+  },
+  {
+    "symbol": "CORBL",
+    "turnover": 13559537.1,
+    "closingPrice": 883.0,
+    "securityName": "Corporate Development Bank Limited",
+    "securityId": 450
+  },
+  {
+    "symbol": "NABIL",
+    "turnover": 13466224.7,
+    "closingPrice": 536.5,
+    "securityName": "Nabil Bank Limited",
+    "securityId": 131
+  },
+  {
+    "symbol": "EBL",
+    "turnover": 13225653.8,
+    "closingPrice": 710.3,
+    "securityName": "Everest Bank Limited",
+    "securityId": 137
+  },
+  {
+    "symbol": "PHCL",
+    "turnover": 13191989.5,
+    "closingPrice": 297.0,
+    "securityName": "Peoples Hydropower Company Limited",
+    "securityId": 8133
+  },
+  {
+    "symbol": "SGIC",
+    "turnover": 13112141.9,
+    "closingPrice": 383.0,
+    "securityName": "Sanima GIC Insurance Limited",
+    "securityId": 2908
+  },
+  {
+    "symbol": "AKPL",
+    "turnover": 12756095.6,
+    "closingPrice": 242.5,
+    "securityName": "Arun Kabeli Power Ltd.",
+    "securityId": 2757
+  },
+  {
+    "symbol": "LEC",
+    "turnover": 12681896.4,
+    "closingPrice": 210.0,
+    "securityName": "Liberty Energy Company Limited",
+    "securityId": 2903
+  },
+  {
+    "symbol": "SSHL",
+    "turnover": 12226558.2,
+    "closingPrice": 191.4,
+    "securityName": "Shiva Shree Hydropower Ltd",
+    "securityId": 2907
+  },
+  {
+    "symbol": "NIFRA",
+    "turnover": 12186785.5,
+    "closingPrice": 240.0,
+    "securityName": "Nepal Infrastructure Bank Limited",
+    "securityId": 2919
+  },
+  {
+    "symbol": "SOPL",
+    "turnover": 12169207.1,
+    "closingPrice": 731.2,
+    "securityName": "Sopan Pharmaceuticals Limited",
+    "securityId": 9336
+  },
+  {
+    "symbol": "BHL",
+    "turnover": 12164487.0,
+    "closingPrice": 197.0,
+    "securityName": "Balephi Hydropower Limited",
+    "securityId": 8055
+  },
+  {
+    "symbol": "FMDBL",
+    "turnover": 12051015.4,
+    "closingPrice": 723.0,
+    "securityName": "First Micro Finance Laghubitta Bittiya Sanstha Limited",
+    "securityId": 490
+  },
+  {
+    "symbol": "CIT",
+    "turnover": 11593994.6,
+    "closingPrice": 1663.0,
+    "securityName": "Citizen Investment Trust",
+    "securityId": 210
+  },
+  {
+    "symbol": "HIDCLP",
+    "turnover": 10797686.5,
+    "closingPrice": 179.0,
+    "securityName": "Hydorelectricity Investment and Development Company Limited Promoter",
+    "securityId": 8111
+  },
+  {
+    "symbol": "CBBL",
+    "turnover": 10555762.2,
+    "closingPrice": 929.0,
+    "securityName": "Chhimek Laghubitta Bittiya Sanstha Limited",
+    "securityId": 164
+  },
+  {
+    "symbol": "UAIL",
+    "turnover": 10539518.5,
+    "closingPrice": 375.0,
+    "securityName": "United Ajod Insurance Limited",
+    "securityId": 180
+  },
+  {
+    "symbol": "PRIN",
+    "turnover": 10421928.6,
+    "closingPrice": 584.9,
+    "securityName": "Prabhu Insurance Ltd.",
+    "securityId": 184
+  },
+  {
+    "symbol": "BANDIPUR",
+    "turnover": 10365197.8,
+    "closingPrice": 642.0,
+    "securityName": "Bandipur Cablecar and Tourism Limited",
+    "securityId": 9297
+  },
+  {
+    "symbol": "NABBC",
+    "turnover": 10329496.2,
+    "closingPrice": 726.9,
+    "securityName": "Narayani Development Bank Limited",
+    "securityId": 172
+  },
+  {
+    "symbol": "KAHL",
+    "turnover": 10207704.1,
+    "closingPrice": 475.0,
+    "securityName": "Kalanga Hydro Limited",
+    "securityId": 9346
+  },
+  {
+    "symbol": "GHL",
+    "turnover": 9961185.3,
+    "closingPrice": 223.0,
+    "securityName": "Ghalemdi Hydro Limited",
+    "securityId": 2806
+  },
+  {
+    "symbol": "HEI",
+    "turnover": 9861749.6,
+    "closingPrice": 453.0,
+    "securityName": "Himalayan Everest Insurance Limited",
+    "securityId": 179
+  },
+  {
+    "symbol": "MEHL",
+    "turnover": 9696629.5,
+    "closingPrice": 229.0,
+    "securityName": "Manakamana Engineering Hydropower Limited",
+    "securityId": 9203
+  },
+  {
+    "symbol": "HFIN",
+    "turnover": 9638220.3,
+    "closingPrice": 617.9,
+    "securityName": "Hotel Forest Inn Limited",
+    "securityId": 9308
+  },
+  {
+    "symbol": "TPKHL",
+    "turnover": 9557786.1,
+    "closingPrice": 498.5,
+    "securityName": "Taksar Pikhuwa Khola Hydropower Limited",
+    "securityId": 9343
+  },
+  {
+    "symbol": "SHEL",
+    "turnover": 9477509.2,
+    "closingPrice": 290.5,
+    "securityName": "Singati Hydro Energy Limited",
+    "securityId": 2934
+  },
+  {
+    "symbol": "KBSH",
+    "turnover": 9419506.4,
+    "closingPrice": 821.0,
+    "securityName": "Kutheli Bukhari Small Hydropower Limited",
+    "securityId": 9196
+  },
+  {
+    "symbol": "HATHY",
+    "turnover": 9282985.2,
+    "closingPrice": 617.4,
+    "securityName": "Hathway Investment Nepal Limited",
+    "securityId": 9213
+  },
+  {
+    "symbol": "SARBTM",
+    "turnover": 9143889.3,
+    "closingPrice": 800.0,
+    "securityName": "Sarbottam Cement Limited",
+    "securityId": 9242
+  },
+  {
+    "symbol": "NIMB",
+    "turnover": 9056807.6,
+    "closingPrice": 182.2,
+    "securityName": "Nepal Investment Mega Bank Limited",
+    "securityId": 132
+  },
+  {
+    "symbol": "MFIL",
+    "turnover": 8898866.2,
+    "closingPrice": 722.9,
+    "securityName": "Manjushree Finance Ltd.",
+    "securityId": 516
+  },
+  {
+    "symbol": "LSL",
+    "turnover": 8824922.2,
+    "closingPrice": 219.0,
+    "securityName": "Laxmi Sunrise Bank Limited",
+    "securityId": 141
+  },
+  {
+    "symbol": "HLI",
+    "turnover": 8428669.6,
+    "closingPrice": 294.0,
+    "securityName": "Himalayan Life Insurance Limited",
+    "securityId": 393
+  },
+  {
+    "symbol": "SAGAR",
+    "turnover": 8387670.4,
+    "closingPrice": 1500.0,
+    "securityName": "Sagar Distillery Limited",
+    "securityId": 9294
+  },
+  {
+    "symbol": "UPCL",
+    "turnover": 8341224.5,
+    "closingPrice": 330.0,
+    "securityName": "UNIVERSAL POWER COMPANY LTD",
+    "securityId": 2810
+  },
+  {
+    "symbol": "SKHL",
+    "turnover": 8284892.6,
+    "closingPrice": 715.0,
+    "securityName": "Super Khudi Hydropower Limited",
+    "securityId": 9323
+  },
+  {
+    "symbol": "LBBL",
+    "turnover": 8081563.1,
+    "closingPrice": 468.0,
+    "securityName": "Lumbini Bikas Bank Ltd.",
+    "securityId": 358
+  },
+  {
+    "symbol": "YMHL",
+    "turnover": 8067463.4,
+    "closingPrice": 569.0,
+    "securityName": "Yambaling Hydropower Limited",
+    "securityId": 9342
+  },
+  {
+    "symbol": "MBJC",
+    "turnover": 8051447.8,
+    "closingPrice": 257.9,
+    "securityName": "Madhya Bhotekoshi Jalavidyut Company Limited",
+    "securityId": 8031
+  },
+  {
+    "symbol": "SAPDBL",
+    "turnover": 8034141.8,
+    "closingPrice": 706.8,
+    "securityName": "Saptakoshi Development Bank Ltd",
+    "securityId": 2860
+  },
+  {
+    "symbol": "HURJA",
+    "turnover": 7915410.9,
+    "closingPrice": 229.0,
+    "securityName": "Himalaya Urja Bikas Company Limited",
+    "securityId": 2824
+  },
+  {
+    "symbol": "CYCL",
+    "turnover": 7877039.8,
+    "closingPrice": 1528.0,
+    "securityName": "CYC Nepal Laghubitta Bittiya Sanstha Limited",
+    "securityId": 8065
+  },
+  {
+    "symbol": "SPHL",
+    "turnover": 7770573.0,
+    "closingPrice": 521.0,
+    "securityName": "Sayapatri Hydropower Limited",
+    "securityId": 8121
+  },
+  {
+    "symbol": "SINDU",
+    "turnover": 7548465.4,
+    "closingPrice": 596.0,
+    "securityName": "Sindhu Bikash Bank Ltd",
+    "securityId": 561
+  },
+  {
+    "symbol": "NLIC",
+    "turnover": 7463871.6,
+    "closingPrice": 693.8,
+    "securityName": "Nepal Life Insurance Co. Ltd.",
+    "securityId": 187
+  },
+  {
+    "symbol": "PCBL",
+    "turnover": 7285539.8,
+    "closingPrice": 235.0,
+    "securityName": "Prime Commercial Bank Ltd.",
+    "securityId": 357
+  },
+  {
+    "symbol": "ANLB",
+    "turnover": 7217797.2,
+    "closingPrice": 4859.0,
+    "securityName": "Aatmanirbhar Laghubitta Bittiya Sanstha Limited",
+    "securityId": 9161
+  },
+  {
+    "symbol": "SWBBL",
+    "turnover": 7019697.0,
+    "closingPrice": 667.0,
+    "securityName": "Swabalamban Laghubitta Bittiya Sanstha Limited",
+    "securityId": 268
+  },
+  {
+    "symbol": "NMB",
+    "turnover": 6985589.1,
+    "closingPrice": 235.8,
+    "securityName": "NMB Bank Limited",
+    "securityId": 238
+  },
+  {
+    "symbol": "HBL",
+    "turnover": 6796357.9,
+    "closingPrice": 186.8,
+    "securityName": "Himalayan Bank Limited",
+    "securityId": 134
+  },
+  {
+    "symbol": "BUNGAL",
+    "turnover": 6528237.4,
+    "closingPrice": 516.9,
+    "securityName": "Bungal Hydro Limited",
+    "securityId": 9296
+  },
+  {
+    "symbol": "IGI",
+    "turnover": 6432058.8,
+    "closingPrice": 377.9,
+    "securityName": "IGI Prudential insurance Limited",
+    "securityId": 186
+  },
+  {
+    "symbol": "SADBL",
+    "turnover": 6423269.9,
+    "closingPrice": 405.0,
+    "securityName": "Shangrila Development Bank Ltd.",
+    "securityId": 472
+  },
+  {
+    "symbol": "TVCL",
+    "turnover": 6232503.4,
+    "closingPrice": 338.0,
+    "securityName": "Trishuli Jal Vidhyut Company Limited ",
+    "securityId": 9218
+  },
+  {
+    "symbol": "NICA",
+    "turnover": 6137306.3,
+    "closingPrice": 308.0,
+    "securityName": "NIC Asia Bank Ltd.",
+    "securityId": 139
+  },
+  {
+    "symbol": "CGH",
+    "turnover": 5925054.0,
+    "closingPrice": 771.9,
+    "securityName": "Chandragiri Hills Limited",
+    "securityId": 2917
+  },
+  {
+    "symbol": "ADBL",
+    "turnover": 5899356.0,
+    "closingPrice": 297.0,
+    "securityName": "Agricultural Development Bank Limited",
+    "securityId": 397
+  },
+  {
+    "symbol": "CREST",
+    "turnover": 5770940.8,
+    "closingPrice": 1038.0,
+    "securityName": "Crest Micro Life Insurance Limited",
+    "securityId": 9252
+  },
+  {
+    "symbol": "BFC",
+    "turnover": 5597428.9,
+    "closingPrice": 453.0,
+    "securityName": "Best Finance Company Ltd.",
+    "securityId": 227
+  },
+  {
+    "symbol": "BARUN",
+    "turnover": 5577204.1,
+    "closingPrice": 307.0,
+    "securityName": "Barun Hydropower Co. Ltd.",
+    "securityId": 686
+  },
+  {
+    "symbol": "SPDL",
+    "turnover": 5478997.6,
+    "closingPrice": 349.5,
+    "securityName": "Synergy Power Development Ltd.",
+    "securityId": 2759
+  },
+  {
+    "symbol": "ALICL",
+    "turnover": 5429187.9,
+    "closingPrice": 395.0,
+    "securityName": "Asian Life Insurance Co. Limited",
+    "securityId": 385
+  },
+  {
+    "symbol": "NLG",
+    "turnover": 5412793.8,
+    "closingPrice": 494.4,
+    "securityName": "NLG Insurance Company Ltd.",
+    "securityId": 559
+  },
+  {
+    "symbol": "GLH",
+    "turnover": 5377985.7,
+    "closingPrice": 242.0,
+    "securityName": "GreenLife Hydropower Limited",
+    "securityId": 2924
+  },
+  {
+    "symbol": "SABBL",
+    "turnover": 5316968.1,
+    "closingPrice": 870.0,
+    "securityName": "Salapa Bikas Bank Limited",
+    "securityId": 9305
+  },
+  {
+    "symbol": "SJLIC",
+    "turnover": 5208735.3,
+    "closingPrice": 399.0,
+    "securityName": "SuryaJyoti Life Insurance Company Limited",
+    "securityId": 403
+  },
+  {
+    "symbol": "DORDI",
+    "turnover": 5206928.1,
+    "closingPrice": 236.5,
+    "securityName": "Dordi Khola Jal Bidyut Company Limited",
+    "securityId": 8070
+  },
+  {
+    "symbol": "ICFC",
+    "turnover": 5011796.2,
+    "closingPrice": 586.0,
+    "securityName": "ICFC Finance Limited",
+    "securityId": 273
+  },
+  {
+    "symbol": "BJHL",
+    "turnover": 4944730.3,
+    "closingPrice": 649.9,
+    "securityName": "Bhujung Hydropower Limited",
+    "securityId": 9322
+  },
+  {
+    "symbol": "PURE",
+    "turnover": 4937995.2,
+    "closingPrice": 763.0,
+    "securityName": "Pure Energy Limited",
+    "securityId": 9258
+  },
+  {
+    "symbol": "SIPD",
+    "turnover": 4810351.6,
+    "closingPrice": 579.8,
+    "securityName": "Shikhar power Development Limited",
+    "securityId": 9329
+  },
+  {
+    "symbol": "SICL",
+    "turnover": 4716085.5,
+    "closingPrice": 528.6,
+    "securityName": "Shikhar Insurance Co. Ltd.",
+    "securityId": 192
+  },
+  {
+    "symbol": "BPCL",
+    "turnover": 4696957.8,
+    "closingPrice": 640.0,
+    "securityName": "Butwal Power Company Limited",
+    "securityId": 153
+  },
+  {
+    "symbol": "MDB",
+    "turnover": 4650817.0,
+    "closingPrice": 555.0,
+    "securityName": "Miteri Development Bank Limited",
+    "securityId": 371
+  },
+  {
+    "symbol": "GMFIL",
+    "turnover": 4606118.7,
+    "closingPrice": 410.0,
+    "securityName": "Guheshowori Merchant Bank & Finance Co. Ltd.",
+    "securityId": 263
+  },
+  {
+    "symbol": "SHINE",
+    "turnover": 4601320.7,
+    "closingPrice": 407.9,
+    "securityName": "Shine Resunga Development Bank Ltd.",
+    "securityId": 473
+  },
+  {
+    "symbol": "NLICL",
+    "turnover": 4567312.8,
+    "closingPrice": 547.3,
+    "securityName": "National Life Insurance Co. Ltd.",
+    "securityId": 178
+  },
+  {
+    "symbol": "RFPL",
+    "turnover": 4536258.2,
+    "closingPrice": 323.0,
+    "securityName": "River Falls Power Limited",
+    "securityId": 8066
+  },
+  {
+    "symbol": "JBBL",
+    "turnover": 4503324.6,
+    "closingPrice": 324.7,
+    "securityName": "Jyoti Bikas Bank Limited",
+    "securityId": 418
+  },
+  {
+    "symbol": "CZBIL",
+    "turnover": 4501835.3,
+    "closingPrice": 194.2,
+    "securityName": "Citizens Bank International Limited",
+    "securityId": 348
+  },
+  {
+    "symbol": "SGHC",
+    "turnover": 4480438.5,
+    "closingPrice": 285.7,
+    "securityName": "Swet-Ganga Hydropower & Construction Limited ",
+    "securityId": 8100
+  },
+  {
+    "symbol": "UNHPL",
+    "turnover": 4388730.0,
+    "closingPrice": 353.5,
+    "securityName": "Union Hydropower Limited",
+    "securityId": 2831
+  },
+  {
+    "symbol": "RAWA",
+    "turnover": 4368570.2,
+    "closingPrice": 394.9,
+    "securityName": "Rawa Energy Development Limited",
+    "securityId": 9181
+  },
+  {
+    "symbol": "ULBSL",
+    "turnover": 4338736.5,
+    "closingPrice": 2494.0,
+    "securityName": "Upakar Laghubitta Bittiya Sanstha Limited",
+    "securityId": 8063
+  },
+  {
+    "symbol": "NMLBBL",
+    "turnover": 4305323.4,
+    "closingPrice": 479.9,
+    "securityName": "Nerude Mirmire Laghubitta Bittiya Sanstha Limited",
+    "securityId": 396
+  },
+  {
+    "symbol": "DHEL",
+    "turnover": 4276160.0,
+    "closingPrice": 554.9,
+    "securityName": "Daramkhola Hydro Energy Limited",
+    "securityId": 9293
+  },
+  {
+    "symbol": "SBI",
+    "turnover": 4243910.5,
+    "closingPrice": 398.9,
+    "securityName": "Nepal SBI Bank Limited",
+    "securityId": 135
+  },
+  {
+    "symbol": "NTC",
+    "turnover": 4206865.2,
+    "closingPrice": 877.0,
+    "securityName": "Nepal Doorsanchar Company Limited",
+    "securityId": 307
+  },
+  {
+    "symbol": "SCB",
+    "turnover": 4189533.6,
+    "closingPrice": 647.0,
+    "securityName": "Standard Chartered Bank Limited",
+    "securityId": 133
+  },
+  {
+    "symbol": "KHPL",
+    "turnover": 4104512.6,
+    "closingPrice": 730.3,
+    "securityName": "Kalinchock Hydropower Limited",
+    "securityId": 9334
+  },
+  {
+    "symbol": "MNBBL",
+    "turnover": 4018235.6,
+    "closingPrice": 353.3,
+    "securityName": "Muktinath Bikas Bank Ltd.",
+    "securityId": 474
+  },
+  {
+    "symbol": "FOWAD",
+    "turnover": 4013382.6,
+    "closingPrice": 860.0,
+    "securityName": "Forward Microfinance Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2758
+  },
+  {
+    "symbol": "GVL",
+    "turnover": 4000699.7,
+    "closingPrice": 470.0,
+    "securityName": "Green Ventures Limited",
+    "securityId": 8045
+  },
+  {
+    "symbol": "DOLTI",
+    "turnover": 3921168.8,
+    "closingPrice": 280.0,
+    "securityName": "Dolti Power Company Limited",
+    "securityId": 9170
+  },
+  {
+    "symbol": "NUBL",
+    "turnover": 3848171.5,
+    "closingPrice": 570.0,
+    "securityName": "Nirdhan Utthan Laghubitta Bittiya Sanstha Limited",
+    "securityId": 163
+  },
+  {
+    "symbol": "NIL",
+    "turnover": 3814553.7,
+    "closingPrice": 521.9,
+    "securityName": "Neco Insurance Limited",
+    "securityId": 183
+  },
+  {
+    "symbol": "NMFBS",
+    "turnover": 3720602.1,
+    "closingPrice": 1100.0,
+    "securityName": "National Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2746
+  },
+  {
+    "symbol": "RNLI",
+    "turnover": 3717182.4,
+    "closingPrice": 406.5,
+    "securityName": "Reliable Nepal Life Insurance Limited",
+    "securityId": 9199
+  },
+  {
+    "symbol": "SKBBL",
+    "turnover": 3685481.2,
+    "closingPrice": 741.0,
+    "securityName": "Sana Kisan Bikas Laghubitta Bittiya Sanstha Limited",
+    "securityId": 574
+  },
+  {
+    "symbol": "PMHPL",
+    "turnover": 3675944.0,
+    "closingPrice": 295.0,
+    "securityName": "Panchakanya Mai Hydropower Ltd",
+    "securityId": 2786
+  },
+  {
+    "symbol": "SRLI",
+    "turnover": 3648981.7,
+    "closingPrice": 353.0,
+    "securityName": "Sanima Reliance Life Insurance Limited",
+    "securityId": 5982
+  },
+  {
+    "symbol": "NICL",
+    "turnover": 3573044.1,
+    "closingPrice": 424.7,
+    "securityName": "Nepal Insurance Co. Ltd.",
+    "securityId": 176
+  },
+  {
+    "symbol": "TTL",
+    "turnover": 3555483.5,
+    "closingPrice": 671.2,
+    "securityName": "Trade Tower Limited",
+    "securityId": 9262
+  },
+  {
+    "symbol": "SNLI",
+    "turnover": 3522478.6,
+    "closingPrice": 387.6,
+    "securityName": "Sun Nepal Life Insurance Company Limited",
+    "securityId": 9201
+  },
+  {
+    "symbol": "KPCL",
+    "turnover": 3439605.2,
+    "closingPrice": 447.1,
+    "securityName": "Kalika power Company Ltd",
+    "securityId": 2787
+  },
+  {
+    "symbol": "BEDC",
+    "turnover": 3395066.9,
+    "closingPrice": 281.9,
+    "securityName": "Bhugol Energy Development Company Limited",
+    "securityId": 9171
+  },
+  {
+    "symbol": "SKHEL",
+    "turnover": 3384491.5,
+    "closingPrice": 790.0,
+    "securityName": "Suryakunda Hydro Electric Limited",
+    "securityId": 9325
+  },
+  {
+    "symbol": "SALICO",
+    "turnover": 3355344.4,
+    "closingPrice": 523.0,
+    "securityName": "Sagarmatha Lumbini Insurance Co. Limited",
+    "securityId": 185
+  },
+  {
+    "symbol": "TPC",
+    "turnover": 3324240.7,
+    "closingPrice": 342.0,
+    "securityName": "Terhathum Power Company Limited",
+    "securityId": 8022
+  },
+  {
+    "symbol": "PPL",
+    "turnover": 3321521.7,
+    "closingPrice": 300.0,
+    "securityName": "People's Power Limited",
+    "securityId": 8122
+  },
+  {
+    "symbol": "GRDBL",
+    "turnover": 3306786.4,
+    "closingPrice": 950.0,
+    "securityName": "Green Development Bank Ltd.",
+    "securityId": 2744
+  },
+  {
+    "symbol": "MMKJL",
+    "turnover": 3230717.4,
+    "closingPrice": 346.0,
+    "securityName": "Mathillo Mailun Khola Jalvidhyut Limited",
+    "securityId": 9217
+  },
+  {
+    "symbol": "BNHC",
+    "turnover": 3228176.5,
+    "closingPrice": 254.9,
+    "securityName": "Buddha Bhumi Nepal Hydropower Company Limited",
+    "securityId": 8032
+  },
+  {
+    "symbol": "BGWT",
+    "turnover": 3146976.0,
+    "closingPrice": 467.0,
+    "securityName": "Bhagawati Hydropower Development Company Limited",
+    "securityId": 9214
+  },
+  {
+    "symbol": "CLI",
+    "turnover": 3143889.7,
+    "closingPrice": 419.0,
+    "securityName": "Citizen Life Insurance Company Limited",
+    "securityId": 9209
+  },
+  {
+    "symbol": "PPCL",
+    "turnover": 3098970.2,
+    "closingPrice": 330.0,
+    "securityName": "Panchthar Power Compant Limited",
+    "securityId": 2813
+  },
+  {
+    "symbol": "RLEL",
+    "turnover": 3097453.5,
+    "closingPrice": 790.0,
+    "securityName": "Ridge Line Energy Limited",
+    "securityId": 9324
+  },
+  {
+    "symbol": "RLFL",
+    "turnover": 3067841.8,
+    "closingPrice": 419.8,
+    "securityName": "Reliance Finance Ltd.",
+    "securityId": 587
+  },
+  {
+    "symbol": "RURU",
+    "turnover": 3050442.5,
+    "closingPrice": 569.0,
+    "securityName": "Ru Ru Jalbidhyut Pariyojana Limited",
+    "securityId": 2935
+  },
+  {
+    "symbol": "JBLB",
+    "turnover": 3037844.4,
+    "closingPrice": 1250.0,
+    "securityName": "Jeevan Bikas Laghubitta  Bittya Sanstha Ltd",
+    "securityId": 4951
+  },
+  {
+    "symbol": "LICN",
+    "turnover": 3022320.9,
+    "closingPrice": 756.0,
+    "securityName": "Life Insurance Corporation (Nepal) Limited",
+    "securityId": 188
+  },
+  {
+    "symbol": "GUFL",
+    "turnover": 2985897.4,
+    "closingPrice": 499.0,
+    "securityName": "Gurkhas Finance Ltd.",
+    "securityId": 204
+  },
+  {
+    "symbol": "SANVI",
+    "turnover": 2838487.8,
+    "closingPrice": 558.0,
+    "securityName": "Sanvi Energy Limited",
+    "securityId": 9263
+  },
+  {
+    "symbol": "BHDC",
+    "turnover": 2813004.6,
+    "closingPrice": 409.7,
+    "securityName": "Bindhyabasini Hydropower Development Company Limited",
+    "securityId": 8075
+  },
+  {
+    "symbol": "SFEF",
+    "turnover": 2708342.0,
+    "closingPrice": 9.83,
+    "securityName": "Sunrise Focused Equity Fund",
+    "securityId": 9154
+  },
+  {
+    "symbol": "SIKLES",
+    "turnover": 2704958.4,
+    "closingPrice": 557.8,
+    "securityName": "Sikles Hydropower Limited",
+    "securityId": 8126
+  },
+  {
+    "symbol": "JHAPA",
+    "turnover": 2694287.6,
+    "closingPrice": 1019.0,
+    "securityName": "Jhapa Energy Limited",
+    "securityId": 9300
+  },
+  {
+    "symbol": "NRM",
+    "turnover": 2675235.5,
+    "closingPrice": 283.0,
+    "securityName": "Nepal Republic Media Limited",
+    "securityId": 9183
+  },
+  {
+    "symbol": "AVYAN",
+    "turnover": 2538685.4,
+    "closingPrice": 987.1,
+    "securityName": "Aviyan Laghubitta Bittiya Sanstha Limited",
+    "securityId": 8117
+  },
+  {
+    "symbol": "BHPL",
+    "turnover": 2505170.2,
+    "closingPrice": 435.0,
+    "securityName": "Barahi Hydropower Public Limited",
+    "securityId": 9135
+  },
+  {
+    "symbol": "HHL",
+    "turnover": 2495814.1,
+    "closingPrice": 318.0,
+    "securityName": "Himalayan Hydropower Limited",
+    "securityId": 8076
+  },
+  {
+    "symbol": "APHL",
+    "turnover": 2464445.8,
+    "closingPrice": 678.9,
+    "securityName": "Appolo Hydropower Limited",
+    "securityId": 9337
+  },
+  {
+    "symbol": "MCHL",
+    "turnover": 2419711.6,
+    "closingPrice": 247.6,
+    "securityName": "Menchhiyam Hydropower Limited",
+    "securityId": 9175
+  },
+  {
+    "symbol": "UMRH",
+    "turnover": 2411163.7,
+    "closingPrice": 509.9,
+    "securityName": "United IDI Mardi RB Hydropower Limited.",
+    "securityId": 2914
+  },
+  {
+    "symbol": "OMPL",
+    "turnover": 2361221.5,
+    "closingPrice": 870.0,
+    "securityName": "Om Megashree Pharmaceuticals Limited",
+    "securityId": 9256
+  },
+  {
+    "symbol": "HIMSTAR",
+    "turnover": 2353233.7,
+    "closingPrice": 638.9,
+    "securityName": "Him Star Urja Company Limited",
+    "securityId": 9270
+  },
+  {
+    "symbol": "CHL",
+    "turnover": 2306641.4,
+    "closingPrice": 245.8,
+    "securityName": "Chhyangdi Hydropower Ltd.",
+    "securityId": 2766
+  },
+  {
+    "symbol": "PROFL",
+    "turnover": 2299976.2,
+    "closingPrice": 375.0,
+    "securityName": "Progressive Finance Limited",
+    "securityId": 338
+  },
+  {
+    "symbol": "SMH",
+    "turnover": 2280913.8,
+    "closingPrice": 493.0,
+    "securityName": "Super Mai Hydropower Limited",
+    "securityId": 9148
+  },
+  {
+    "symbol": "STC",
+    "turnover": 2260337.3,
+    "closingPrice": 5180.0,
+    "securityName": "Salt Trading Corporation",
+    "securityId": 155
+  },
+  {
+    "symbol": "EHPL",
+    "turnover": 2258873.7,
+    "closingPrice": 303.5,
+    "securityName": "Eastern Hydropower Limited",
+    "securityId": 8131
+  },
+  {
+    "symbol": "ULHC",
+    "turnover": 2255907.2,
+    "closingPrice": 287.5,
+    "securityName": "Upper Lohore Khola Hydropower Company Limited",
+    "securityId": 9208
+  },
+  {
+    "symbol": "MKHC",
+    "turnover": 2220688.6,
+    "closingPrice": 236.0,
+    "securityName": "Maya Khola Hydropower Company Limited",
+    "securityId": 9149
+  },
+  {
+    "symbol": "SPIL",
+    "turnover": 2207174.0,
+    "closingPrice": 596.0,
+    "securityName": "Siddhartha Premier Insurance Limited",
+    "securityId": 182
+  },
+  {
+    "symbol": "VLBS",
+    "turnover": 2203369.8,
+    "closingPrice": 612.0,
+    "securityName": "Vijaya laghubitta Bittiya Sanstha Ltd.",
+    "securityId": 687
+  },
+  {
+    "symbol": "DDBL",
+    "turnover": 2200372.4,
+    "closingPrice": 824.7,
+    "securityName": "Deprosc Laghubitta Bittiya Sanstha Limited",
+    "securityId": 166
+  },
+  {
+    "symbol": "MABEL",
+    "turnover": 2187440.1,
+    "closingPrice": 557.0,
+    "securityName": "Mabilung Energy Limited",
+    "securityId": 9287
+  },
+  {
+    "symbol": "NADEP",
+    "turnover": 2181049.5,
+    "closingPrice": 698.9,
+    "securityName": "Nadep Laghubittiya bittya Sanstha Ltd.",
+    "securityId": 2784
+  },
+  {
+    "symbol": "MLBL",
+    "turnover": 2178291.7,
+    "closingPrice": 341.9,
+    "securityName": "Mahalaxmi Bikas Bank Ltd.",
+    "securityId": 401
+  },
+  {
+    "symbol": "ILI",
+    "turnover": 2164886.9,
+    "closingPrice": 400.0,
+    "securityName": "IME Life Insurance Company Limited",
+    "securityId": 9184
+  },
+  {
+    "symbol": "SMJC",
+    "turnover": 2154262.7,
+    "closingPrice": 400.0,
+    "securityName": "Sagarmatha Jalabidhyut Company Limited",
+    "securityId": 9159
+  },
+  {
+    "symbol": "USHEC",
+    "turnover": 2132678.8,
+    "closingPrice": 484.0,
+    "securityName": "Upper Solu Hydro Electric Company Limited",
+    "securityId": 8104
+  },
+  {
+    "symbol": "SIFC",
+    "turnover": 2120384.5,
+    "closingPrice": 480.0,
+    "securityName": "Shree Investment Finance Co. Ltd.",
+    "securityId": 244
+  },
+  {
+    "symbol": "NFS",
+    "turnover": 2114871.1,
+    "closingPrice": 528.0,
+    "securityName": "Nepal Finance Ltd.",
+    "securityId": 194
+  },
+  {
+    "symbol": "MKCL",
+    "turnover": 2098554.0,
+    "closingPrice": 840.0,
+    "securityName": "Muktinath Krishi Company Limited",
+    "securityId": 9230
+  },
+  {
+    "symbol": "MPFL",
+    "turnover": 2078648.5,
+    "closingPrice": 583.3,
+    "securityName": "Multipurpose Finance Company  Limited",
+    "securityId": 471
+  },
+  {
+    "symbol": "GFCL",
+    "turnover": 2061780.2,
+    "closingPrice": 569.8,
+    "securityName": "Goodwill Finance Limited",
+    "securityId": 232
+  },
+  {
+    "symbol": "NMIC",
+    "turnover": 2057298.8,
+    "closingPrice": 777.0,
+    "securityName": "Nepal Micro Insurance Company Limited",
+    "securityId": 9250
+  },
+  {
+    "symbol": "MLBSL",
+    "turnover": 2050736.4,
+    "closingPrice": 1036.1,
+    "securityName": "Mahila Lagubitta Bittiya Sanstha Limited ",
+    "securityId": 2925
+  },
+  {
+    "symbol": "WNLB",
+    "turnover": 1980714.9,
+    "closingPrice": 972.2,
+    "securityName": "Wean Nepal Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2781
+  },
+  {
+    "symbol": "SLBBL",
+    "turnover": 1966744.8,
+    "closingPrice": 778.1,
+    "securityName": "Swarojgar Laghubitta Bittiya Sanstha Ltd.",
+    "securityId": 545
+  },
+  {
+    "symbol": "DHPL",
+    "turnover": 1953876.1,
+    "closingPrice": 273.5,
+    "securityName": "Dibyashwori Hydropower Ltd.",
+    "securityId": 2754
+  },
+  {
+    "symbol": "SPL",
+    "turnover": 1837360.2,
+    "closingPrice": 638.0,
+    "securityName": "Shuvam Power Limited",
+    "securityId": 9147
+  },
+  {
+    "symbol": "PMLI",
+    "turnover": 1801551.7,
+    "closingPrice": 403.0,
+    "securityName": "Prabhu Mahalaxmi Life Insurance Limited",
+    "securityId": 2915
+  },
+  {
+    "symbol": "MEL",
+    "turnover": 1778521.1,
+    "closingPrice": 197.0,
+    "securityName": "Modi Energy Limited",
+    "securityId": 9179
+  },
+  {
+    "symbol": "MHNL",
+    "turnover": 1769043.0,
+    "closingPrice": 231.0,
+    "securityName": "Mountain Hydro Nepal Limited",
+    "securityId": 2811
+  },
+  {
+    "symbol": "SWMF",
+    "turnover": 1696779.5,
+    "closingPrice": 578.0,
+    "securityName": "Suryodaya Womi Laghubitta Bittiya Sanstha Limited",
+    "securityId": 706
+  },
+  {
+    "symbol": "IHL",
+    "turnover": 1669370.9,
+    "closingPrice": 297.0,
+    "securityName": "Ingwa Hydropower Limited",
+    "securityId": 9176
+  },
+  {
+    "symbol": "UNLB",
+    "turnover": 1655929.3,
+    "closingPrice": 1229.9,
+    "securityName": "Unique Nepal Laghubitta Bittiya Sanstha Limited",
+    "securityId": 9140
+  },
+  {
+    "symbol": "MERO",
+    "turnover": 1625628.5,
+    "closingPrice": 602.9,
+    "securityName": "Mero Microfinance Bittiya Sanstha Ltd.",
+    "securityId": 1741
+  },
+  {
+    "symbol": "GILB",
+    "turnover": 1611063.0,
+    "closingPrice": 1075.0,
+    "securityName": "Global IME Laghubitta Bittiya Sanstha Ltd.",
+    "securityId": 705
+  },
+  {
+    "symbol": "NICLBSL",
+    "turnover": 1589511.0,
+    "closingPrice": 518.0,
+    "securityName": "NIC ASIA Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2887
+  },
+  {
+    "symbol": "MHL",
+    "turnover": 1537166.0,
+    "closingPrice": 445.0,
+    "securityName": "Mandakini Hydropower Limited",
+    "securityId": 8102
+  },
+  {
+    "symbol": "VLUCL",
+    "turnover": 1531162.1,
+    "closingPrice": 379.0,
+    "securityName": "Vision Lumbini Urja Company Limited ",
+    "securityId": 9225
+  },
+  {
+    "symbol": "TSHL",
+    "turnover": 1448479.4,
+    "closingPrice": 328.7,
+    "securityName": "Three Star Hydropower Limited",
+    "securityId": 9194
+  },
+  {
+    "symbol": "GLBSL",
+    "turnover": 1440183.3,
+    "closingPrice": 1630.0,
+    "securityName": "Gurans Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2826
+  },
+  {
+    "symbol": "ILBS",
+    "turnover": 1392008.1,
+    "closingPrice": 836.0,
+    "securityName": "Infinity Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2832
+  },
+  {
+    "symbol": "JOSHI",
+    "turnover": 1282123.1,
+    "closingPrice": 258.5,
+    "securityName": "Joshi Hydropower Development Company Ltd",
+    "securityId": 2789
+  },
+  {
+    "symbol": "MLBBL",
+    "turnover": 1246817.0,
+    "closingPrice": 925.0,
+    "securityName": "Mithila LaghuBitta Bittiya Sanstha Limited",
+    "securityId": 601
+  },
+  {
+    "symbol": "HLBSL",
+    "turnover": 1210719.0,
+    "closingPrice": 859.4,
+    "securityName": "Himalayan Laghubitta Bittiya Sanstha Limited",
+    "securityId": 693
+  },
+  {
+    "symbol": "PSF",
+    "turnover": 1117472.35,
+    "closingPrice": 12.0,
+    "securityName": "Prabhu Select Fund",
+    "securityId": 4947
+  },
+  {
+    "symbol": "MSLB",
+    "turnover": 1094131.6,
+    "closingPrice": 1190.0,
+    "securityName": "Mahuli Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2768
+  },
+  {
+    "symbol": "MANDU",
+    "turnover": 1061661.0,
+    "closingPrice": 657.9,
+    "securityName": "Mandu Hydropower Limited",
+    "securityId": 9212
+  },
+  {
+    "symbol": "SPC",
+    "turnover": 958675.0,
+    "closingPrice": 385.0,
+    "securityName": "Samling Power Company Limited",
+    "securityId": 8025
+  },
+  {
+    "symbol": "HEIP",
+    "turnover": 938535.5,
+    "closingPrice": 300.1,
+    "securityName": "Himalayan Everest Insurance Limited Promoter",
+    "securityId": 700
+  },
+  {
+    "symbol": "JFL",
+    "turnover": 927452.0,
+    "closingPrice": 371.0,
+    "securityName": "Janaki Finance Company Limited",
+    "securityId": 250
+  },
+  {
+    "symbol": "MHCL",
+    "turnover": 923846.0,
+    "closingPrice": 280.0,
+    "securityName": "Molung Hydropower Company Limited",
+    "securityId": 9158
+  },
+  {
+    "symbol": "NWCL",
+    "turnover": 900379.5,
+    "closingPrice": 595.0,
+    "securityName": "Nepal Warehousing Company Limited ",
+    "securityId": 9233
+  },
+  {
+    "symbol": "RHGCL",
+    "turnover": 883313.0,
+    "closingPrice": 241.0,
+    "securityName": "Rapti Hydro And General Construction Limited",
+    "securityId": 8108
+  },
+  {
+    "symbol": "SMPDA",
+    "turnover": 880646.3,
+    "closingPrice": 725.0,
+    "securityName": "Sampada Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2896
+  },
+  {
+    "symbol": "SMB",
+    "turnover": 874984.6,
+    "closingPrice": 1720.0,
+    "securityName": "Support Microfinance Bittiya Sanstha Ltd.",
+    "securityId": 2771
+  },
+  {
+    "symbol": "SBLD83",
+    "turnover": 847525.0,
+    "closingPrice": 1015.0,
+    "securityName": "10.25% SBL Debenture 2083",
+    "securityId": 2864
+  },
+  {
+    "symbol": "BNT",
+    "turnover": 824230.0,
+    "closingPrice": 11650.0,
+    "securityName": "Bottlers Nepal (Terai) Limited",
+    "securityId": 213
+  },
+  {
+    "symbol": "SIGS3",
+    "turnover": 804813.85,
+    "closingPrice": 10.15,
+    "securityName": "Siddhartha Investment Growth Scheme 3",
+    "securityId": 9182
+  },
+  {
+    "symbol": "SMATA",
+    "turnover": 761808.8,
+    "closingPrice": 680.0,
+    "securityName": "Samata Gharelu Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2761
+  },
+  {
+    "symbol": "NMBUR93/94",
+    "turnover": 760585.0,
+    "closingPrice": 999.0,
+    "securityName": "NMB Energy Bond 4% - 2093/94 ",
+    "securityId": 8105
+  },
+  {
+    "symbol": "USLB",
+    "turnover": 687378.0,
+    "closingPrice": 975.0,
+    "securityName": "Unnati Sahakarya Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2774
+  },
+  {
+    "symbol": "USHL",
+    "turnover": 687084.3,
+    "closingPrice": 514.0,
+    "securityName": "Upper Syange Hydropower Limited",
+    "securityId": 9192
+  },
+  {
+    "symbol": "SWASTIK",
+    "turnover": 684692.4,
+    "closingPrice": 1825.1,
+    "securityName": "Swastik Laghubitta Bittiya Sanstha Limited",
+    "securityId": 9295
+  },
+  {
+    "symbol": "KMCDB",
+    "turnover": 684336.4,
+    "closingPrice": 762.1,
+    "securityName": "Kalika Laghubitta Bittiya Sanstha Ltd",
+    "securityId": 593
+  },
+  {
+    "symbol": "CSY",
+    "turnover": 671726.17,
+    "closingPrice": 8.4,
+    "securityName": "Citizens Santulit Yojana",
+    "securityId": 9304
+  },
+  {
+    "symbol": "JSLBB",
+    "turnover": 633253.3,
+    "closingPrice": 947.9,
+    "securityName": "Janautthan Samudayic Laghubitta Bittya Sanstha Limited",
+    "securityId": 695
+  },
+  {
+    "symbol": "ENL",
+    "turnover": 631644.3,
+    "closingPrice": 822.0,
+    "securityName": "Emerging Nepal Limited",
+    "securityId": 8034
+  },
+  {
+    "symbol": "GMFBS",
+    "turnover": 604382.0,
+    "closingPrice": 1110.0,
+    "securityName": "Ganapati Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2815
+  },
+  {
+    "symbol": "RSDC",
+    "turnover": 592545.9,
+    "closingPrice": 614.0,
+    "securityName": "RSDC Laghubitta Bittiya Sanstha Ltd.",
+    "securityId": 2748
+  },
+  {
+    "symbol": "SLBSL",
+    "turnover": 554019.0,
+    "closingPrice": 867.0,
+    "securityName": "Samudayik Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2804
+  },
+  {
+    "symbol": "GMLI",
+    "turnover": 544292.5,
+    "closingPrice": 948.0,
+    "securityName": "Guardian Micro Life Insurance Limited ",
+    "securityId": 9246
+  },
+  {
+    "symbol": "NESDO",
+    "turnover": 516933.6,
+    "closingPrice": 1300.0,
+    "securityName": "NESDO Sambridha Laghubitta Bittiya Sanstha Limited",
+    "securityId": 8041
+  },
+  {
+    "symbol": "MSHL",
+    "turnover": 513151.3,
+    "closingPrice": 520.0,
+    "securityName": "Mid Solu Hydropower Limited",
+    "securityId": 9215
+  },
+  {
+    "symbol": "MKHL",
+    "turnover": 507957.0,
+    "closingPrice": 483.0,
+    "securityName": "Mai Khola Hydropower Limited",
+    "securityId": 9167
+  },
+  {
+    "symbol": "GBLBS",
+    "turnover": 493376.5,
+    "closingPrice": 662.8,
+    "securityName": "Grameen Bikas Laghubitta Bittiya Sanstha Ltd.",
+    "securityId": 583
+  },
+  {
+    "symbol": "CKHL",
+    "turnover": 491485.5,
+    "closingPrice": 551.0,
+    "securityName": "Chirkhwa Hydropower Limited ",
+    "securityId": 9232
+  },
+  {
+    "symbol": "KDL",
+    "turnover": 454146.6,
+    "closingPrice": 720.0,
+    "securityName": "Kalinchowk Darshan Limited",
+    "securityId": 9151
+  },
+  {
+    "symbol": "OHL",
+    "turnover": 414903.4,
+    "closingPrice": 610.0,
+    "securityName": "Oriental Hotels Limited",
+    "securityId": 149
+  },
+  {
+    "symbol": "RBCL",
+    "turnover": 408890.0,
+    "closingPrice": 13500.0,
+    "securityName": "Rastriya Beema Company Limited",
+    "securityId": 177
+  },
+  {
+    "symbol": "H8020",
+    "turnover": 370491.0,
+    "closingPrice": 11.65,
+    "securityName": "Himalayan 80-20",
+    "securityId": 9221
+  },
+  {
+    "symbol": "SIGS2",
+    "turnover": 365770.2,
+    "closingPrice": 9.42,
+    "securityName": "Siddhartha Investment Growth Scheme - 2",
+    "securityId": 2859
+  },
+  {
+    "symbol": "LLBS",
+    "turnover": 351247.5,
+    "closingPrice": 865.0,
+    "securityName": "Laxmi Laghubitta Bittiya Sanstha Ltd.",
+    "securityId": 618
+  },
+  {
+    "symbol": "PRSF",
+    "turnover": 344854.0,
+    "closingPrice": 12.7,
+    "securityName": "Prabhu Smart Fund",
+    "securityId": 9174
+  },
+  {
+    "symbol": "NIMBPO",
+    "turnover": 335686.8,
+    "closingPrice": 138.4,
+    "securityName": "Nepal Investment Mega Bank Ltd. Promoter Share",
+    "securityId": 469
+  },
+  {
+    "symbol": "AHL",
+    "turnover": 328809.2,
+    "closingPrice": 373.8,
+    "securityName": "Asian Hydropower Limited",
+    "securityId": 9150
+  },
+  {
+    "symbol": "NYADI",
+    "turnover": 323502.4,
+    "closingPrice": 346.0,
+    "securityName": "Nyadi Hydropower Limited",
+    "securityId": 8026
+  },
+  {
+    "symbol": "GIBF1",
+    "turnover": 321400.0,
+    "closingPrice": 10.47,
+    "securityName": "Global IME Balanced Fund-1",
+    "securityId": 8106
+  },
+  {
+    "symbol": "EDBL",
+    "turnover": 313815.3,
+    "closingPrice": 569.9,
+    "securityName": "Excel Development Bank Ltd.",
+    "securityId": 274
+  },
+  {
+    "symbol": "RMF2",
+    "turnover": 293088.5,
+    "closingPrice": 9.7,
+    "securityName": "RBB Mutual Fund 2",
+    "securityId": 9178
+  },
+  {
+    "symbol": "BBC",
+    "turnover": 280395.0,
+    "closingPrice": 4003.0,
+    "securityName": "Bishal Bazar Company Limited",
+    "securityId": 156
+  },
+  {
+    "symbol": "DLBS",
+    "turnover": 264546.0,
+    "closingPrice": 990.1,
+    "securityName": "Dhaulagiri Laghubitta Bittiya Sanstha Limited",
+    "securityId": 8123
+  },
+  {
+    "symbol": "SAGF",
+    "turnover": 262732.0,
+    "closingPrice": 9.77,
+    "securityName": "Sanima Growth Fund",
+    "securityId": 9139
+  },
+  {
+    "symbol": "NMBMF",
+    "turnover": 257471.5,
+    "closingPrice": 589.9,
+    "securityName": "NMB  Microfinance Bittiya Sanstha Ltd.",
+    "securityId": 704
+  },
+  {
+    "symbol": "SHLB",
+    "turnover": 250103.0,
+    "closingPrice": 1256.0,
+    "securityName": "Shrijanshil Laghubitta Bittiya Sanstha Limited",
+    "securityId": 8132
+  },
+  {
+    "symbol": "ACLBSL",
+    "turnover": 238992.5,
+    "closingPrice": 888.9,
+    "securityName": "Aarambha Chautari Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2790
+  },
+  {
+    "symbol": "ICFCD89",
+    "turnover": 229250.0,
+    "closingPrice": 1101.0,
+    "securityName": "8% ICFC Finance Limited Debenture 2089",
+    "securityId": 9327
+  },
+  {
+    "symbol": "NHDL",
+    "turnover": 211018.1,
+    "closingPrice": 624.5,
+    "securityName": "Nepal Hydro Developers Ltd.",
+    "securityId": 2769
+  },
+  {
+    "symbol": "SMFBS",
+    "turnover": 202282.9,
+    "closingPrice": 1355.7,
+    "securityName": "Swabhimaan Laghubitta Bittiya Sanstha Limited",
+    "securityId": 2829
+  },
+  {
+    "symbol": "NICBF",
+    "turnover": 194858.0,
+    "closingPrice": 8.89,
+    "securityName": "NIC Asia Balanced Fund",
+    "securityId": 2863
+  },
+  {
+    "symbol": "EBLD85",
+    "turnover": 148006.5,
+    "closingPrice": 1147.0,
+    "securityName": "10.50% Everest Bank Limited Debenture 2085",
+    "securityId": 8119
+  },
+  {
+    "symbol": "MLBS",
+    "turnover": 145131.0,
+    "closingPrice": 1028.0,
+    "securityName": "Manushi Laghubitta Bittiya Sanstha Limited",
+    "securityId": 8018
+  },
+  {
+    "symbol": "SFMF",
+    "turnover": 137266.5,
+    "closingPrice": 9.5,
+    "securityName": "Sunrise First Mutual Fund",
+    "securityId": 2877
+  },
+  {
+    "symbol": "EBLD91",
+    "turnover": 135102.5,
+    "closingPrice": 1087.0,
+    "securityName": "Everest Bank Limited Debenture 2091",
+    "securityId": 9255
+  },
+  {
+    "symbol": "PBD85",
+    "turnover": 111490.0,
+    "closingPrice": 1114.9,
+    "securityName": "8.75 % Prime Debenture 2085",
+    "securityId": 6984
+  },
+  {
+    "symbol": "MMF1",
+    "turnover": 106992.13,
+    "closingPrice": 8.99,
+    "securityName": "Mega Mutual Fund -1",
+    "securityId": 8023
+  },
+  {
+    "symbol": "KDBY",
+    "turnover": 98280.4,
+    "closingPrice": 9.81,
+    "securityName": "Kumari Dhanabriddhi Yojana",
+    "securityId": 8074
+  },
+  {
+    "symbol": "GWFD83",
+    "turnover": 97546.0,
+    "closingPrice": 1016.0,
+    "securityName": "12 % Goodwill Finance Limited Debenture 2083",
+    "securityId": 2883
+  },
+  {
+    "symbol": "SEF",
+    "turnover": 81649.25,
+    "closingPrice": 9.45,
+    "securityName": "Siddhartha Equity Fund",
+    "securityId": 2770
+  },
+  {
+    "symbol": "SBCF",
+    "turnover": 70407.0,
+    "closingPrice": 9.02,
+    "securityName": "Sunrise Bluechip Fund",
+    "securityId": 2937
+  },
+  {
+    "symbol": "SEF2",
+    "turnover": 67157.0,
+    "closingPrice": 9.0,
+    "securityName": "Siddhartha Equity Fund 2",
+    "securityId": 9348
+  },
+  {
+    "symbol": "MATRI",
+    "turnover": 60042.0,
+    "closingPrice": 720.0,
+    "securityName": "Matribhumi Lagubitta Bittiya Sanstha Limited",
+    "securityId": 694
+  },
+  {
+    "symbol": "PBD88",
+    "turnover": 60010.0,
+    "closingPrice": 1185.0,
+    "securityName": "10% Prime Debenture 2088",
+    "securityId": 8097
+  },
+  {
+    "symbol": "RBBD2088",
+    "turnover": 54860.0,
+    "closingPrice": 1055.0,
+    "securityName": "7% RBBL Debenture 2088",
+    "securityId": 9264
+  },
+  {
+    "symbol": "RSY2",
+    "turnover": 47569.15,
+    "closingPrice": 8.93,
+    "securityName": "Reliable Samriddhi Yojana -2",
+    "securityId": 9351
+  },
+  {
+    "symbol": "SAEF2",
+    "turnover": 44383.0,
+    "closingPrice": 9.0,
+    "securityName": "Sanima Equity Fund-2",
+    "securityId": 9349
+  },
+  {
+    "symbol": "TRH",
+    "turnover": 39082.0,
+    "closingPrice": 790.0,
+    "securityName": "Taragaon Regency Hotel Limited",
+    "securityId": 148
+  },
+  {
+    "symbol": "RSY",
+    "turnover": 34844.0,
+    "closingPrice": 9.42,
+    "securityName": "Reliable Samriddhi Yojana",
+    "securityId": 9259
+  },
+  {
+    "symbol": "EBLD86",
+    "turnover": 31850.0,
+    "closingPrice": 1070.0,
+    "securityName": "Everest Bank Limited",
+    "securityId": 8044
+  },
+  {
+    "symbol": "MBLEF",
+    "turnover": 30264.4,
+    "closingPrice": 9.0,
+    "securityName": "MBL Equity Fund",
+    "securityId": 9257
+  },
+  {
+    "symbol": "LBLD88",
+    "turnover": 28125.0,
+    "closingPrice": 1125.0,
+    "securityName": "8.5% Laxmi Bank Debenture 2088",
+    "securityId": 5984
+  },
+  {
+    "symbol": "GBILD84/85",
+    "turnover": 28000.0,
+    "closingPrice": 1120.0,
+    "securityName": "Global IME Bank Debenture, 2084/85",
+    "securityId": 9168
+  },
+  {
+    "symbol": "GSY",
+    "turnover": 27660.0,
+    "closingPrice": 8.93,
+    "securityName": "Garima Samriddhi Yojana",
+    "securityId": 9248
+  },
+  {
+    "symbol": "RBBF40",
+    "turnover": 27376.0,
+    "closingPrice": 9.04,
+    "securityName": "RBB Focus 40",
+    "securityId": 9302
+  },
+  {
+    "symbol": "NABILD2089",
+    "turnover": 27375.0,
+    "closingPrice": 1095.0,
+    "securityName": "7% Nabil Debenture 2089",
+    "securityId": 9299
+  },
+  {
+    "symbol": "NBLD85",
+    "turnover": 25627.5,
+    "closingPrice": 1025.1,
+    "securityName": "Nabil Debenture 2085",
+    "securityId": 8027
+  },
+  {
+    "symbol": "NIBD84",
+    "turnover": 25430.0,
+    "closingPrice": 1017.2,
+    "securityName": "8.5% Nepal Investment Bank Debenture 2084",
+    "securityId": 2931
+  },
+  {
+    "symbol": "C30MF",
+    "turnover": 23799.0,
+    "closingPrice": 9.95,
+    "securityName": "Citizens Super 30 Mutual Fund",
+    "securityId": 9191
+  },
+  {
+    "symbol": "NICAD85/86",
+    "turnover": 22400.0,
+    "closingPrice": 1120.0,
+    "securityName": "10% NIC Asia Debenture 2085/86",
+    "securityId": 2825
+  },
+  {
+    "symbol": "MNMF1",
+    "turnover": 21951.0,
+    "closingPrice": 9.11,
+    "securityName": "Muktinath Mutual Fund 1",
+    "securityId": 9245
+  },
+  {
+    "symbol": "NBF3",
+    "turnover": 19159.0,
+    "closingPrice": 9.12,
+    "securityName": "Nabil Balanced Fund-3",
+    "securityId": 8024
+  },
+  {
+    "symbol": "LSH12",
+    "turnover": 17744.0,
+    "closingPrice": 8.86,
+    "securityName": "LS Horizon 12",
+    "securityId": 9350
+  },
+  {
+    "symbol": "NIBLSTF",
+    "turnover": 16747.5,
+    "closingPrice": 8.17,
+    "securityName": "NIBL Stable Fund",
+    "securityId": 9244
+  },
+  {
+    "symbol": "NICAD2091",
+    "turnover": 15918.0,
+    "closingPrice": 1061.2,
+    "securityName": "7% NIC ASIA Debenture 2091",
+    "securityId": 9266
+  },
+  {
+    "symbol": "GBIMESY2",
+    "turnover": 13655.0,
+    "closingPrice": 9.01,
+    "securityName": "Global IME Sammunat Yojana -2",
+    "securityId": 9269
+  },
+  {
+    "symbol": "NIBSF2",
+    "turnover": 11862.0,
+    "closingPrice": 8.49,
+    "securityName": "NIBL Samriddhi Fund -2",
+    "securityId": 4949
+  },
+  {
+    "symbol": "HBLPO",
+    "turnover": 10200.0,
+    "closingPrice": 102.0,
+    "securityName": "Himalayan Bank Ltd. Promoter",
+    "securityId": 564
+  },
+  {
+    "symbol": "NICGF2",
+    "turnover": 9669.0,
+    "closingPrice": 8.82,
+    "securityName": "NIC ASIA Growth Fund-2",
+    "securityId": 9236
+  },
+  {
+    "symbol": "RMF1",
+    "turnover": 9215.0,
+    "closingPrice": 9.26,
+    "securityName": "RBB Mutual Fund 1",
+    "securityId": 4968
+  },
+  {
+    "symbol": "NICFC",
+    "turnover": 8758.0,
+    "closingPrice": 8.81,
+    "securityName": "NIC Asia Flexi CAP Fund",
+    "securityId": 8073
+  },
+  {
+    "symbol": "NIBLGF",
+    "turnover": 7895.0,
+    "closingPrice": 8.25,
+    "securityName": "NIBL Growth Fund",
+    "securityId": 9138
+  },
+  {
+    "symbol": "NMBHF2",
+    "turnover": 6432.5,
+    "closingPrice": 8.7,
+    "securityName": "NMB Hybrid Fund L- II",
+    "securityId": 9254
+  },
+  {
+    "symbol": "NICSF",
+    "turnover": 5813.0,
+    "closingPrice": 8.28,
+    "securityName": "NIC Asia Select Fund 30",
+    "securityId": 4967
+  },
+  {
+    "symbol": "HLICF",
+    "turnover": 5041.0,
+    "closingPrice": 8.55,
+    "securityName": "HLI Large Cap Fund",
+    "securityId": 9290
+  },
+  {
+    "symbol": "SLCF",
+    "turnover": 4543.0,
+    "closingPrice": 9.1,
+    "securityName": "Sanima Large Cap Fund",
+    "securityId": 2923
+  },
+  {
+    "symbol": "NSY",
+    "turnover": 4506.0,
+    "closingPrice": 9.0,
+    "securityName": "Nepal Life Samriddhi Lagani Yojana",
+    "securityId": 9312
+  },
+  {
+    "symbol": "NSIF2",
+    "turnover": 3980.0,
+    "closingPrice": 9.95,
+    "securityName": "NMB Sulav Investment Fund - 2",
+    "securityId": 8125
+  },
+  {
+    "symbol": "KEF",
+    "turnover": 2849.0,
+    "closingPrice": 9.5,
+    "securityName": "Kumari Equity Fund",
+    "securityId": 2933
+  },
+  {
+    "symbol": "KSY",
+    "turnover": 2680.0,
+    "closingPrice": 9.1,
+    "securityName": "Kumari Sabal Yojana",
+    "securityId": 9241
+  },
+  {
+    "symbol": "LUK",
+    "turnover": 2131.5,
+    "closingPrice": 9.42,
+    "securityName": "Laxmi Unnati Kosh",
+    "securityId": 2902
+  }
+]
